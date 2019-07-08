@@ -1,4 +1,8 @@
 # shapla-spinner
+
+[![npm](https://img.shields.io/npm/v/shapla-spinner.svg) ![npm](https://img.shields.io/npm/dm/shapla-spinner.svg)](https://www.npmjs.com/package/shapla-spinner)
+[![vue2](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://vuejs.org/)
+
 A loading spinner component based on Material Design Lite Spinner for Vue.js
 
 ## Table of contents

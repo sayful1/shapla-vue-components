@@ -1,7 +1,7 @@
 {
   "name": "shapla-spinner",
   "description": "A loading spinner component based on Material Design Lite Spinner for Vue.js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",
@@ -16,15 +16,18 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sayful1/shapla-spinner.git"
+    "url": "https://github.com/sayful1/shapla-vue-components.git"
   },
   "bugs": {
-    "url": "https://github.com/sayful1/shapla-spinner/issues"
+    "url": "https://github.com/sayful1/shapla-vue-components/issues"
   },
-  "homepage": "https://github.com/sayful1/shapla-spinner#readme",
+  "homepage": "https://github.com/sayful1/shapla-vue-components/tree/master/shapla-spinner#readme",
   "main": "dist/spinner.common.js",
   "unpkg": "dist/spinner.umd.js",
   "module": "src/index.js",
+  "browser": {
+    "./sfc": "src/spinner.vue"
+  },
   "files": [
     "dist/*",
     "src/*",
