@@ -52,6 +52,7 @@ export default {
 
 ### Props for `column`
 If you want to change the size of a single column, you can use one of the following props
+Each props can take value from 1 to 12 as it 12 columns grid system.
 
 | Property      | Type     | Required  | Default  | Description                                         |
 |---------------|----------|-----------|----------|-----------------------------------------------------|

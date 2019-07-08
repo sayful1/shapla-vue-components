@@ -1,18 +1,11 @@
 // Import vue component
-import columns from './columns.vue';
-import column from './column.vue';
-
-const Components = {
-    columns,
-    column
-};
+import notification from './notification.vue';
 
 // Declare install function executed by Vue.use()
 export function install(Vue) {
     if (install.installed) return;
     install.installed = true;
-    Vue.component('columns', columns);
-    Vue.component('column', column);
+    Vue.component('notification', notification);
 }
 
 // Create module definition for Vue.use()
@@ -29,6 +22,5 @@ if (GlobalVue) {
     GlobalVue.use(plugin);
 }
 
-export {columns, column};
 // To allow use as module (npm/webpack/etc.) export component
-export default Components;
+export default notification;

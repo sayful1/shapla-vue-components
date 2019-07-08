@@ -1,7 +1,7 @@
 {
   "name": "shapla-notifications",
   "description": "A simple dependency-free notification component for VueJS",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",
@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/sayful1/shapla-vue-components/issues"
   },
-  "homepage": "https://github.com/sayful1/shapla-vue-components/shapla-notifications#readme",
+  "homepage": "https://github.com/sayful1/shapla-vue-components/tree/master/shapla-notifications#readme",
   "main": "dist/notification.common.js",
   "unpkg": "dist/notification.umd.min.js",
   "module": "src/index.js",
