@@ -3,6 +3,8 @@
         <test-columns></test-columns>
         <test-delete></test-delete>
         <test-modal></test-modal>
+        <test-notifications></test-notifications>
+        <test-spinner></test-spinner>
     </div>
 </template>
 
@@ -11,10 +13,14 @@
     import TestColumns from "./components/TestColumns";
     import TestDelete from "./components/TestDelete";
     import TestModal from "./components/TestModal";
+    import TestNotifications from "./components/TestNotifications";
+    import TestSpinner from "./components/TestSpinner";
 
     export default {
         name: 'app',
         components: {
+            TestSpinner,
+            TestNotifications,
             TestModal,
             TestDelete,
             TestColumns
