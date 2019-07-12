@@ -1,5 +1,8 @@
 # shapla-notifications
 
+[![npm](https://img.shields.io/npm/v/shapla-notifications.svg) ![npm](https://img.shields.io/npm/dm/shapla-notifications.svg)](https://www.npmjs.com/package/shapla-notifications)
+[![vue2](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://vuejs.org/)
+
 A simple dependency-free JavaScript notification component for VueJS
 
 ## Table of contents
@@ -41,7 +44,7 @@ export default {
 
 `notification` will show the notification whenever the `note` property is updated (normal Vue reactivity).
 Alternatively, by default `notification` listens to `vm.$root` for the `'show-notification'` event.
-To show the snackbar, emit the event passing the _notification data object_
+To show the notification, emit the event passing the _notification data object_
 
 ```html
 <button @click="showNotification">Show Notification</button>
@@ -97,6 +100,7 @@ vm.$refs.notify.show({ message: 'Message' })
 | `event-source`    | Vue     | `vm.$root`          | specifies the source of the event. must be a vue instance or component ref    |
 | `show-dismisses`  | Boolean | `true`              | If set `true`, a cross icon will be show to dismiss notification.             |
 | `timeout`         | Number  | `2750`              | The amount of time in milliseconds to show the notification.                  |
+| `position`        | String  | `top-right`         | Two acceptable value `top-right` or `bottom-left`.                            |
 
 ### methods
 

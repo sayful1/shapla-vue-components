@@ -43,7 +43,8 @@
                 this.$root.$emit('show-notification', {
                     type: 'success',
                     title: 'Success!',
-                    message: 'This is success message.'
+                    timeout: 60000,
+                    message: 'This is success message. Self close after 1 minute.'
                 });
             },
             showInfoNotification() {

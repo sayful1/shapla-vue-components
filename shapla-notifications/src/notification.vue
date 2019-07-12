@@ -1,5 +1,5 @@
 <template>
-    <div class="shapla-notification" v-if="items.length">
+    <div class="shapla-notification" :class="classes" v-if="items.length">
         <transition-group name="shapla-notification-transition" tag="div">
             <div v-for="item in items" :class="itemClass(item)" :key="item.id">
                 <delete-icon v-if="showDismisses" @click="closeItem(item)"></delete-icon>
@@ -42,6 +42,11 @@
             showDismisses: {
                 type: Boolean,
                 default: true,
+            },
+            position: {
+                type: String,
+                default: 'top-right',
+                validator: value => ['top-right', 'bottom-left'].indexOf(value) !== -1
             }
         },
         watch: {
@@ -63,6 +68,11 @@
             // if event specified use it, else if no snack prop then use default.
             this.eventSource.$on(this.event, this.show);
         },
+        computed: {
+            classes() {
+                return ['shapla-notification--' + this.position]
+            }
+        },
         methods: {
             itemClass(item) {
                 return {
@@ -77,7 +87,11 @@
                 if (options && options.message) {
                     this.itemsCounts += 1;
                     options.id = this.itemsCounts;
-                    this.items.unshift(options);
+                    if (this.position === 'bottom-left') {
+                        this.items.push(options);
+                    } else {
+                        this.items.unshift(options);
+                    }
                     let timeout = (options.timeout && typeof options.timeout === "number") ? options.timeout : this.timeout;
                     setTimeout((self) => {
                         self.closeItem(options);
