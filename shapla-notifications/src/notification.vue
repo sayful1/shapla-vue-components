@@ -80,7 +80,7 @@
                     this.items.unshift(options);
                     let timeout = (options.timeout && typeof options.timeout === "number") ? options.timeout : this.timeout;
                     setTimeout((self) => {
-                        self.$delete(self.items, self.items.indexOf(options))
+                        self.closeItem(options);
                     }, timeout, this);
                 }
             },

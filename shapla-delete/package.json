@@ -1,7 +1,7 @@
 {
   "name": "shapla-delete",
   "description": "A simple circle with a cross based on Bulma delete element for Vue",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",
