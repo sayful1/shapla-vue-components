@@ -5,6 +5,7 @@
         <test-modal></test-modal>
         <test-notifications></test-notifications>
         <test-spinner></test-spinner>
+        <test-tabs></test-tabs>
     </div>
 </template>
 
@@ -15,10 +16,12 @@
     import TestModal from "./components/TestModal";
     import TestNotifications from "./components/TestNotifications";
     import TestSpinner from "./components/TestSpinner";
+    import TestTabs from "./components/TestTabs";
 
     export default {
         name: 'app',
         components: {
+            TestTabs,
             TestSpinner,
             TestNotifications,
             TestModal,
@@ -28,7 +31,7 @@
     }
 </script>
 
-<style>
+<style lang="scss">
     html {
         background-color: #fff;
         font-size: 16px;
