@@ -81,8 +81,8 @@
 
             &.is-active {
                 a {
-                    border-bottom-color: $tabs-link-active-border-bottom-color;
-                    color: $tabs-link-active-color;
+                    border-bottom-color: currentColor;
+                    color: $primary-color;
                 }
             }
         }
@@ -166,9 +166,9 @@
 
                 &.is-active {
                     a {
-                        background-color: $tabs-toggle-link-active-background-color;
-                        border-color: $tabs-toggle-link-active-border-color;
-                        color: $tabs-toggle-link-active-color;
+                        background-color: $primary-color;
+                        border-color: $primary-color;
+                        color: $on-primary-color;
                         z-index: 1;
                     }
                 }

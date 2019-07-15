@@ -16,11 +16,6 @@
     export default {
         name: "tabs",
         props: {
-            vertical: {type: Boolean, default: false},
-            fullwidth: {
-                type: Boolean,
-                default: false
-            },
             alignment: {
                 type: String,
                 default: 'left',
@@ -35,6 +30,10 @@
                 type: String,
                 default: 'default',
                 validator: value => ['default', 'boxed', 'rounded', 'toggle'].indexOf(value) !== -1
+            },
+            fullwidth: {
+                type: Boolean,
+                default: false
             },
         },
         data() {
