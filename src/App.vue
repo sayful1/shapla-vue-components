@@ -1,16 +1,30 @@
 <template>
     <div id="app">
-        <test-columns></test-columns>
-        <test-delete></test-delete>
-        <test-modal></test-modal>
-        <test-notifications></test-notifications>
-        <test-spinner></test-spinner>
-        <test-tabs></test-tabs>
+        <tabs alignment="center">
+            <tab name="Modal" selected>
+                <test-modal></test-modal>
+            </tab>
+            <tab name="Columns">
+                <test-columns></test-columns>
+            </tab>
+            <tab name="Delete">
+                <test-delete></test-delete>
+            </tab>
+            <tab name="Notifications">
+                <test-notifications></test-notifications>
+            </tab>
+            <tab name="Spinner">
+                <test-spinner></test-spinner>
+            </tab>
+            <tab name="Tabs">
+                <test-tabs></test-tabs>
+            </tab>
+        </tabs>
     </div>
 </template>
 
 <script>
-
+    import {tabs, tab} from '../shapla-tabs';
     import TestColumns from "./components/TestColumns";
     import TestDelete from "./components/TestDelete";
     import TestModal from "./components/TestModal";
@@ -21,6 +35,8 @@
     export default {
         name: 'app',
         components: {
+            tabs,
+            tab,
             TestTabs,
             TestSpinner,
             TestNotifications,
