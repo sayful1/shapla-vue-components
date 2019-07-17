@@ -19,6 +19,9 @@
             <tab name="Tabs">
                 <test-tabs></test-tabs>
             </tab>
+            <tab name="Data Table">
+                <test-data-table></test-data-table>
+            </tab>
         </tabs>
     </div>
 </template>
@@ -31,10 +34,12 @@
     import TestNotifications from "./components/TestNotifications";
     import TestSpinner from "./components/TestSpinner";
     import TestTabs from "./components/TestTabs";
+    import TestDataTable from "./components/TestDataTable";
 
     export default {
         name: 'app',
         components: {
+            TestDataTable,
             tabs,
             tab,
             TestTabs,

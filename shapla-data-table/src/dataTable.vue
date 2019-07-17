@@ -11,7 +11,7 @@
             </div>
             <div class="mdl-table-nav-top__right">
                 <pagination :current_page="currentPage" :per_page="perPage" :total_items="itemsTotal"
-                            @pagination="goToPage" size="medium"></pagination>
+                            @pagination="goToPage" size="small"></pagination>
             </div>
         </div>
         <table :class="tableClasses">
@@ -37,7 +37,10 @@
             <template v-if="rows.length">
                 <tr v-for="row in rows" :key="row[index]" :class="{'is-selected':checkedItems.includes(row[index])}">
                     <td class="check-column" v-if="showCb">
-                        <input type="checkbox" :value="row[index]" v-model="checkedItems">
+                        <label class="screen-reader-text" :for="`cb-select-${row[index]}`">Select
+                            {{row[actionColumn]}}</label>
+                        <input type="checkbox" :id="`cb-select-${row[index]}`" :value="row[index]"
+                               v-model="checkedItems">
                     </td>
                     <td v-for="column in columns" :key="column.key" :class="getBodyColumnClass(column)"
                         :data-colname="column.label">
@@ -71,6 +74,16 @@
             </tr>
             </tbody>
         </table>
+        <div class="mdl-table-nav-top">
+            <div class="mdl-table-nav-top__left">
+                <bulk-actions :actions="bulkActions" :active="!!checkedItems.length" v-model="bulkLocal"
+                              @bulk:click="handleBulkAction"></bulk-actions>
+            </div>
+            <div class="mdl-table-nav-top__right">
+                <pagination :current_page="currentPage" :per_page="perPage" :total_items="itemsTotal"
+                            @pagination="goToPage" size="small"></pagination>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -138,6 +151,7 @@
                 return {
                     'mdl-data-table': true,
                     'mdl-data-table--responsive': true,
+                    'mdl-data-table--fullwidth': true,
                 }
             },
 
@@ -276,203 +290,4 @@
 
 <style lang="scss">
     @import "data-table";
-
-    .mdl-data-table-container {
-
-        .mdl-table-nav-top {
-            align-items: flex-end;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            margin-top: 10px;
-            width: 100%;
-
-            &__left {
-                display: flex;
-                flex-wrap: wrap;
-            }
-
-            &__action,
-            &__filters {
-                display: flex;
-                flex-wrap: wrap;
-
-                > * {
-                    margin-right: 5px;
-                }
-            }
-
-            select {
-                line-height: 1.2;
-                padding: 3px 10px;
-            }
-
-            select, button {
-                margin-bottom: 5px;
-            }
-        }
-
-        .row-actions {
-            visibility: hidden;
-
-            .trash,
-            .delete {
-                color: #a00;
-
-                a {
-                    color: currentColor;
-                }
-            }
-        }
-
-        tr:hover .row-actions {
-            visibility: visible;
-        }
-
-        // Temp
-        .toggle-row {
-            display: none;
-        }
-
-        @media only screen and (min-width: 768px) {
-            th.check-column,
-            td.check-column {
-                width: 70px;
-            }
-        }
-    }
-
-    // Mobile
-    .mdl-data-table--mobile {
-
-        button.toggle-row {
-            background: none;
-            border: none;
-            display: inline-block !important;
-            text-align: center;
-            line-height: 1;
-
-            position: absolute;
-            right: 8px;
-            top: 10px;
-            padding: 0;
-            width: 40px;
-            height: 40px;
-            outline: 0;
-            background: 0 0;
-        }
-
-        .triangle-up {
-            display: none;
-        }
-
-        table.mdl-data-table--responsive {
-
-            tr:not(.inline-edit-row):not(.no-items) td.column-primary ~ td:not(.check-column) {
-                display: none;
-            }
-
-            tr:not(.inline-edit-row):not(.no-items) td.column-primary ~ td:not(.check-column) {
-                // padding: 3px 8px 3px 35%;
-            }
-
-            tr.is-expanded td:not(.check-column) {
-                display: block !important;
-
-                .triangle-up {
-                    display: block;
-                }
-
-                .triangle-down {
-                    display: none;
-                }
-            }
-
-            td.check-column {
-                display: none !important;
-            }
-
-            tr .row-actions {
-                visibility: visible !important;
-            }
-
-            thead,
-            tbody th {
-                display: none;
-            }
-
-            tbody {
-                tr:first-child {
-                    td:first-child {
-                        border-top: 0;
-                    }
-                }
-
-                tr:last-child {
-                    td:last-child {
-                        border-bottom: 0;
-                    }
-                }
-
-                tr {
-
-                    &:hover {
-                        background-color: #fff;
-                    }
-
-                    td {
-                        &.column-primary {
-                            height: auto;
-                            padding-right: 40px;
-                            text-align: left;
-                        }
-                    }
-                }
-            }
-
-            tr {
-                td {
-                    border-top: none;
-                    border-bottom: none;
-                    display: block;
-                    text-align: right;
-
-                    &:not(.column-primary).mdl-data-table__cell--non-numeric {
-                        text-align: right;
-                    }
-
-                    &.check-column {
-                        // display: table-cell;
-                        // padding: 8px 0 8px 16px;
-                        // width: 30px;
-                    }
-
-                    &.check-column:after {
-                        content: ' ';
-                    }
-
-                    &:not(.check-column):not(.column-primary)::before {
-                        content: attr(data-colname) ' : ';
-                        font-weight: bold;
-                        float: left;
-                    }
-
-                    &.product-remove,
-                    &.download-actions,
-                    &.actions {
-                        &::before {
-                            display: none;
-                        }
-                    }
-                }
-
-                &:nth-child( 2n ) {
-                    td {
-                        background-color: rgba(0, 0, 0, 0.025);
-                    }
-                }
-            }
-        }
-    }
 </style>

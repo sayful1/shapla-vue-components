@@ -60,8 +60,8 @@
             per_page: {type: Number, required: true, default: 20},
             current_page: {type: Number, required: true, default: 1},
             size: {
-                type: String, default: 'small', validator(value) {
-                    return (['small', 'medium', 'large'].indexOf(value) !== -1);
+                type: String, default: 'default', validator(value) {
+                    return (['default', 'small', 'medium', 'large'].indexOf(value) !== -1);
                 }
             },
         },
