@@ -6,7 +6,7 @@
 </template>
 
 <script>
-    import ConfirmDialog from '../../shapla-confirmation-dialogs/src/ConfirmDialog';
+    import {ConfirmDialog} from '../../shapla-confirm-modal';
 
     export default {
         name: "TestConfirmationDialogs",

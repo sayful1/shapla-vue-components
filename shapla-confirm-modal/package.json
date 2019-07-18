@@ -1,5 +1,5 @@
 {
-  "name": "shapla-confirmation-dialogs",
+  "name": "shapla-modal-confirm",
   "description": "A simple circle with a cross based on Bulma delete element for Vue",
   "version": "1.0.0-alpha",
   "author": {
