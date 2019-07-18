@@ -5,12 +5,15 @@
     position: relative;
     border: $data-table-dividers;
     border-collapse: collapse;
-    // white-space: nowrap;
     font-size: $data-table-font-size;
     background-color: #ffffff;
 
     &--fullwidth {
         width: 100%;
+    }
+
+    &--nowrap {
+        white-space: nowrap;
     }
 
     thead {
@@ -238,16 +241,23 @@
         }
 
         td.check-column {
-            display: none !important;
+            display: table-cell;
+            vertical-align: top;
+            width: 35px;
         }
 
         tr .row-actions {
             visibility: visible !important;
         }
 
-        thead,
-        tbody th {
-            display: none;
+        thead {
+            th.column-primary {
+                width: 100%;
+            }
+
+            th.column-primary ~ th {
+                display: none;
+            }
         }
 
         tbody {

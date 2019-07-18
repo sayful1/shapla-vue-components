@@ -1,7 +1,10 @@
 <template>
     <div id="app">
         <tabs alignment="center">
-            <tab name="Modal" selected>
+            <tab name="Confirmation Dialogs" selected>
+                <test-confirmation-dialogs></test-confirmation-dialogs>
+            </tab>
+            <tab name="Modal">
                 <test-modal></test-modal>
             </tab>
             <tab name="Columns">
@@ -35,10 +38,12 @@
     import TestSpinner from "./components/TestSpinner";
     import TestTabs from "./components/TestTabs";
     import TestDataTable from "./components/TestDataTable";
+    import TestConfirmationDialogs from "./components/TestConfirmationDialogs";
 
     export default {
         name: 'app',
         components: {
+            TestConfirmationDialogs,
             TestDataTable,
             tabs,
             tab,
