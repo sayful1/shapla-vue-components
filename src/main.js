@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
-import Modal from '../shapla-confirmation-dialogs/src/ModalPlugin'
+import modal from '../shapla-confirmation-dialogs/src/plugin'
 
 Vue.config.productionTip = false;
 
-Vue.use(Modal);
+Vue.use(modal);
 
 new Vue({
     el: '#app',

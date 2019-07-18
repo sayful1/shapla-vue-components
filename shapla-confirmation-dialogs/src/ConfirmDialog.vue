@@ -1,54 +1,81 @@
 <template>
-    <modal name="dialog">
-        {{ params.message }}
+    <modal type="dialog-confirm" :active="modalActive" :show-close-icon="false" content-size="small">
+        <div class="shapla-confirm-modal">
+            <div class="shapla-confirm-modal__content">
+                {{ params.message }}
+            </div>
+            <div class="shapla-confirm-modal__actions">
+                <button
+                        class="button button--cancel"
+                        @click.prevent="handleClick(false)"
+                        v-if="params.cancelButton"
+                        v-text="params.cancelButton"
+                >
+                </button>
 
-        <template v-slot:footer>
-            <button
-                    class="bg-gray-500 hover:bg-gray-600 py-2 px-4 text-white rounded-lg mr-2"
-                    @click.prevent="handleClick(false)"
-                    v-if="params.cancelButton"
-                    v-text="params.cancelButton"
-            >
-            </button>
-
-            <button
-                    class="bg-blue-500 hover:bg-blue-600 py-2 px-4 text-white rounded-lg"
-                    @click.prevent="handleClick(true)"
-                    v-if="params.confirmButton"
-                    v-text="params.confirmButton"
-            >
-            </button>
-        </template>
+                <button
+                        class="button button--confirm"
+                        @click.prevent="handleClick(true)"
+                        v-if="params.confirmButton"
+                        v-text="params.confirmButton"
+                >
+                </button>
+            </div>
+        </div>
     </modal>
 </template>
 
 <script>
-    import Modal from './ModalPlugin';
+    import modal from './plugin';
 
     export default {
-        components: {Modal},
+        name: 'ConfirmDialog',
+        components: {modal},
         data() {
             return {
                 params: {
                     message: 'Are you sure?',
-                    confirmButton: 'Continue',
+                    confirmButton: 'Ok',
                     cancelButton: 'Cancel'
-                }
+                },
+                modalActive: false,
             };
         },
 
         beforeMount() {
-            Modal.events.$on('show', params => {
+            modal.events.$on('show', params => {
                 Object.assign(this.params, params);
+                this.modalActive = true;
             });
         },
 
         methods: {
             handleClick(confirmed) {
-                Modal.events.$emit('clicked', confirmed);
-
-                this.$modal.hide();
+                this.modalActive = false;
+                modal.events.$emit('clicked', confirmed);
             }
         }
     }
 </script>
+
+<style lang="scss">
+    .shapla-confirm-modal {
+        background: white;
+        border-radius: 4px;
+
+        &__content {
+            padding: 1rem;
+        }
+
+        &__actions {
+            padding: 1rem;
+            display: flex;
+            justify-content: flex-end;
+            border-top: 1px solid #eee;
+
+            button:not(:last-child) {
+                margin-right: 1rem;
+            }
+        }
+    }
+</style>
