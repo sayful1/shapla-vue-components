@@ -3,17 +3,15 @@
         <span class="wp-pagination-displaying-num">{{displaying_num}}</span>
         <span class="wp-pagination-links" v-if="total_pages > 1">
 
-			<span aria-hidden="true" class="wp-pagination-link wp-pagination-first-page is-disabled"
-                  v-if="disable_first">&laquo;</span>
-			<a class="wp-pagination-link wp-pagination-first-page" href="#" @click.prevent="firstPage" v-else>
-				<span class="screen-reader-text">First page</span>
+			<a class="wp-pagination-link wp-pagination-first-page" :class="{'is-disabled':disable_first}" href="#"
+               @click.prevent="firstPage">
+				<span class="screen-reader-text" v-if="!disable_first">First page</span>
 				<span aria-hidden="true">&laquo;</span>
 			</a>
 
-            <span aria-hidden="true" class="wp-pagination-link wp-pagination-previous-page is-disabled"
-                  v-if="disable_prev">&lsaquo;</span>
-            <a class="wp-pagination-link wp-pagination-previous-page" href="#" @click.prevent="prePage" v-else>
-                <span class="screen-reader-text">Previous page</span>
+            <a class="wp-pagination-link wp-pagination-previous-page" :class="{'is-disabled':disable_prev}" href="#"
+               @click.prevent="prePage">
+                <span class="screen-reader-text" v-if="!disable_prev">Previous page</span>
                 <span aria-hidden="true">&lsaquo;</span>
             </a>
 
@@ -32,15 +30,15 @@
                         class="wp-pagination-total-pages">{{total_pages}}</span></span>
             </span>
 
-            <span class="wp-pagination-link wp-pagination-next-page is-disabled" aria-hidden="true" v-if="disable_next">&rsaquo;</span>
-            <a href="#" class="wp-pagination-link wp-pagination-next-page" @click.prevent="nextPage" v-else>
-                <span class="screen-reader-text">Next page</span>
+            <a href="#" class="wp-pagination-link wp-pagination-next-page" :class="{'is-disabled':disable_next}"
+               @click.prevent="nextPage">
+                <span class="screen-reader-text" v-if="!disable_next">Next page</span>
                 <span aria-hidden="true">&rsaquo;</span>
             </a>
 
-            <span class="wp-pagination-link wp-pagination-last-page is-disabled" aria-hidden="true" v-if="disable_last">&raquo;</span>
-            <a href="#" class="wp-pagination-link wp-pagination-last-page" @click.prevent="lastPage" v-else>
-                <span class="screen-reader-text">Last page</span>
+            <a href="#" class="wp-pagination-link wp-pagination-last-page" :class="{'is-disabled':disable_last}"
+               @click.prevent="lastPage">
+                <span class="screen-reader-text" v-if="!disable_last">Last page</span>
                 <span aria-hidden="true">&raquo;</span>
             </a>
 
@@ -57,12 +55,20 @@
                 required: true,
                 default: 0
             },
-            per_page: {type: Number, required: true, default: 20},
-            current_page: {type: Number, required: true, default: 1},
+            per_page: {
+                type: Number,
+                required: true,
+                default: 20
+            },
+            current_page: {
+                type: Number,
+                required: true,
+                default: 1
+            },
             size: {
-                type: String, default: 'default', validator(value) {
-                    return (['default', 'small', 'medium', 'large'].indexOf(value) !== -1);
-                }
+                type: String,
+                default: 'default',
+                validator: (value) => ['default', 'small', 'medium', 'large'].indexOf(value) !== -1
             },
         },
 
@@ -163,9 +169,15 @@
                 this.query(this.current_page - 1);
             },
             firstPage() {
+                if (this.disable_first) {
+                    return;
+                }
                 this.query(1);
             },
             lastPage() {
+                if (this.disable_last) {
+                    return;
+                }
                 this.query(this.total_pages);
             },
             goToPage(event) {

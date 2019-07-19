@@ -1,5 +1,5 @@
 <template>
-    <div class="mdl-data-table-container" :class="{'mdl-data-table--mobile': this.windowWidth <= this.mobileWidth}">
+    <div class="mdl-data-table-container">
         <div class="mdl-table-nav-top">
             <div class="mdl-table-nav-top__left">
                 <bulk-actions :actions="bulkActions" :active="!!checkedItems.length" v-model="bulkLocal"
@@ -25,10 +25,18 @@
                     <template v-if="!isSortable(column)">
                         {{ column.label }}
                     </template>
-                    <a href="#" v-else @click.prevent="handleSortBy(column.key)">
-                        <span>{{ column.label }}</span>
-                        <span class="sorting-indicator"></span>
-                    </a>
+                    <template v-else>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path fill="none" d="M0 0h24v24H0V0z"></path>
+                            <path class="icon-arrow-down"
+                                  d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"></path>
+                            <path class="icon-arrow-up"
+                                  d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"></path>
+                        </svg>
+                        <a href="#" @click.prevent="handleSortBy(column.key)">
+                            <span>{{ column.label }}</span>
+                        </a>
+                    </template>
                 </th>
             </tr>
             </thead>
@@ -60,10 +68,10 @@
                         <button type="button" class="toggle-row" v-if="actionColumn === column.key && hasActions"
                                 @click="toggleRow($event)">
                             <span class="screen-reader-text">Show more details</span>
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                 viewBox="0 0 20 20">
-                                <path class="triangle-down" d="M5 6h10l-5 9-5-9z"></path>
-                                <path class="triangle-up" d="M15 14h-10l5-9 5 9z"></path>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                <path class="triangle-up" d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"></path>
+                                <path class="triangle-down" d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path>
+                                <path d="M0 0h24v24H0z" fill="none"></path>
                             </svg>
                         </button>
                     </td>
@@ -77,7 +85,7 @@
         <div class="mdl-table-nav-top">
             <div class="mdl-table-nav-top__left">
                 <bulk-actions :actions="bulkActions" :active="!!checkedItems.length" v-model="bulkLocal"
-                              @bulk:click="handleBulkAction"></bulk-actions>
+                              position="bottom" @bulk:click="handleBulkAction"></bulk-actions>
             </div>
             <div class="mdl-table-nav-top__right">
                 <pagination :current_page="currentPage" :per_page="perPage" :total_items="itemsTotal"
@@ -150,8 +158,8 @@
             tableClasses() {
                 return {
                     'mdl-data-table': true,
-                    'mdl-data-table--responsive': true,
                     'mdl-data-table--fullwidth': true,
+                    'mdl-data-table--mobile': this.windowWidth <= this.mobileWidth
                 }
             },
 
