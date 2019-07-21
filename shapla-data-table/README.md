@@ -126,16 +126,15 @@ export default {
 
 ### Props
 
-
 | Property       | Type    | Required | Default                               | Description                                                             |
 |----------------|---------|----------|---------------------------------------|-------------------------------------------------------------------------|
 | `rows`         | Array   | **yes**  | `[]`                                  |                                                                         |
-| `columns`      | Array   | **yes**  | `[]`                                  |                                                                         |
+| `columns`      | Array   | **yes**  | `[]`                                  | Pass an **Array** of **Objects**. See _columns data object_             |
 | `actions`      | Array   | no       | `[]`                                  | If you want to show row actions, pass an **Array** of **Objects**       |
-| `bulkActions`  | Array   | no       | `[]`                                  | Wheather to show the bulk actions                                       |
+| `bulkActions`  | Array   | no       | `[]`                                  | Whether to show the bulk actions                                        |
 | `index`        | String  | no       | `id`                                  | The index identifier of the row                                         |
 | `actionColumn` | String  | no       | `title`                               | Define which is the action column so we could place action items there. |
-| `showCb`       | Boolean | no       | `true`                                | Wheather to show the bulk checkbox in each rows                         |
+| `showCb`       | Boolean | no       | `true`                                | Whether to show the bulk checkbox in each rows                          |
 | `notFound`     | String  | no       | `No items found.`                     | Shows if no items are found                                             |
 | `totalItems`   | Number  | no       | `0`                                   | Total count of rows in the database                                     |
 | `totalPages`   | Number  | no       | `1`                                   | How many pages are there for pagination                                 |
@@ -143,7 +142,25 @@ export default {
 | `currentPage`  | Number  | no       | `1`                                   | Current page we are in                                                  |
 | `sortBy`       | String  | no       | `null`                                | The property in data on which to initially sort.                        |
 | `sortOrder`    | String  | no       | `asc`                                 | The initial sort order.                                                 |
-| `mobileWidth`  | Number  | no       | `767`                                 | The initial sort order.                                                 |
+| `mobileWidth`  | Number  | no       | `767`                                 | Mobile breakpoint for table.                                            |
+
+
+### columns data object
+
+| Property      | Type      | Required  | Default   | Description                                                             |
+|---------------|-----------|-----------|-----------|-------------------------------------------------------------------------|
+| `key`         | String    | **yes**   | ``        | Column key.                                                             |
+| `label`       | String    | **yes**   | ``        | Column label                                                            |
+| `numeric`     | Boolean   | no        | `false`   | Set `true` if table column data type is numeric.                        |
+| `sortable`    | Boolean   | no        | `false`   | Whether the column data can be sorted by `asc` or `desc` order.         |
+
+
+### actions/bulkActions data object
+
+| Property      | Type      | Required  | Default   | Description   |
+|---------------|-----------|-----------|-----------|---------------|
+| `key`         | String    | **yes**   | ``        | Action key    |
+| `label`       | String    | **yes**   | ``        | Action label  |
 
 
 ## Listeners
@@ -176,7 +193,7 @@ methods: {
 ```html
 <!-- template -->
 <list-table
-  @bulk:click="onBulkAction"
+  @bulk:apply="onBulkAction"
 </list-table>
 
 <!-- method -->

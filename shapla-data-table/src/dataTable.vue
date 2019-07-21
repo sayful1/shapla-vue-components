@@ -13,7 +13,7 @@
             </div>
             <div class="mdl-table-nav-top__right">
                 <slot name="search-form">
-                    <search-form v-if="showSearch" @search="searchInput"></search-form>
+                    <search-form v-if="showSearch" @search="searchSubmit" @input="searchInput"></search-form>
                 </slot>
             </div>
         </div>
@@ -85,14 +85,14 @@
             </tr>
             </tbody>
         </table>
-        <div class="mdl-table-nav-top">
-            <div class="mdl-table-nav-top__left">
+        <div class="mdl-table-nav-bottom">
+            <div class="mdl-table-nav-bottom__left">
                 <slot name="bulk-actions-bottom">
                     <bulk-actions :actions="bulkActions" :active="!!checkedItems.length" v-model="bulkLocal"
                                   position="bottom" @bulk:click="handleBulkAction"></bulk-actions>
                 </slot>
             </div>
-            <div class="mdl-table-nav-top__right">
+            <div class="mdl-table-nav-bottom__right">
                 <slot name="pagination">
                     <pagination :current_page="currentPage" :per_page="perPage" :total_items="itemsTotal"
                                 @pagination="goToPage" size="small"></pagination>
@@ -289,12 +289,12 @@
                 this.$emit('sort', column, order);
             },
 
-            changeStatus(status) {
-                this.$emit('status:change', status);
+            searchInput(query) {
+                this.$emit('search:input', query);
             },
 
-            searchInput(query) {
-                this.$emit('search', query);
+            searchSubmit(query) {
+                this.$emit('search:submit', query);
             }
         }
     }

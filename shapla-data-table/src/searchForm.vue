@@ -10,9 +10,9 @@
             >
         </label>
         <button type="submit" class="shapla-search-form__submit">
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                <title>search</title>
-                <path d="M31.008 27.231l-7.58-6.447c-0.784-0.705-1.622-1.029-2.299-0.998 1.789-2.096 2.87-4.815 2.87-7.787 0-6.627-5.373-12-12-12s-12 5.373-12 12 5.373 12 12 12c2.972 0 5.691-1.081 7.787-2.87-0.031 0.677 0.293 1.515 0.998 2.299l6.447 7.58c1.104 1.226 2.907 1.33 4.007 0.23s0.997-2.903-0.23-4.007zM12 20c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8-3.582 8-8 8z"></path>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path fill="none" d="M0 0h24v24H0V0z"></path>
+                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
             </svg>
         </button>
     </form>
@@ -53,7 +53,7 @@
             border: 1px solid #ddd;
             border-radius: 4px;
             line-height: 1.2;
-            padding: .5em 3.5em .5em .5em;
+            padding: .5em 2.5em .5em .5em;
             width: 100%;
 
             &:focus {
@@ -65,8 +65,8 @@
 
         &__submit {
             align-items: center;
-            background: #ddd;
-            border: 1px solid #ddd;
+            background: none;
+            border: none;
             border-radius: 4px;
             display: inline-flex;
             justify-content: center;
@@ -76,11 +76,11 @@
             top: 3px;
             bottom: 3px;
             height: calc(2.2em - 4px);
-            width: 3em;
+            width: calc(2.2em - 4px);
 
             svg {
-                height: 1em;
-                width: 1em;
+                height: 1.5em;
+                width: 1.5em;
                 fill: currentColor;
             }
         }
