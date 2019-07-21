@@ -2,16 +2,19 @@
     <div class="mdl-data-table-container">
         <div class="mdl-table-nav-top">
             <div class="mdl-table-nav-top__left">
-                <bulk-actions :actions="bulkActions" :active="!!checkedItems.length" v-model="bulkLocal"
-                              @bulk:click="handleBulkAction"></bulk-actions>
+                <slot name="bulk-actions-top">
+                    <bulk-actions :actions="bulkActions" :active="!!checkedItems.length" v-model="bulkLocal"
+                                  @bulk:click="handleBulkAction"></bulk-actions>
+                </slot>
 
                 <div class="mdl-table-nav-top__filters">
                     <slot name="filters"></slot>
                 </div>
             </div>
             <div class="mdl-table-nav-top__right">
-                <pagination :current_page="currentPage" :per_page="perPage" :total_items="itemsTotal"
-                            @pagination="goToPage" size="small"></pagination>
+                <slot name="search-form">
+                    <search-form v-if="showSearch" @search="searchInput"></search-form>
+                </slot>
             </div>
         </div>
         <table :class="tableClasses">
@@ -84,12 +87,16 @@
         </table>
         <div class="mdl-table-nav-top">
             <div class="mdl-table-nav-top__left">
-                <bulk-actions :actions="bulkActions" :active="!!checkedItems.length" v-model="bulkLocal"
-                              position="bottom" @bulk:click="handleBulkAction"></bulk-actions>
+                <slot name="bulk-actions-bottom">
+                    <bulk-actions :actions="bulkActions" :active="!!checkedItems.length" v-model="bulkLocal"
+                                  position="bottom" @bulk:click="handleBulkAction"></bulk-actions>
+                </slot>
             </div>
             <div class="mdl-table-nav-top__right">
-                <pagination :current_page="currentPage" :per_page="perPage" :total_items="itemsTotal"
-                            @pagination="goToPage" size="small"></pagination>
+                <slot name="pagination">
+                    <pagination :current_page="currentPage" :per_page="perPage" :total_items="itemsTotal"
+                                @pagination="goToPage" size="small"></pagination>
+                </slot>
             </div>
         </div>
     </div>
@@ -98,25 +105,21 @@
 <script>
     import bulkActions from './bulkActions'
     import pagination from './pagination'
+    import searchForm from "./searchForm";
 
     export default {
         name: "dataTable",
 
-        components: {bulkActions, pagination},
+        components: {searchForm, bulkActions, pagination},
 
         props: {
             rows: {type: Array, required: true,},
             columns: {type: Array, required: true,},
             actions: {type: Array, required: false, default: () => []},
             bulkActions: {type: Array, required: false, default: () => []},
-            statuses: {type: Array, required: false, default: () => []},
             index: {type: String, default: 'id'},
-            showSearch: {type: Boolean, default: true},
-            searchKey: {type: String, default: 'search_items'},
             actionColumn: {type: String, default: 'title'},
             showCb: {type: Boolean, default: true},
-            loading: {type: Boolean, default: false},
-            tableClass: {type: String, default: 'wp-list-table widefat fixed striped'},
             notFound: {type: String, default: 'No items found.'},
             totalItems: {type: Number, default: 0},
             totalPages: {type: Number, default: 1},
@@ -124,7 +127,8 @@
             currentPage: {type: Number, default: 1},
             sortBy: {type: String, default: null},
             sortOrder: {type: String, default: "asc"},
-            mobileWidth: {type: Number, default: 767}
+            mobileWidth: {type: Number, default: 767},
+            showSearch: {type: Boolean, default: true},
         },
 
         data() {

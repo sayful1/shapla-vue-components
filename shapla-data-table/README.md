@@ -7,6 +7,7 @@ Supports:
  * Row Actions with Slot Support
  * Bulk Actions
  * Pagination
+ * Search
  * Custom Column Slot
  * Custom Filter Slot
  * Sorting
@@ -128,22 +129,21 @@ export default {
 
 | Property       | Type    | Required | Default                               | Description                                                             |
 |----------------|---------|----------|---------------------------------------|-------------------------------------------------------------------------|
-| `columns`      | Object  | **yes**  | `{}`                                  |                                                                         |
 | `rows`         | Array   | **yes**  | `[]`                                  |                                                                         |
-| `notFound`     | String  | no       | `No items found.`                     | Shows if no items are found                                             |
-| `index`        | String  | no       | `id`                                  | The index identifier of the row                                         |
-| `showCb`       | Boolean | no       | `true`                                 | Wheather to show the bulk checkbox in each rows                         |
-| `loading`      | Boolean | no       | `false`                               | To show the loading effect, pass `true`                                 |
-| `actionColumn` | String  | no       | ` ` (empty)                            | Define which is the action column so we could place action items there. |
+| `columns`      | Array   | **yes**  | `[]`                                  |                                                                         |
 | `actions`      | Array   | no       | `[]`                                  | If you want to show row actions, pass an **Array** of **Objects**       |
 | `bulkActions`  | Array   | no       | `[]`                                  | Wheather to show the bulk actions                                       |
-| `tableClass`   | String  | no       | `wp-list-table widefat fixed striped` | The table classes                                                       |
+| `index`        | String  | no       | `id`                                  | The index identifier of the row                                         |
+| `actionColumn` | String  | no       | `title`                               | Define which is the action column so we could place action items there. |
+| `showCb`       | Boolean | no       | `true`                                | Wheather to show the bulk checkbox in each rows                         |
+| `notFound`     | String  | no       | `No items found.`                     | Shows if no items are found                                             |
 | `totalItems`   | Number  | no       | `0`                                   | Total count of rows in the database                                     |
 | `totalPages`   | Number  | no       | `1`                                   | How many pages are there for pagination                                 |
 | `perPage`      | Number  | no       | `20`                                  | Items to show per page                                                  |
 | `currentPage`  | Number  | no       | `1`                                   | Current page we are in                                                  |
 | `sortBy`       | String  | no       | `null`                                | The property in data on which to initially sort.                        |
 | `sortOrder`    | String  | no       | `asc`                                 | The initial sort order.                                                 |
+| `mobileWidth`  | Number  | no       | `767`                                 | The initial sort order.                                                 |
 
 
 ## Listeners

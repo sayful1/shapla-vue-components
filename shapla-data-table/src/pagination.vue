@@ -1,24 +1,26 @@
 <template>
     <nav :class="navClasses" role="navigation" aria-label="pagination">
-        <span class="wp-pagination-displaying-num">{{displaying_num}}</span>
-        <span class="wp-pagination-links" v-if="total_pages > 1">
+        <span class="shapla-pagination-displaying-num">{{displaying_num}}</span>
+        <span class="shapla-pagination-links" v-if="total_pages > 1">
 
-			<a class="wp-pagination-link wp-pagination-first-page" :class="{'is-disabled':disable_first}" href="#"
+			<a class="shapla-pagination-link shapla-pagination-first-page" :class="{'is-disabled':disable_first}"
+               href="#"
                @click.prevent="firstPage">
 				<span class="screen-reader-text" v-if="!disable_first">First page</span>
 				<span aria-hidden="true">&laquo;</span>
 			</a>
 
-            <a class="wp-pagination-link wp-pagination-previous-page" :class="{'is-disabled':disable_prev}" href="#"
+            <a class="shapla-pagination-link shapla-pagination-previous-page" :class="{'is-disabled':disable_prev}"
+               href="#"
                @click.prevent="prePage">
                 <span class="screen-reader-text" v-if="!disable_prev">Previous page</span>
                 <span aria-hidden="true">&lsaquo;</span>
             </a>
 
-            <span class="wp-pagination-input-container">
+            <span class="shapla-pagination-input-container">
                 <label for="current-page-selector" class="screen-reader-text">Current Page</label>
                 <input type="text"
-                       class="wp-pagination-current-page"
+                       class="shapla-pagination-current-page"
                        id="current-page-selector"
                        min="1"
                        :value="current_page"
@@ -26,17 +28,17 @@
                        :max="total_pages"
                        aria-describedby="table-paging"
                 >
-                <span class="wp-pagination-paging-text"> of <span
-                        class="wp-pagination-total-pages">{{total_pages}}</span></span>
+                <span class="shapla-pagination-paging-text"> of <span
+                        class="shapla-pagination-total-pages">{{total_pages}}</span></span>
             </span>
 
-            <a href="#" class="wp-pagination-link wp-pagination-next-page" :class="{'is-disabled':disable_next}"
+            <a href="#" class="shapla-pagination-link shapla-pagination-next-page" :class="{'is-disabled':disable_next}"
                @click.prevent="nextPage">
                 <span class="screen-reader-text" v-if="!disable_next">Next page</span>
                 <span aria-hidden="true">&rsaquo;</span>
             </a>
 
-            <a href="#" class="wp-pagination-link wp-pagination-last-page" :class="{'is-disabled':disable_last}"
+            <a href="#" class="shapla-pagination-link shapla-pagination-last-page" :class="{'is-disabled':disable_last}"
                @click.prevent="lastPage">
                 <span class="screen-reader-text" v-if="!disable_last">Last page</span>
                 <span aria-hidden="true">&raquo;</span>
@@ -81,7 +83,7 @@
              */
             navClasses() {
                 return {
-                    'wp-pagination': true,
+                    'shapla-pagination': true,
                     'is-small': this.size === 'small',
                     'is-medium': this.size === 'medium',
                     'is-large': this.size === 'large',
@@ -196,7 +198,7 @@
 </script>
 
 <style lang="scss">
-    .wp-pagination {
+    .shapla-pagination {
         align-items: center;
         box-sizing: border-box;
         display: flex;
