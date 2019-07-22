@@ -21,8 +21,10 @@
             <thead>
             <tr>
                 <th v-if="showCb" class="check-column">
-                    <label class="screen-reader-text" for="cb-select-all-1">Select All</label>
-                    <input type="checkbox" id="cb-select-all-1" v-model="selectAll">
+                    <slot name="check-box-all">
+                        <label class="screen-reader-text" for="cb-select-all-1">Select All</label>
+                        <input type="checkbox" id="cb-select-all-1" v-model="selectAll">
+                    </slot>
                 </th>
                 <th v-for="column in columns" :key="column.key" :class="getHeadColumnClass(column.key, column)">
                     <template v-if="!isSortable(column)">
@@ -48,10 +50,12 @@
             <template v-if="rows.length">
                 <tr v-for="row in rows" :key="row[index]" :class="{'is-selected':checkedItems.includes(row[index])}">
                     <td class="check-column" v-if="showCb">
-                        <label class="screen-reader-text" :for="`cb-select-${row[index]}`">Select
-                            {{row[actionColumn]}}</label>
-                        <input type="checkbox" :id="`cb-select-${row[index]}`" :value="row[index]"
-                               v-model="checkedItems">
+                        <slot name="check-box" :row="row">
+                            <label class="screen-reader-text" :for="`cb-select-${row[index]}`">Select
+                                {{row[actionColumn]}}</label>
+                            <input type="checkbox" :id="`cb-select-${row[index]}`" :value="row[index]"
+                                   v-model="checkedItems">
+                        </slot>
                     </td>
                     <td v-for="column in columns" :key="column.key" :class="getBodyColumnClass(column)"
                         :data-colname="column.label">
@@ -64,10 +68,10 @@
                             <slot name="row-actions" :row="row">
                                 <span v-for="action in actions" :key="action.key" :class="action.key">
                                     <a href="#" @click.prevent="actionClicked(action.key, row)">{{ action.label }}</a>
-									<template v-if="!hideActionSeparator(action.key)"> | </template>
                                 </span>
                             </slot>
                         </div>
+
                         <button type="button" class="toggle-row" v-if="actionColumn === column.key && hasActions"
                                 @click="toggleRow($event)">
                             <span class="screen-reader-text">Show more details</span>
@@ -253,10 +257,6 @@
                 });
 
                 tr.classList.toggle('is-expanded');
-            },
-
-            hideActionSeparator(action) {
-                return action === this.actions[this.actions.length - 1].key;
             },
 
             actionClicked(action, row) {
