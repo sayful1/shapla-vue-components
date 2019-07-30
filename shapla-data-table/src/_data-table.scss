@@ -1,7 +1,7 @@
 @import "variables";
 @import "accessibility";
 
-.mdl-data-table {
+.shapla-data-table {
     position: relative;
     border: $data-table-dividers;
     border-collapse: collapse;
@@ -19,7 +19,7 @@
     thead {
         padding-bottom: 3px;
 
-        .mdl-data-table__select {
+        .shapla-data-table__select {
             margin-top: 0;
         }
     }
@@ -54,7 +54,7 @@
             padding-right: 24px;
         }
 
-        &.mdl-data-table__cell--non-numeric {
+        &.shapla-data-table__cell--non-numeric {
             text-align: left;
         }
     }
@@ -68,7 +68,7 @@
         padding-top: $data-table-cell-top;
         box-sizing: border-box;
 
-        .mdl-data-table__select {
+        .shapla-data-table__select {
             vertical-align: middle;
         }
     }
@@ -86,8 +86,8 @@
         padding-bottom: 8px;
         box-sizing: border-box;
 
-        &.mdl-data-table__header--sorted-ascending,
-        &.mdl-data-table__header--sorted-descending {
+        &.shapla-data-table__header--sorted-ascending,
+        &.shapla-data-table__header--sorted-descending {
             color: $data-table-header-sorted-color;
 
             svg {
@@ -107,13 +107,13 @@
             }
         }
 
-        &.mdl-data-table__header--sorted-ascending {
+        &.shapla-data-table__header--sorted-ascending {
             .icon-arrow-down {
                 display: none;
             }
         }
 
-        &.mdl-data-table__header--sorted-descending {
+        &.shapla-data-table__header--sorted-descending {
             .icon-arrow-up {
                 display: none;
             }
@@ -122,14 +122,14 @@
 
 }
 
-.mdl-data-table__select {
+.shapla-data-table__select {
     width: 16px;
 }
 
-.mdl-data-table-container {
+.shapla-data-table-container {
 
-    .mdl-table-nav-bottom,
-    .mdl-table-nav-top {
+    .shapla-data-table-nav-bottom,
+    .shapla-data-table-nav-top {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
@@ -163,11 +163,11 @@
         }
     }
 
-    .mdl-table-nav-top {
+    .shapla-data-table-nav-top {
         align-items: flex-end;
     }
 
-    .mdl-table-nav-bottom {
+    .shapla-data-table-nav-bottom {
         align-items: flex-start;
     }
 
@@ -202,7 +202,7 @@
         display: none;
     }
 
-    .mdl-data-table:not(.mdl-data-table--mobile) {
+    .shapla-data-table:not(.shapla-data-table--mobile) {
         th.check-column,
         td.check-column {
             width: 70px;
@@ -212,7 +212,7 @@
 }
 
 // Mobile
-table.mdl-data-table--mobile {
+table.shapla-data-table--mobile {
 
     button.toggle-row {
         background: none;
@@ -310,7 +310,7 @@ table.mdl-data-table--mobile {
             display: block;
             text-align: right;
 
-            &:not(.column-primary).mdl-data-table__cell--non-numeric {
+            &:not(.column-primary).shapla-data-table__cell--non-numeric {
                 text-align: right;
             }
 
