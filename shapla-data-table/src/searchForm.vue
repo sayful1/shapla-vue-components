@@ -68,6 +68,7 @@
             background: none;
             border: none;
             border-radius: 4px;
+            cursor: pointer;
             display: inline-flex;
             justify-content: center;
             margin: 0 !important;
@@ -77,6 +78,10 @@
             bottom: 3px;
             height: calc(2.2em - 4px);
             width: calc(2.2em - 4px);
+
+            &:hover {
+                background-color: rgba(60, 64, 67, 0.08);
+            }
 
             svg {
                 height: 1.5em;

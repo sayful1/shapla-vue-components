@@ -25,6 +25,9 @@
             <tab name="Data Table">
                 <test-data-table></test-data-table>
             </tab>
+            <tab name="Side Navigation">
+                <test-side-navigation></test-side-navigation>
+            </tab>
         </tabs>
     </div>
 </template>
@@ -39,10 +42,12 @@
     import TestTabs from "./components/TestTabs";
     import TestDataTable from "./components/TestDataTable";
     import TestConfirmationDialogs from "./components/TestConfirmationDialogs";
+    import TestSideNavigation from "./components/TestSideNavigation";
 
     export default {
         name: 'app',
         components: {
+            TestSideNavigation,
             TestConfirmationDialogs,
             TestDataTable,
             tabs,
