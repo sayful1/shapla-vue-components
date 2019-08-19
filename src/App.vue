@@ -28,6 +28,9 @@
             <tab name="Side Navigation">
                 <test-side-navigation></test-side-navigation>
             </tab>
+            <tab name="Star Rating">
+                <test-star-rating></test-star-rating>
+            </tab>
         </tabs>
     </div>
 </template>
@@ -43,10 +46,12 @@
     import TestDataTable from "./components/TestDataTable";
     import TestConfirmationDialogs from "./components/TestConfirmationDialogs";
     import TestSideNavigation from "./components/TestSideNavigation";
+    import TestStarRating from "./components/TestStarRating";
 
     export default {
         name: 'app',
         components: {
+            TestStarRating,
             TestSideNavigation,
             TestConfirmationDialogs,
             TestDataTable,
