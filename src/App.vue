@@ -31,6 +31,9 @@
             <tab name="Star Rating">
                 <test-star-rating></test-star-rating>
             </tab>
+            <tab name="Toggles">
+                <test-toggles></test-toggles>
+            </tab>
         </tabs>
     </div>
 </template>
@@ -47,10 +50,12 @@
     import TestConfirmationDialogs from "./components/TestConfirmationDialogs";
     import TestSideNavigation from "./components/TestSideNavigation";
     import TestStarRating from "./components/TestStarRating";
+    import TestToggles from "./components/TestToggles";
 
     export default {
         name: 'app',
         components: {
+            TestToggles,
             TestStarRating,
             TestSideNavigation,
             TestConfirmationDialogs,
