@@ -5,19 +5,25 @@
                 <a href="#" @click.prevent="toggleActive">
                     <div class="shapla-toggle-panel__icon-wrapper">
                         <template v-if="isSelected">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M19 13H5v-2h14v2z"/>
-                                <path d="M0 0h24v24H0z" fill="none"/>
-                            </svg>
+                            <slot name="close">
+                                <svg class="icon-minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M19 13H5v-2h14v2z"/>
+                                    <path d="M0 0h24v24H0z" fill="none"/>
+                                </svg>
+                            </slot>
                         </template>
                         <template v-if="!isSelected">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                                <path d="M0 0h24v24H0z" fill="none"/>
-                            </svg>
+                            <slot name="open">
+                                <svg class="icon-plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                                    <path d="M0 0h24v24H0z" fill="none"/>
+                                </svg>
+                            </slot>
                         </template>
                     </div>
-                    <div class="shapla-toggle-panel__title-text">{{name}}</div>
+                    <div class="shapla-toggle-panel__title-text">
+                        <slot name="title">{{name}}</slot>
+                    </div>
                 </a>
             </h4>
         </div>
@@ -34,7 +40,9 @@
         name: "toggle",
         props: {
             name: {type: String, required: true},
-            selected: {type: Boolean, required: false, default: false}
+            selected: {type: Boolean, default: false},
+            boxedMode: {type: Boolean, default: true},
+            showDivider: {type: Boolean, default: true},
         },
         data() {
             return {
@@ -46,8 +54,8 @@
             panelClass() {
                 return {
                     'shapla-toggle-panel--default': true,
-                    'shapla-toggle-panel--no-divider': true,
-                    'shapla-toggle-panel--boxed-mode': true,
+                    'shapla-toggle-panel--no-divider': !this.boxedMode,
+                    'shapla-toggle-panel--boxed-mode': this.boxedMode,
                 }
             },
             panelBodyClass() {
@@ -104,12 +112,17 @@
         font-size: 1rem;
 
         &:hover {
-            background-color: #f9f9f9;
+            // background-color: #f9f9f9;
+        }
+
+        &--no-divider {
+            border-bottom: none;
         }
 
         &--boxed-mode {
-            margin-bottom: 1em;
             border-style: solid;
+            margin-bottom: 1em;
+            margin-top: 1em;
             cursor: pointer;
         }
 
@@ -126,7 +139,7 @@
                 align-items: center;
                 box-shadow: none;
                 display: flex;
-                font-size: 1em;
+                font-size: inherit;
                 padding: .75em 1.25em;
                 text-decoration: none;
             }
@@ -137,6 +150,10 @@
                 height: 1em;
                 overflow: hidden;
             }
+        }
+
+        &__icon-wrapper {
+            display: flex;
         }
 
         &__title-text {
