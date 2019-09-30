@@ -1,7 +1,10 @@
 <template>
     <div id="app">
         <tabs alignment="center">
-            <tab name="Confirmation Dialogs" selected>
+            <tab name="Radio Buttons" selected>
+                <test-radio-buttons></test-radio-buttons>
+            </tab>
+            <tab name="Confirmation Dialogs">
                 <test-confirmation-dialogs></test-confirmation-dialogs>
             </tab>
             <tab name="Modal">
@@ -51,10 +54,12 @@
     import TestSideNavigation from "./components/TestSideNavigation";
     import TestStarRating from "./components/TestStarRating";
     import TestToggles from "./components/TestToggles";
+    import TestRadioButtons from "./components/TestRadioButtons";
 
     export default {
         name: 'app',
         components: {
+            TestRadioButtons,
             TestToggles,
             TestStarRating,
             TestSideNavigation,
