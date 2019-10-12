@@ -62,7 +62,7 @@
             }
 
             &.is-checked {
-                background-color: var(--shapla-primary, green);
+                background-color: var(--shapla-primary, #3273DC);
                 color: var(--shapla-on-primary, #fff);
             }
         }

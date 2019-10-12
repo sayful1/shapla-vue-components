@@ -1,9 +1,6 @@
-# shapla-tabs
+# shapla-star-rating
 
-[![npm](https://img.shields.io/npm/v/shapla-tabs.svg) ![npm](https://img.shields.io/npm/dm/shapla-tabs.svg)](https://www.npmjs.com/package/shapla-tabs)
-[![vue2](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://vuejs.org/)
-
-A simple responsive horizontal navigation tabs component based on Bulma Tabs for Vue.js
+A simple, highly customisable star rating component for Vue
 
 ## Table of contents
 
@@ -13,7 +10,7 @@ A simple responsive horizontal navigation tabs component based on Bulma Tabs for
 # Installation
 
 ```
-npm install --save shapla-tabs
+npm install --save shapla-star-rating
 ```
 
 # Usage
@@ -21,34 +18,35 @@ npm install --save shapla-tabs
 Add the component:
 
 ```js
-import {tabs,tab} from 'shapla-tabs';
+import StarRating from 'shapla-star-rating';
 
 export default {
   name: 'Hello',
 
   components: {
-    tabs,
-    tab
+    StarRating
   },
+  data(){
+    return {
+      rating:4,
+      staticRating:4.6,
+    }    
+  }
 }
 
 ```
 
 ```html
-<tabs fullwidth>
-    <tab name="Tab 1" selected>
-        Tab One Content
-    </tab>
-    <tab name="Tab 2">
-        Tab Two Content
-    </tab>
-</tabs>
+<star-rating v-model="rating"></star-rating>
+
+<star-rating v-model="staticRating" :is-static="true"></star-rating>
 ```
 
 ### Props
-| Property      | Type     | Required  | Default    | Description                                                       |
-|---------------|----------|-----------|------------|-------------------------------------------------------------------|
-| `alignment`   | String   | **no**    | `left`     | Possible value can be `left`, `center` or `right`.                |
-| `size`        | String   | **no**    | `default`  | Possible value can be `default`, `small`, `medium` or `large`.    |
-| `tabStyle`    | String   | **no**    | `default`  | Possible value can be `default`, `boxed`, `rounded` or `toggle`.  |
-| `fullwidth`   | Boolean  | **no**    | `false`    | If set `true`, the tabs will take up available full width.        |
+| Property       | Type     | Required  | Default           | Description                                           |
+|----------------|----------|-----------|-------------------|-------------------------------------------------------|
+| `value`        | Number   | **yes**   | ``                | The initial rating                                    |
+| `is-static`    | Boolean  | **no**    | `false`           | If set `true`, the rating cannot be edited.           |
+| `color`        | String   | **no**    | ``                | The color of the non-highlighted portion of a star.   |
+| `active-color` | String   | **no**    | ``                | The color of the highlighted portion of a star.       |
+| `ratings`      | Array    | **no**    | `[1, 2, 3, 4, 5]` | List of rating value                                  |
