@@ -5,10 +5,10 @@ A simple data table component for VueJS
 Supports:
 
  * Row Actions with Slot Support
+ * Custom Column Slot
  * Bulk Actions
  * Pagination
  * Search
- * Custom Column Slot
  * Custom Filter Slot
  * Sorting
 
@@ -97,13 +97,14 @@ export default {
       label: 'Move to Trash'
     }
   ]"
+
   :total-pages="5"
   :per-page="3"
   :current-page="1"
   action-column="title"
   @pagination="goToPage"
   @action:click="onActionClick"
-  @bulk:click="onBulkAction"
+   @bulk:apply="onBulkAction"
 >
   <template slot="title" slot-scope="data">
     <img :src="data.row.image" :alt="data.row.title" width="50">
@@ -143,6 +144,7 @@ export default {
 | `sortBy`       | String  | no       | `null`                                | The property in data on which to initially sort.                        |
 | `sortOrder`    | String  | no       | `asc`                                 | The initial sort order.                                                 |
 | `mobileWidth`  | Number  | no       | `767`                                 | Mobile breakpoint for table.                                            |
+| `showSearch`  | Boolean  | no       | `true`                                |  Set true if you want searchForm.                                          |
 
 
 ### columns data object
@@ -188,7 +190,7 @@ methods: {
 }
 ```
 
-**`bulk:click`**: When a bulk action is performed, this event is fired. The action name and the selected items will be passed as parameters.
+**`bulk:apply`**: When a bulk action is performed, this event is fired. The action name and the selected items will be passed as parameters.
 
 ```html
 <!-- template -->
@@ -237,7 +239,7 @@ methods: {
     this.sortBy = column;
     this.sortOrder = order;
 
-    // this.loadItems(comun, order);
+    // this.loadItems(column, order);
   }
 }
 ```
