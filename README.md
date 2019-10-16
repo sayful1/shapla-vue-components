@@ -7,3 +7,4 @@ Some reusable vue components for our projects.
 03. [Shapla Modal](shapla-modal/README.md)
 04. [Shapla Notifications](shapla-notifications/README.md)
 05. [Shapla Spinner](shapla-spinner/README.md)
+05. [Shapla Star Rating](shapla-star-rating/README.md)

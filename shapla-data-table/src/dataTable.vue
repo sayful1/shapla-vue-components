@@ -1,17 +1,17 @@
 <template>
-    <div class="mdl-data-table-container">
-        <div class="mdl-table-nav-top">
-            <div class="mdl-table-nav-top__left">
+    <div class="shapla-data-table-container">
+        <div class="shapla-data-table-nav-top">
+            <div class="shapla-data-table-nav-top__left">
                 <slot name="bulk-actions-top">
                     <bulk-actions :actions="bulkActions" :active="!!checkedItems.length" v-model="bulkLocal"
                                   @bulk:click="handleBulkAction"></bulk-actions>
                 </slot>
 
-                <div class="mdl-table-nav-top__filters">
+                <div class="shapla-data-table-nav-top__filters">
                     <slot name="filters"></slot>
                 </div>
             </div>
-            <div class="mdl-table-nav-top__right">
+            <div class="shapla-data-table-nav-top__right">
                 <slot name="search-form">
                     <search-form v-if="showSearch" @search="searchSubmit" @input="searchInput"></search-form>
                 </slot>
@@ -89,14 +89,14 @@
             </tr>
             </tbody>
         </table>
-        <div class="mdl-table-nav-bottom">
-            <div class="mdl-table-nav-bottom__left">
+        <div class="shapla-data-table-nav-bottom">
+            <div class="shapla-data-table-nav-bottom__left">
                 <slot name="bulk-actions-bottom">
                     <bulk-actions :actions="bulkActions" :active="!!checkedItems.length" v-model="bulkLocal"
                                   position="bottom" @bulk:click="handleBulkAction"></bulk-actions>
                 </slot>
             </div>
-            <div class="mdl-table-nav-bottom__right">
+            <div class="shapla-data-table-nav-bottom__right">
                 <slot name="pagination">
                     <pagination :current_page="currentPage" :per_page="perPage" :total_items="itemsTotal"
                                 @pagination="goToPage" size="small"></pagination>
@@ -165,9 +165,9 @@
 
             tableClasses() {
                 return {
-                    'mdl-data-table': true,
-                    'mdl-data-table--fullwidth': true,
-                    'mdl-data-table--mobile': this.windowWidth <= this.mobileWidth
+                    'shapla-data-table': true,
+                    'shapla-data-table--fullwidth': true,
+                    'shapla-data-table--mobile': this.windowWidth <= this.mobileWidth
                 }
             },
 
@@ -229,12 +229,12 @@
                 return [
                     'manage-column',
                     'manage-' + key,
-                    {'mdl-data-table__cell--non-numeric': nonNumeric},
+                    {'shapla-data-table__cell--non-numeric': nonNumeric},
                     {'column-primary': this.actionColumn === key},
                     {'sortable': this.isSortable(value)},
                     {'sorted': this.isSorted(key)},
-                    {'mdl-data-table__header--sorted-ascending': this.isSorted(key) && this.sortOrder === 'asc'},
-                    {'mdl-data-table__header--sorted-descending': this.isSorted(key) && this.sortOrder === 'desc'}
+                    {'shapla-data-table__header--sorted-ascending': this.isSorted(key) && this.sortOrder === 'asc'},
+                    {'shapla-data-table__header--sorted-descending': this.isSorted(key) && this.sortOrder === 'desc'}
                 ]
             },
 
@@ -243,7 +243,7 @@
                 return [
                     'manage-column',
                     'manage-' + value.key,
-                    {'mdl-data-table__cell--non-numeric': nonNumeric},
+                    {'shapla-data-table__cell--non-numeric': nonNumeric},
                     {'column-primary': this.actionColumn === value.key},
                 ]
             },
