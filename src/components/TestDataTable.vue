@@ -1,5 +1,15 @@
 <template>
     <div>
+        <shapla-table
+                :items="rows"
+                :columns="columns"
+                :sort-by="sortBy"
+                :sort-order="sortOrder"
+                @sort="sortData"
+                action-column="title"
+                :actions="actions"
+                @action:click="onActionClick"
+        ></shapla-table>
         <data-table
                 :columns="columns"
                 :rows="rows"
@@ -21,10 +31,11 @@
 
 <script>
     import dataTable from '../../shapla-data-table';
+    import ShaplaTable from "../../shapla-data-table/src/shaplaTable";
 
     export default {
         name: "TestDataTable",
-        components: {dataTable},
+        components: {ShaplaTable, dataTable},
         data() {
             return {
                 columns: [
