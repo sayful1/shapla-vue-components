@@ -1,16 +1,18 @@
 <template>
     <div>
-        <shapla-table
+        <data-table
                 :items="rows"
                 :columns="columns"
                 :sort-by="sortBy"
                 :sort-order="sortOrder"
+                :selected-items="selectedItems"
                 @sort="sortData"
                 action-column="title"
                 :actions="actions"
                 @action:click="onActionClick"
-        ></shapla-table>
-        <data-table
+                @item:select="selectItems"
+        ></data-table>
+        <data-table-full
                 :columns="columns"
                 :rows="rows"
                 :sort-by="sortBy"
@@ -25,17 +27,17 @@
                 :bulk-actions="bulkActions"
                 @action:click="onActionClick"
                 @bulk:apply="onBulkAction"
-        ></data-table>
+        ></data-table-full>
     </div>
 </template>
 
 <script>
-    import dataTable from '../../shapla-data-table';
-    import ShaplaTable from "../../shapla-data-table/src/shaplaTable";
+    import dataTableFull from '../../shapla-data-table/src/dataTableFull';
+    import dataTable from "../../shapla-data-table/src/dataTable";
 
     export default {
         name: "TestDataTable",
-        components: {ShaplaTable, dataTable},
+        components: {dataTable, dataTableFull},
         data() {
             return {
                 columns: [
@@ -59,9 +61,13 @@
                 sortBy: 'math',
                 sortOrder: 'asc',
                 currentPage: 1,
+                selectedItems: [],
             }
         },
         methods: {
+            selectItems(selectedItems) {
+                this.selectedItems = selectedItems;
+            },
             sortData(column, order) {
                 this.sortBy = column;
                 this.sortOrder = order;
