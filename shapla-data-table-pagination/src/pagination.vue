@@ -4,9 +4,8 @@
         <span class="shapla-pagination-links" v-if="total_pages > 1">
 
 			<a class="shapla-pagination-link shapla-pagination-first-page" :class="{'is-disabled':disable_first}"
-               href="#"
-               @click.prevent="firstPage">
-				<span class="screen-reader-text" v-if="!disable_first">First page</span>
+               href="#" role="button" @click.prevent="firstPage">
+				<span class="screen-reader-text" v-if="!disable_first">{{textFirstPage}}</span>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path d="M18.41 16.59L13.82 12l4.59-4.59L17 6l-6 6 6 6zM6 6h2v12H6z"></path>
                     <path fill="none" d="M24 24H0V0h24v24z"></path>
@@ -14,9 +13,8 @@
 			</a>
 
             <a class="shapla-pagination-link shapla-pagination-previous-page" :class="{'is-disabled':disable_prev}"
-               href="#"
-               @click.prevent="prePage">
-                <span class="screen-reader-text" v-if="!disable_prev">Previous page</span>
+               href="#" role="button" @click.prevent="prePage">
+                <span class="screen-reader-text" v-if="!disable_prev">{{textPreviousPage}}</span>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
                     <path fill="none" d="M0 0h24v24H0z"></path>
@@ -24,7 +22,7 @@
             </a>
 
             <span class="shapla-pagination-input-container">
-                <label for="current-page-selector" class="screen-reader-text">Current Page</label>
+                <label for="current-page-selector" class="screen-reader-text">{{textCurrentPage}}</label>
                 <input type="text"
                        class="shapla-pagination-current-page"
                        id="current-page-selector"
@@ -34,13 +32,13 @@
                        :max="total_pages"
                        aria-describedby="table-paging"
                 >
-                <span class="shapla-pagination-paging-text"> of <span
+                <span class="shapla-pagination-paging-text"> {{textOf}} <span
                         class="shapla-pagination-total-pages">{{total_pages}}</span></span>
             </span>
 
             <a href="#" class="shapla-pagination-link shapla-pagination-next-page" :class="{'is-disabled':disable_next}"
-               @click.prevent="nextPage">
-                <span class="screen-reader-text" v-if="!disable_next">Next page</span>
+               role="button" @click.prevent="nextPage">
+                <span class="screen-reader-text" v-if="!disable_next">{{textNextPage}}</span>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
                     <path d="M0 0h24v24H0z" fill="none"></path>
@@ -48,8 +46,8 @@
             </a>
 
             <a href="#" class="shapla-pagination-link shapla-pagination-last-page" :class="{'is-disabled':disable_last}"
-               @click.prevent="lastPage">
-                <span class="screen-reader-text" v-if="!disable_last">Last page</span>
+               role="button" @click.prevent="lastPage">
+                <span class="screen-reader-text" v-if="!disable_last">{{textLastPage}}</span>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path d="M5.59 7.41L10.18 12l-4.59 4.59L7 18l6-6-6-6zM16 6h2v12h-2z"></path>
                     <path fill="none" d="M0 0h24v24H0V0z"></path>
@@ -83,6 +81,38 @@
                 type: String,
                 default: 'default',
                 validator: (value) => ['default', 'small', 'medium', 'large'].indexOf(value) !== -1
+            },
+            textName: {
+                type: String,
+                default: 'items'
+            },
+            textNameSingular: {
+                type: String,
+                default: 'item'
+            },
+            textCurrentPage: {
+                type: String,
+                default: 'Current Page'
+            },
+            textFirstPage: {
+                type: String,
+                default: 'First page'
+            },
+            textPreviousPage: {
+                type: String,
+                default: 'Previous page'
+            },
+            textNextPage: {
+                type: String,
+                default: 'Next page'
+            },
+            textLastPage: {
+                type: String,
+                default: 'Last page'
+            },
+            textOf: {
+                type: String,
+                default: 'of'
             },
         },
 
@@ -163,9 +193,9 @@
              */
             displaying_num() {
                 if (this.total_items > 1) {
-                    return `${this.total_items} items`;
+                    return `${this.total_items} ${this.textName}`;
                 }
-                return `${this.total_items} item`;
+                return `${this.total_items} ${this.textNameSingular}`;
             }
         },
 

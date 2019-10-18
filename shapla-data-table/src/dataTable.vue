@@ -88,14 +88,14 @@
             columns: {type: Array, required: true,},
             selectedItems: {type: Array, default: () => []},
             actions: {type: Array, default: () => []},
-            index: {type: String, default: 'id'},
             actionColumn: {type: String, default: 'title'},
+            index: {type: String, default: 'id'},
             showCb: {type: Boolean, default: true},
             selectAllText: {type: String, default: 'Select All'},
             notFoundText: {type: String, default: 'No items found.'},
             sortBy: {type: String, default: null},
             sortOrder: {type: String, default: "asc"},
-            mobileWidth: {type: Number, default: 767},
+            mobileWidth: {type: Number, default: 768},
         },
         data() {
             return {
@@ -175,7 +175,9 @@
                     }
                 });
 
-                tr.classList.toggle('is-expanded');
+                setTimeout(() => {
+                    tr.classList.toggle('is-expanded');
+                }, 50);
             },
 
             actionClicked(action, row) {
@@ -225,6 +227,6 @@
     }
 </script>
 
-<style scoped>
-
+<style lang="scss">
+    @import "data-table";
 </style>

@@ -20,6 +20,15 @@
         <data-table
                 :items="rows"
                 :columns="columns"
+                :selected-items="[]"
+                :actions="actions"
+                :index="index"
+                :action-column="actionColumn"
+                :show-cb="showCb"
+                :not-found-text="notFound"
+                :sort-by="sortBy"
+                :sort-order="sortOrder"
+                :mobile-width="mobileWidth"
         ></data-table>
         <div class="shapla-data-table-nav-bottom">
             <div class="shapla-data-table-nav-bottom__left">
@@ -40,9 +49,9 @@
 
 <script>
     import bulkActions from './bulkActions'
-    import pagination from './pagination'
-    import searchForm from "./searchForm";
-    import dataTable from "./dataTable";
+    import pagination from '../../shapla-data-table-pagination/src/pagination'
+    import searchForm from "../../shapla-search-form/src/searchForm";
+    import dataTable from "../../shapla-data-table/src/dataTable";
 
     export default {
         name: "dataTableFull",

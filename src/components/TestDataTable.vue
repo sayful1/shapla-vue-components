@@ -32,7 +32,7 @@
 </template>
 
 <script>
-    import dataTableFull from '../../shapla-data-table/src/dataTableFull';
+    import dataTableFull from '../../shapla-data-table-full/src/dataTableFull';
     import dataTable from "../../shapla-data-table/src/dataTable";
 
     export default {
