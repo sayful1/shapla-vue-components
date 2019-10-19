@@ -1,7 +1,10 @@
 <template>
     <div id="app">
         <tabs alignment="center">
-            <tab name="Radio Buttons" selected>
+            <tab name="Status List" selected>
+                <test-status-list></test-status-list>
+            </tab>
+            <tab name="Radio Buttons">
                 <test-radio-buttons></test-radio-buttons>
             </tab>
             <tab name="Confirmation Dialogs">
@@ -55,10 +58,12 @@
     import TestStarRating from "./components/TestStarRating";
     import TestToggles from "./components/TestToggles";
     import TestRadioButtons from "./components/TestRadioButtons";
+    import TestStatusList from "./components/TestStatusList";
 
     export default {
         name: 'app',
         components: {
+            TestStatusList,
             TestRadioButtons,
             TestToggles,
             TestStarRating,
