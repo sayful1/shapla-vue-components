@@ -85,10 +85,7 @@
 		padding-bottom: 8px;
 		box-sizing: border-box;
 
-		&.shapla-data-table__header--sorted-ascending,
-		&.shapla-data-table__header--sorted-descending {
-			color: $data-table-header-sorted-color;
-
+		&.sortable {
 			svg {
 				height: $data-table-header-sort-icon-size;
 				margin-right: 5px;
@@ -104,6 +101,11 @@
 					fill: $data-table-header-sorted-icon-hover-color;
 				}
 			}
+		}
+
+		&.shapla-data-table__header--sorted-ascending,
+		&.shapla-data-table__header--sorted-descending {
+			color: $data-table-header-sorted-color;
 		}
 
 		&.shapla-data-table__header--sorted-ascending {
@@ -188,10 +190,6 @@ table.shapla-data-table--mobile {
 
 	tr:not(.inline-edit-row):not(.no-items) td.column-primary ~ td:not(.check-column) {
 		display: none;
-	}
-
-	tr:not(.inline-edit-row):not(.no-items) td.column-primary ~ td:not(.check-column) {
-		// padding: 3px 8px 3px 35%;
 	}
 
 	tr.is-expanded td:not(.check-column) {

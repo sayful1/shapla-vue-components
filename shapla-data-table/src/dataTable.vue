@@ -93,8 +93,8 @@
             showCb: {type: Boolean, default: true},
             selectAllText: {type: String, default: 'Select All'},
             notFoundText: {type: String, default: 'No items found.'},
-            sortBy: {type: String, default: null},
-            sortOrder: {type: String, default: "asc"},
+            sortBy: {type: String, default: 'id'},
+            sortOrder: {type: String, default: "desc"},
             mobileWidth: {type: Number, default: 768},
         },
         data() {
@@ -133,17 +133,24 @@
             }
         },
         mounted() {
-            this.windowWidth = window.innerWidth;
+            this.updateTableWidth();
 
             window.addEventListener('resize', () => {
-                this.windowWidth = window.innerWidth;
+                this.updateTableWidth();
             });
 
             window.addEventListener('orientationchange', () => {
-                this.windowWidth = window.innerWidth;
+                this.updateTableWidth();
             });
         },
         methods: {
+            updateTableWidth() {
+                if (this.$el.offsetWidth) {
+                    this.windowWidth = this.$el.offsetWidth;
+                } else {
+                    this.windowWidth = window.innerWidth;
+                }
+            },
             getHeadColumnClass(key, value) {
                 let nonNumeric = typeof value.numeric === "undefined" || (typeof value.numeric !== "undefined" && value.numeric === false);
                 return [
