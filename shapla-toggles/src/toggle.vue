@@ -2,7 +2,7 @@
     <div class="shapla-toggle-panel" :class="panelClass">
         <div class="shapla-toggle-panel__heading">
             <h4 class="shapla-toggle-panel__title toggle">
-                <a href="#" @click.prevent="toggleActive">
+                <a href="#" @click.prevent="toggleActive" :class="`shapla-toggle-panel__toggle-icon--${iconPosition}`">
                     <div class="shapla-toggle-panel__icon-wrapper">
                         <template v-if="isSelected">
                             <slot name="close">
@@ -42,6 +42,11 @@
             name: {type: String, required: true},
             selected: {type: Boolean, default: false},
             boxedMode: {type: Boolean, default: true},
+            iconPosition: {
+                type: String,
+                default: 'left',
+                validator: (value) => -1 !== ['left', 'right'].indexOf(value)
+            },
             showDivider: {type: Boolean, default: true},
         },
         data() {
@@ -184,5 +189,19 @@
                 clear: both;
             }
         }
+    }
+
+    .shapla-toggle-panel__toggle-icon--right {
+        display: flex;
+        justify-content: space-between;
+
+        .shapla-toggle-panel__icon-wrapper {
+            order: 2;
+        }
+
+        .shapla-toggle-panel__title-text {
+            margin-left: 0;
+        }
+
     }
 </style>
