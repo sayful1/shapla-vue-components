@@ -28,7 +28,7 @@ npm install --save shapla-data-table
 Add the component:
 
 ```js
-import dataTable from 'shapla-data-table';
+import dataTable from 'shapla-datstatusLista-table';
 
 export default {
   name: 'Hello',
