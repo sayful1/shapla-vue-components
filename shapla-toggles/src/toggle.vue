@@ -121,7 +121,8 @@
         }
 
         &--no-divider {
-            border-bottom: none;
+           // border-bottom: none;
+            border-bottom:1px solid #eeeeee;
         }
 
         &--boxed-mode {

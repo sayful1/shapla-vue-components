@@ -13,6 +13,7 @@ A simple responsive horizontal navigation tabs component based on Bulma Tabs for
 # Installation
 
 ```
+
 npm install --save shapla-tabs
 ```
 
@@ -52,3 +53,22 @@ export default {
 | `size`        | String   | **no**    | `default`  | Possible value can be `default`, `small`, `medium` or `large`.    |
 | `tabStyle`    | String   | **no**    | `default`  | Possible value can be `default`, `boxed`, `rounded` or `toggle`.  |
 | `fullwidth`   | Boolean  | **no**    | `false`    | If set `true`, the tabs will take up available full width.        |
+
+### tab data object
+
+| Property      | Type      | Required  | Default   | Description                                                       |
+|---------------|-----------|-----------|-----------|-------------------------------------------------------------------|
+| `name`        | String    | **yes**   |   ``      | Tab name                                                          |
+| `selected`    | Boolean   |    no     | `false`   | Defines whether the tab is selected or not                        |                                          |
+
+
+```html
+<!-- template -->
+<tabs alignment="center" tab-style="boxed">
+<tab name="Tab 1" selected>
+  <!-- content -->     
+</tab>
+<tab name="Tab 2">
+ <!-- content -->             
+</tab>
+</tabs>

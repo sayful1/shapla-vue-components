@@ -1,7 +1,10 @@
 <template>
     <div>
         <toggles>
-            <toggle name="Toggle One" :selected="true">
+            <toggle name="accordion" :accordion="false">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, id.
+            </toggle>
+            <toggle name="Toggle One" :selected="true" :boxedMode="false" :show-divider="false">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, id.
             </toggle>
             <toggle name="Toggle right" :selected="true" iconPosition="right">

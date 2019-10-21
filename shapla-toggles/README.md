@@ -27,34 +27,43 @@ components: {Toggle, Toggles}
 ```
 
 ```html
-      <toggle name="Toggle One" :selected="true">
-                   <!-- content -->
-      </toggle>
-      <toggle name="Toggle Two">
+<toggle name="Toggle One" :selected="true" :boxedMode="false" :show-divider="false">
+          <!-- content -->
+</toggle>
+<toggle name="Toggle Two">
        <!-- content -->
-                <toggle name="Nested Toggle">
-           <!-- content -->
-                </toggle>
-       </toggle>
+<toggle name="Nested Toggle">
+       <!-- content -->
+</toggle>
+</toggle>
 
 ```
 
 ### Props
-| Property      | Type      | Required  | Default   | Description                           |
-|---------------|-----------|-----------|-----------|---------------------------------------|
-| `name`        | String    | **yes**   | `true`    |                                    |
-| `selected`    | Boolean   | **no**    |  `false`  |                                    |
-| `boxedMode`   | Boolean   | **no**    |  `true`   |                                    |
-| `iconPosition`| String    | **no**    |  `left`   |                                    |
-| `showDivider` | Boolean   | **no**    |  `true`   |                                    |
+| Property      | Type      | Required  | Default   | Description                                           |
+|---------------|-----------|-----------|-----------|-------------------------------------------------------|
+| `name`        | String    | **yes**   | `true`    | Toggle input name                                     |
+| `selected`    | Boolean   | **no**    |  `false`  | Defines whether the toggle input is selected or not   |
+| `boxedMode`   | Boolean   | **no**    |  `true`   | Set false to remove box                               |
+| `iconPosition`| String    | **no**    |  `left`   | Set `right` to see icon position                      |
+| `showDivider` | Boolean   | **no**    |  `true`   | Set false to see border                               |
 
+
+### toggles data object
+
+| Property      | Type      | Required  | Default   | Description                                                             |
+|---------------|-----------|-----------|-----------|-------------------------------------------------------------------------|
+| `accordion`   | Boolean   | no        | `true`    | Set false to set multiple accordion at same time.                                                      |
 
 
 ```html
 <!-- template -->
- <toggle name="Toggle right" :selected="true" iconPosition="right">
- <!-- content -->
-</toggle>
+<toggle name="accordion" :accordion="false">
+<!-- template -->
+</toggle> 
+
+
+
 
 ```
 
