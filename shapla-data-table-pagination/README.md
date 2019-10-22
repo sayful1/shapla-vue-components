@@ -55,7 +55,7 @@ export default {
 | `textOf`              | String   | **No**    | `of`               | Screen reader text for 'of' text.                                             |
 
 ## Listeners
-The modal component fires the following events:
+The pagination component fires the following events:
 
 **`pagination`**: When any navigation icon is clicked, it fires the event and it gives current page number.
 
