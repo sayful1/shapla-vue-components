@@ -1,5 +1,5 @@
 # shapla-data-table-pagination
-A simple pagination based on WordPress list table pagination specially for  data table pagination.
+A simple pagination based on WordPress list table pagination specially for data table.
 
 ## Table of contents
 
