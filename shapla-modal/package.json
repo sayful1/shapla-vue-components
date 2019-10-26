@@ -42,7 +42,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "shapla-delete": "^1.0.1",
+    "shapla-delete": "^1.0.2",
     "vue": "^2.6.10"
   },
   "devDependencies": {

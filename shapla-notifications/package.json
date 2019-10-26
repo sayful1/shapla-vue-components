@@ -1,7 +1,7 @@
 {
   "name": "shapla-notifications",
   "description": "A simple dependency-free notification component for VueJS",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",
@@ -40,11 +40,11 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build:lib": "vue-cli-service build --target lib --name notification ./src/notification.vue",
+    "build:lib": "vue-cli-service build --target lib --name notification ./src/index.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "shapla-delete": "^1.0.1",
+    "shapla-delete": "^1.0.2",
     "vue": "^2.6.10"
   },
   "devDependencies": {
