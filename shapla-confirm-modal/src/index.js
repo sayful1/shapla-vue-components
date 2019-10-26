@@ -1,5 +1,27 @@
 import modal from './plugin';
-import ConfirmDialog from './ConfirmDialog';
+import ConfirmModal from './ConfirmModal';
 
-export {modal, ConfirmDialog};
+// Declare install function executed by Vue.use()
+export function install(Vue) {
+    if (install.installed) return;
+    install.installed = true;
+    Vue.use('modal', modal);
+    Vue.component('confirm-modal', ConfirmModal);
+}
+
+// Create module definition for Vue.use()
+const plugin = {install};
+
+// Auto-install when vue is found (eg. in browser via <script> tag)
+let GlobalVue = null;
+if (typeof window !== 'undefined') {
+    GlobalVue = window.Vue;
+} else if (typeof global !== 'undefined') {
+    GlobalVue = global.Vue;
+}
+if (GlobalVue) {
+    GlobalVue.use(plugin);
+}
+
+export {modal, ConfirmModal};
 export default modal;
