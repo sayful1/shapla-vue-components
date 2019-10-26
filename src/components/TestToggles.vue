@@ -4,9 +4,11 @@
             <toggle name="Toggle One" :selected="true">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, id.
             </toggle>
-            <toggle name="Toggle right" :selected="true" iconPosition="right">
+
+            <toggle name="Toggle right" iconPosition="right">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, id.
             </toggle>
+
             <toggle name="Toggle Two">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam at et itaque magnam nulla officiis
                 perferendis ratione velit, veritatis.

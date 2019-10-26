@@ -10,6 +10,7 @@
   "dependencies": {
     "core-js": "^2.6.5",
     "shapla-delete": "file:shapla-delete",
+    "shapla-modal": "file:shapla-modal",
     "vue": "^2.6.10"
   },
   "devDependencies": {

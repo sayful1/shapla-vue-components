@@ -16,27 +16,26 @@ npm install --save shapla-toggles
 Add the component:
 
 ```js
-import statusList from 'shapla-toggles';
+import {toggles,toggle} from 'shapla-toggles';
 
 export default {
   name: 'Hello',
 
-components: {Toggle, Toggles}
+components: {toggles,toggle}
 }
 
 ```
 
 ```html
-      <toggle name="Toggle One" :selected="true">
-                   <!-- content -->
-      </toggle>
-      <toggle name="Toggle Two">
+    <toggle name="Toggle One" :selected="true">
+            <!-- content -->
+    </toggle>
+    <toggle name="Toggle Two">
        <!-- content -->
-                <toggle name="Nested Toggle">
-           <!-- content -->
-                </toggle>
-       </toggle>
-
+        <toggle name="Nested Toggle">
+            <!-- content -->
+        </toggle>
+    </toggle>
 ```
 
 ### Props
