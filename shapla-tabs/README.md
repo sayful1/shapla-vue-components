@@ -13,7 +13,7 @@ A simple responsive horizontal navigation tabs component based on Bulma Tabs for
 # Installation
 
 ```
-npm install --save shapla-tabs
+npm i shapla-tabs
 ```
 
 # Usage
@@ -45,10 +45,17 @@ export default {
 </tabs>
 ```
 
-### Props
+### Props for `tabs`
 | Property      | Type     | Required  | Default    | Description                                                       |
 |---------------|----------|-----------|------------|-------------------------------------------------------------------|
 | `alignment`   | String   | **no**    | `left`     | Possible value can be `left`, `center` or `right`.                |
 | `size`        | String   | **no**    | `default`  | Possible value can be `default`, `small`, `medium` or `large`.    |
 | `tabStyle`    | String   | **no**    | `default`  | Possible value can be `default`, `boxed`, `rounded` or `toggle`.  |
 | `fullwidth`   | Boolean  | **no**    | `false`    | If set `true`, the tabs will take up available full width.        |
+
+
+### Props for `tab`
+| Property      | Type      | Required  | Default   | Description                               |
+|---------------|-----------|-----------|-----------|-------------------------------------------|
+| `name`        | String    | **yes**   | `true`    | Tab title.                                |
+| `selected`    | Boolean   | **no**    |  `false`  | Set true if you to keep open by default.  |
