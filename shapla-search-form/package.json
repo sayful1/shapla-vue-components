@@ -39,7 +39,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build:lib": "vue-cli-service build --target lib --name search-form ./src/searchForm.vue",
+    "build:lib": "vue-cli-service build --target lib --name search-form ./src/index.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

@@ -1,4 +1,4 @@
-# shapla-delete
+# shapla-search-form
 A simple search form design for Vue js.
 
 ## Table of contents

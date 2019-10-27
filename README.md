@@ -13,10 +13,10 @@ Some reusable vue components for our projects.
 09. [Shapla Data Table Status](shapla-data-table-status/README.md)
 10. [Shapla Toggles](shapla-toggles/README.md)
 11. [Shapla Tabs](shapla-tabs/README.md)
+12. [Shapla Search Form](shapla-search-form/README.md)
 
 Under Development
 01. [Shapla Data Table Full](shapla-data-table-full/README.md)
-02. [Shapla Search Form](shapla-search-form/README.md)
 03. [Shapla Radio Buttons](shapla-radio-buttons/README.md)
 06. [Shapla Side Navigation](shapla-side-navigation/README.md)
 07. [Shapla Confirm Modal](shapla-confirm-modal/README.md)
