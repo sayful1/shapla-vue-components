@@ -41,23 +41,21 @@
             name: {type: String, required: true},
             subtext: {type: String, required: false},
             selected: {type: Boolean, default: false},
-            iconPosition: {
-                type: String, default: 'left', validator: value => -1 !== ['left', 'right'].indexOf(value)
-            },
-            boxedMode: {type: Boolean, default: true},
-            showDivider: {type: Boolean, default: true},
         },
         data() {
             return {
                 isSelected: false,
                 panelContent: null,
+                iconPosition: 'left',
+                boxedMode: true,
+                showDivider: true,
             }
         },
         computed: {
             panelClass() {
                 return {
                     'shapla-toggle-panel--default': true,
-                    'shapla-toggle-panel--no-divider': !this.showDivider,
+                    'shapla-toggle-panel--no-divider': !this.showDivider && !this.boxedMode,
                     'shapla-toggle-panel--boxed-mode': this.boxedMode,
                 }
             },
@@ -72,6 +70,21 @@
 
             this.panelContent = this.$el.querySelector('.shapla-toggle-panel__body');
             this.handleSelect(this.isSelected);
+
+            // Update icon position
+            if (this.$parent.iconPosition !== 'undefined') {
+                this.iconPosition = this.$parent.iconPosition;
+            }
+
+            // Update box mode
+            if (this.$parent.boxedMode !== 'undefined') {
+                this.boxedMode = this.$parent.boxedMode;
+            }
+
+            // Update divider information
+            if (this.$parent.showDivider !== 'undefined') {
+                this.showDivider = this.$parent.showDivider;
+            }
         },
         watch: {
             isSelected(newValue) {

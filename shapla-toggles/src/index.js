@@ -28,4 +28,5 @@ const Components = {
     toggle
 };
 
+export {toggles, toggle};
 export default Components;

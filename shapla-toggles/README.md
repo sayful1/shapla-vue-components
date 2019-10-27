@@ -27,34 +27,28 @@ components: {toggles,toggle}
 ```
 
 ```html
-    <toggle name="Toggle One" :selected="true">
-            <!-- content -->
-    </toggle>
-    <toggle name="Toggle Two">
-       <!-- content -->
-        <toggle name="Nested Toggle">
+    <toggles>
+        <toggle name="Toggle One" :selected="true">
             <!-- content -->
         </toggle>
-    </toggle>
+        <toggle name="Toggle Two">
+            <!-- content -->
+        </toggle>
+    </toggles>
 ```
 
-### Props
-| Property      | Type      | Required  | Default   | Description                           |
-|---------------|-----------|-----------|-----------|---------------------------------------|
-| `name`        | String    | **yes**   | `true`    |                                    |
-| `selected`    | Boolean   | **no**    |  `false`  |                                    |
-| `boxedMode`   | Boolean   | **no**    |  `true`   |                                    |
-| `iconPosition`| String    | **no**    |  `left`   |                                    |
-| `showDivider` | Boolean   | **no**    |  `true`   |                                    |
+### Props for `toggles`
+| Property      | Type      | Required  | Default   | Description                                                                                        |
+|---------------|-----------|-----------|-----------|----------------------------------------------------------------------------------------------------|
+| `accordion`   | Boolean   | **no**    |  `true`   | If you set `false`. All toggle components can be opened. Otherwise opening one will close another. |
+| `iconPosition`| String    | **no**    |  `left`   | Value can be `left` or `right`.                                                                    |
+| `boxedMode`   | Boolean   | **no**    |  `true`   | Set `false` if you don't want border on all side.                                                  |
+| `showDivider` | Boolean   | **no**    |  `true`   | Only works when `boxedMode` is `false`. Remove all borders.                                        |
 
 
-
-```html
-<!-- template -->
- <toggle name="Toggle right" :selected="true" iconPosition="right">
- <!-- content -->
-</toggle>
-
-```
-
-
+### Props for `toggle`
+| Property      | Type      | Required  | Default   | Description                               |
+|---------------|-----------|-----------|-----------|-------------------------------------------|
+| `name`        | String    | **yes**   | `true`    | Toggle title.                             |
+| `subtext`     | String    | **yes**   | `true`    | Toggle subtitle.                          |
+| `selected`    | Boolean   | **no**    |  `false`  | Set true if you to keep open by default.  |

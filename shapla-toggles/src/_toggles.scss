@@ -1,16 +1,12 @@
 .shapla-toggle-panel {
 	background-color: #ffffff;
-	border: 1px none #eeeeee;
+	border: 1px none rgba(#000, .1);
 	border-bottom-style: solid;
 	box-shadow: none;
 	font-size: 1rem;
 
 	&:first-child {
 		border-top-style: solid;
-	}
-
-	&:hover {
-		// background-color: #f9f9f9;
 	}
 
 	&--no-divider {
@@ -33,15 +29,11 @@
 		cursor: pointer;
 		display: flex;
 		padding: .75em 1.25em;
-		color: var(--shapla-text-primary, rgba(0, 0, 0, 0.87));
+		color: var(--shapla-text-primary, rgba(#000, 0.87));
 		position: relative;
 		line-height: 1.5;
 		font-size: 1.25em;
 		font-weight: 400;
-
-		&.has-icon-left {
-			// margin-left: 1rem;
-		}
 
 		&.has-icon-right {
 			justify-content: space-between;
@@ -77,7 +69,7 @@
 	}
 
 	&__title-subtext {
-		color: var(--shapla-text-secondary, rgba(0, 0, 0, 0.54));
+		color: var(--shapla-text-secondary, rgba(#000, 0.54));
 		font-size: .75em;
 	}
 
