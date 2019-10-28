@@ -283,7 +283,7 @@ $spinner-duration: 360 * $spinner-arc-time / ( strip-units($spinner-arc-start-ro
 		justify-content: center;
 		left: 0;
 		top: 0;
-		z-index: 99999;
+		z-index: 999999;
 
 		&:not(.is-static) {
 			background-color: rgba(#eee, 0.9);
