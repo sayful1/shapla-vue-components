@@ -35,8 +35,8 @@
                     classes.push('is-fullwidth')
                 }
 
-                if ('default' !== this.color) {
-                    classes.push(`is-${this.color}`);
+                if ('default' !== this.theme) {
+                    classes.push(`is-${this.theme}`);
                 }
 
                 if ('normal' !== this.size) {
