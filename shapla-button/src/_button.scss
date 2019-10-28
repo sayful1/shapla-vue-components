@@ -1,0 +1,93 @@
+@import "colors";
+
+.shapla-button {
+	user-select: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	align-items: center;
+	border: 1px solid #dbdbdb;
+	border-radius: 4px;
+	box-shadow: none;
+	display: inline-flex;
+	font-size: 1rem;
+	height: 2.5em;
+	line-height: 1.5;
+	position: relative;
+	vertical-align: top;
+	background-color: #fff;
+	color: $text-primary;
+	cursor: pointer;
+	justify-content: center;
+	padding: calc(.5em - 1px) 1em;
+	text-align: center;
+	white-space: nowrap;
+
+	&:active,
+	&:focus {
+		outline: none
+	}
+
+	strong {
+		color: inherit
+	}
+
+	&:hover {
+		border-color: #b5b5b5;
+		color: #363636
+	}
+
+	&:focus {
+		border-color: $primary;
+		color: $text-primary;
+
+		&:not(:active) {
+			box-shadow: 0 0 0 .125em rgba(#3273dc, .25);
+		}
+	}
+
+	&:active {
+		border-color: #4a4a4a;
+		color: $text-primary;
+	}
+
+	&[disabled],
+	fieldset[disabled] & {
+		cursor: not-allowed
+	}
+
+	&.is-fullwidth {
+		display: flex;
+		width: 100%;
+	}
+
+	// Button sizes
+	&.is-small {
+		border-radius: 2px;
+		font-size: .75rem
+	}
+
+	&.is-normal {
+		font-size: 1rem
+	}
+
+	&.is-medium {
+		font-size: 1.25rem
+	}
+
+	&.is-large {
+		font-size: 1.5rem
+	}
+
+	// Button colors
+	&.is-primary {
+		background-color: $primary;
+		border-color: transparent;
+		color: $on-primary;
+	}
+
+	&.is-secondary {
+		background-color: $secondary;
+		border-color: transparent;
+		color: $on-secondary;
+	}
+}
