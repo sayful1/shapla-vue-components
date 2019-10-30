@@ -40,6 +40,9 @@
             <tab name="Toggles">
                 <test-toggles></test-toggles>
             </tab>
+            <tab name="Media Uploader">
+               <test-media-uploader></test-media-uploader>
+            </tab>
         </tabs>
     </div>
 </template>
@@ -59,10 +62,12 @@
     import TestToggles from "./components/TestToggles";
     import TestRadioButtons from "./components/TestRadioButtons";
     import TestStatusList from "./components/TestStatusList";
+    import TestMediaUploader from "./components/TestMediaUploader";
 
     export default {
         name: 'app',
         components: {
+            TestMediaUploader,
             TestStatusList,
             TestRadioButtons,
             TestToggles,
