@@ -52,3 +52,4 @@ components: {toggles,toggle}
 | `name`        | String    | **yes**   | `true`    | Toggle title.                             |
 | `subtext`     | String    | **yes**   | `true`    | Toggle subtitle.                          |
 | `selected`    | Boolean   | **no**    |  `false`  | Set true if you to keep open by default.  |
+

@@ -59,3 +59,4 @@ export default {
 |---------------|-----------|-----------|-----------|-------------------------------------------|
 | `name`        | String    | **yes**   | `true`    | Tab title.                                |
 | `selected`    | Boolean   | **no**    |  `false`  | Set true if you to keep open by default.  |
+
