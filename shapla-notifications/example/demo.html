@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>button demo</title>
+    <link rel="stylesheet" href="../dist/notification.css">
+</head>
+<body>
+<div id="app">
+    <button @click="showDefaultNotification">Show Default Notification</button>
+    <button @click="showSuccessNotification">Show Success Notification</button>
+    <button @click="showInfoNotification">Show Info Notification</button>
+    <button @click="showWarningNotification">Show Warning Notification</button>
+    <button @click="showErrorNotification">Show Error Notification</button>
+    <notification :options="notification"></notification>
+</div>
+<script src="https://unpkg.com/vue"></script>
+<script src="../dist/notification.umd.min.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            notification: {}
+        },
+        methods: {
+            showDefaultNotification: function () {
+                this.notification = {
+                    message: 'This is default message.'
+                };
+            },
+            showSuccessNotification() {
+                this.notification = {
+                    type: 'success',
+                    title: 'Success!',
+                    timeout: 60000,
+                    message: 'This is success message. Self close after 1 minute.'
+                };
+            },
+            showInfoNotification() {
+                this.notification = {
+                    type: 'info',
+                    title: 'Info!',
+                    message: 'This is info message.'
+                };
+            },
+            showWarningNotification() {
+                this.notification = {
+                    type: 'warning',
+                    title: 'Warning!',
+                    message: 'This is warning message.'
+                };
+            },
+            showErrorNotification() {
+                this.notification = {
+                    type: 'error',
+                    title: 'Error!',
+                    message: 'This is error message.'
+                };
+            },
+        }
+    });
+</script>
+</body>
+</html>
