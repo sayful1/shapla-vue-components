@@ -1,3 +1,5 @@
+@import "colors";
+
 .shapla-toggle-panel {
 	background-color: #ffffff;
 	border: 1px none rgba(#000, .1);
@@ -29,7 +31,7 @@
 		cursor: pointer;
 		display: flex;
 		padding: .75em 1.25em;
-		color: var(--shapla-text-primary, rgba(#000, 0.87));
+		color: $text-primary;
 		position: relative;
 		line-height: 1.5;
 		font-size: 1.25em;
@@ -69,7 +71,7 @@
 	}
 
 	&__title-subtext {
-		color: var(--shapla-text-secondary, rgba(#000, 0.54));
+		color: $text-secondary;
 		font-size: .75em;
 	}
 
