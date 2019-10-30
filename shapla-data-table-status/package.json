@@ -1,7 +1,7 @@
 {
   "name": "shapla-data-table-status",
   "description": "A simple pagination based on WordPress list table pagination specially for  data table pagination.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "contributors": [
     {
       "name": "Sayful Islam",
