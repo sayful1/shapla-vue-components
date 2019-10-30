@@ -1,6 +1,7 @@
-$primary-color: var(--shapla-primary, #3273DC) !default;
-$on-primary-color: var(--shapla-on-primary, #fff) !default;
-$text-primary: var(--shapla-text-primary, rgba(#000, 0.87)) !default;
+@import "colors";
+
+$primary-color: $primary;
+$on-primary-color: $on-primary;
 
 $tabs-border-bottom-color: rgba(#000, .12) !default;
 $tabs-border-bottom-style: solid !default;
