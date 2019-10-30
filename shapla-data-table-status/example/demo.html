@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>status demo</title>
+    <link rel="stylesheet" href="../dist/status-list.css">
+</head>
+<body>
+<div id="app">
+    <status-list :statuses="statuses"></status-list>
+
+    <status-list :statuses="statuses" type="vertical"></status-list>
+</div>
+<script src="https://unpkg.com/vue"></script>
+<script src="../dist/status-list.umd.min.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            statuses: [
+                {key: 'all', active: true, label: 'All', count: 10},
+                {key: 'publish', active: false, label: 'publish', count: 10},
+                {key: 'trash', active: false, label: 'Trash', count: 2},
+            ],
+        }
+    });
+</script>
+</body>
+</html>

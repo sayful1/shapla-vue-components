@@ -1,3 +1,4 @@
+@import "colors";
 @import "variables";
 
 .shapla-data-table {
@@ -55,6 +56,10 @@
 
 		&.shapla-data-table__cell--non-numeric {
 			text-align: left;
+		}
+
+		a {
+			color: $primary;
 		}
 	}
 
@@ -140,7 +145,7 @@
 
 		.trash,
 		.delete {
-			color: #a00;
+			color: $error;
 
 			a {
 				color: currentColor;
@@ -152,7 +157,7 @@
 		visibility: visible;
 	}
 
-	.toggle-row {
+	.data-table-toggle-button {
 		display: none;
 	}
 
@@ -168,7 +173,7 @@
 // Mobile
 table.shapla-data-table--mobile {
 
-	button.toggle-row {
+	button.data-table-toggle-button {
 		background: none;
 		border: none;
 		display: inline-block !important;

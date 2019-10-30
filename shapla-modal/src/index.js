@@ -1,3 +1,9 @@
+/*!
+ * Shapla Modal v1.0.4
+ * (c) 2019 Sayful Islam
+ * Released under the MIT License.
+ */
+
 // Import vue component
 import modal from './modal.vue';
 

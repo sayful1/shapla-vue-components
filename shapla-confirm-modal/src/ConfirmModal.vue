@@ -22,7 +22,7 @@
     import modal from './plugin';
 
     export default {
-        name: 'ConfirmDialog',
+        name: 'ConfirmModal',
         components: {modal},
         props: {
             confirmButtonClass: {type: String, default: 'button button--confirm'},

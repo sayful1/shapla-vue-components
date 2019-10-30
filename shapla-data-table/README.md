@@ -1,6 +1,6 @@
 # shapla-data-table
 
-A simple data table component for VueJS
+A simple data table component for VueJS based on Material Design Lite Data Table.
 
 Supports:
 
@@ -35,6 +35,7 @@ export default {
 
   data () {
     return {
+        selectedItems:[],
         columns:[
             {key:'title', label: 'Title', sortable: true },
             {key:'author', label: 'Author'}
@@ -94,7 +95,7 @@ export default {
 
 | Property        | Type    | Required | Default            | Description                                                             |
 |-----------------|---------|----------|--------------------|-------------------------------------------------------------------------|
-| `items`         | Array   | **yes**  | `null`             |                                                                         |
+| `items`         | Array   | **yes**  | `null`             | Pass an **Array** of **Objects** with key:value format.                 |
 | `columns`       | Array   | **yes**  | `null`             | Pass an **Array** of **Objects**. See _columns data object_             |
 | `selectedItems` | Array   | no       | `[]`               | Pass an **Array** of object id                                          |
 | `actions`       | Array   | no       | `[]`               | If you want to show row actions, pass an **Array** of **Objects**       |
@@ -165,12 +166,12 @@ methods: {
     this.sortBy = column;
     this.sortOrder = order;
 
-    // this.loadItems(comun, order);
+    // this.loadItems(column, order);
   }
 }
 ```
 
-**item:select**: When a item or all items are selected. Array of selected items will be passed.
+**item:select**: When an item or all items are selected. Array of selected items will be passed.
 
 ```html
 <!-- template -->

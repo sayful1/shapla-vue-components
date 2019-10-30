@@ -1,17 +1,17 @@
 <template>
     <div>
         <button @click="confirm">Confirm</button>
-        <confirm-dialog></confirm-dialog>
+        <confirm-modal></confirm-modal>
     </div>
 </template>
 
 <script>
-    import {ConfirmDialog} from '../../shapla-confirm-modal';
+    import {ConfirmModal} from '../../shapla-confirm-modal';
 
     export default {
         name: "TestConfirmationDialogs",
         components: {
-            ConfirmDialog
+            ConfirmModal
         },
         methods: {
             confirm() {

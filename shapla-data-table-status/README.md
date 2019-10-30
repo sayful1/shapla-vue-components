@@ -40,12 +40,19 @@ export default {
 ```
 
 ### Props
-| Property      | Type      | Required  | Default   | Description                           |
-|---------------|-----------|-----------|-----------|---------------------------------------|
-| `type`        | String    | **no**    | `horizontal`|set `vertical` to see vertical design|
-| `statuses`    | Array     | **no**    |    `[]`     |Pass an **Array** of **Objects**.|
+| Property      | Type      | Required  | Default       | Description                                                   |
+|---------------|-----------|-----------|---------------|---------------------------------------------------------------|
+| `type`        | String    | **no**    | `horizontal`  |set `vertical` to see vertical design                          |
+| `statuses`    | Array     | **no**    |    `[]`       |Pass an **Array** of **Objects**. See _statuses data object_   |
 
 
+### statuses data object
+| Property      | Type      | Required  | Default   | Description                                   |
+|---------------|-----------|-----------|-----------|-----------------------------------------------|
+| `key`         | String    | **yes**   | ``        | Status key.                                   |
+| `label`       | String    | **yes**   | ``        | Status label                                  |
+| `active`      | Boolean   | **yes**   | ``        | If set `true`, status will be highlighted.    |
+| `count`       | Number    | **yes**   | ``        | How many items has for current status.        |
 
 ```html
 <!-- template -->
@@ -60,5 +67,3 @@ export default {
 }
 
 ```
-
-

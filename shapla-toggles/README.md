@@ -16,55 +16,40 @@ npm install --save shapla-toggles
 Add the component:
 
 ```js
-import statusList from 'shapla-toggles';
+import {toggles,toggle} from 'shapla-toggles';
 
 export default {
   name: 'Hello',
 
-components: {Toggle, Toggles}
+components: {toggles,toggle}
 }
 
 ```
 
 ```html
-<toggle name="Toggle One" :selected="true" :boxedMode="false" :show-divider="false">
-          <!-- content -->
-</toggle>
-<toggle name="Toggle Two">
-       <!-- content -->
-<toggle name="Nested Toggle">
-       <!-- content -->
-</toggle>
-</toggle>
-
+    <toggles>
+        <toggle name="Toggle One" :selected="true">
+            <!-- content -->
+        </toggle>
+        <toggle name="Toggle Two">
+            <!-- content -->
+        </toggle>
+    </toggles>
 ```
 
-### Props
-| Property      | Type      | Required  | Default   | Description                                           |
-|---------------|-----------|-----------|-----------|-------------------------------------------------------|
-| `name`        | String    | **yes**   | `true`    | Toggle input name                                     |
-| `selected`    | Boolean   | **no**    |  `false`  | Defines whether the toggle input is selected or not   |
-| `boxedMode`   | Boolean   | **no**    |  `true`   | Set false to remove box                               |
-| `iconPosition`| String    | **no**    |  `left`   | Set `right` to see icon position                      |
-| `showDivider` | Boolean   | **no**    |  `true`   | Set false to see border                               |
+### Props for `toggles`
+| Property      | Type      | Required  | Default   | Description                                                                                        |
+|---------------|-----------|-----------|-----------|----------------------------------------------------------------------------------------------------|
+| `accordion`   | Boolean   | **no**    |  `true`   | If you set `false`. All toggle components can be opened. Otherwise opening one will close another. |
+| `iconPosition`| String    | **no**    |  `left`   | Value can be `left` or `right`.                                                                    |
+| `boxedMode`   | Boolean   | **no**    |  `true`   | Set `false` if you don't want border on all side.                                                  |
+| `showDivider` | Boolean   | **no**    |  `true`   | Only works when `boxedMode` is `false`. Remove all borders.                                        |
 
 
-### toggles data object
-
-| Property      | Type      | Required  | Default   | Description                                                             |
-|---------------|-----------|-----------|-----------|-------------------------------------------------------------------------|
-| `accordion`   | Boolean   | no        | `true`    | Set false to set multiple accordion at same time.                                                      |
-
-
-```html
-<!-- template -->
-<toggle name="accordion" :accordion="false">
-<!-- template -->
-</toggle> 
-
-
-
-
-```
-
+### Props for `toggle`
+| Property      | Type      | Required  | Default   | Description                               |
+|---------------|-----------|-----------|-----------|-------------------------------------------|
+| `name`        | String    | **yes**   | `true`    | Toggle title.                             |
+| `subtext`     | String    | **yes**   | `true`    | Toggle subtitle.                          |
+| `selected`    | Boolean   | **no**    |  `false`  | Set true if you to keep open by default.  |
 

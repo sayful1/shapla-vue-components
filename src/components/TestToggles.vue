@@ -1,15 +1,14 @@
 <template>
     <div>
-        <toggles>
-            <toggle name="accordion" :accordion="false">
+        <toggles :accordion="true" iconPosition="left" :boxed-mode="false" :show-divider="true">
+            <toggle name="Toggle One" :selected="true">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, id.
             </toggle>
-            <toggle name="Toggle One" :selected="true" :boxedMode="false" :show-divider="false">
+
+            <toggle name="Toggle right">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, id.
             </toggle>
-            <toggle name="Toggle right" :selected="true" iconPosition="right">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, id.
-            </toggle>
+
             <toggle name="Toggle Two">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam at et itaque magnam nulla officiis
                 perferendis ratione velit, veritatis.
@@ -21,6 +20,7 @@
                 et, impedit laborum maiores, molestias natus nisi quae quo repudiandae velit! Dignissimos ex impedit
                 laborum nisi qui suscipit temporibus voluptas? Ipsam, mollitia, natus? Assumenda dignissimos expedita
                 ipsum laboriosam molestiae quos recusandae, soluta vel?
+
                 <toggle name="Nested Toggle">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam autem dolorum explicabo ipsam,
                     molestiae nesciunt. Alias atque corporis cum earum exercitationem facilis harum illum itaque
@@ -37,12 +37,11 @@
 </template>
 
 <script>
-    import Toggles from "../../shapla-toggles/src/toggles";
-    import Toggle from "../../shapla-toggles/src/toggle";
+    import {toggles, toggle} from "../../shapla-toggles/src";
 
     export default {
         name: "TestToggles",
-        components: {Toggle, Toggles}
+        components: {toggles, toggle}
     }
 </script>
 

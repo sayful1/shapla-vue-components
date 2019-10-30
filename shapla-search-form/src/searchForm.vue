@@ -1,10 +1,10 @@
 <template>
     <form role="search" method="get" class="shapla-search-form" action="" @submit.prevent="submit">
         <label>
-            <span class="screen-reader-text">Search for:</span>
+            <span class="screen-reader-text sr-only">{{screenReaderText}}</span>
             <input type="search"
                    class="shapla-search-form__input"
-                   placeholder="Search …"
+                   :placeholder="placeholder"
                    :value="searchValue"
                    @input="input($event.target.value)"
             >
@@ -23,6 +23,8 @@
         name: "searchForm",
         props: {
             value: {type: String, default: ''},
+            placeholder: {type: String, default: 'Search …'},
+            screenReaderText: {type: String, default: 'Search for:'},
         },
         data() {
             return {
@@ -54,6 +56,7 @@
             border-radius: 4px;
             line-height: 1.2;
             padding: .5em 2.5em .5em .5em;
+            height: calc(2.2em + 2px);
             width: 100%;
 
             &:focus {

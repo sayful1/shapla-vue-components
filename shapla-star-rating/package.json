@@ -1,12 +1,19 @@
 {
   "name": "shapla-star-rating",
   "description": "A simple, highly customisable star rating component for Vue",
-  "version": "1.0.0",
-  "author": {
-    "name": "Sayful Islam",
-    "email": "sayful.islam001@gmail.com",
-    "url": "https://sayfulislam.com"
-  },
+  "version": "1.0.2",
+  "contributors": [
+    {
+      "name": "Sayful Islam",
+      "email": "sayful.islam001@gmail.com",
+      "url": "https://sayfulislam.com"
+    },
+    {
+      "name": "Simpi Singh",
+      "email": "simpi21@gmail.com",
+      "url": "https://github.com/simpi21"
+    }
+  ],
   "keywords": [
     "vue",
     "vuejs",
@@ -34,7 +41,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build:lib": "vue-cli-service build --target lib --name spinner ./src/index.js",
+    "build:lib": "vue-cli-service build --target lib --name star-rating ./src/index.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

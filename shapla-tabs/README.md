@@ -13,8 +13,7 @@ A simple responsive horizontal navigation tabs component based on Bulma Tabs for
 # Installation
 
 ```
-
-npm install --save shapla-tabs
+npm i shapla-tabs
 ```
 
 # Usage
@@ -46,7 +45,7 @@ export default {
 </tabs>
 ```
 
-### Props
+### Props for `tabs`
 | Property      | Type     | Required  | Default    | Description                                                       |
 |---------------|----------|-----------|------------|-------------------------------------------------------------------|
 | `alignment`   | String   | **no**    | `left`     | Possible value can be `left`, `center` or `right`.                |
@@ -54,21 +53,10 @@ export default {
 | `tabStyle`    | String   | **no**    | `default`  | Possible value can be `default`, `boxed`, `rounded` or `toggle`.  |
 | `fullwidth`   | Boolean  | **no**    | `false`    | If set `true`, the tabs will take up available full width.        |
 
-### tab data object
 
-| Property      | Type      | Required  | Default   | Description                                                       |
-|---------------|-----------|-----------|-----------|-------------------------------------------------------------------|
-| `name`        | String    | **yes**   |   ``      | Tab name                                                          |
-| `selected`    | Boolean   |    no     | `false`   | Defines whether the tab is selected or not                        |                                          |
+### Props for `tab`
+| Property      | Type      | Required  | Default   | Description                               |
+|---------------|-----------|-----------|-----------|-------------------------------------------|
+| `name`        | String    | **yes**   | `true`    | Tab title.                                |
+| `selected`    | Boolean   | **no**    |  `false`  | Set true if you to keep open by default.  |
 
-
-```html
-<!-- template -->
-<tabs alignment="center" tab-style="boxed">
-<tab name="Tab 1" selected>
-  <!-- content -->     
-</tab>
-<tab name="Tab 2">
- <!-- content -->             
-</tab>
-</tabs>

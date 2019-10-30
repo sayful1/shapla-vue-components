@@ -1,7 +1,10 @@
 <template>
     <div id="app">
         <tabs alignment="center">
-            <tab name="Status List" selected>
+            <tab name="Button" selected>
+                <test-button></test-button>
+            </tab>
+            <tab name="Status List">
                 <test-status-list></test-status-list>
             </tab>
             <tab name="Radio Buttons">
@@ -48,7 +51,7 @@
 </template>
 
 <script>
-    import {tabs, tab} from '../shapla-tabs';
+    import {tab, tabs} from '../shapla-tabs';
     import TestColumns from "./components/TestColumns";
     import TestDelete from "./components/TestDelete";
     import TestModal from "./components/TestModal";
@@ -63,11 +66,14 @@
     import TestRadioButtons from "./components/TestRadioButtons";
     import TestStatusList from "./components/TestStatusList";
     import TestMediaUploader from "./components/TestMediaUploader";
+    import TestButton from "./components/TestButton";
+
 
     export default {
         name: 'app',
         components: {
             TestMediaUploader,
+            TestButton,
             TestStatusList,
             TestRadioButtons,
             TestToggles,

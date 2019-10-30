@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>button demo</title>
+    <link rel="stylesheet" href="../dist/star-rating.css">
+</head>
+<body>
+<div id="app">
+    <span>Input</span>
+    <star-rating v-model="rating"></star-rating>
+    <pre>{{rating}}</pre>
+    <hr>
+
+    <span>Static</span>
+    <star-rating v-model="staticRating" :is-static="true"></star-rating>
+    <pre>{{staticRating}}</pre>
+    <hr>
+
+    <span>Static 2</span>
+    <star-rating v-model="staticRating2" :is-static="true"></star-rating>
+    <pre>{{staticRating2}}</pre>
+    <hr>
+
+    <span>Static 3</span>
+    <star-rating v-model="staticRating3" :is-static="true"></star-rating>
+    <pre>{{staticRating3}}</pre>
+</div>
+<script src="https://unpkg.com/vue"></script>
+<script src="../dist/star-rating.umd.min.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            rating: 3,
+            staticRating: 3.2,
+            staticRating2: 3.5,
+            staticRating3: 3.7,
+        },
+    });
+</script>
+</body>
+</html>

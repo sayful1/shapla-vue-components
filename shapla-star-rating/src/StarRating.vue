@@ -135,45 +135,5 @@
 </script>
 
 <style lang="scss">
-    .star-rating {
-        &__label {
-            color: var(--shapla-text-secondary, rgba(0, 0, 0, .65));
-            cursor: pointer;
-            display: inline-block;
-            font-size: 1.5em;
-            line-height: 1;
-            padding: 3px;
-            transition: color .2s ease-out;
-            vertical-align: middle;
-
-            &:hover {
-                cursor: default;
-            }
-
-            &.is-active {
-                color: var(--shapla-primary, #3273DC);
-            }
-        }
-
-        &:not(.is-static) label:hover {
-            cursor: pointer;
-        }
-
-        &__radio {
-            position: absolute;
-            overflow: hidden;
-            clip: rect(0 0 0 0);
-            height: 1px;
-            width: 1px;
-            margin: -1px;
-            padding: 0;
-            border: 0;
-        }
-
-        svg {
-            width: 1em;
-            height: 1em;
-            fill: currentColor;
-        }
-    }
+    @import "star-rating";
 </style>
