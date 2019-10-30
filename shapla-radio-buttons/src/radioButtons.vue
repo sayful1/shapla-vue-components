@@ -33,46 +33,5 @@
 </script>
 
 <style lang="scss">
-    .shapla-radio-button {
-        display: flex;
-        flex-wrap: wrap;
-
-        &__label {
-            background: rgba(#000, .05);
-            color: rgba(#000, .85);
-            cursor: pointer;
-            flex-grow: 1;
-            font-size: 1rem;
-            padding: 0.5em 1em;
-            position: relative;
-            text-align: center;
-
-            &:first-child {
-                border-top-left-radius: 4px;
-                border-bottom-left-radius: 4px;
-            }
-
-            &:last-child {
-                border-top-right-radius: 4px;
-                border-bottom-right-radius: 4px;
-            }
-
-            &:not(.is-checked):hover {
-                background: rgba(#000, .1);
-            }
-
-            &.is-checked {
-                background-color: var(--shapla-primary, #3273DC);
-                color: var(--shapla-on-primary, #fff);
-            }
-        }
-
-        &__input {
-            opacity: 0;
-            position: absolute;
-        }
-
-        &__text {
-        }
-    }
+    @import "radio-button";
 </style>
