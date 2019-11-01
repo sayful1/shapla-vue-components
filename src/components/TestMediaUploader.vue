@@ -1,34 +1,17 @@
 <template>
     <div>
-        <div class="media-uploader">
-            <media-uploader
-                    title="Upload image"
-                    :images="attachments"
-                    :image="images"
-                    :options="dropzoneOptions"
-                    @upload="dropzoneSuccess"
-            ></media-uploader>
-            <button class="button" @click="openLogoModal =true">Open Modal</button>
-        </div>
-        <media-modal
-                title="Upload image"
-                :active="openLogoModal"
-                :images="attachments"
-                :image="images"
-                :options="dropzoneOptions"
-                @upload="dropzoneSuccess"
-                @close="openLogoModal = false"
-        ></media-modal>
+        <dropzone-uploader :options="dropzoneOptions" @upload="dropzoneSuccess"></dropzone-uploader>
     </div>
 </template>
 
 <script>
     import MediaModal from '../../shapla-media-uploader'
     import MediaUploader from "../../shapla-media-uploader/src/MediaUploder";
+    import DropzoneUploader from "../../shapla-media-uploader/src/DropzoneUploader";
 
     export default {
         name: "TestMediaUploader",
-        components: {MediaUploader, MediaModal},
+        components: {DropzoneUploader, MediaUploader, MediaModal},
         data() {
             return {
                 openLogoModal: false,
@@ -40,12 +23,16 @@
         computed: {
             dropzoneOptions() {
                 return {
-                    url: "https://github.com/settings/profile",
+                    url: "http://wordpress.test/wp-json/stackonet-tracker/v1/avatar",
+                    maxFilesize: 5,
+                    headers: {
+                        "X-WP-Nonce": '75ae1212e9'
+                    }
                 }
             }
         },
         methods: {
-            dropzoneSuccess() {
+            dropzoneSuccess(file, response) {
                 alert('image uploaded successfully');
             }
         }

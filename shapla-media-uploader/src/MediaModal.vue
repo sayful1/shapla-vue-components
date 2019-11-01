@@ -1,55 +1,56 @@
 <template>
-    <div class="wp-frontend-media-modal">
+    <div class="shapla-media-modal">
         <modal :active="active" @close="closeModal" :title="title">
             <columns desktop>
-                <column :desktop="6" class="column--dropzone">
-                    <dropzone-uploader :options="options" @upload="upload"></dropzone-uploader>
+                <column :desktop="6" class="column--dropzone" v-if="Object.keys(options).length">
+                    <media-uploader
+                            :options="options"
+                            @upload="upload"
+                            :text-line-one="textLineOne"
+                            :text-line-two="textLineTwo"
+                            :text-max-upload-limit="textMaxUploadLimit"
+                    />
                 </column>
                 <column :desktop="6" class="column--media-list">
-                    <div class="attachment-list mdl-list" v-if="images.length">
-                        <div class="mdl-list__item" :class="{'is-active': isActive(attachment)}"
-                             v-for="attachment in images" v-if="attachment.title" @click="chooseMedia(attachment)">
-                            <div class="mdl-list__item-primary-content">
-                                <img class="mdl-list__item-avatar" :src="attachment.attachment_url"
-                                     :alt="attachment.title">
-                                <span v-text="attachment.title"></span>
-                            </div>
-                            <div class="mdl-list__item-secondary-action" @click="deleteMedia(attachment)">
-                                <delete-icon></delete-icon>
-                            </div>
-                        </div>
-                    </div>
+                    <template v-if="images.length">
+                        <media-item
+                                v-for="attachment in images"
+                                :key="attachment.image_id"
+                                :media="attachment"
+                                :active="isActive(attachment)"
+                                @select="chooseMedia"
+                                @delete="deleteMedia"
+                        />
+                    </template>
                 </column>
             </columns>
-            <div slot="foot">
+            <template slot="foot">
                 <button class="button" @click="closeModal">Close</button>
-            </div>
+            </template>
         </modal>
     </div>
 </template>
 
 <script>
-    import vue2Dropzone from 'vue2-dropzone'
-    import DropzoneUploader from './DropzoneUploader';
-    import {columns, column} from 'shapla-columns';
+    import {column, columns} from 'shapla-columns';
     import modal from 'shapla-modal';
     import deleteIcon from 'shapla-delete';
+    import MediaUploader from './MediaUploader';
+    import MediaItem from "./mediaItem";
 
     export default {
         name: "MediaModal",
-        components: {vue2Dropzone, DropzoneUploader, modal, deleteIcon, columns, column},
+        components: {MediaItem, MediaUploader, modal, deleteIcon, columns, column},
         props: {
             active: {type: Boolean, default: false},
             title: {type: String, default: "Edit Images"},
             images: {type: Array, default: () => []},
-            image: {
-                type: [Object, Array], default: () => {
-                }
-            },
-            options: {
-                type: Object, required: false, default: () => {
-                }
-            },
+            image: {type: [Object, Array], default: () => []},
+            // Props for MediaUploader
+            options: {type: Object, required: true},
+            textLineOne: {String, default: 'Drag &amp; Drop or'},
+            textLineTwo: {String, default: 'Click here to browse your computer'},
+            textMaxUploadLimit: {String, default: 'Maximum upload limit: 5MB'},
         },
         methods: {
             isActive(attachment) {
@@ -69,7 +70,7 @@
                 this.$emit('close');
             },
             deleteMedia(attachment) {
-                if (confirm('Are you sure to delete this item?')) {
+                if (confirm('Are you sure to delete this item permanently?')) {
                     this.$emit('delete', attachment);
                 }
             },
@@ -81,36 +82,10 @@
 </script>
 
 <style lang="scss">
-    .wp-frontend-media-modal {
+    .shapla-media-modal {
 
         .shapla-columns {
             align-items: flex-start !important;
-        }
-
-        .mdl-list {
-            padding: 0;
-        }
-
-        .mdl-list__item {
-            border: 1px solid rgba(#000, 0.2);
-            margin-bottom: 1rem;
-            cursor: pointer;
-
-            &.is-active,
-            &:hover {
-                border-color: #fdd835;
-            }
-
-            &.is-active {
-                border-width: 2px;
-            }
-        }
-
-        @media screen and (min-width: 1000px) {
-            .shapla-modal-content,
-            .shapla-modal-card {
-                width: 900px;
-            }
         }
     }
 </style>
