@@ -8,7 +8,9 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "dropzone": "^5.5.1",
     "core-js": "^2.6.5",
+    "shapla-button": "^1.0.2",
     "shapla-columns": "^1.0.3",
     "shapla-delete": "^1.0.2",
     "shapla-modal": "^1.0.4",

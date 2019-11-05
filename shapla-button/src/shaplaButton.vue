@@ -26,6 +26,22 @@
                 type: Boolean,
                 default: false
             },
+            outline: {
+                type: Boolean,
+                default: false
+            },
+            rounded: {
+                type: Boolean,
+                default: false
+            },
+            fab: {
+                type: Boolean,
+                default: false
+            },
+            shadow: {
+                type: Boolean,
+                default: false
+            },
         },
         computed: {
             getClasses() {
@@ -33,6 +49,22 @@
 
                 if (this.fullwidth) {
                     classes.push('is-fullwidth')
+                }
+
+                if (this.outline) {
+                    classes.push('is-outline')
+                }
+
+                if (this.rounded) {
+                    classes.push('is-rounded')
+                }
+
+                if (this.fab) {
+                    classes.push('is-fab')
+                }
+
+                if (this.shadow) {
+                    classes.push('has-shadow')
                 }
 
                 if ('default' !== this.theme) {

@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <tabs alignment="center">
-            <tab name="Button">
+            <tab name="Button" selected>
                 <test-button></test-button>
             </tab>
             <tab name="Status List">
@@ -43,8 +43,8 @@
             <tab name="Toggles">
                 <test-toggles></test-toggles>
             </tab>
-            <tab name="Media Uploader" selected>
-               <test-media-uploader></test-media-uploader>
+            <tab name="Media Uploader">
+                <test-media-uploader></test-media-uploader>
             </tab>
         </tabs>
     </div>

@@ -31,7 +31,7 @@
 		color: inherit
 	}
 
-	&:hover {
+	&:not(:disabled):not(.is-primary):not(.is-secondary):hover {
 		border-color: #b5b5b5;
 		color: #363636
 	}
@@ -41,7 +41,7 @@
 		color: $text-primary;
 
 		&:not(:active) {
-			box-shadow: 0 0 0 .125em rgba(#3273dc, .25);
+			// box-shadow: 0 0 0 .125em rgba(#3273dc, .25);
 		}
 	}
 
@@ -51,7 +51,7 @@
 	}
 
 	&[disabled],
-	fieldset[disabled] & {
+	fieldFull Widthset[disabled] & {
 		cursor: not-allowed;
 		opacity: .5;
 	}
@@ -79,16 +79,68 @@
 		font-size: 1.5rem
 	}
 
+	&.is-rounded {
+		border-radius: 290486px;
+		padding-left: calc(1em + .25em);
+		padding-right: calc(1em + .25em);
+	}
+
+	&.is-fab {
+		border-radius: 50%;
+		box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, .12), 0 1px 1px 0 rgba(0, 0, 0, .24);
+		height: 2.5em;
+		min-width: 2.5em;
+		width: 2.5em;
+	}
+
+	&.has-shadow {
+		box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+	}
+
 	// Button colors
 	&.is-primary {
 		background-color: $primary;
 		border-color: transparent;
 		color: $on-primary;
+
+		&:not(:disabled):hover {
+			background-color: $primary-variant;
+			border-color: transparent;
+			color: $on-primary;
+		}
+
+		&.is-outline {
+			background-color: transparent;
+			border-color: $primary;
+			color: $primary;
+
+			&:not(:disabled):hover {
+				background-color: $primary;
+				color: $on-primary;
+			}
+		}
 	}
 
 	&.is-secondary {
 		background-color: $secondary;
 		border-color: transparent;
 		color: $on-secondary;
+
+		&:not(:disabled):hover {
+			background-color: $secondary-variant;
+			border-color: transparent;
+			color: $on-secondary;
+		}
+
+		&.is-outline {
+			background-color: transparent;
+			border-color: $secondary;
+			color: $secondary;
+
+			&:not(:disabled):hover {
+				background-color: $secondary;
+				color: $on-secondary;
+			}
+		}
 	}
 }

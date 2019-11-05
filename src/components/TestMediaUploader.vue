@@ -1,17 +1,17 @@
 <template>
     <div>
-        <dropzone-uploader :options="dropzoneOptions" @upload="dropzoneSuccess"></dropzone-uploader>
+        <media-uploader :options="dropzoneOptions" @upload="dropzoneSuccess"></media-uploader>
     </div>
 </template>
 
 <script>
     import MediaModal from '../../shapla-media-uploader'
-    import MediaUploader from "../../shapla-media-uploader/src/MediaUploder";
-    import DropzoneUploader from "../../shapla-media-uploader/src/DropzoneUploader";
+    import MediaUploader from '../../shapla-media-uploader'
+    import FeaturedImage from '../../shapla-media-uploader'
 
     export default {
         name: "TestMediaUploader",
-        components: {DropzoneUploader, MediaUploader, MediaModal},
+        components: {FeaturedImage, MediaUploader, MediaModal},
         data() {
             return {
                 openLogoModal: false,
