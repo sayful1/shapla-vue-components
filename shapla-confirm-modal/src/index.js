@@ -1,3 +1,9 @@
+/*!
+ * Shapla Confirm Modal v1.0.0
+ * (c) 2019 Sayful Islam
+ * Released under the MIT License.
+ */
+
 import modal from './plugin';
 import ConfirmModal from './ConfirmModal';
 

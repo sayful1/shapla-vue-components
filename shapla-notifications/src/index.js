@@ -1,3 +1,9 @@
+/*!
+ * Shapla Notification v1.0.5
+ * (c) 2019 Sayful Islam
+ * Released under the MIT License.
+ */
+
 // Import vue component
 import notification from './notification.vue';
 

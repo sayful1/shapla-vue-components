@@ -1,3 +1,9 @@
+/*!
+ * Shapla Tabs v1.0.0
+ * (c) 2019 Sayful Islam
+ * Released under the MIT License.
+ */
+
 // Import vue component
 import tabs from './tabs.vue';
 import tab from './tab.vue';

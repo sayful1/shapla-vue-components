@@ -1,3 +1,9 @@
+/*!
+ * Shapla Columns v1.0.3
+ * (c) 2019 Sayful Islam
+ * Released under the MIT License.
+ */
+
 // Import vue component
 import columns from './columns.vue';
 import column from './column.vue';

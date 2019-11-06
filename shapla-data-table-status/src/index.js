@@ -1,3 +1,9 @@
+/*!
+ * Shapla Data Table Status v1.0.2
+ * (c) 2019 Sayful Islam
+ * Released under the MIT License.
+ */
+
 // Import vue component
 import statusList from './statusList';
 

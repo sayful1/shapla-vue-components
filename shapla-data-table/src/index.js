@@ -1,3 +1,9 @@
+/*!
+ * Shapla Data Table v1.0.1
+ * (c) 2019 Sayful Islam
+ * Released under the MIT License.
+ */
+
 // Import vue component
 import dataTable from './dataTable';
 

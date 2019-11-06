@@ -1,3 +1,9 @@
+/*!
+ * Shapla Toggles v1.0.0
+ * (c) 2019 Sayful Islam
+ * Released under the MIT License.
+ */
+
 import toggles from "./toggles";
 import toggle from "./toggle";
 

@@ -1,3 +1,9 @@
+/*!
+ * Shapla Delete Icon v1.0.2
+ * (c) 2019 Sayful Islam
+ * Released under the MIT License.
+ */
+
 // Import vue component
 import deleteIcon from './deleteIcon';
 
