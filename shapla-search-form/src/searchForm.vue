@@ -47,50 +47,5 @@
 </script>
 
 <style lang="scss">
-    .shapla-search-form {
-        position: relative;
-        font-size: 1rem;
-
-        &__input {
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            line-height: 1.2;
-            padding: .5em 2.5em .5em .5em;
-            height: calc(2.2em + 2px);
-            width: 100%;
-
-            &:focus {
-                border-color: #999;
-                color: #222;
-                outline: none;
-            }
-        }
-
-        &__submit {
-            align-items: center;
-            background: none;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            display: inline-flex;
-            justify-content: center;
-            margin: 0 !important;
-            position: absolute !important;
-            right: 3px;
-            top: 3px;
-            bottom: 3px;
-            height: calc(2.2em - 4px);
-            width: calc(2.2em - 4px);
-
-            &:hover {
-                background-color: rgba(60, 64, 67, 0.08);
-            }
-
-            svg {
-                height: 1.5em;
-                width: 1.5em;
-                fill: currentColor;
-            }
-        }
-    }
+    @import "search-form";
 </style>
