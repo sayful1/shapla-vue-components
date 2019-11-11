@@ -1,95 +1,15 @@
 <template>
     <div id="app">
-        <tabs alignment="center">
-            <tab name="Button" selected>
-                <test-button></test-button>
-            </tab>
-            <tab name="Status List">
-                <test-status-list></test-status-list>
-            </tab>
-            <tab name="Radio Buttons">
-                <test-radio-buttons></test-radio-buttons>
-            </tab>
-            <tab name="Confirmation Dialogs">
-                <test-confirmation-dialogs></test-confirmation-dialogs>
-            </tab>
-            <tab name="Modal">
-                <test-modal></test-modal>
-            </tab>
-            <tab name="Columns">
-                <test-columns></test-columns>
-            </tab>
-            <tab name="Delete">
-                <test-delete></test-delete>
-            </tab>
-            <tab name="Notifications">
-                <test-notifications></test-notifications>
-            </tab>
-            <tab name="Spinner">
-                <test-spinner></test-spinner>
-            </tab>
-            <tab name="Tabs">
-                <test-tabs></test-tabs>
-            </tab>
-            <tab name="Data Table">
-                <test-data-table></test-data-table>
-            </tab>
-            <tab name="Side Navigation">
-                <test-side-navigation></test-side-navigation>
-            </tab>
-            <tab name="Star Rating">
-                <test-star-rating></test-star-rating>
-            </tab>
-            <tab name="Toggles">
-                <test-toggles></test-toggles>
-            </tab>
-            <tab name="Media Uploader">
-                <test-media-uploader></test-media-uploader>
-            </tab>
-        </tabs>
+        <test-button></test-button>
     </div>
 </template>
 
 <script>
-    import {tab, tabs} from '../shapla-tabs';
-    import TestColumns from "./components/TestColumns";
-    import TestDelete from "./components/TestDelete";
-    import TestModal from "./components/TestModal";
-    import TestNotifications from "./components/TestNotifications";
-    import TestSpinner from "./components/TestSpinner";
-    import TestTabs from "./components/TestTabs";
-    import TestDataTable from "./components/TestDataTable";
-    import TestConfirmationDialogs from "./components/TestConfirmationDialogs";
-    import TestSideNavigation from "./components/TestSideNavigation";
-    import TestStarRating from "./components/TestStarRating";
-    import TestToggles from "./components/TestToggles";
-    import TestRadioButtons from "./components/TestRadioButtons";
-    import TestStatusList from "./components/TestStatusList";
-    import TestMediaUploader from "./components/TestMediaUploader";
     import TestButton from "./components/TestButton";
-
 
     export default {
         name: 'app',
-        components: {
-            TestMediaUploader,
-            TestButton,
-            TestStatusList,
-            TestRadioButtons,
-            TestToggles,
-            TestStarRating,
-            TestSideNavigation,
-            TestConfirmationDialogs,
-            TestDataTable,
-            tabs,
-            tab,
-            TestTabs,
-            TestSpinner,
-            TestNotifications,
-            TestModal,
-            TestDelete,
-            TestColumns
-        }
+        components: {TestButton}
     }
 </script>
 
