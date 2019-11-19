@@ -59,7 +59,7 @@
 
         a {
             align-items: center;
-            border-bottom-color: $tabs-border-bottom-color;
+            border-bottom-color: transparent;
             border-bottom-style: $tabs-border-bottom-style;
             border-bottom-width: $tabs-border-bottom-width;
             color: $tabs-link-color;
@@ -78,6 +78,7 @@
 
         li {
             display: block;
+            margin: 0;
 
             &.is-active {
                 a {

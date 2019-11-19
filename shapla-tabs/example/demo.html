@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>button demo</title>
+    <link rel="stylesheet" href="../dist/tabs.css">
+</head>
+<body>
+<div id="app">
+    <div>
+        <h2>Tabs</h2>
+        <tabs alignment="center">
+            <tab name="Tab 1" selected>
+                Tab One Content
+            </tab>
+            <tab name="Tab 2">
+                Tab Two Content
+            </tab>
+        </tabs>
+        <tabs alignment="center" tab-style="boxed">
+            <tab name="Tab 1" selected>
+                Tab One Content
+            </tab>
+            <tab name="Tab 2">
+                Tab Two Content
+            </tab>
+        </tabs>
+        <tabs alignment="center" tab-style="toggle">
+            <tab name="Tab 1" selected>
+                Tab One Content
+            </tab>
+            <tab name="Tab 2">
+                Tab Two Content
+            </tab>
+        </tabs>
+        <tabs alignment="center" fullwidth>
+            <tab name="Tab 1" selected>
+                Tab One Content
+            </tab>
+            <tab name="Tab 2">
+                Tab Two Content
+            </tab>
+        </tabs>
+    </div>
+</div>
+<script src="https://unpkg.com/vue"></script>
+<script src="../dist/tabs.umd.js"></script>
+<script>
+    new Vue({el: '#app'});
+</script>
+</body>
+</html>
