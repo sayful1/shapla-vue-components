@@ -1,5 +1,5 @@
 /*!
- * Shapla Tabs v1.0.0
+ * Shapla Tabs v1.0.2
  * (c) 2019 Sayful Islam
  * Released under the MIT License.
  */
@@ -35,6 +35,6 @@ if (GlobalVue) {
     GlobalVue.use(plugin);
 }
 
-export {tabs, tab};
 // To allow use as module (npm/webpack/etc.) export component
+export {tabs, tab};
 export default Components;
