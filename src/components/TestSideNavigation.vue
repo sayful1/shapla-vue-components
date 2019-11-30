@@ -28,7 +28,7 @@
 </template>
 
 <script>
-    import sideNavigation from '../../shapla-side-navigation/sideNavigation';
+    import sideNavigation from '../../shapla-side-navigation';
 
     export default {
         name: "TestSideNavigation",

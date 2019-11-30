@@ -1,15 +1,15 @@
 <template>
     <div id="app">
-        <test-button></test-button>
+        <test-side-navigation/>
     </div>
 </template>
 
 <script>
-    import TestButton from "./components/TestButton";
+    import TestSideNavigation from "./components/TestSideNavigation";
 
     export default {
         name: 'app',
-        components: {TestButton}
+        components: {TestSideNavigation}
     }
 </script>
 
