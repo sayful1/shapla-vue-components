@@ -23,8 +23,8 @@
 </template>
 
 <script>
-    import notification from '../../shapla-notifications'
-    import {columns, column} from '../../shapla-columns'
+    import notification from '../../../shapla-notifications'
+    import {columns, column} from '../../../shapla-columns'
 
     export default {
         name: "TestNotifications",

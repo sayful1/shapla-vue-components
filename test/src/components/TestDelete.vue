@@ -26,8 +26,8 @@
 </template>
 
 <script>
-    import {columns, column} from '../../shapla-columns'
-    import deleteIcon from '../../shapla-delete'
+    import {columns, column} from '../../../shapla-columns'
+    import deleteIcon from '../../../shapla-delete'
 
     export default {
         name: "TestDelete",

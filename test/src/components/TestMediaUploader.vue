@@ -5,9 +5,9 @@
 </template>
 
 <script>
-    import MediaModal from '../../shapla-media-uploader'
-    import MediaUploader from '../../shapla-media-uploader'
-    import FeaturedImage from '../../shapla-media-uploader'
+    import MediaModal from '../../../shapla-media-uploader'
+    import MediaUploader from '../../../shapla-media-uploader'
+    import FeaturedImage from '../../../shapla-media-uploader'
 
     export default {
         name: "TestMediaUploader",

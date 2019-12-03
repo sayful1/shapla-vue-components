@@ -34,8 +34,8 @@
 </template>
 
 <script>
-    import {columns, column} from '../../shapla-columns'
-    import modal from '../../shapla-modal';
+    import {columns, column} from '../../../shapla-columns'
+    import modal from '../../../shapla-modal';
 
     export default {
         name: "TestModal",

@@ -36,7 +36,7 @@
 </template>
 
 <script>
-    import dropdown from "../../shapla-dropdown/src/dropdown";
+    import dropdown from "../../../shapla-dropdown/src/dropdown";
 
     export default {
         name: "TestDropdown",

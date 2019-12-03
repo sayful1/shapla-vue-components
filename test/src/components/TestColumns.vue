@@ -12,7 +12,7 @@
 </template>
 
 <script>
-    import {columns, column} from '../../shapla-columns/src/index';
+    import {columns, column} from '../../../shapla-columns/src/index';
 
     export default {
         name: "TestColumns",

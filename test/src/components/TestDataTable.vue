@@ -32,8 +32,8 @@
 </template>
 
 <script>
-    import dataTableFull from '../../shapla-data-table-full/src/dataTableFull';
-    import dataTable from "../../shapla-data-table/src/dataTable";
+    import dataTableFull from '../../../shapla-data-table-full/src/dataTableFull';
+    import dataTable from "../../../shapla-data-table/src/dataTable";
 
     export default {
         name: "TestDataTable",
