@@ -15,6 +15,7 @@ Some reusable vue components for our projects.
 11. [Shapla Tabs](shapla-tabs/README.md)
 12. [Shapla Search Form](shapla-search-form/README.md)
 13. [Shapla Button](shapla-button/README.md)
+14. [Shapla Dropdown](shapla-dropdown/README.md)
 
 Under Development
 01. [Shapla Data Table Full](shapla-data-table-full/README.md)

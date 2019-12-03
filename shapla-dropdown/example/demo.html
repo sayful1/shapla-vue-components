@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>button demo</title>
+    <link rel="stylesheet" href="../dist/dropdown.css">
+    <style type="text/css">
+        html {
+            box-sizing: border-box;
+        }
+        html * {
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <dropdown :hoverable="false">
+        <template v-slot:trigger>
+            <button>From Left: Click</button>
+        </template>
+        <a href="https://example.com" class="dropdown-item is-active">Link 1</a>
+        <a href="https://example.com" class="dropdown-item">Link 2</a>
+        <span class="dropdown-divider"></span>
+        <a href="https://example.com" class="dropdown-item">Link 3</a>
+        <a href="https://example.com" class="dropdown-item">Link 4</a>
+    </dropdown>
+    <dropdown :hoverable="true" :right="true">
+        <template v-slot:trigger>
+            <button>From Right: Hover</button>
+        </template>
+        <a href="https://example.com" class="dropdown-item is-active">Link 1</a>
+        <a href="https://example.com" class="dropdown-item">Link 2</a>
+        <span class="dropdown-divider"></span>
+        <a href="https://example.com" class="dropdown-item">Link 3</a>
+        <a href="https://example.com" class="dropdown-item">Link 4</a>
+    </dropdown>
+    <div style="margin-top:150px">
+        <dropdown :hoverable="false" :right="false" :up="true">
+            <template v-slot:trigger>
+                <button>From Bottom to top: Click</button>
+            </template>
+            <a href="https://example.com" class="dropdown-item is-active">Link 1</a>
+            <a href="https://example.com" class="dropdown-item">Link 2</a>
+            <span class="dropdown-divider"></span>
+            <a href="https://example.com" class="dropdown-item">Link 3</a>
+            <a href="https://example.com" class="dropdown-item">Link 4</a>
+        </dropdown>
+    </div>
+</div>
+<script src="https://unpkg.com/vue"></script>
+<script src="../dist/dropdown.umd.js"></script>
+<script>
+    new Vue({el: '#app'});
+</script>
+</body>
+</html>

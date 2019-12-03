@@ -1,20 +1,21 @@
 <template>
     <div id="app">
-        <test-side-navigation/>
+        <test-dropdown/>
     </div>
 </template>
 
 <script>
-    import TestSideNavigation from "./components/TestSideNavigation";
+    import TestDropdown from "./components/TestDropdown";
 
     export default {
         name: 'app',
-        components: {TestSideNavigation}
+        components: {TestDropdown}
     }
 </script>
 
 <style lang="scss">
     html {
+        box-sizing: border-box;
         background-color: #fff;
         font-size: 16px;
         -moz-osx-font-smoothing: grayscale;
@@ -24,6 +25,10 @@
         overflow-x: hidden;
         overflow-y: scroll;
         text-rendering: optimizeLegibility;
+
+        * {
+            box-sizing: border-box;
+        }
     }
 
     body, button, input, select, textarea {
