@@ -4,6 +4,7 @@ Some reusable vue components for our projects.
 
 * [Shapla Button](shapla-button/README.md)
 * [Shapla Columns](shapla-columns/README.md)
+* [Shapla Confirm Dialog](shapla-confirm-dialog/README.md)
 * [Shapla Data Table](shapla-data-table/README.md)
 * [Shapla Data Table Pagination](shapla-data-table-pagination/README.md)
 * [Shapla Data Table Status](shapla-data-table-status/README.md)
@@ -18,7 +19,6 @@ Some reusable vue components for our projects.
 * [Shapla Toggles](shapla-toggles/README.md)
 
 Under Development
-* [Shapla Confirm Modal](shapla-confirm-modal/README.md)
 * [Shapla Data Table Full](shapla-data-table-full/README.md)
 * [Shapla Input Slider](shapla-input-slider/README.md)
 * [Shapla Media Uploader](shapla-media-uploader/README.md)

@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "shapla-button": "^1.0.4",
-    "shapla-modal": "^1.0.3",
+    "shapla-modal": "^1.0.4",
     "vue": "^2.6.10"
   },
   "devDependencies": {

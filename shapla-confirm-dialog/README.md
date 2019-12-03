@@ -20,11 +20,23 @@ import Dialog from 'shapla-confirm-dialog'
 
 Vue.use(Dialog);
 
-new Vue({el:'#app'})
-
+new Vue({
+    el: '#app',
+    methods: {
+        confirm() {
+            this.$dialog.confirm({
+                message: 'Are you sure to delete this item permanently?',
+                cancelButton: 'Cancel',
+                confirmButton: 'Yes'
+            }).then(confirmed => {
+                console.log('Do somethings', confirmed);
+            });
+        }
+    }
+});
 ```
 
 ```html
-
-
+<button @click="confirm">Confirm</button>
+<confirm-dialog/>
 ```
