@@ -4,15 +4,15 @@
  * Released under the MIT License.
  */
 
-import modal from './plugin';
-import ConfirmModal from './ConfirmModal';
+import Dialog from './ModalPlugin';
+import ConfirmDialog from './ConfirmDialog';
 
 // Declare install function executed by Vue.use()
 export function install(Vue) {
     if (install.installed) return;
     install.installed = true;
-    Vue.use('modal', modal);
-    Vue.component('confirm-modal', ConfirmModal);
+    Vue.use(Dialog);
+    Vue.component('confirm-dialog', ConfirmDialog);
 }
 
 // Create module definition for Vue.use()
@@ -29,5 +29,5 @@ if (GlobalVue) {
     GlobalVue.use(plugin);
 }
 
-export {modal, ConfirmModal};
-export default modal;
+export {Dialog, ConfirmDialog};
+export default Dialog;

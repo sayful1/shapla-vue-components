@@ -1,5 +1,5 @@
-# shapla-confirm-modal
-A simple confirm modal based on modal component for Vue.
+# shapla-confirm-dialog
+A simple confirm dialog/modal based on modal component for Vue.
 
 ## Table of contents
 
@@ -9,16 +9,16 @@ A simple confirm modal based on modal component for Vue.
 # Installation
 
 ```
-npm install --save shapla-confirm-modal
+npm i shapla-confirm-dialog
 ```
 
 # Usage
 Use plugins by calling the Vue.use() global method. This has to be done before you start your app by calling new Vue():
 
 ```js
-import modal from 'shapla-confirm-modal'
+import Dialog from 'shapla-confirm-dialog'
 
-Vue.use(modal);
+Vue.use(Dialog);
 
 new Vue({el:'#app'})
 

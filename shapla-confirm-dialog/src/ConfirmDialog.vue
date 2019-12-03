@@ -6,24 +6,23 @@
                 {{ params.message }}
             </div>
             <div class="shapla-confirm-modal__actions">
-                <button :class="cancelButtonClass" @click.prevent="handleClick(false)"
-                        v-if="params.cancelButton" v-text="params.cancelButton">
-                </button>
-
-                <button :class="confirmButtonClass" @click.prevent="handleClick(true)"
-                        v-if="params.confirmButton" v-text="params.confirmButton">
-                </button>
+                <shapla-button theme="default" :class="cancelButtonClass" @click.prevent="handleClick(false)"
+                               v-if="params.cancelButton" v-text="params.cancelButton"/>
+                <shapla-button theme="primary" :class="confirmButtonClass" @click.prevent="handleClick(true)"
+                               v-if="params.confirmButton" v-text="params.confirmButton"/>
             </div>
         </div>
     </modal>
 </template>
 
 <script>
-    import modal from './plugin';
+    import modal from 'shapla-modal';
+    import shaplaButton from 'shapla-button';
+    import Dialog from './ModalPlugin';
 
     export default {
-        name: 'ConfirmModal',
-        components: {modal},
+        name: 'ConfirmDialog',
+        components: {modal, shaplaButton},
         props: {
             confirmButtonClass: {type: String, default: 'button button--confirm'},
             cancelButtonClass: {type: String, default: 'button button--cancel'},
@@ -40,7 +39,7 @@
         },
 
         beforeMount() {
-            modal.events.$on('show', params => {
+            Dialog.events.$on('show', params => {
                 Object.assign(this.params, params);
                 this.modalActive = true;
             });
@@ -49,7 +48,7 @@
         methods: {
             handleClick(confirmed) {
                 this.modalActive = false;
-                modal.events.$emit('clicked', confirmed);
+                Dialog.events.$emit('clicked', confirmed);
             }
         }
     }

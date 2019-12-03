@@ -1,15 +1,15 @@
 <template>
     <div id="app">
-        <test-dropdown/>
+        <test-confirmation-dialogs/>
     </div>
 </template>
 
 <script>
-    import TestDropdown from "./components/TestDropdown";
+    import TestConfirmationDialogs from "./components/TestConfirmationDialogs";
 
     export default {
         name: 'app',
-        components: {TestDropdown}
+        components: {TestConfirmationDialogs}
     }
 </script>
 

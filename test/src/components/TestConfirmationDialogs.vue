@@ -1,27 +1,25 @@
 <template>
     <div>
         <button @click="confirm">Confirm</button>
-        <confirm-modal></confirm-modal>
+        <confirm-dialog/>
     </div>
 </template>
 
 <script>
-    import {ConfirmModal} from '../../../shapla-confirm-modal';
+    import {ConfirmDialog} from '../../../shapla-confirm-dialog';
 
     export default {
         name: "TestConfirmationDialogs",
         components: {
-            ConfirmModal
+            ConfirmDialog
         },
         methods: {
             confirm() {
-                this.$modal.confirm({
+                this.$dialog.confirm({
                     message: 'Are you sure to delete this item permanently?',
                     cancelButton: 'Cancel',
                     confirmButton: 'Yes'
-                }).then(confirmed => {
-                    console.log('Do somethings', confirmed);
-                });
+                }).then(confirmed => console.log('Do somethings', confirmed));
             }
         }
     }

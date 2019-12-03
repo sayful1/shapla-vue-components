@@ -1,6 +1,6 @@
 {
-  "name": "shapla-confirm-modal",
-  "description": "A simple confirm modal based on modal component for Vue",
+  "name": "shapla-confirm-dialog",
+  "description": "A simple confirm modal/dialog based on modal component for Vue",
   "version": "1.0.0",
   "author": {
     "name": "Sayful Islam",
@@ -23,9 +23,9 @@
   "bugs": {
     "url": "https://github.com/sayful1/shapla-vue-components/issues"
   },
-  "homepage": "https://github.com/sayful1/shapla-vue-components/tree/master/shapla-confirm-modal#readme",
-  "main": "dist/confirm-modal.common.js",
-  "unpkg": "dist/confirm-modal.umd.js",
+  "homepage": "https://github.com/sayful1/shapla-vue-components/tree/master/shapla-confirm-dialog#readme",
+  "main": "dist/confirm-dialog.common.js",
+  "unpkg": "dist/confirm-dialog.umd.js",
   "module": "src/index.js",
   "files": [
     "dist/*",
@@ -37,10 +37,11 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build:lib": "vue-cli-service build --target lib --name confirm-modal ./src/index.js",
+    "build:lib": "vue-cli-service build --target lib --name confirm-dialog ./src/index.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "shapla-button": "^1.0.4",
     "shapla-modal": "^1.0.3",
     "vue": "^2.6.10"
   },
