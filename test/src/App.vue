@@ -1,15 +1,15 @@
 <template>
     <div id="app">
-        <test-month-navigation/>
+        <test-color-system/>
     </div>
 </template>
 
 <script>
-    import TestMonthNavigation from "./components/TestMonthNavigation";
+    import TestColorSystem from "./components/TestColorSystem";
 
     export default {
         name: 'app',
-        components: {TestMonthNavigation}
+        components: {TestColorSystem}
     }
 </script>
 

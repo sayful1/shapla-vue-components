@@ -1,0 +1,26 @@
+@import "functions";
+
+$color--white: #ffffff !default;
+$color--black: #000000 !default;
+
+$color--primary: #00d1b2 !default;
+$color--primary-variant: darken($color--primary, 5) !default;
+$color--on-primary: findColorInvert($color--primary) !default;
+
+$color--secondary: #9c27b0 !default;
+$color--secondary-variant: darken($color--secondary, 5) !default;
+$color--on-secondary: findColorInvert($color--secondary) !default;
+
+$color--error: #b00020 !default;
+$color--on-error: findColorInvert($color--error) !default;
+
+$color--surface: $color--white !default;
+$color--on-surface: findColorInvert($color--surface) !default;
+
+$color--background: $color--white !default;
+
+$color--text-primary: rgba($color--black, .87) !default;
+$color--text-secondary: rgba($color--black, .54) !default;
+$color--text-hint: rgba($color--black, .38) !default;
+$color--text-disabled: rgba($color--black, .38) !default;
+$color--text-icon: rgba($color--black, .38) !default;

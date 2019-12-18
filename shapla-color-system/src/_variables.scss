@@ -1,0 +1,23 @@
+@import "initial-variables";
+
+$primary: var(--shapla-primary, $color--primary) !default;
+$primary-variant: var(--shapla-primary-variant, $color--primary-variant) !default;
+$on-primary: var(--shapla-on-primary, $color--on-primary) !default;
+
+$secondary: var(--shapla-secondary, $color--secondary) !default;
+$secondary-variant: var(--shapla-secondary-variant, $color--secondary-variant) !default;
+$on-secondary: var(--shapla-on-secondary, $color--on-secondary) !default;
+
+$error: var(--shapla-error, $color--error) !default;
+$on-error: var(--shapla-on-error, $color--on-error) !default;
+
+$surface: var(--shapla-surface, $color--surface) !default;
+$on-surface: var(--shapla-on-surface, $color--on-surface) !default;
+
+$background: var(--shapla-background, $color--background) !default;
+
+$text-primary: var(--shapla-text-primary, $color--text-primary) !default;
+$text-secondary: var(--shapla-text-secondary, $color--text-secondary) !default;
+$text-hint: var(--shapla-text-hint, $color--text-hint) !default;
+$text-disabled: var(--shapla-text-disabled, $color--text-disabled) !default;
+$text-icon: var(--shapla-text-icon, $color--text-icon) !default;
