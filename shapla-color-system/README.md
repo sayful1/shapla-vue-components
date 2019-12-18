@@ -1,9 +1,6 @@
-# shapla-spinner
+# Shapla Color System
 
-[![npm](https://img.shields.io/npm/v/shapla-spinner.svg) ![npm](https://img.shields.io/npm/dm/shapla-spinner.svg)](https://www.npmjs.com/package/shapla-spinner)
-[![vue2](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://vuejs.org/)
-
-A loading spinner component based on Material Design Lite Spinner for Vue.js
+The shapla color system can be used to create a color scheme that reflects your brand or style.
 
 ## Table of contents
 
@@ -13,45 +10,43 @@ A loading spinner component based on Material Design Lite Spinner for Vue.js
 # Installation
 
 ```
-npm install --save shapla-spinner
+npm i shapla-color-system
 ```
 
 # Usage
 
-Add the component:
+### Non-Sass customization
 
-```js
-import spinner from 'shapla-spinner';
+Only a very limited number of color customization features are supported for non-Sass clients. They are a set of CSS custom properties, and a set of CSS classes.
 
-export default {
-  name: 'Hello',
+#### CSS Custom Properties
 
-  components: {
-    spinner
-  },
+CSS Custom property         | Description
+----------------------------|--------------------------------------------------------------------
+`--shapla-primary`          | The theme primary color
+`--shapla-secondary`        | The theme secondary color
+`--shapla-background`       | The theme background color
+`--shapla-surface`          | The theme surface color
+`--shapla-on-primary`       | Text color on top of a primary background
+`--shapla-on-secondary`     | Text color on top of a secondary background
+`--shapla-on-surface`       | Text color on top of a surface background
+`--shapla-text-primary`     | Used for most text
+`--shapla-text-secondary`   | Used for text which is lower in the visual hierarchy
+`--shapla-text-hint`        | Used for text hints, such as those in text fields and labels
+`--shapla-text-disabled`    | Used for text in disabled components and content
+`--shapla-text-icon`        | Used for icons
 
-  data () {
-    return {
-        active:true,
-    };
-  }
-}
+#### CSS Classes
 
-```
-
-```html
-<spinner :active="true" :single="false" :show-text="false" position="static"></spinner>
-```
-
-### Props
-| Property          | Type      | Required  | Default   | Description                                                       |
-|-------------------|-----------|-----------|-----------|-------------------------------------------------------------------|
-| `active`          | Boolean   | **no**    | `true`    | Spinner will be shown only when `active` value is `true`          |
-| `single`          | Boolean   | **no**    | `false`   | If set `true`, only primary color will be shown for all layers.   |
-| `showText`        | Boolean   | **no**    | `false`   | If set `true`, `Loading...` text will be show beside spinner.     |
-| `position`        | String    | **no**    | `fixed`   | Value can be `fixed`, `absolute`, or `static`.                    |
-| `primaryColor`    | String    | **no**    | `#3F51B5` | You can use any hex/rgb/rgba color code.                          |
-| `layer1Color`     | String    | **no**    | `#42A5F5` | You can use any hex/rgb/rgba color code.                          |
-| `layer2Color`     | String    | **no**    | `#f44336` | You can use any hex/rgb/rgba color code.                          |
-| `layer3Color`     | String    | **no**    | `#FDD835` | You can use any hex/rgb/rgba color code.                          |
-| `layer4Color`     | String    | **no**    | `#4CAF50` | You can use any hex/rgb/rgba color code.                          |
+CSS Class                       | Description
+--------------------------------|--------------------------------------------------------------------------
+`shapla-color--primary`         | Sets the text color to the theme primary color
+`shapla-color--primary-bg`      | Sets the background color to the theme primary color
+`shapla-color--on-primary`      | Sets the text color to the theme on-primary color
+`shapla-color--secondary`       | Sets the text color to the theme secondary color
+`shapla-color--secondary-bg`    | Sets the background color to the theme secondary color
+`shapla-color--on-secondary`    | Sets the text color to the theme on-secondary color
+`shapla-color--surface`         | Sets the surface color to the theme surface color
+`shapla-color--on-surface`      | Sets the text color to the theme on-surface color
+`shapla-color--background`      | Sets the background color to the theme background color
+`shapla-color--text-primary`    | Sets text to a suitable color for TEXT_STYLE on top of light background
