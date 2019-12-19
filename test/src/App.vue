@@ -1,15 +1,15 @@
 <template>
     <div id="app">
-        <test-button/>
+        <test-checkbox/>
     </div>
 </template>
 
 <script>
-    import TestButton from "./components/TestButton";
+    import TestCheckbox from "./components/TestCheckbox";
 
     export default {
         name: 'app',
-        components: {TestButton}
+        components: {TestCheckbox}
     }
 </script>
 
