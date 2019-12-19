@@ -1,15 +1,15 @@
 <template>
     <div id="app">
-        <test-color-system/>
+        <test-button/>
     </div>
 </template>
 
 <script>
-    import TestColorSystem from "./components/TestColorSystem";
+    import TestButton from "./components/TestButton";
 
     export default {
         name: 'app',
-        components: {TestColorSystem}
+        components: {TestButton}
     }
 </script>
 
