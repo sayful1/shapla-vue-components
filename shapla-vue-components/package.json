@@ -10,9 +10,7 @@
   "keywords": [
     "vue",
     "vuejs",
-    "plugin",
-    "delete",
-    "cross"
+    "components"
   ],
   "license": "MIT",
   "repository": {
@@ -22,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/sayful1/shapla-vue-components/issues"
   },
-  "homepage": "https://github.com/sayful1/shapla-vue-components/tree/master/shapla-delete#readme",
+  "homepage": "https://github.com/sayful1/shapla-vue-components/tree/master/shapla-vue-components#readme",
   "main": "dist/components.common.js",
   "unpkg": "dist/components.umd.js",
   "module": "src/index.js",
