@@ -6,11 +6,12 @@
                :disabled="disabled"
                @change="updateInput"
                @focus="updateFocusEvent"
+               @blur="updateBlurEvent"
         >
         <span class="shapla-checkbox__label"><slot>{{ label }}</slot></span>
-        <span class="shapla-checkbox__focus-helper"></span>
-        <span class="shapla-checkbox__box-outline">
-            <span class="shapla-checkbox__tick-outline"></span>
+        <span class="shapla-checkbox__focus-helper"/>
+        <span class="shapla-checkbox__box-outline" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave">
+            <span class="shapla-checkbox__tick-outline"/>
         </span>
     </label>
 </template>
@@ -32,7 +33,8 @@
         },
         data() {
             return {
-                isFocus: false
+                isHovered: false,
+                isFocus: false,
             }
         },
         computed: {
@@ -46,6 +48,8 @@
             labelClasses() {
                 return {
                     'is-checked': this.shouldBeChecked,
+                    'is-focused': this.isFocus,
+                    'is-hovered': this.isHovered,
                 }
             }
         },
@@ -69,7 +73,16 @@
             },
             updateFocusEvent() {
                 this.isFocus = true;
-            }
+            },
+            updateBlurEvent() {
+                this.isFocus = false;
+            },
+            handleMouseEnter() {
+                this.isHovered = true;
+            },
+            handleMouseLeave() {
+                this.isHovered = false;
+            },
         }
     }
 </script>

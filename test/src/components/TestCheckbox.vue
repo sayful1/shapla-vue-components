@@ -1,10 +1,22 @@
 <template>
     <div>
-        <shapla-checkbox v-model="singleCheckbox">Label goes here.</shapla-checkbox>
+        <div>
+            <h4>Single Checkbox</h4>
 
-        <shapla-checkbox v-model="multiCheckbox" value="one">One</shapla-checkbox>
-        <shapla-checkbox v-model="multiCheckbox" value="two">Two</shapla-checkbox>
-        <shapla-checkbox v-model="multiCheckbox" value="three">Three</shapla-checkbox>
+            <shapla-checkbox v-model="singleCheckbox">Label goes here.</shapla-checkbox>
+
+            <pre><code>{{singleCheckbox}}</code></pre>
+        </div>
+
+        <div>
+            <h4>Multiple Checkbox</h4>
+
+            <shapla-checkbox v-model="multiCheckbox" value="one">One</shapla-checkbox>
+            <shapla-checkbox v-model="multiCheckbox" value="two">Two</shapla-checkbox>
+            <shapla-checkbox v-model="multiCheckbox" value="three">Three</shapla-checkbox>
+
+            <pre><code>{{multiCheckbox}}</code></pre>
+        </div>
     </div>
 </template>
 
