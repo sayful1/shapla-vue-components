@@ -50,7 +50,7 @@ export default {
 ## Listeners
 The button component fires the following events:
 
-**`click`**: When checkbox is clicked, it fires the event.
+**`change`**: When checkbox is clicked, it fires the event.
 
 ```html
 <!-- template -->

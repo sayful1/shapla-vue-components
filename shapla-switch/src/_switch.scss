@@ -1,3 +1,5 @@
+@import "~shapla-color-system/src/variables";
+
 $switch-label-font-size: 16px !default;
 $switch-label-height: 24px !default;
 $switch-track-height: 14px !default;
@@ -8,20 +10,15 @@ $switch-thumb-top: ($switch-label-height - $switch-thumb-size) / 2 !default;
 $switch-ripple-size: $switch-label-height * 2 !default;
 $switch-helper-size: 8px !default;
 
-$color-primary: "245, 135, 48" !default; //$palette-indigo-500 !default;
-$color-black: "0,0,0";
-$palette-grey-50: "250,250,250";
-$palette-grey-400: "189,189,189";
-
-$switch-color: unquote("rgb(#{$color-primary})") !default;
-$switch-faded-color: unquote("rgba(#{$color-primary}, 0.26)") !default;
+$switch-color: $color--primary !default;
+$switch-faded-color: rgba($color--primary, 0.26) !default;
 $switch-thumb-color: $switch-color !default;
-$switch-track-color: unquote("rgba(#{$color-primary}, 0.5)") !default;
+$switch-track-color: rgba($color--primary, 0.5) !default;
 
-$switch-off-thumb-color: unquote("rgb(#{$palette-grey-50})") !default;
-$switch-off-track-color: unquote("rgba(#{$color-black}, 0.26)") !default;
-$switch-disabled-thumb-color: unquote("rgb(#{$palette-grey-400})") !default;
-$switch-disabled-track-color: unquote("rgba(#{$color-black}, 0.12)") !default;
+$switch-off-thumb-color: #fafafa !default;
+$switch-off-track-color: rgba($color--black, 0.26) !default;
+$switch-disabled-thumb-color: #bdbdbd !default;
+$switch-disabled-track-color: rgba($color--black, 0.12) !default;
 
 .shapla-switch {
 	position: relative;

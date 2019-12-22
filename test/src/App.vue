@@ -1,15 +1,17 @@
 <template>
     <div id="app">
         <test-checkbox/>
+        <test-switch/>
     </div>
 </template>
 
 <script>
     import TestCheckbox from "./components/TestCheckbox";
+    import TestSwitch from "./components/TestSwitch";
 
     export default {
         name: 'app',
-        components: {TestCheckbox}
+        components: {TestSwitch, TestCheckbox}
     }
 </script>
 

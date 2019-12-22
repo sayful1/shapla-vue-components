@@ -38,6 +38,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "shapla-color-system": "^1.0.0",
     "vue": "^2.6.10"
   },
   "devDependencies": {
