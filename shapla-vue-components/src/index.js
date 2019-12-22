@@ -1,10 +1,11 @@
 /*!
- * Shapla Vue Components v1.0.0
+ * Shapla Vue Components v1.0.2
  * (c) 2019 Sayful Islam
  * Released under the MIT License.
  */
 
 import shaplaButton from "shapla-button";
+import shaplaCheckbox from "shapla-checkbox";
 import {columns, column} from 'shapla-columns'
 import {Dialog, ConfirmDialog} from 'shapla-confirm-dialog'
 import dataTable from "shapla-data-table";
@@ -17,11 +18,13 @@ import notification from "shapla-notifications";
 import searchForm from "shapla-search-form";
 import spinner from "shapla-spinner";
 import StarRating from 'shapla-star-rating';
+import shaplaSwitch from "shapla-switch";
 import {tabs, tab} from 'shapla-tabs';
 import {toggles, toggle} from 'shapla-toggles';
 
 const Components = {
     shaplaButton,
+    shaplaCheckbox,
     columns, column,
     Dialog, ConfirmDialog,
     dataTable,
@@ -34,6 +37,7 @@ const Components = {
     searchForm,
     spinner,
     StarRating,
+    shaplaSwitch,
     tabs, tab,
     toggles, toggle
 };
@@ -46,6 +50,7 @@ export function install(Vue) {
     Vue.use(Dialog);
 
     Vue.component('shapla-button', shaplaButton);
+    Vue.component('shapla-checkbox', shaplaCheckbox);
     Vue.component('columns', columns);
     Vue.component('column', column);
     Vue.component('confirm-dialog', ConfirmDialog);
@@ -59,6 +64,7 @@ export function install(Vue) {
     Vue.component('search-form', searchForm);
     Vue.component('spinner', spinner);
     Vue.component('star-rating', StarRating);
+    Vue.component('shapla-switch', shaplaSwitch);
     Vue.component('tabs', tabs);
     Vue.component('tab', tab);
     Vue.component('toggles', toggles);
