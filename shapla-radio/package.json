@@ -1,6 +1,6 @@
 {
   "name": "shapla-radio",
-  "description": "A simple responsive horizontal navigation tabs component based on Bulma Tabs for Vue.js",
+  "description": "A custom radio vue component that works like native radio component.",
   "version": "1.0.0",
   "author": {
     "name": "Sayful Islam",
@@ -10,7 +10,7 @@
   "keywords": [
     "vue",
     "vuejs",
-    "tabs"
+    "radio"
   ],
   "license": "MIT",
   "repository": {
@@ -21,8 +21,8 @@
     "url": "https://github.com/sayful1/shapla-vue-components/issues"
   },
   "homepage": "https://github.com/sayful1/shapla-vue-components/tree/master/shapla-radio#readme",
-  "main": "dist/shapla-radio.common.js",
-  "unpkg": "dist/shapla-radio.umd.js",
+  "main": "dist/radio.common.js",
+  "unpkg": "dist/radio.umd.js",
   "module": "src/index.js",
   "files": [
     "dist/*",
@@ -34,7 +34,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build:lib": "vue-cli-service build --target lib --name shapla-radio ./src/index.js",
+    "build:lib": "vue-cli-service build --target lib --name radio ./src/index.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

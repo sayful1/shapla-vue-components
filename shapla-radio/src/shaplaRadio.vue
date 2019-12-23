@@ -1,9 +1,9 @@
 <template>
     <label class="shapla-radio" :class="getClasses">
         <input type="radio" class="shapla-radio__button" :checked="shouldBeChecked" :value="value"
-               @change="updateInput" @focus="updateFocusEvent" @blur="updateBlurEvent">
+               @change="$emit('change', value)" @focus="isFocus = true" @blur="isFocus = false">
         <span class="shapla-radio__label"><slot>{{ label }}</slot></span>
-        <span class="shapla-radio__outer-circle" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave"/>
+        <span class="shapla-radio__outer-circle" @mouseenter="isHovered = true" @mouseleave="isHovered = false"/>
         <span class="shapla-radio__inner-circle"/>
     </label>
 </template>
@@ -35,23 +35,6 @@
                     'is-hovered': this.isHovered,
                 }
             }
-        },
-        methods: {
-            updateInput() {
-                this.$emit('change', this.value);
-            },
-            updateFocusEvent() {
-                this.isFocus = true;
-            },
-            updateBlurEvent() {
-                this.isFocus = false;
-            },
-            handleMouseEnter() {
-                this.isHovered = true;
-            },
-            handleMouseLeave() {
-                this.isHovered = false;
-            },
         }
     }
 </script>

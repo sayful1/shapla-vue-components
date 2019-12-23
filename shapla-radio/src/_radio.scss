@@ -80,11 +80,11 @@ $radio-focus-color: rgba($color--primary, 0.26) !default;
 
 	.shapla-radio.is-focused &,
 	.shapla-radio.is-hovered & {
-		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 0 0 8px rgba(0, 0, 0, 0.1);
 	}
 
 	.shapla-radio.is-checked.is-focused & {
-		box-shadow: 0 0 0 10px $radio-focus-color;
+		box-shadow: 0 0 0 8px $radio-focus-color;
 	}
 }
 

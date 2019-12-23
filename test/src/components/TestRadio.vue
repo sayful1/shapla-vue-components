@@ -7,6 +7,8 @@
                 :label="_option.label"
                 :value="_option.value"
         />
+
+        <pre><code>{{radioTest}}</code></pre>
     </div>
 </template>
 

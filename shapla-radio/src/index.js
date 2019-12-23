@@ -1,5 +1,5 @@
 /*!
- * Shapla Radio Buttons v1.0.0
+ * Shapla Radio v1.0.0
  * (c) 2019 Sayful Islam
  * Released under the MIT License.
  */
