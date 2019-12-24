@@ -1,7 +1,7 @@
 {
   "name": "shapla-vue-components",
   "description": "A collection of reusable vue components for rapid development.",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",
@@ -48,6 +48,7 @@
     "shapla-data-table-status": "^1.0.2",
     "shapla-delete": "^1.0.2",
     "shapla-dropdown": "^1.0.0",
+    "shapla-input-slider": "^1.0.0",
     "shapla-modal": "^1.0.4",
     "shapla-notifications": "^1.0.5",
     "shapla-radio": "^1.0.0",

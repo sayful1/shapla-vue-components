@@ -1,5 +1,5 @@
 /*!
- * Shapla Vue Components v1.0.4
+ * Shapla Vue Components v1.0.5
  * (c) 2019 Sayful Islam
  * Released under the MIT License.
  */
@@ -13,6 +13,7 @@ import pagination from "shapla-data-table-pagination";
 import statusList from "shapla-data-table-status";
 import deleteIcon from 'shapla-delete';
 import dropdown from "shapla-dropdown";
+import inputSlider from 'shapla-input-slider';
 import modal from "shapla-modal";
 import notification from "shapla-notifications";
 import shaplaRadio from "shapla-radio";
@@ -34,6 +35,7 @@ const Components = {
     pagination,
     deleteIcon,
     dropdown,
+    inputSlider,
     modal,
     notification,
     shaplaRadio,
@@ -63,6 +65,7 @@ export function install(Vue) {
     Vue.component('status-list', statusList);
     Vue.component('delete-icon', deleteIcon);
     Vue.component('dropdown', dropdown);
+    Vue.component('input-slider', inputSlider);
     Vue.component('modal', modal);
     Vue.component('notification', notification);
     Vue.component('shapla-radio', shaplaRadio);

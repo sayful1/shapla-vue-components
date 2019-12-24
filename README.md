@@ -12,6 +12,7 @@ Some reusable vue components for our projects.
 * [Shapla Data Table Status](shapla-data-table-status/README.md)
 * [Shapla Delete](shapla-delete/README.md)
 * [Shapla Dropdown](shapla-dropdown/README.md)
+* [Shapla Input Slider](shapla-input-slider/README.md)
 * [Shapla Modal](shapla-modal/README.md)
 * [Shapla Notifications](shapla-notifications/README.md)
 * [Shapla Radio](shapla-radio/README.md)
@@ -25,7 +26,6 @@ Some reusable vue components for our projects.
 
 Under Development
 * [Shapla Data Table Full](shapla-data-table-full/README.md)
-* [Shapla Input Slider](shapla-input-slider/README.md)
 * [Shapla Media Uploader](shapla-media-uploader/README.md)
 * [Shapla Month Navigation](shapla-month-navigation/README.md)
 * [Shapla Side Navigation](shapla-side-navigation/README.md)
