@@ -1,5 +1,5 @@
 /*!
- * Shapla Vue Components v1.0.3
+ * Shapla Vue Components v1.0.4
  * (c) 2019 Sayful Islam
  * Released under the MIT License.
  */
@@ -16,6 +16,7 @@ import dropdown from "shapla-dropdown";
 import modal from "shapla-modal";
 import notification from "shapla-notifications";
 import shaplaRadio from "shapla-radio";
+import radioButton from "shapla-radio-button";
 import searchForm from "shapla-search-form";
 import spinner from "shapla-spinner";
 import StarRating from 'shapla-star-rating';
@@ -36,6 +37,7 @@ const Components = {
     modal,
     notification,
     shaplaRadio,
+    radioButton,
     searchForm,
     spinner,
     StarRating,
@@ -64,6 +66,7 @@ export function install(Vue) {
     Vue.component('modal', modal);
     Vue.component('notification', notification);
     Vue.component('shapla-radio', shaplaRadio);
+    Vue.component('radio-button', radioButton);
     Vue.component('search-form', searchForm);
     Vue.component('spinner', spinner);
     Vue.component('star-rating', StarRating);
