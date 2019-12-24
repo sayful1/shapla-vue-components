@@ -1,4 +1,9 @@
-// Import vue component
+/*!
+ * Shapla Input Slider v1.0.0
+ * (c) 2019 Sayful Islam
+ * Released under the MIT License.
+ */
+
 import inputSlider from './inputSlider';
 
 // Declare install function executed by Vue.use()

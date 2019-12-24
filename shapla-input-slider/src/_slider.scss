@@ -1,4 +1,4 @@
-@import "colors";
+@import "~shapla-color-system/src/variables";
 
 .shapla-input-slider {
 	max-width: 100%;
@@ -6,7 +6,7 @@
 	align-items: center;
 
 	.shapla-input-slider__range {
-		-webkit-appearance: none;
+		appearance: none;
 		background-color: rgba(#000, 0.12);
 		height: 5px;
 		padding: 0;

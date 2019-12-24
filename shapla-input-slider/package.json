@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/sayful1/shapla-vue-components/issues"
   },
-  "homepage": "https://github.com/sayful1/shapla-vue-components/tree/master/input-slider#readme",
+  "homepage": "https://github.com/sayful1/shapla-vue-components/tree/master/shapla-input-slider#readme",
   "main": "dist/input-slider.common.js",
   "unpkg": "dist/input-slider.umd.js",
   "module": "src/index.js",
@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "shapla-button": "^1.0.3",
+    "shapla-color-system": "^1.0.0",
     "vue": "^2.6.10"
   },
   "devDependencies": {

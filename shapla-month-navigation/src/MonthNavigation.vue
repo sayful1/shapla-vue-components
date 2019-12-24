@@ -21,12 +21,15 @@
         name: "MonthNavigation",
         props: {
             fullwidth: {type: Boolean, default: false},
+            monthNames: {
+                type: Array, default: () => [
+                    "January", "February", "March", "April", "May", "June",
+                    "July", "August", "September", "October", "November", "December"
+                ]
+            },
         },
         data() {
             return {
-                monthNames: ["January", "February", "March", "April", "May", "June",
-                    "July", "August", "September", "October", "November", "December"
-                ],
                 year: '',
                 monthNumber: '',
                 monthName: '',
@@ -67,7 +70,7 @@
             this.monthNumber = d.getMonth();
             this.monthName = this.monthNames[this.monthNumber];
 
-			this.$emit('change', {year: this.year, month: this.monthNumber + 1});
+            this.$emit('change', {year: this.year, month: this.monthNumber + 1});
         }
     }
 </script>
