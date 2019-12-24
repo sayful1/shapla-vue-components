@@ -1,5 +1,8 @@
 <template>
-    <radio-buttons :options="options" v-model="option"></radio-buttons>
+    <div>
+        <radio-buttons :options="options" v-model="option"/>
+        <pre><code>{{option}}</code></pre>
+    </div>
 </template>
 
 <script>

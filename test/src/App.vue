@@ -1,17 +1,15 @@
 <template>
     <div id="app">
-        <test-radio/>
-        <test-checkbox/>
+        <test-radio-buttons/>
     </div>
 </template>
 
 <script>
-    import TestRadio from "./components/TestRadio";
-    import TestCheckbox from "./components/TestCheckbox";
+    import TestRadioButtons from "./components/TestRadioButtons";
 
     export default {
         name: 'app',
-        components: {TestCheckbox, TestRadio}
+        components: {TestRadioButtons}
     }
 </script>
 
