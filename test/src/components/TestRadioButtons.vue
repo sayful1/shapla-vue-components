@@ -1,17 +1,23 @@
 <template>
     <div>
-        <radio-buttons :options="options" v-model="option"/>
+        <radio-button
+                v-for="_option in options"
+                :key="_option.value"
+                v-model="option"
+                :label="_option.label"
+                :value="_option.value"
+        />
         <pre><code>{{option}}</code></pre>
     </div>
 </template>
 
 <script>
-    import radioButtons from "../../../shapla-radio-buttons/src/radioButtons";
+    import radioButton from "../../../shapla-radio-buttons/src/radioButton";
 
     export default {
         name: "TestRadioButtons",
         components: {
-            radioButtons
+            radioButton
         },
         data() {
             return {

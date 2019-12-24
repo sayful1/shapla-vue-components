@@ -1,17 +1,17 @@
 /*!
- * Shapla Radio Buttons v1.0.0
+ * Shapla Radio Button v1.0.0
  * (c) 2019 Sayful Islam
  * Released under the MIT License.
  */
 
 // Import vue component
-import radioButtons from './radioButtons';
+import radioButton from './radioButton';
 
 // Declare install function executed by Vue.use()
 export function install(Vue) {
     if (install.installed) return;
     install.installed = true;
-    Vue.component('radio-buttons', radioButtons);
+    Vue.component('radio-button', radioButton);
 }
 
 // Create module definition for Vue.use()
@@ -29,4 +29,4 @@ if (GlobalVue) {
 }
 
 // To allow use as module (npm/webpack/etc.) export component
-export default radioButtons;
+export default radioButton;

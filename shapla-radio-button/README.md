@@ -1,6 +1,6 @@
-# shapla-radio
+# shapla-radio-button
 
-A custom radio vue component that works like native radio component.
+A custom buttons group component that works like native radio.
 
 ## Table of contents
 
@@ -10,7 +10,7 @@ A custom radio vue component that works like native radio component.
 # Installation
 
 ```
-npm i shapla-radio
+npm i shapla-radio-button
 ```
 
 # Usage
@@ -18,13 +18,13 @@ npm i shapla-radio
 Add the component:
 
 ```js
-import shaplaRadio from 'shapla-radio';
+import radioButton from 'shapla-radio-button';
 
 export default {
     name: 'Hello',
 
     components: {
-        shaplaRadio
+        radioButton
     },
     data() {
         return {
@@ -41,7 +41,7 @@ export default {
 ```
 
 ```html
-<shapla-radio v-for="_option in options" :key="_option.value" :value="_option.value" v-model="option">{{_option.label}}</shapla-radio>
+<radio-button v-for="_option in options" :key="_option.value" :value="_option.value" v-model="option">{{_option.label}}</radio-button>
 ```
 
 ### Props
