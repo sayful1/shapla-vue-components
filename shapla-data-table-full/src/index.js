@@ -1,11 +1,11 @@
 // Import vue component
-import dataTable from './dataTable';
+import dataTableFull from './dataTableFull';
 
 // Declare install function executed by Vue.use()
 export function install(Vue) {
     if (install.installed) return;
     install.installed = true;
-    Vue.component('data-table', dataTable);
+    Vue.component('data-table-full', dataTableFull);
 }
 
 // Create module definition for Vue.use()
@@ -23,4 +23,4 @@ if (GlobalVue) {
 }
 
 // To allow use as module (npm/webpack/etc.) export component
-export default dataTable;
+export default dataTableFull;

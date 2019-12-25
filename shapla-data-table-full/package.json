@@ -22,13 +22,10 @@
   "bugs": {
     "url": "https://github.com/sayful1/shapla-vue-components/issues"
   },
-  "homepage": "https://github.com/sayful1/shapla-vue-components/tree/master/shapla-data-table#readme",
-  "main": "dist/data-table.common.js",
-  "unpkg": "dist/data-table.umd.js",
+  "homepage": "https://github.com/sayful1/shapla-vue-components/tree/master/shapla-data-table-full#readme",
+  "main": "dist/data-table-full.common.js",
+  "unpkg": "dist/data-table-full.umd.js",
   "module": "src/index.js",
-  "browser": {
-    "./sfc": "src/dataTable.vue"
-  },
   "files": [
     "dist/*",
     "src/*",
@@ -39,10 +36,14 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build:lib": "vue-cli-service build --target lib --name data-table ./src/dataTable.vue",
+    "build:lib": "vue-cli-service build --target lib --name data-table-full ./src/index.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "shapla-color-system": "^1.0.0",
+    "shapla-data-table": "^1.0.2",
+    "shapla-data-table-pagination": "^1.0.0",
+    "shapla-search-form": "^1.0.1",
     "vue": "^2.6.10"
   },
   "devDependencies": {

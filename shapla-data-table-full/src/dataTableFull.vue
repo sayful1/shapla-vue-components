@@ -3,12 +3,12 @@
         <div class="shapla-data-table-nav-top">
             <div class="shapla-data-table-nav-top__left">
                 <slot name="bulk-actions-top">
-                    <bulk-actions :actions="bulkActions" :active="!!checkedItems.length" v-model="bulkLocal"
+                    <bulk-actions :actions="bulkActions" :active="!!selectedItems.length" v-model="bulkLocal"
                                   @bulk:click="handleBulkAction"/>
                 </slot>
 
                 <div class="shapla-data-table-nav-top__filters">
-                    <slot name="filters"></slot>
+                    <slot name="filters"/>
                 </div>
             </div>
             <div class="shapla-data-table-nav-top__right">
@@ -18,14 +18,14 @@
             </div>
         </div>
         <data-table
-                :items="rows"
+                :items="items"
                 :columns="columns"
                 :selected-items="[]"
                 :actions="actions"
                 :index="index"
                 :action-column="actionColumn"
                 :show-cb="showCb"
-                :not-found-text="notFound"
+                :not-found-text="notFoundText"
                 :sort-by="sortBy"
                 :sort-order="sortOrder"
                 :mobile-width="mobileWidth"
@@ -33,13 +33,13 @@
         <div class="shapla-data-table-nav-bottom">
             <div class="shapla-data-table-nav-bottom__left">
                 <slot name="bulk-actions-bottom">
-                    <bulk-actions :actions="bulkActions" :active="!!checkedItems.length" v-model="bulkLocal"
+                    <bulk-actions :actions="bulkActions" :active="!!selectedItems.length" v-model="bulkLocal"
                                   position="bottom" @bulk:click="handleBulkAction"/>
                 </slot>
             </div>
             <div class="shapla-data-table-nav-bottom__right">
                 <slot name="pagination">
-                    <pagination :current_page="currentPage" :per_page="perPage" :total_items="itemsTotal"
+                    <pagination :current_page="currentPage" :per_page="perPage" :total_items="totalItems"
                                 @pagination="goToPage" size="small"/>
                 </slot>
             </div>
@@ -49,10 +49,10 @@
 
 <script>
     import bulkActions from './bulkActions'
-    import pagination from '../../shapla-data-table-pagination/src/pagination'
-    import searchForm from "../../shapla-search-form/src/searchForm";
-    import dataTable from "../../shapla-data-table/src/dataTable";
-    import dataTableMixins from "../../shapla-data-table/src/dataTableMixins";
+    import pagination from 'shapla-data-table-pagination'
+    import searchForm from "shapla-search-form";
+    import dataTable from "shapla-data-table";
+    import {dataTableMixins} from "shapla-data-table";
 
     export default {
         name: "dataTableFull",
@@ -62,6 +62,7 @@
         components: {dataTable, searchForm, bulkActions, pagination},
 
         props: {
+            bulkActions: {type: Array, default: () => []},
             totalItems: {type: Number, default: 0},
             totalPages: {type: Number, default: 1},
             perPage: {type: Number, default: 20},
