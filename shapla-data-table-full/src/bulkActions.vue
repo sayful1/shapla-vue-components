@@ -7,14 +7,17 @@
             <option v-for="action in actions" :key="action.key" :value="action.key">{{ action.label }}</option>
         </select>
 
-        <button @click="handleBulkAction" :disabled="!isApplyActive">Apply</button>
+        <shapla-button @click="handleBulkAction" :disabled="!isApplyActive">Apply</shapla-button>
     </div>
 </template>
 
 <script>
 
+    import shaplaButton from "shapla-button";
+
     export default {
         name: "bulkActions",
+        components: {shaplaButton},
         props: {
             value: {type: String, default: '-1'},
             actions: {type: Array, required: false, default: () => []},
@@ -55,6 +58,6 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss">
 
 </style>

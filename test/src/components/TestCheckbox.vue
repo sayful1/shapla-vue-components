@@ -17,6 +17,16 @@
 
             <pre><code>{{multiCheckbox}}</code></pre>
         </div>
+
+        <div>
+            <h4>Multiple Checkbox (with disabled)</h4>
+
+            <shapla-checkbox v-model="multiCheckbox" value="one">One</shapla-checkbox>
+            <shapla-checkbox v-model="multiCheckbox" value="two" disabled>Two</shapla-checkbox>
+            <shapla-checkbox v-model="multiCheckbox" value="three">Three</shapla-checkbox>
+
+            <pre><code>{{multiCheckbox}}</code></pre>
+        </div>
     </div>
 </template>
 

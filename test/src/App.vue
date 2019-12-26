@@ -1,15 +1,15 @@
 <template>
     <div id="app">
-        <test-radio-buttons/>
+        <test-data-table-full/>
     </div>
 </template>
 
 <script>
-    import TestRadioButtons from "./components/TestRadioButtons";
+    import TestDataTableFull from "./components/TestDataTableFull";
 
     export default {
         name: 'app',
-        components: {TestRadioButtons}
+        components: {TestDataTableFull}
     }
 </script>
 

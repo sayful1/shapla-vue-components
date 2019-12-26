@@ -1,6 +1,6 @@
 <template>
     <div>
-        <data-table
+        <data-table-full
                 :items="rows"
                 :columns="columns"
                 :sort-by="sortBy"
@@ -11,16 +11,27 @@
                 :actions="actions"
                 @action:click="onActionClick"
                 @item:select="selectItems"
+                :total-items="50"
+                :per-page="3"
+                :current-page="currentPage"
+                @pagination="goToPage"
+                :bulk-actions="bulkActions"
+                @bulk:apply="onBulkAction"
         />
+
+        Selected Items: <code>{{selectedItems}}</code><br>
+        Sort order: <code>{{sortOrder}}</code><br>
+        Sort by: <code>{{sortBy}}</code><br>
+        Current Page: <code>{{currentPage}}</code><br>
     </div>
 </template>
 
 <script>
-    import dataTable from "../../../shapla-data-table/src/dataTable";
+    import dataTableFull from '../../../shapla-data-table-full/src/dataTableFull';
 
     export default {
-        name: "TestDataTable",
-        components: {dataTable},
+        name: "TestDataTableFull",
+        components: {dataTableFull},
         data() {
             return {
                 columns: [
@@ -78,6 +89,37 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss">
+    .screen-reader-text {
+        border: 0;
+        clip: rect(1px, 1px, 1px, 1px);
+        clip-path: inset(50%);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute !important;
+        width: 1px;
+        word-wrap: normal !important;
+    }
 
+    .screen-reader-text:focus {
+        background-color: #f1f1f1;
+        border-radius: 3px;
+        box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+        clip: auto !important;
+        clip-path: none;
+        color: #323232;
+        display: block;
+        font-size: 1rem;
+        font-weight: bold;
+        height: auto;
+        left: 5px;
+        line-height: normal;
+        padding: 15px 23px 14px;
+        text-decoration: none;
+        top: 5px;
+        width: auto;
+        z-index: 100000;
+    }
 </style>
