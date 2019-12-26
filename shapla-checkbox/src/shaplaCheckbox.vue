@@ -5,12 +5,12 @@
                :value="value"
                :disabled="disabled"
                @change="updateInput"
-               @focus="updateFocusEvent"
-               @blur="updateBlurEvent"
+               @focus="isFocus = true"
+               @blur="isFocus = false"
         >
         <span class="shapla-checkbox__label"><slot>{{ label }}</slot></span>
         <span class="shapla-checkbox__focus-helper"/>
-        <span class="shapla-checkbox__box-outline" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave">
+        <span class="shapla-checkbox__box-outline" @mouseenter="isHovered = true" @mouseleave="isHovered = false">
             <span class="shapla-checkbox__tick-outline"/>
         </span>
     </label>
@@ -24,12 +24,13 @@
             event: 'change'
         },
         props: {
-            modelValue: {default: false},
+            label: {type: String, default: ''},
             value: {default: 'on'},
+            modelValue: {default: false},
             trueValue: {default: true},
             falseValue: {default: false},
             disabled: {type: Boolean, default: false},
-            label: {type: String, default: ''},
+            checked: {type: Boolean, default: undefined},
         },
         data() {
             return {
@@ -39,6 +40,10 @@
         },
         computed: {
             shouldBeChecked() {
+                if (typeof this.checked === "boolean") {
+                    return this.checked;
+                }
+
                 if (this.modelValue instanceof Array) {
                     return this.modelValue.includes(this.value)
                 }
@@ -50,6 +55,7 @@
                     'is-checked': this.shouldBeChecked,
                     'is-focused': this.isFocus,
                     'is-hovered': this.isHovered,
+                    'is-disabled': this.disabled,
                 }
             }
         },
@@ -70,19 +76,7 @@
                 } else {
                     this.$emit('change', isChecked ? this.trueValue : this.falseValue)
                 }
-            },
-            updateFocusEvent() {
-                this.isFocus = true;
-            },
-            updateBlurEvent() {
-                this.isFocus = false;
-            },
-            handleMouseEnter() {
-                this.isHovered = true;
-            },
-            handleMouseLeave() {
-                this.isHovered = false;
-            },
+            }
         }
     }
 </script>

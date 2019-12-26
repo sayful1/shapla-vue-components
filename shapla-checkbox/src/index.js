@@ -1,4 +1,8 @@
-// Import vue component
+/*!
+ * Shapla Checkbox v1.0.2
+ * (c) 2019 Sayful Islam
+ * Released under the MIT License.
+ */
 import shaplaCheckbox from './shaplaCheckbox'
 
 // Declare install function executed by Vue.use()

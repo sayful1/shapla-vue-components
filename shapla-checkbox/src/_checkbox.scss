@@ -93,7 +93,7 @@ $checkbox-focus-color: rgba($color--primary, 0.26) !default;
 	background-color: transparent;
 
 	.shapla-checkbox.is-focused &,
-	.shapla-checkbox.is-hovered & {
+	.shapla-checkbox:not(.is-disabled).is-hovered & {
 		box-shadow: 0 0 0 ($checkbox-button-size / 2) rgba(0, 0, 0, 0.1);
 		background-color: rgba(0, 0, 0, 0.1);
 	}
