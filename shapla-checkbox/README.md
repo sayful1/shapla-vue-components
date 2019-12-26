@@ -39,13 +39,14 @@ export default {
 ```
 
 ### Props
-| Property      | Type      | Required  | Default   | Description
-|---------------|-----------|-----------|-----------|-----------------------------------------------------------
-| `label`       | String    | **no**    | ``        | Checkbox label
-| `value`       | String    | **no**    | `on`      | The default value for the checkbox
-| `trueValue`   | String    | **no**    | `true`    | The value when user checked the checkbox
-| `falseValue`  | String    | **no**    | `false`   | The value when user unchecked the checkbox
-| `disabled`    | Boolean   | **no**    | `false`   | If set `true`, box-shadow will be added around button.
+| Property      | Type      | Required  | Default     | Description
+|---------------|-----------|-----------|-------------|-----------------------------------------------------------
+| `label`       | String    | **no**    | ``          | Checkbox label
+| `value`       | String    | **no**    | `on`        | The default value for the checkbox
+| `trueValue`   | String    | **no**    | `true`      | The value when user checked the checkbox
+| `falseValue`  | String    | **no**    | `false`     | The value when user unchecked the checkbox
+| `disabled`    | Boolean   | **no**    | `false`     | If set `true`, Checkbox will be disabled to check.
+| `checked`     | Boolean   | **no**    | `undefined` | If set `true`, Checkbox will be checked.
 
 ## Listeners
 The button component fires the following events:
