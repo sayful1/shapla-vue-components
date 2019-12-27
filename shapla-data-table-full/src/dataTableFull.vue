@@ -107,7 +107,7 @@
             </div>
             <div class="shapla-data-table-nav-bottom__right">
                 <slot name="pagination">
-                    <pagination :current_page="currentPage" :per_page="perPage" :total_items="totalItems"
+                    <pagination :current_page="current_page" :per_page="per_page" :total_items="itemsTotal"
                                 @pagination="goToPage" size="small"/>
                 </slot>
             </div>
@@ -131,17 +131,15 @@
 
         props: {
             bulkActions: {type: Array, default: () => []},
-            totalItems: {type: Number, default: 0},
-            totalPages: {type: Number, default: 1},
-            perPage: {type: Number, default: 20},
-            currentPage: {type: Number, default: 1},
+            total_items: {type: Number, default: 0},
+            per_page: {type: Number, default: 20},
+            current_page: {type: Number, default: 1},
             showSearch: {type: Boolean, default: true},
         },
 
         data() {
             return {
                 bulkLocal: '-1',
-                checkedItems: [],
             }
         },
 
@@ -152,7 +150,7 @@
             },
 
             itemsTotal() {
-                return this.totalItems || this.rows.length;
+                return this.total_items || this.rows.length;
             },
         },
 
@@ -166,7 +164,7 @@
                     return;
                 }
 
-                this.$emit('bulk:apply', action, this.checkedItems);
+                this.$emit('bulk:apply', action, this.selectedItems);
             },
 
             searchInput(query) {
