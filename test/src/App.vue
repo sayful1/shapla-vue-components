@@ -1,15 +1,17 @@
 <template>
     <div id="app">
+        <test-signature-canvas/>
         <test-data-table-full/>
     </div>
 </template>
 
 <script>
     import TestDataTableFull from "./components/TestDataTableFull";
+    import TestSignatureCanvas from "./components/TestSignatureCanvas";
 
     export default {
         name: 'app',
-        components: {TestDataTableFull}
+        components: {TestSignatureCanvas, TestDataTableFull}
     }
 </script>
 
