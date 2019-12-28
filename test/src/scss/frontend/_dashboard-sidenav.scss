@@ -1,0 +1,65 @@
+@import "../utilities/variables";
+
+.sidenav-customer-profile {
+	align-items: center;
+	display: flex;
+	height: 56px;
+	padding: 0 16px;
+
+	background: $primary;
+	color: $on-primary;
+
+	&__avatar {
+		margin-right: 1rem;
+
+		img {
+			border-radius: 32px;
+			max-height: 32px;
+			width: auto;
+		}
+	}
+
+	&__name {
+		font-size: 20px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+}
+
+.sidenav-menu {
+	margin: 16px 0;
+	max-height: calc(100vh - (56px + 32px));
+	overflow-y: auto;
+
+	.admin-bar & {
+		max-height: calc(100vh - (56px + 32px + 32px));
+	}
+
+	.sidenav-list {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+
+		&__item {
+		}
+
+		&__link {
+			display: flex;
+			text-decoration: none;
+			color: #111;
+			padding: 12px 16px;
+			align-items: center;
+
+			&:hover {
+				background-color: #f1f1f1;
+				color: #111;
+			}
+
+			&.is-active {
+				background: $primary;
+				color: $on-primary;
+			}
+		}
+	}
+}
