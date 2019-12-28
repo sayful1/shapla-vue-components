@@ -1,0 +1,15 @@
+body {
+	height: 100vh;
+	overflow: hidden;
+	width: 100vw;
+}
+
+.shapla-vue-components--demo {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	background: white;
+	z-index: 100;
+}
