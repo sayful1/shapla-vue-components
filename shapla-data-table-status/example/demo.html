@@ -7,9 +7,9 @@
 </head>
 <body>
 <div id="app">
-    <status-list :statuses="statuses"></status-list>
+    <status-list :statuses="statuses" @change="handleStatusChange"></status-list>
 
-    <status-list :statuses="statuses" type="vertical"></status-list>
+    <status-list :statuses="statuses" @change="handleStatusChange" type="vertical"></status-list>
 </div>
 <script src="https://unpkg.com/vue"></script>
 <script src="../dist/status-list.umd.min.js"></script>
@@ -22,6 +22,13 @@
                 {key: 'publish', active: false, label: 'publish', count: 10},
                 {key: 'trash', active: false, label: 'Trash', count: 2},
             ],
+        },
+        methods: {
+            handleStatusChange: function handleStatusChange(status) {
+                this.statuses.forEach(_status => {
+                    _status.active = _status.key === status.key;
+                });
+            }
         }
     });
 </script>

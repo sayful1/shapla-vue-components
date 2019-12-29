@@ -1,7 +1,7 @@
 {
   "name": "shapla-data-table-status",
   "description": "A simple pagination based on WordPress list table pagination specially for  data table pagination.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "contributors": [
     {
       "name": "Sayful Islam",
@@ -49,6 +49,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "shapla-color-system": "^1.0.0",
     "vue": "^2.6.10"
   },
   "devDependencies": {

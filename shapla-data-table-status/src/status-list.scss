@@ -1,4 +1,4 @@
-@import "colors";
+@import "~shapla-color-system/src/variables";
 
 .shapla-status-list {
 	display: flex;
@@ -58,7 +58,6 @@
 
 		&.is-active {
 			.shapla-status-list__item-label {
-				font-weight: 600;
 				color: $primary;
 			}
 

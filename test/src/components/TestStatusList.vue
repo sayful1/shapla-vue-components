@@ -2,10 +2,10 @@
     <div>
         <columns>
             <column>
-                <status-list :statuses="statuses"></status-list>
+                <status-list :statuses="statuses" @change="handleStatusChange"/>
             </column>
             <column>
-                <status-list :statuses="statuses" type="vertical"></status-list>
+                <status-list :statuses="statuses" @change="handleStatusChange" type="vertical"/>
             </column>
         </columns>
     </div>
@@ -22,11 +22,18 @@
             return {
                 statuses: [
                     {key: 'all', active: true, label: 'All', count: 10},
-                    {key: 'publish', active: false, label: 'publish', count: 10},
+                    {key: 'publish', active: false, label: 'Publish', count: 10},
                     {key: 'trash', active: false, label: 'Trash', count: 2},
                 ],
             }
         },
+        methods: {
+            handleStatusChange(status) {
+                this.statuses.forEach(_status => {
+                    _status.active = _status.key === status.key;
+                });
+            }
+        }
     }
 </script>
 
