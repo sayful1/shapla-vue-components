@@ -1,4 +1,10 @@
-@import "colors";
+@import "~shapla-color-system/src/variables";
+
+$success: var(--shapla-success, #23d160);
+$on-success: var(--shapla-on-success, #ffffff);
+
+$warning: var(--shapla-warning, #ffdd57);
+$on-warning: var(--shapla-on-warning, #000);
 
 .shapla-notification {
 	position: fixed;
@@ -48,12 +54,12 @@
 
 		&.has-info {
 			background-color: #f5f5f5;
-			color: rgba(#000, .85);
+			color: $text-primary;
 		}
 
 		&.has-warning {
-			background-color: #ffdd57;
-			color: rgba(#000, .85);
+			background-color: $warning;
+			color: $on-warning;
 		}
 
 		&.has-error {

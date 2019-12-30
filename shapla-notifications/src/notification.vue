@@ -2,7 +2,7 @@
     <div class="shapla-notification" :class="classes" v-if="items.length">
         <transition-group name="shapla-notification-transition" tag="div">
             <div v-for="item in items" :class="itemClass(item)" :key="item.id">
-                <delete-icon v-if="showDismisses" @click="closeItem(item)"></delete-icon>
+                <delete-icon v-if="showDismisses" @click="closeItem(item)"/>
                 <div class="shapla-notification__title" v-if="item.title">{{item.title}}</div>
                 <div class="shapla-notification__message" v-html="item.message"></div>
             </div>
