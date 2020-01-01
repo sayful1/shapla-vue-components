@@ -1,7 +1,7 @@
 {
   "name": "shapla-star-rating",
   "description": "A simple, highly customisable star rating component for Vue",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "contributors": [
     {
       "name": "Sayful Islam",
@@ -45,6 +45,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "shapla-color-system": "^1.0.0",
     "vue": "^2.6.10"
   },
   "devDependencies": {
