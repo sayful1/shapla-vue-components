@@ -14,7 +14,7 @@
 	&__body {
 		background-color: #fff;
 		border: none;
-		height: 100vh;
+		height: 100%;
 		left: 0;
 		max-height: 100vh;
 		position: absolute;
@@ -32,6 +32,7 @@
 	&__content {
 		overflow-x: hidden;
 		overflow-y: auto;
+		height: 100%;
 	}
 
 	&.is-active {
