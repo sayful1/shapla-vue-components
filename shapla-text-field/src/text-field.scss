@@ -1,0 +1,30 @@
+// https://www.floraqueen.com/sending-flowers/lily-alstroemeria-roses-pinecones
+.shapla-text-field {
+	position: relative;
+
+	&__control {
+	}
+
+	&__input {
+	}
+
+	&__label {
+		cursor: text;
+		position: absolute;
+		top: 14px;
+		left: 1rem;
+		font-size: 1rem;
+		text-transform: none;
+		transition: all .1s ease-out;
+		margin: auto;
+		color: rgba(0, 14, 16, .44);
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+
+	&__validation {
+	}
+
+	&__help-text {
+	}
+}

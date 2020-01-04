@@ -22,6 +22,7 @@ const menuItems = [
     {routerName: 'Switch', label: 'Switch'},
     {routerName: 'Tabs', label: 'Tabs'},
     {routerName: 'Toggles', label: 'Toggles'},
+    {routerName: 'TextField', label: 'Text Field'},
 ];
 
 export default menuItems;
