@@ -35,12 +35,12 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build:lib": "vue-cli-service build --target lib --name button ./src/index.js",
+    "build:lib": "vue-cli-service build --target lib --name text-field ./src/index.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "shapla-color-system": "^1.0.0",
-    "vue": "^2.6.10"
+    "vue": "^2.6.11"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.9.0",

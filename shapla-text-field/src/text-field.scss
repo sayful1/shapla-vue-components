@@ -1,25 +1,31 @@
+@import "~shapla-color-system/src/variables";
+
 // https://www.floraqueen.com/sending-flowers/lily-alstroemeria-roses-pinecones
 .shapla-text-field {
-	position: relative;
+	font-size: 1rem;
 
 	&__control {
+		position: relative;
 	}
 
 	&__input {
+		border: 1px solid $text-secondary;
+		border-radius: 4px;
+		height: 2.5em;
+		margin: 0;
+		padding: 0;
+		width: 100%;
+
+		&:focus {
+			outline: none;
+			box-shadow: none !important;
+		}
 	}
 
 	&__label {
-		cursor: text;
 		position: absolute;
-		top: 14px;
+		top: .75em;
 		left: 1rem;
-		font-size: 1rem;
-		text-transform: none;
-		transition: all .1s ease-out;
-		margin: auto;
-		color: rgba(0, 14, 16, .44);
-		white-space: nowrap;
-		text-overflow: ellipsis;
 	}
 
 	&__validation {
