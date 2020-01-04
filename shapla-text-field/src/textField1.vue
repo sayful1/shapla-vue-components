@@ -1,13 +1,26 @@
 <template>
-    <div class="form-group-label">
-        <div>
-            <input class="form-control" :class="inputClasses" :type="type" :id="id" :name="name" :value="value"
-                   :required="required" :disabled="disabled" :autocomplete="autocomplete" placeholder=""
+    <div class="shapla-text-field">
+        <div class="shapla-text-field__control" :class="{'has-icons-right':hasSuccess || hasError}">
+            <input class="shapla-text-field__input" :class="inputClasses" :type="type" :id="id" :name="name"
+                   :value="value" :required="required" :disabled="disabled" :autocomplete="autocomplete" placeholder=""
                    @focus="isFocus = true" @blur="isFocus = false" @input="handleInputEvent($event)">
-            <label :for="id" v-if="label" v-html="label"/>
+            <label class="shapla-text-field__label" :for="id" v-if="label" v-html="label"/>
+            <span class="icon is-right" v-if="hasSuccess">
+                <svg class="icon-success" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                </svg>
+            </span>
+            <span class="icon is-right" v-if="hasError">
+                <svg class="icon-error" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                </svg>
+            </span>
         </div>
-        <small class="invalid-feedback" v-if="validationText.length && hasError" v-html="validationText"/>
-        <small class="form-text" v-if="helpText" v-html="helpText"/>
+        <small class="shapla-text-field__help-text is-invalid" v-if="validationText.length && hasError"
+               v-html="validationText"/>
+        <small class="shapla-text-field__help-text" v-if="helpText" v-html="helpText"/>
     </div>
 </template>
 
@@ -45,7 +58,7 @@
     $error: #f14668;
     $success: #67c332;
 
-    .form-group-label {
+    .shapla-text-field {
         box-sizing: border-box;
         color: $text-secondary;
         font-weight: 400;
@@ -53,9 +66,42 @@
         margin-bottom: 16px;
         position: relative;
         text-align: left;
+
+        &__control {
+            .icon {
+                align-items: center;
+                display: inline-flex;
+                justify-content: center;
+                height: 1.5rem;
+                width: 1.5rem;
+
+                svg.icon-success {
+                    fill: $success;
+                }
+
+                svg.icon-error {
+                    fill: $error;
+                }
+            }
+
+            &.has-icons-left .icon,
+            &.has-icons-right .icon {
+                color: #dbdbdb;
+                height: calc(1.5em + 1.5rem);
+                pointer-events: none;
+                position: absolute;
+                top: 0;
+                width: 2.5em;
+                z-index: 4;
+            }
+
+            &.has-icons-right .icon.is-right {
+                right: 0;
+            }
+        }
     }
 
-    .form-control {
+    .shapla-text-field__input {
         text-align: left;
         text-transform: none;
         display: block;
@@ -64,14 +110,14 @@
         font-size: 1rem;
         font-weight: 400;
         line-height: 1.5;
-        color: $text-secondary;
+        color: $text-primary;
         background-color: #fff;
         background-clip: padding-box;
         border: .0625rem solid rgba(0, 14, 16, 0.12);
         border-radius: .25rem;
         box-shadow: 0 0 0 transparent;
         transition: border-color .15s ease-out, color .15s ease-out, box-shadow .15s ease-out;
-        padding: .6875rem 0.9375rem 0 .9375rem;
+        padding: 0.9375rem 0.9375rem 0;
 
         &:focus {
             color: rgba(0, 14, 16, .68);
@@ -83,30 +129,16 @@
 
         &.is-invalid {
             border-color: $error;
-            padding-right: calc(1.5em + 1.375rem);
-            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23f9424b' d='M4.47 21h15.06a2 2 0 001.73-3L13.73 5a2 2 0 00-3.46 0L2.74 18a2 2 0 001.73 3zM12 13.5a1 1 0 01-1-1v-2a1 1 0 012 0v2a1 1 0 01-1 1zm1 4.5h-2v-2h2z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: 100% calc((1.5em + 1.375rem) / 4);
-            background-size: calc((1.5em + 1.375rem) / 2) calc((1.5em + 1.375rem) / 2);
-
-            &:focus {
-                border-color: $error;
-                box-shadow: 0 0 0 rgba(249, 66, 75, .25);
-            }
+            padding-right: 2.5em;
         }
 
         &.is-valid {
             border-color: $success;
-            padding-right: calc(1.5em + 1.375rem);
-            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%2367c332' d='M9 16.17L5.53 12.7a.996.996 0 10-1.41 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L20.29 7.71a.996.996 0 10-1.41-1.41L9 16.17z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: 100% calc((1.5em + 1.375rem) / 4);
-            background-size: calc((1.5em + 1.375rem) / 2) calc((1.5em + 1.375rem) / 2);
-
+            padding-right: 2.5em;
         }
     }
 
-    .form-group-label label {
+    .shapla-text-field__label {
         cursor: text;
         position: absolute;
         top: 14px;
@@ -117,30 +149,27 @@
         margin: auto;
         color: $text-secondary;
         white-space: nowrap;
+        pointer-events: none;
         text-overflow: ellipsis;
         line-height: 1.2;
     }
 
-    .form-group-label .iti + label,
-    .form-group-label input.has-value + label,
-    .form-group-label input:focus + label,
-    .form-group-label select.has-value + label {
+    .shapla-text-field__input.has-value + label,
+    .shapla-text-field__input:focus + label {
         font-size: .7rem;
         top: 4px;
     }
 
-    .invalid-feedback {
+    .shapla-text-field__help-text {
         display: block;
         width: 100%;
         margin-top: .25rem;
-        font-size: .8125rem;
-        color: $error;
-    }
+        font-size: .875rem;
+        line-height: 1.2;
+        color: $text-hint;
 
-    .form-control.is-invalid ~ .invalid-feedback,
-    .form-control.is-invalid ~ .invalid-tooltip,
-    .was-validated .form-control:invalid ~ .invalid-feedback,
-    .was-validated .form-control:invalid ~ .invalid-tooltip {
-        display: block;
+        &.is-invalid {
+            color: $error;
+        }
     }
 </style>
