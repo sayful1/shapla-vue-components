@@ -52,7 +52,15 @@ const textFieldMixins = {
     methods: {
         handleInputEvent(event) {
             this.$emit('input', event.target.value);
-        }
+        },
+        handleFocusEvent(event) {
+            this.isFocus = true;
+            this.$emit('focus', event.target.value);
+        },
+        handleBlurEvent(event) {
+            this.isFocus = false;
+            this.$emit('blur', event.target.value);
+        },
     }
 };
 

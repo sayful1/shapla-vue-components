@@ -21,6 +21,18 @@
                 validation-text="Please enter a valid full name"
                 :has-error="true"
         />
+
+
+        <text-field
+                label="Email *"
+                help-text="Write a valid email address."
+                validation-text="Please enter a valid email"
+                :has-error="hasEmailError"
+                :has-success="hasEmailSuccess"
+                v-model="email"
+                @blur="handleBlurEvent"
+                @input="handleInputEvent"
+        />
     </div>
 </template>
 
@@ -33,10 +45,31 @@
             return {
                 field_one: 'default text',
                 field_two: '',
+                email: '',
+                hasEmailError: false,
+                hasEmailSuccess: false,
+                emailValidationText: 'write some text'
             }
         },
         components: {
             textField
+        },
+        methods: {
+            handleBlurEvent(value) {
+                if (!this.validateEmail(value)) {
+                    this.hasEmailError = true;
+                } else {
+                    this.hasEmailSuccess = true;
+                }
+            },
+            handleInputEvent(value) {
+                this.hasEmailError = false;
+            },
+            validateEmail(value) {
+                var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+                return reg.test(value) !== false;
+            }
         }
     }
 </script>

@@ -1,5 +1,5 @@
-# Shapla Button
-A simple button, in different colors, sizes, and states
+# Shapla TextField
+A simple customized input text field.
 
 ## Table of contents
 
@@ -9,61 +9,64 @@ A simple button, in different colors, sizes, and states
 # Installation
 
 ```
-npm i shapla-button
+npm i shapla-text-field
 ```
 
 # Usage
 Add the component:
 
 ```js
-import shaplaButton from 'shapla-button';
+import textField from 'shapla-text-field';
 
 export default {
   name: 'Hello',
 
   components: {
-    shaplaButton
-  },
-  
-  methods: {
-    handleClick(){
-      // Handle click event
-    }
+    textField
   }
 }
 
 ```
 
 ```html
-<shapla-button @click="handleClick"></shapla-button>
+<text-field
+    label="Email"
+    help-text="Write your valid email address"
+    validation-text="Please enter a valid email address"
+    :has-error="true"
+/>
 ```
 
 ### Props
-| Property      | Type      | Required  | Default   | Description                                               |
-|---------------|-----------|-----------|-----------|-----------------------------------------------------------|
-| `theme`       | String    | **no**    | `default` | Value can be `default` or `primary` or `secondary`.       |
-| `size`        | String    | **no**    | `normal`  | Value can be `normal` or `small` or `medium` or `large`.  |
-| `fullwidth`   | Boolean   | **no**    | `false`   | If set `true`, button will take full width.               |
-| `disabled`    | Boolean   | **no**    | `false`   | If set `true`, disabled attribute will be added.          |
-| `outline`     | Boolean   | **no**    | `false`   | If set `true`, outline style will be used.                |
-| `rounded`     | Boolean   | **no**    | `false`   | If set `true`, rounded style will be used.                |
-| `fab`         | Boolean   | **no**    | `false`   | If set `true`, circle style will be used.                 |
-| `shadow`      | Boolean   | **no**    | `false`   | If set `true`, box-shadow will be added around button.    |
+| Property          | Type      | Required  | Default   | Description 
+|-------------------|-----------|-----------|-----------|-------------------------------------------------
+| `type`            | String    | **no**    | `text`    | Input field type
+| `label`           | String    | **yes**   | ``        | Input field label
+| `value`           | String    | **no**    | ``        | Field value
+| `autocomplete`    | String    | **no**    | ``        | Field autocomplete attribute
+| `name`            | String    | **no**    | ``        | Field name attribute
+| `id`              | String    | **no**    | ``        | Field id attribute
+| `helpText`        | String    | **no**    | ``        | Field help text
+| `validationText`  | String    | **no**    | ``        | Field validation text
+| `hasError`        | Boolean   | **no**    | `false`   | If set `true`, field will show `validationText`
+| `hasSuccess`      | Boolean   | **no**    | `false`   | If set `true`, field will show success status
+| `disabled`        | Boolean   | **no**    | `false`   | If set `true`, field will be read only
+| `required`        | Boolean   | **no**    | `false`   | If set `true`, field must be filled
 
 ## Listeners
 The button component fires the following events:
 
-**`click`**: When button is clicked, it fires the event.
+**`input`**: When you input anything on field
 
 ```html
 <!-- template -->
-<shapla-button @click="handleClick"></shapla-button>
+<text-field @click="handleInputEvent"/>
 
 
 <!-- method -->
 methods: {
-  handleClick(){
-    // Handle click event
+  handleInputEvent(value){
+    // Handle input event
   }
 }
 ```

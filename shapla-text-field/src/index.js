@@ -5,7 +5,7 @@
  */
 
 // Import vue component
-import textField from './textField1';
+import textField from './textField';
 
 // Declare install function executed by Vue.use()
 export function install(Vue) {
