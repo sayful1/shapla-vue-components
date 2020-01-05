@@ -1,12 +1,16 @@
 @import "initial-variables";
 
 $primary: var(--shapla-primary, $color--primary) !default;
-$primary-variant: var(--shapla-primary-variant, $color--primary-variant) !default;
 $on-primary: var(--shapla-on-primary, $color--on-primary) !default;
+$primary-variant: var(--shapla-primary-variant, $color--primary-variant) !default;
+$primary-alpha: var(--shapla-primary-alpha, $color--primary-alpha) !default;
 
 $secondary: var(--shapla-secondary, $color--secondary) !default;
 $secondary-variant: var(--shapla-secondary-variant, $color--secondary-variant) !default;
 $on-secondary: var(--shapla-on-secondary, $color--on-secondary) !default;
+
+$success: var(--shapla-success, $color--success) !default;
+$on-success: var(--shapla-on-success, $color--on-success) !default;
 
 $error: var(--shapla-error, $color--error) !default;
 $on-error: var(--shapla-on-error, $color--on-error) !default;
