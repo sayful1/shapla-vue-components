@@ -9,9 +9,9 @@ $checkbox-top-offset: ($checkbox-label-height - $checkbox-button-size - $checkbo
 $checkbox-ripple-size: $checkbox-label-height * 1.5;
 
 $checkbox-color: $primary !default;
-$checkbox-off-color: rgba($color--black, 0.54) !default;
-$checkbox-disabled-color: rgba($color--black, 0.26) !default;
-$checkbox-focus-color: rgba($color--primary, 0.26) !default;
+$checkbox-off-color: $text-secondary !default;
+$checkbox-disabled-color: $text-disabled !default;
+$checkbox-focus-color: $primary-alpha !default;
 
 
 .shapla-checkbox {
