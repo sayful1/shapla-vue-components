@@ -1,5 +1,5 @@
 /*!
- * Shapla Vue Components v1.0.6
+ * Shapla Vue Components v1.0.7
  * (c) 2019 Sayful Islam
  * Released under the MIT License.
  */
@@ -23,6 +23,7 @@ import spinner from "shapla-spinner";
 import StarRating from 'shapla-star-rating';
 import shaplaSwitch from "shapla-switch";
 import {tabs, tab} from 'shapla-tabs';
+import textField from 'shapla-text-field';
 import {toggles, toggle} from 'shapla-toggles';
 
 const Components = {
@@ -45,6 +46,7 @@ const Components = {
     StarRating,
     shaplaSwitch,
     tabs, tab,
+    textField,
     toggles, toggle
 };
 
@@ -76,6 +78,7 @@ export function install(Vue) {
     Vue.component('shapla-switch', shaplaSwitch);
     Vue.component('tabs', tabs);
     Vue.component('tab', tab);
+    Vue.component('text-field', textField);
     Vue.component('toggles', toggles);
     Vue.component('toggle', toggle);
 }
