@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>button demo</title>
+    <title>switch demo</title>
     <link rel="stylesheet" href="../dist/switch.css">
 </head>
 <body>
@@ -11,6 +11,8 @@
         <h4>Single Switch</h4>
 
         <shapla-switch v-model="singleSwitch">Enable this</shapla-switch>
+
+        <shapla-switch v-model="singleSwitch" disabled>Disabled Switch</shapla-switch>
 
         <pre><code>{{singleSwitch}}</code></pre>
     </div>

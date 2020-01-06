@@ -1,15 +1,17 @@
 <template>
-    <label class="shapla-switch" :class="{'is-checked':shouldBeChecked}">
+    <label class="shapla-switch" :class="switchClasses">
         <input type="checkbox" class="shapla-switch__input"
                :checked="shouldBeChecked"
                :value="value"
                :disabled="disabled"
                @change="updateInput"
+               @focus="handleFocusEvent"
+               @blur="handleBlurEvent"
         >
         <span class="shapla-switch__label"><slot>{{ label }}</slot></span>
-        <span class="shapla-switch__track"></span>
+        <span class="shapla-switch__track"> </span>
         <span class="shapla-switch__thumb">
-            <span class="shapla-switch__focus-helper"></span>
+            <span class="shapla-switch__focus-helper"> </span>
         </span>
     </label>
 </template>
@@ -30,7 +32,9 @@
             label: {type: String, default: ''},
         },
         data() {
-            return {}
+            return {
+                isFocus: false,
+            }
         },
         computed: {
             shouldBeChecked() {
@@ -40,9 +44,26 @@
                 // Note that `true-value` and `false-value` are camelCase in the JS
                 return this.modelValue === this.trueValue
             },
+            switchClasses() {
+                let classes = [];
+
+                if (this.shouldBeChecked) {
+                    classes.push('is-checked');
+                }
+
+                if (this.disabled) {
+                    classes.push('is-disabled');
+                }
+
+                if (this.isFocus) {
+                    classes.push('is-focused');
+                }
+
+                return classes;
+            },
         },
         methods: {
-            updateInput(event) {
+            getValue(event) {
                 let isChecked = event.target.checked;
 
                 if (this.modelValue instanceof Array) {
@@ -54,11 +75,26 @@
                         newValue.splice(newValue.indexOf(this.value), 1)
                     }
 
-                    this.$emit('change', newValue)
-                } else {
-                    this.$emit('change', isChecked ? this.trueValue : this.falseValue)
+                    return newValue;
                 }
-            }
+
+                return isChecked ? this.trueValue : this.falseValue;
+            },
+            updateInput(event) {
+                this.$emit('change', this.getValue(event));
+            },
+            handleFocusEvent(event) {
+                if (!this.disabled) {
+                    this.isFocus = true;
+                    this.$emit('focus', this.getValue(event));
+                }
+            },
+            handleBlurEvent(event) {
+                if (!this.disabled) {
+                    this.isFocus = false;
+                    this.$emit('blur', this.getValue(event));
+                }
+            },
         }
     }
 </script>

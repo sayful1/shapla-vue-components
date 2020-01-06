@@ -4,6 +4,7 @@
             <h4>Single Switch</h4>
 
             <shapla-switch v-model="singleSwitch">Enable this</shapla-switch>
+            <shapla-switch v-model="singleSwitch" disabled>Enable this</shapla-switch>
 
             <pre><code>{{singleSwitch}}</code></pre>
         </div>

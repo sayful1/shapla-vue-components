@@ -10,52 +10,42 @@ $switch-thumb-top: ($switch-label-height - $switch-thumb-size) / 2 !default;
 $switch-ripple-size: $switch-label-height * 2 !default;
 $switch-helper-size: 8px !default;
 
-$switch-color: $color--primary !default;
-$switch-faded-color: rgba($color--primary, 0.26) !default;
-$switch-thumb-color: $switch-color !default;
-$switch-track-color: rgba($color--primary, 0.5) !default;
+$switch-color: $primary !default;
+$switch-faded-color: $primary-alpha !default;
+$switch-thumb-color: $primary !default;
+$switch-track-color: $primary-alpha !default;
 
-$switch-off-thumb-color: #fafafa !default;
+$switch-off-thumb-color: $color--white !default;
 $switch-off-track-color: rgba($color--black, 0.26) !default;
+
 $switch-disabled-thumb-color: #bdbdbd !default;
-$switch-disabled-track-color: rgba($color--black, 0.12) !default;
+$switch-disabled-track-color: $text-disabled !default;
 
 .shapla-switch {
 	position: relative;
-
 	z-index: 1;
-
 	vertical-align: middle;
-
 	display: inline-block;
-
 	box-sizing: border-box;
 	width: 100%;
 	height: $switch-label-height;
 	margin: 0;
 	overflow: visible;
-
 	padding: 0 0 0 $switch-track-length - 8px;
-
 	// avoids blue box around switch
 	user-select: none;
 }
 
 .shapla-switch__input {
 	line-height: $switch-label-height;
+	position: absolute;
+	width: 0;
+	height: 0;
+	margin: 0;
+	padding: 0;
 	opacity: 0;
-
-	.shapla-switch.is-upgraded & {
-		// Hide input element, while still making it respond to focus.
-		position: absolute;
-		width: 0;
-		height: 0;
-		margin: 0;
-		padding: 0;
-		opacity: 0;
-		appearance: none;
-		border: none;
-	}
+	appearance: none;
+	border: none;
 }
 
 .shapla-switch__track {
@@ -66,7 +56,6 @@ $switch-disabled-track-color: rgba($color--black, 0.12) !default;
 	height: $switch-track-height;
 	width: $switch-track-length;
 	border-radius: $switch-track-height;
-
 	cursor: pointer;
 
 	.shapla-switch.is-checked & {
@@ -88,13 +77,8 @@ $switch-disabled-track-color: rgba($color--black, 0.12) !default;
 	height: $switch-thumb-size;
 	width: $switch-thumb-size;
 	border-radius: 50%;
-
 	cursor: pointer;
-
-	// @include shadow-2dp();
-
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-
 	transition-duration: 0.28s;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-property: left;
@@ -103,7 +87,6 @@ $switch-disabled-track-color: rgba($color--black, 0.12) !default;
 		background: $switch-thumb-color;
 		left: $switch-track-length - $switch-thumb-size;
 
-		// @include shadow-3dp();
 		box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 8px 0 rgba(0, 0, 0, 0.12);
 	}
 
@@ -118,16 +101,12 @@ $switch-disabled-track-color: rgba($color--black, 0.12) !default;
 	position: absolute;
 	top: 50%;
 	left: 50%;
-
 	transform: translate(-$switch-helper-size / 2, -$switch-helper-size / 2);
-
 	display: inline-block;
-
 	box-sizing: border-box;
 	width: $switch-helper-size;
 	height: $switch-helper-size;
 	border-radius: 50%;
-
 	background-color: transparent;
 
 	.shapla-switch.is-focused & {
@@ -151,7 +130,7 @@ $switch-disabled-track-color: rgba($color--black, 0.12) !default;
 
 	fieldset[disabled] .shapla-switch,
 	.shapla-switch.is-disabled & {
-		color: $switch-disabled-thumb-color;
+		color: $switch-disabled-track-color;
 		cursor: auto;
 	}
 }
