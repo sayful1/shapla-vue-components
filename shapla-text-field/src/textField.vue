@@ -18,9 +18,8 @@
                 </svg>
             </span>
         </div>
-        <small class="shapla-text-field__help-text is-invalid" v-if="validationText.length && hasError"
-               v-html="validationText"/>
-        <small class="shapla-text-field__help-text" v-if="helpText" v-html="helpText"/>
+        <small class="shapla-text-field__help-text is-invalid" v-if="showValidationText" v-html="validationText"/>
+        <small class="shapla-text-field__help-text" v-if="showHelpText" v-html="helpText"/>
     </div>
 </template>
 
@@ -29,26 +28,7 @@
 
     export default {
         name: "textField",
-        mixins: [textFieldMixins],
-        computed: {
-            inputClasses() {
-                let classes = [];
-
-                if (this.hasSuccess) {
-                    classes.push('is-valid');
-                }
-
-                if (this.hasError) {
-                    classes.push('is-invalid');
-                }
-
-                if (this.hasValue) {
-                    classes.push('has-value');
-                }
-
-                return classes;
-            }
-        }
+        mixins: [textFieldMixins]
     }
 </script>
 

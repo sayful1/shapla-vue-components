@@ -27,27 +27,29 @@ const textFieldMixins = {
         hasValue() {
             return !!(this.value && this.value.length);
         },
-        classes() {
+        showValidationText() {
+            return (this.validationText && this.validationText.length) && this.hasError;
+        },
+        showHelpText() {
+            return (this.helpText && this.helpText.length);
+        },
+        inputClasses() {
             let classes = [];
 
+            if (this.hasSuccess) {
+                classes.push('is-valid');
+            }
+
             if (this.hasError) {
-                classes.push('has-error');
+                classes.push('is-invalid');
             }
 
-            if (this.isHovered && !this.isFocus) {
-                classes.push('is-hovered');
-            }
-
-            if (this.isFocus) {
-                classes.push('is-focused');
-            }
-
-            if (this.disabled) {
-                classes.push('is-disabled');
+            if (this.hasValue) {
+                classes.push('has-value');
             }
 
             return classes;
-        }
+        },
     },
     methods: {
         handleInputEvent(event) {

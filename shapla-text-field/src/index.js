@@ -1,5 +1,5 @@
 /*!
- * Shapla Text Field v1.0.0
+ * Shapla Text Field v1.0.1
  * (c) 2019 Sayful Islam
  * Released under the MIT License.
  */
