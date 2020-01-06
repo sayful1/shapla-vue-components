@@ -42,7 +42,8 @@
 	}
 }
 
-.shapla-text-field__input {
+.shapla-text-field__input,
+.shapla-text-field__textarea {
 	text-align: left;
 	text-transform: none;
 	display: block;
@@ -58,7 +59,7 @@
 	border-radius: .25rem;
 	box-shadow: 0 0 0 transparent;
 	transition: border-color .15s ease-out, color .15s ease-out, box-shadow .15s ease-out;
-	padding: 0.9375rem 0.9375rem 0;
+	padding: 1rem 1rem 0 !important;
 
 	&:focus {
 		color: rgba(0, 14, 16, .68);
@@ -79,6 +80,21 @@
 	}
 }
 
+.shapla-text-field__textarea {
+	max-width: 100%;
+	min-width: 100%;
+	resize: vertical;
+
+	&[rows] {
+		height: auto;
+	}
+
+	&:not([rows]) {
+		max-height: 40em;
+		min-height: 8em;
+	}
+}
+
 .shapla-text-field__label {
 	cursor: text;
 	position: absolute;
@@ -96,7 +112,9 @@
 }
 
 .shapla-text-field__input.has-value + label,
-.shapla-text-field__input:focus + label {
+.shapla-text-field__input:focus + label,
+.shapla-text-field__textarea.has-value + label,
+.shapla-text-field__textarea:focus + label {
 	font-size: .7rem;
 	top: 4px;
 }

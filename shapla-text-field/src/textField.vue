@@ -1,9 +1,18 @@
 <template>
     <div class="shapla-text-field">
         <div class="shapla-text-field__control" :class="{'has-icons-right':hasSuccess || hasError}">
-            <input class="shapla-text-field__input" :class="inputClasses" :type="type" :id="id" :name="name"
-                   :value="value" :required="required" :disabled="disabled" :autocomplete="autocomplete" placeholder=""
-                   @focus="handleFocusEvent($event)" @blur="handleBlurEvent($event)" @input="handleInputEvent($event)">
+            <template v-if="isTextarea">
+                <textarea class="shapla-text-field__textarea" :class="inputClasses" :id="id" :name="name"
+                          :value="value" :required="required" :disabled="disabled" :autocomplete="autocomplete"
+                          placeholder="" @focus="handleFocusEvent($event)" @blur="handleBlurEvent($event)"
+                          @input="handleInputEvent($event)"/>
+            </template>
+            <template v-else>
+                <input class="shapla-text-field__input" :class="inputClasses" :type="type" :id="id" :name="name"
+                       :value="value" :required="required" :disabled="disabled" :autocomplete="autocomplete"
+                       placeholder="" @focus="handleFocusEvent($event)" @blur="handleBlurEvent($event)"
+                       @input="handleInputEvent($event)"/>
+            </template>
             <label class="shapla-text-field__label" :for="id" v-if="label" v-html="label"/>
             <span class="icon is-right" v-if="hasSuccess">
                 <svg class="icon-success" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">

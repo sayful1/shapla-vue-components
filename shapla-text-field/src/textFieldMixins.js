@@ -3,7 +3,7 @@ const textFieldMixins = {
         type: {
             type: String,
             default: 'text',
-            validator: value => (['text', 'email', 'search', 'password', 'tel', 'url', 'number'].indexOf(value) !== -1),
+            validator: value => (['text', 'email', 'search', 'password', 'tel', 'url', 'number', 'textarea'].indexOf(value) !== -1),
         },
         value: {type: [Number, String]},
         label: {type: String, required: true},
@@ -31,7 +31,10 @@ const textFieldMixins = {
             return (this.validationText && this.validationText.length) && this.hasError;
         },
         showHelpText() {
-            return (this.helpText && this.helpText.length);
+            return !!(this.helpText && this.helpText.length);
+        },
+        isTextarea() {
+            return (this.type === 'textarea');
         },
         inputClasses() {
             let classes = [];

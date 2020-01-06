@@ -36,6 +36,16 @@
             @blur="handleBlurEvent"
             @input="handleInputEvent"
     ></text-field>
+
+    <div class="text-field-column">
+        <text-field
+                v-model="email"
+                type="textarea"
+                label="Recipient’s Full Name *"
+                help-text="*in case of hospital, company or resort, please indicate before street name"
+                validation-text="Please enter a valid full name"
+        ></text-field>
+    </div>
 </div>
 <script src="https://unpkg.com/vue"></script>
 <script src="../dist/text-field.umd.js"></script>
