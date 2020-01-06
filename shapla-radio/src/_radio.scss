@@ -9,9 +9,9 @@ $radio-top-offset: ($radio-label-height - $radio-button-size) / 2;
 $radio-ripple-size: 42px !default;
 
 $radio-color: $color--primary !default;
-$radio-off-color: rgba($color--black, 0.54) !default;
-$radio-disabled-color: rgba($color--black, 0.26) !default;
-$radio-focus-color: rgba($color--primary, 0.26) !default;
+$radio-off-color: $text-secondary !default;
+$radio-disabled-color: $text-disabled !default;
+$radio-focus-color: $primary-alpha !default;
 
 .shapla-radio {
 	position: relative;
