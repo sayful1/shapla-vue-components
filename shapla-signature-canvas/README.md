@@ -1,6 +1,6 @@
-# shapla-star-rating
+# shapla-signature-canvas
 
-A simple, highly customisable star rating component for Vue
+A simple HTML5 canvas based smooth signature drawing for Vue
 
 ## Table of contents
 
@@ -10,7 +10,7 @@ A simple, highly customisable star rating component for Vue
 # Installation
 
 ```
-npm install --save shapla-star-rating
+npm i shapla-signature-canvas
 ```
 
 # Usage
@@ -18,35 +18,19 @@ npm install --save shapla-star-rating
 Add the component:
 
 ```js
-import StarRating from 'shapla-star-rating';
+import signatureCanvas from 'shapla-signature-canvas';
 
 export default {
   name: 'Hello',
 
   components: {
-    StarRating
+    signatureCanvas
   },
   data(){
     return {
-      rating:4,
-      staticRating:4.6,
+      imageData:'',
     }    
   }
 }
 
 ```
-
-```html
-<star-rating v-model="rating"></star-rating>
-
-<star-rating v-model="staticRating" :is-static="true"></star-rating>
-```
-
-### Props
-| Property       | Type     | Required  | Default           | Description                                           |
-|----------------|----------|-----------|-------------------|-------------------------------------------------------|
-| `value`        | Number   | **yes**   | ``                | The initial rating                                    |
-| `is-static`    | Boolean  | **no**    | `false`           | If set `true`, the rating cannot be edited.           |
-| `color`        | String   | **no**    | ``                | The color of the non-highlighted portion of a star.   |
-| `active-color` | String   | **no**    | ``                | The color of the highlighted portion of a star.       |
-| `ratings`      | Array    | **no**    | `[1, 2, 3, 4, 5]` | List of rating value                                  |

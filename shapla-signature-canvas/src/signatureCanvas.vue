@@ -2,8 +2,8 @@
     <div class="shapla-signature-canvas">
         <canvas id="shapla-signature-canvas__canvas" class="shapla-signature-canvas__canvas" width="298" height="150"/>
         <div class="shapla-signature-canvas__actions">
-            <shapla-button class="shapla-signature-canvas__clear">{{clearButtonText}}</shapla-button>
-            <shapla-button theme="secondary" class="shapla-signature-canvas__create">{{createButtonText}}</shapla-button>
+            <shapla-button :theme="clearButtonTheme" class="button--clear">{{clearButtonText}}</shapla-button>
+            <shapla-button :theme="createButtonTheme" class="button--create">{{createButtonText}}</shapla-button>
         </div>
     </div>
 </template>
@@ -17,15 +17,26 @@
         props: {
             clearButtonText: {type: String, default: 'Clear'},
             createButtonText: {type: String, default: 'Create'},
+            lineColor: {type: String, default: '#323232'},
+            clearButtonTheme: {
+                type: String,
+                default: 'default',
+                validator: value => ['default', 'primary', 'secondary'].indexOf(value) !== -1
+            },
+            createButtonTheme: {
+                type: String,
+                default: 'secondary',
+                validator: value => ['default', 'primary', 'secondary'].indexOf(value) !== -1
+            },
         },
         mounted() {
             let canvas = this.$el.querySelector('#shapla-signature-canvas__canvas');
-            let clearButton = this.$el.querySelector('.shapla-signature-canvas__clear');
-            let createSign = this.$el.querySelector('.shapla-signature-canvas__create');
+            let clearButton = this.$el.querySelector('.button--clear');
+            let createSign = this.$el.querySelector('.button--create');
 
             // Set up the canvas
             let ctx = canvas.getContext("2d");
-            ctx.strokeStyle = "#222222";
+            ctx.strokeStyle = this.lineColor;
             ctx.lineWith = 2;
 
             clearButton.addEventListener("click", () => {
@@ -151,7 +162,7 @@
         max-width: 300px;
 
         &__canvas {
-            border: 1px solid rgba(#000, 0.2);
+            border: 1px solid rgba(#000, 0.16);
         }
 
         &__actions {

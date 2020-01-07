@@ -1,7 +1,7 @@
 {
   "name": "shapla-signature-canvas",
-  "description": "A simple, highly customisable star rating component for Vue",
-  "version": "1.0.2",
+  "description": "A simple HTML5 canvas based smooth signature drawing for Vue",
+  "version": "1.0.0",
   "contributors": [
     {
       "name": "Sayful Islam",
@@ -12,7 +12,7 @@
   "keywords": [
     "vue",
     "vuejs",
-    "tabs"
+    "signature"
   ],
   "license": "MIT",
   "repository": {
