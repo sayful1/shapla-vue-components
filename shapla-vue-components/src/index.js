@@ -1,5 +1,5 @@
 /*!
- * Shapla Vue Components v1.0.7
+ * Shapla Vue Components
  * (c) 2019 Sayful Islam
  * Released under the MIT License.
  */

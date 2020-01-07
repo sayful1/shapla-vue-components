@@ -1,6 +1,6 @@
 <template>
     <shapla-button :outline="modelValue !== value" :theme="theme" :size="size" :fullwidth="fullwidth"
-                   :shadow="shadow" :rounded="rounded" @click="$emit('change',value)">
+                   :shadow="shadow" :rounded="rounded" @click.prevent="$emit('change',value)">
         <slot>{{ label }}</slot>
     </shapla-button>
 </template>
@@ -18,7 +18,7 @@
             modelValue: {default: ''},
             theme: {
                 type: String,
-                default: 'primary',
+                default: 'default',
                 validator: value => ['default', 'primary', 'secondary'].indexOf(value) !== -1
             },
             size: {
