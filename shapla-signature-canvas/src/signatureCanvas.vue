@@ -17,7 +17,13 @@
         props: {
             clearButtonText: {type: String, default: 'Clear'},
             createButtonText: {type: String, default: 'Create'},
+            backgroundColor: {type: String, default: '#ffffff'},
             lineColor: {type: String, default: '#323232'},
+            imageFormat: {
+                type: String,
+                default: 'image/jpeg',
+                validator: value => ['image/jpeg', 'image/png'].indexOf(value) !== -1
+            },
             clearButtonTheme: {
                 type: String,
                 default: 'default',
@@ -37,17 +43,21 @@
             // Set up the canvas
             let ctx = canvas.getContext("2d");
             ctx.strokeStyle = this.lineColor;
-            ctx.lineWith = 2;
+            ctx.lineWith = 5;
+            ctx.fillStyle = this.backgroundColor;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             clearButton.addEventListener("click", () => {
-                if (confirm('Are you sure?')) {
-                    clearCanvas();
-                    this.$emit('clear');
-                }
+                ctx.fillStyle = this.backgroundColor;
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.beginPath();
+
+                this.$emit('clear');
             }, false);
 
             createSign.addEventListener("click", () => {
-                let dataUrl = canvas.toDataURL();
+                let dataUrl = canvas.toDataURL(this.imageFormat);
                 this.$emit('save', dataUrl);
             }, false);
 
@@ -139,13 +149,6 @@
                     ctx.stroke();
                     lastPos = mousePos;
                 }
-            }
-
-            function clearCanvas() {
-                let currentCanvasWidth = canvas.width;
-                canvas.width = currentCanvasWidth;
-
-                return currentCanvasWidth;
             }
 
             // Allow for animation
