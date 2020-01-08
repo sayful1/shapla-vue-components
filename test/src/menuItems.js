@@ -23,6 +23,7 @@ const menuItems = [
     {routerName: 'Tabs', label: 'Tabs'},
     {routerName: 'Toggles', label: 'Toggles'},
     {routerName: 'TextField', label: 'Text Field'},
+    {routerName: 'SelectField', label: 'Select Field'},
 ];
 
 export default menuItems;

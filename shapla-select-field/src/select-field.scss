@@ -1,0 +1,57 @@
+.form-group-label {
+	position: relative;
+	margin-bottom: 1rem;
+}
+
+.form-control {
+	display: block;
+	width: 100%;
+	height: calc(1.5em + 1.5rem);
+	padding: .6875rem .9375rem;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: rgba(0, 14, 16, .68);
+	background-color: #fff;
+	background-clip: padding-box;
+	border: .0625rem solid rgba(0, 14, 16, .12);
+	border-radius: .25rem;
+	box-shadow: 0 0 0 transparent;
+	transition: border-color .15s ease-out, color .15s ease-out, box-shadow .15s ease-out;
+	text-align: left;
+	text-transform: none;
+	padding-bottom: 0 !important;
+	word-wrap: normal;
+	margin: 0;
+}
+
+.form-group-label select.has-value + label {
+	font-size: .7rem;
+	top: 4px;
+}
+
+.form-group-label label {
+	line-height: 1.334;
+	display: inline-block;
+	cursor: text;
+	position: absolute;
+	top: 14px;
+	left: 1rem;
+	font-size: 1rem;
+	text-transform: none;
+	transition: all .1s ease-out;
+	margin: auto;
+	color: rgba(0, 14, 16, .44);
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.invalid-feedback {
+	display: none;
+	width: 100%;
+	margin-top: .25rem;
+	font-size: .8125rem;
+	color: #f9424b;
+	line-height: 1.231;
+	font-weight: 400;
+}

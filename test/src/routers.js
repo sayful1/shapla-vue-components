@@ -25,6 +25,7 @@ import TestSwitch from "./components/TestSwitch";
 import TestTabs from "./components/TestTabs";
 import TestToggles from "./components/TestToggles";
 import TestTextField from "./components/TestTextField";
+import TestSelectField from "./components/TestSelectField";
 
 Vue.use(VueRouter);
 
@@ -54,6 +55,7 @@ const routes = [
     {path: '/tabs', name: 'Tabs', component: TestTabs},
     {path: '/toggles', name: 'Toggles', component: TestToggles},
     {path: '/text-field', name: 'TextField', component: TestTextField},
+    {path: '/select-field', name: 'SelectField', component: TestSelectField},
 ];
 
 export default new VueRouter({
