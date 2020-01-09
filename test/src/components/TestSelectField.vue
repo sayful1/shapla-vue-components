@@ -1,6 +1,9 @@
 <template>
     <div>
-        <select-field/>
+        <select-field
+                label="Choose a country"
+                :options="options"
+        />
     </div>
 </template>
 
@@ -9,7 +12,12 @@
 
     export default {
         name: "TestSelectField",
-        components: {selectField}
+        components: {selectField},
+        data() {
+            return {
+                options: [],
+            }
+        },
     }
 </script>
 
