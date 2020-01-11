@@ -22,10 +22,13 @@ Some reusable vue components for our projects.
 * [Shapla Star Rating](shapla-star-rating/README.md)
 * [Shapla Switch](shapla-switch/README.md)
 * [Shapla Tabs](shapla-tabs/README.md)
+* [Shapla Text Field](shapla-text-field/README.md)
 * [Shapla Toggles](shapla-toggles/README.md)
 
 Under Development
 * [Shapla Data Table Full](shapla-data-table-full/README.md)
 * [Shapla Media Uploader](shapla-media-uploader/README.md)
 * [Shapla Month Navigation](shapla-month-navigation/README.md)
+* [Shapla Select Field](shapla-select-field/README.md)
 * [Shapla Side Navigation](shapla-side-navigation/README.md)
+* [Shapla Signature Canvas](shapla-signature-canvas/README.md)
