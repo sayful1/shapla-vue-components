@@ -5,6 +5,7 @@
  */
 
 import shaplaButton from "shapla-button";
+import shaplaChip from 'shapla-chip';
 import shaplaCheckbox from "shapla-checkbox";
 import {columns, column} from 'shapla-columns'
 import {Dialog, ConfirmDialog} from 'shapla-confirm-dialog'
@@ -28,6 +29,7 @@ import {toggles, toggle} from 'shapla-toggles';
 
 const Components = {
     shaplaButton,
+    shaplaChip,
     shaplaCheckbox,
     columns, column,
     Dialog, ConfirmDialog,
@@ -58,6 +60,7 @@ export function install(Vue) {
     Vue.use(Dialog);
 
     Vue.component('shapla-button', shaplaButton);
+    Vue.component('shapla-chip', shaplaChip);
     Vue.component('shapla-checkbox', shaplaCheckbox);
     Vue.component('columns', columns);
     Vue.component('column', column);
