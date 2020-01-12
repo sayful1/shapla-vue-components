@@ -8,7 +8,7 @@
 </template>
 
 <script>
-    import selectField from "../../../shapla-select-field/src/selectField";
+    import selectField from "../../../shapla-select-field";
 
     export default {
         name: "TestSelectField",

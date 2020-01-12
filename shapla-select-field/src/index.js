@@ -5,7 +5,7 @@
  */
 
 // Import vue component
-import selectField from './selectField';
+import selectField from './selectField2';
 
 // Declare install function executed by Vue.use()
 export function install(Vue) {
