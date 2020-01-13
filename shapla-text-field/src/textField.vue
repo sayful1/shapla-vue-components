@@ -4,14 +4,14 @@
             <template v-if="isTextarea">
                 <textarea class="shapla-text-field__textarea" :class="inputClasses" :id="id" :name="name"
                           :value="value" :required="required" :disabled="disabled" :autocomplete="autocomplete"
-                          placeholder="" @focus="handleFocusEvent($event)" @blur="handleBlurEvent($event)"
-                          @input="handleInputEvent($event)"/>
+                          :readonly="readonly" placeholder="" @focus="handleFocusEvent($event)"
+                          @blur="handleBlurEvent($event)" @input="handleInputEvent($event)"/>
             </template>
             <template v-else>
                 <input class="shapla-text-field__input" :class="inputClasses" :type="type" :id="id" :name="name"
                        :value="value" :required="required" :disabled="disabled" :autocomplete="autocomplete"
-                       placeholder="" @focus="handleFocusEvent($event)" @blur="handleBlurEvent($event)"
-                       @input="handleInputEvent($event)"/>
+                       :readonly="readonly" placeholder="" @focus="handleFocusEvent($event)"
+                       @blur="handleBlurEvent($event)" @input="handleInputEvent($event)"/>
             </template>
             <label class="shapla-text-field__label" :for="id" v-if="label" v-html="label"/>
             <slot name="icon-right">

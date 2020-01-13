@@ -17,7 +17,8 @@
         data() {
             return {
                 option: '',
-                options: ['Sayful Islam', 'Saif Al Araf', 'Aklima'],
+                options: ['Sayful Islam', 'Saif Al Araf', 'Aklima', 3, true, false, 0, 1,
+                    {label: 'Sayful', value: 'SA'}],
             }
         },
     }

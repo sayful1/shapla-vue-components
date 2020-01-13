@@ -5,7 +5,7 @@
             <slot name="trigger"></slot>
         </div>
         <div class="dropdown-menu" role="menu">
-            <div class="dropdown-content">
+            <div class="dropdown-content" @click="handleDropdownContentClick">
                 <slot></slot>
             </div>
         </div>
@@ -19,6 +19,7 @@
             hoverable: {type: Boolean, default: true},
             right: {type: Boolean, default: false},
             up: {type: Boolean, default: false},
+            closeOnSelect: {type: Boolean, default: false},
         },
         data() {
             return {
@@ -57,6 +58,13 @@
                 }
 
                 return classes;
+            }
+        },
+        methods: {
+            handleDropdownContentClick() {
+                if (this.isActive && this.closeOnSelect) {
+                    this.isActive = false;
+                }
             }
         }
     }
