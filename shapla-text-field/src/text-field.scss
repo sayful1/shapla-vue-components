@@ -71,12 +71,17 @@
 
 	&.is-invalid {
 		border-color: $error;
-		padding-right: 2.5em;
+		padding-right: 2.5em !important;
 	}
 
 	&.is-valid {
 		border-color: $success;
-		padding-right: 2.5em;
+		padding-right: 2.5em !important;
+	}
+
+	.has-icons-left &,
+	.has-icons-right & {
+		padding-right: 2.5em !important;
 	}
 }
 

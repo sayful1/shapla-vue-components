@@ -1,6 +1,7 @@
 <template>
     <div>
         <select-field
+                v-model="option"
                 label="Choose a country"
                 :options="options"
         />
@@ -15,7 +16,8 @@
         components: {selectField},
         data() {
             return {
-                options: [],
+                option: '',
+                options: ['Sayful Islam', 'Saif Al Araf', 'Aklima'],
             }
         },
     }
