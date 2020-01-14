@@ -5,13 +5,15 @@
                 <textarea class="shapla-text-field__textarea" :class="inputClasses" :id="id" :name="name"
                           :value="value" :required="required" :disabled="disabled" :autocomplete="autocomplete"
                           :readonly="readonly" placeholder="" @focus="handleFocusEvent($event)"
-                          @blur="handleBlurEvent($event)" @input="handleInputEvent($event)"/>
+                          @keydown="handleKeydownEvent($event)" @blur="handleBlurEvent($event)"
+                          @input="handleInputEvent($event)"/>
             </template>
             <template v-else>
                 <input class="shapla-text-field__input" :class="inputClasses" :type="type" :id="id" :name="name"
                        :value="value" :required="required" :disabled="disabled" :autocomplete="autocomplete"
                        :readonly="readonly" placeholder="" @focus="handleFocusEvent($event)"
-                       @blur="handleBlurEvent($event)" @input="handleInputEvent($event)"/>
+                       @keydown="handleKeydownEvent($event)" @blur="handleBlurEvent($event)"
+                       @input="handleInputEvent($event)"/>
             </template>
             <label class="shapla-text-field__label" :for="id" v-if="label" v-html="label"/>
             <slot name="icon-right">
@@ -42,11 +44,6 @@
     export default {
         name: "textField",
         mixins: [textFieldMixins],
-        computed: {
-            hasRightIcon() {
-                return !!(this.$slots['icon-right'] || this.hasSuccess || this.hasError);
-            }
-        }
     }
 </script>
 

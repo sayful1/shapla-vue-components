@@ -1,8 +1,8 @@
 <template>
     <div class="shapla-select shapla-text-field">
-        <dropdown :hoverable="false" :close-on-select="true">
+        <dropdown :hoverable="false" :close-on-select="true" role="listbox">
             <template v-slot:trigger>
-                <text-field label="Label" :value="getLabelFromValue" readonly>
+                <text-field :label="label" :value="getLabelFromValue" readonly @keydown="handleKeydownEvent">
                     <template v-slot:icon-right>
                         <span class="icon is-right">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -16,7 +16,7 @@
             <template v-for="_option in filteredOptions">
                 <span class="dropdown-item" :class="{'is-active':value === _option['value']}" role="option"
                       :aria-selected="value === _option['value']" :key="_option['value']"
-                      @click="selectOption(_option['value'])">
+                      :data-value="_option['value']" @click="selectOption(_option)">
                     <span v-html="_option['label']"/>
                     <span v-if="value === _option['value']" class="icon is-right">
                         <svg class="icon-success" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -38,9 +38,29 @@
     export default {
         name: "selectField",
         components: {dropdown, textField},
+        model: {
+            prop: 'value',
+            event: 'change'
+        },
         props: {
+            label: {type: String, default: 'Label'},
             value: {type: [String, Number, Boolean], default: null},
             options: {type: Array, default: () => []},
+            autocomplete: {type: String},
+            name: {type: String, required: false},
+            id: {type: String, required: false},
+            helpText: {type: String, required: false},
+            validationText: {type: String, required: false},
+            hasError: {type: Boolean, default: false},
+            hasSuccess: {type: Boolean, default: false},
+            disabled: {type: Boolean, default: false},
+            required: {type: Boolean, default: false},
+            readonly: {type: Boolean, default: false},
+        },
+        data() {
+            return {
+                selectedOption: null
+            }
         },
         computed: {
             getLabelFromValue() {
@@ -72,7 +92,35 @@
         },
         methods: {
             selectOption(option) {
-                this.$emit('input', option);
+                this.selectedOption = option;
+                this.$emit('change', option['value']);
+            },
+            handleKeydownEvent(event) {
+                // Go Up
+                if (38 === event.keyCode) {
+                    let indexOfSelectedOption = this.filteredOptions.indexOf(this.selectedOption),
+                        preIndex = indexOfSelectedOption - 1;
+                    if (preIndex >= 0) {
+                        let preOption = this.filteredOptions[preIndex];
+                        // this.selectedOption = preOption;
+                        this.selectOption(preOption);
+                    }
+                }
+                // Go Down
+                if (40 === event.keyCode) {
+                    let indexOfSelectedOption = this.filteredOptions.indexOf(this.selectedOption),
+                        nextIndex = indexOfSelectedOption + 1;
+                    if (nextIndex < this.filteredOptions.length) {
+                        let nextOption = this.filteredOptions[nextIndex];
+                        // this.selectedOption = nextOption;
+                        this.selectOption(nextOption);
+                    }
+                }
+                // Select item
+                if (13 === event.keyCode) {
+                    // Go Down
+                    this.selectOption(this.selectedOption);
+                }
             }
         }
     }
@@ -82,20 +130,14 @@
     @import "~shapla-color-system/src/variables";
 
     .shapla-select {
-        .dropdown {
-            width: 100%;
-        }
-
-        .dropdown-trigger {
-            width: 100%;
-        }
-
+        .dropdown,
+        .dropdown-trigger,
         .dropdown-menu {
             width: 100%;
         }
 
         .dropdown-content {
-            max-height: 12em;
+            max-height: 11em;
             overflow: auto;
         }
 

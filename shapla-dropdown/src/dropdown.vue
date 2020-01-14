@@ -1,10 +1,10 @@
 <template>
     <div :class="wrapperClasses">
-        <div class="dropdown-trigger" aria-haspopup="true" :aria-expanded="isActive?'true':'false'"
+        <div class="dropdown-trigger" aria-haspopup="true" :aria-expanded="isActive"
              @click.prevent="isActive = !isActive">
             <slot name="trigger"></slot>
         </div>
-        <div class="dropdown-menu" role="menu">
+        <div class="dropdown-menu" :role="role">
             <div class="dropdown-content" @click="handleDropdownContentClick">
                 <slot></slot>
             </div>
@@ -20,6 +20,7 @@
             right: {type: Boolean, default: false},
             up: {type: Boolean, default: false},
             closeOnSelect: {type: Boolean, default: false},
+            role: {type: String, default: 'menu'},
         },
         data() {
             return {

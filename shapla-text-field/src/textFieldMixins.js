@@ -37,6 +37,9 @@ const textFieldMixins = {
         isTextarea() {
             return (this.type === 'textarea');
         },
+        hasRightIcon() {
+            return !!(this.$slots['icon-right'] || this.hasSuccess || this.hasError);
+        },
         inputClasses() {
             let classes = [];
 
@@ -67,6 +70,9 @@ const textFieldMixins = {
             this.isFocus = false;
             this.$emit('blur', event.target.value);
         },
+        handleKeydownEvent(event) {
+            this.$emit('keydown', event);
+        }
     }
 };
 
