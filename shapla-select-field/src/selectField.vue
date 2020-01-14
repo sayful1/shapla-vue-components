@@ -18,21 +18,11 @@
 
 <script>
     import textFieldMixins from "shapla-text-field/src/textFieldMixins";
+    import selectFieldMixins from './selectFieldMixins'
 
     export default {
         name: "selectField",
-        mixins: [textFieldMixins],
-        props: {
-            label: {type: String, default: "label"},
-            value: {type: [String, Number], default: null},
-            options: {type: Array, default: () => []},
-            clearable: {type: Boolean, default: true},
-            searchable: {type: Boolean, default: false},
-            multiple: {type: Boolean, default: false},
-            placeholder: {type: String, default: ""},
-            clearSearchOnSelect: {type: Boolean, default: true},
-            closeOnSelect: {type: Boolean, default: true},
-        }
+        mixins: [textFieldMixins, selectFieldMixins],
     }
 </script>
 
