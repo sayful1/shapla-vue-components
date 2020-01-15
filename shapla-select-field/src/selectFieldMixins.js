@@ -31,6 +31,9 @@ const selectFieldMixins = {
         }
     },
     computed: {
+        hasValue() {
+            return !(this.value === null || this.value === '' || this.value === undefined);
+        },
         hasSelectedOption() {
             return !!(this.selectedOption && typeof this.selectedOption === "object" && Object.keys(this.selectedOption).length);
         },

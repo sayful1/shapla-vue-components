@@ -26,7 +26,7 @@ const textFieldMixins = {
     },
     computed: {
         hasValue() {
-            return !!(this.value && this.value.length);
+            return !(this.value === null || this.value === '' || this.value === undefined);
         },
         showValidationText() {
             return (this.validationText && this.validationText.length) && this.hasError;

@@ -1,10 +1,41 @@
 <template>
     <div>
-        <select-field
-                v-model="option"
-                label="Choose a country"
-                :options="options"
-        />
+        <div class="columns">
+            <div class="column">
+                <select-field
+                        v-model="option"
+                        label="Choose a country"
+                        :options="options"
+                />
+            </div>
+            <div class="column">
+                <select-field
+                        v-model="option"
+                        label="Choose a country"
+                        help-text="Help text goes here"
+                        :options="options"
+                />
+            </div>
+            <div class="column">
+                <select-field
+                        v-model="option"
+                        label="Choose a country"
+                        help-text="Help text goes here"
+                        validation-text="Validation text test"
+                        :has-error="true"
+                        :options="options"
+                />
+            </div>
+            <div class="column">
+                <select-field
+                        v-model="option"
+                        label="Choose a country"
+                        help-text="Help text goes here"
+                        :has-success="true"
+                        :options="options"
+                />
+            </div>
+        </div>
     </div>
 </template>
 

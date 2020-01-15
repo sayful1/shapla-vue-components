@@ -4,7 +4,7 @@
              @click.prevent="isActive = !isActive">
             <slot name="trigger"></slot>
         </div>
-        <div class="dropdown-menu" :role="role">
+        <div class="dropdown-menu" :role="role" tabindex="-1">
             <div class="dropdown-content" @click="handleDropdownContentClick">
                 <slot></slot>
             </div>
