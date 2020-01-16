@@ -6,12 +6,14 @@
 
 // Import vue component
 import dropdown from './dropdown';
+import dropdownMenu from './dropdownMenu';
 
 // Declare install function executed by Vue.use()
 export function install(Vue) {
     if (install.installed) return;
     install.installed = true;
     Vue.component('dropdown', dropdown);
+    Vue.component('dropdown-menu', dropdownMenu);
 }
 
 // Create module definition for Vue.use()
@@ -29,4 +31,5 @@ if (GlobalVue) {
 }
 
 // To allow use as module (npm/webpack/etc.) export component
+export {dropdownMenu, dropdown};
 export default dropdown;

@@ -4,23 +4,24 @@
              @click.prevent="isActive = !isActive">
             <slot name="trigger"></slot>
         </div>
-        <div class="dropdown-menu" :role="role" tabindex="-1">
-            <div class="dropdown-content" @click="handleDropdownContentClick">
-                <slot></slot>
-            </div>
-        </div>
+        <dropdown-menu :active="isActive" :role="role" :right="right" :up="up" @click:content="handleContentClick">
+            <slot></slot>
+        </dropdown-menu>
     </div>
 </template>
 
 <script>
+    import dropdownMenu from "./dropdownMenu";
+
     export default {
         name: "dropdown",
+        components: {dropdownMenu},
         props: {
             hoverable: {type: Boolean, default: true},
+            role: {type: String, default: 'menu'},
             right: {type: Boolean, default: false},
             up: {type: Boolean, default: false},
             closeOnSelect: {type: Boolean, default: false},
-            role: {type: String, default: 'menu'},
         },
         data() {
             return {
@@ -46,23 +47,11 @@
                     classes.push('is-hoverable');
                 }
 
-                if (this.right) {
-                    classes.push('is-right');
-                }
-
-                if (this.up) {
-                    classes.push('is-up');
-                }
-
-                if (this.isActive) {
-                    classes.push('is-active');
-                }
-
                 return classes;
             }
         },
         methods: {
-            handleDropdownContentClick() {
+            handleContentClick() {
                 if (this.isActive && this.closeOnSelect) {
                     this.isActive = false;
                 }
@@ -72,5 +61,15 @@
 </script>
 
 <style lang="scss">
-    @import "dropdown";
+    .dropdown {
+        display: inline-flex;
+        position: relative;
+        vertical-align: top;
+
+        &.is-hoverable:hover {
+            .dropdown-menu {
+                display: block
+            }
+        }
+    }
 </style>

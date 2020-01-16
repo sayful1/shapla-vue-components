@@ -28,6 +28,7 @@ const selectFieldMixins = {
         return {
             selectedOption: null,
             isReadonly: false,
+            showDropdown: false,
         }
     },
     computed: {
@@ -94,6 +95,8 @@ const selectFieldMixins = {
                 if (preIndex >= 0) {
                     this.selectedOption = this.filteredOptions[preIndex];
                 }
+
+                this.scrollUpIfNeeded();
             }
             // Go Down
             if (40 === event.keyCode) {
@@ -102,18 +105,44 @@ const selectFieldMixins = {
                 if (nextIndex < this.filteredOptions.length) {
                     this.selectedOption = this.filteredOptions[nextIndex];
                 }
+
+                this.scrollDownIfNeeded();
             }
             // Select item
             if (13 === event.keyCode) {
                 // Go Down
+                this.isReadonly = false;
+                this.showDropdown = false;
                 this.selectOption(this.selectedOption);
             }
         },
+        scrollUpIfNeeded() {
+            let dropdownContent = this.$el.querySelector('.dropdown-menu__content'),
+                hoverEl = dropdownContent.querySelector('.dropdown-item.is-hover'),
+                hoverElHeight = hoverEl ? hoverEl.clientHeight : 0,
+                hoverElFromTop = hoverEl ? hoverEl.offsetTop : 0;
+
+            if (hoverElFromTop < dropdownContent.clientHeight) {
+                dropdownContent.scrollTop = hoverElFromTop + hoverElHeight - dropdownContent.clientHeight;
+            }
+        },
+        scrollDownIfNeeded() {
+            setTimeout(() => {
+                let dropdownContent = this.$el.querySelector('.dropdown-menu__content'),
+                    hoverEl = dropdownContent.querySelector('.dropdown-item.is-hover'),
+                    hoverElHeight = hoverEl ? hoverEl.clientHeight : 0,
+                    hoverElFromTop = hoverEl ? hoverEl.offsetTop : 0;
+
+                dropdownContent.scrollTop = hoverElFromTop + hoverElHeight - dropdownContent.clientHeight;
+            }, 50);
+        },
         handleFocusEvent() {
             this.isReadonly = true;
+            this.showDropdown = true;
         },
         handleBlurEvent() {
             this.isReadonly = false;
+            this.showDropdown = false;
         },
     }
 };
