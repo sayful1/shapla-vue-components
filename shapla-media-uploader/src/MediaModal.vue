@@ -34,13 +34,12 @@
 <script>
     import {column, columns} from 'shapla-columns';
     import modal from 'shapla-modal';
-    import deleteIcon from 'shapla-delete';
     import MediaUploader from './MediaUploader';
     import MediaItem from "./mediaItem";
 
     export default {
         name: "MediaModal",
-        components: {MediaItem, MediaUploader, modal, deleteIcon, columns, column},
+        components: {MediaItem, MediaUploader, modal, columns, column},
         props: {
             active: {type: Boolean, default: false},
             title: {type: String, default: "Edit Images"},

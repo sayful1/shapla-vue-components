@@ -1,13 +1,13 @@
 <template>
     <div>
-        <media-uploader :options="dropzoneOptions" @upload="dropzoneSuccess"></media-uploader>
+        <media-uploader :options="dropzoneOptions" @upload="dropzoneSuccess"/>
+        <featured-image :options="dropzoneOptions" @upload="dropzoneSuccess"/>
+        <media-modal :options="dropzoneOptions" @upload="dropzoneSuccess"/>
     </div>
 </template>
 
 <script>
-    import MediaModal from '../../../shapla-media-uploader'
-    import MediaUploader from '../../../shapla-media-uploader'
-    import FeaturedImage from '../../../shapla-media-uploader'
+    import {FeaturedImage, MediaModal, MediaUploader} from '../../../shapla-media-uploader'
 
     export default {
         name: "TestMediaUploader",
@@ -34,6 +34,7 @@
         methods: {
             dropzoneSuccess(file, response) {
                 alert('image uploaded successfully');
+                console.log(file, response);
             }
         }
     }

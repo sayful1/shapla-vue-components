@@ -1,32 +1,32 @@
 <template>
-	<div class="shapla-featured-image">
-		<div class="shapla-featured-image__view">
-			<div class="shapla-featured-image__thumbnail" v-if="has_image">
-				<delete-icon @click="clearImages"></delete-icon>
-				<img :src="image.attachment_url" alt=""/>
-			</div>
-			<div class="shapla-featured-image__placeholder" v-if="!has_image">
-				{{placeholderText}}
-			</div>
-			<div class="shapla-featured-image__actions" v-if="!has_image">
-				<shapla-button theme="secondary" :fullwidth="true" @click="active = true">{{buttonText}}</shapla-button>
-			</div>
-		</div>
-		<media-modal
-			:title="title"
-			:active="active"
-			:options="options"
-			:images="images"
-			:image="image"
-			:text-line-one="textLineOne"
-			:text-line-two="textLineTwo"
-			:text-max-upload-limit="textMaxUploadLimit"
-			@close="active = false"
-			@selected="chooseImage"
-			@upload="upload"
-			@delete="deleteMediaItem"
-		></media-modal>
-	</div>
+    <div class="shapla-featured-image">
+        <div class="shapla-featured-image__view">
+            <div class="shapla-featured-image__thumbnail" v-if="has_image">
+                <delete-icon @click="clearImages"/>
+                <img :src="image.attachment_url" alt=""/>
+            </div>
+            <div class="shapla-featured-image__placeholder" v-if="!has_image">
+                {{placeholderText}}
+            </div>
+            <div class="shapla-featured-image__actions" v-if="!has_image">
+                <shapla-button theme="secondary" :fullwidth="true" @click="active = true">{{buttonText}}</shapla-button>
+            </div>
+        </div>
+        <media-modal
+                :title="title"
+                :active="active"
+                :options="options"
+                :images="images"
+                :image="image"
+                :text-line-one="textLineOne"
+                :text-line-two="textLineTwo"
+                :text-max-upload-limit="textMaxUploadLimit"
+                @close="active = false"
+                @selected="chooseImage"
+                @upload="upload"
+                @delete="deleteMediaItem"
+        />
+    </div>
 </template>
 
 <script>
@@ -92,37 +92,37 @@
 </script>
 
 <style lang="scss" scoped>
-	.shapla-featured-image {
-		position: relative;
+    .shapla-featured-image {
+        position: relative;
 
-		&__placeholder {
-			border: 1px dashed #b4b9be;
-			box-sizing: border-box;
-			cursor: default;
-			line-height: 20px;
-			margin-bottom: 10px;
-			padding: 9px 0;
-			position: relative;
-			text-align: center;
-			width: 100%;
-		}
+        &__placeholder {
+            border: 1px dashed #b4b9be;
+            box-sizing: border-box;
+            cursor: default;
+            line-height: 20px;
+            margin-bottom: 10px;
+            padding: 9px 0;
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
 
-		&__thumbnail {
-			display: inline-flex;
-			max-width: 150px;
-			position: relative;
+        &__thumbnail {
+            display: inline-flex;
+            max-width: 150px;
+            position: relative;
 
-			.shapla-delete-icon {
-				position: absolute;
-				right: 5px;
-				top: 5px;
-				background-color: rgba(0, 0, 0, .5);
-			}
+            .shapla-delete-icon {
+                position: absolute;
+                right: 5px;
+                top: 5px;
+                background-color: rgba(0, 0, 0, .5);
+            }
 
-			img {
-				max-width: 100%;
-				height: auto;
-			}
-		}
-	}
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+    }
 </style>

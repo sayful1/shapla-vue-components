@@ -39,7 +39,7 @@
 </script>
 
 <style lang="scss">
-	@import "colors";
+	@import "~shapla-color-system/src/variables";
 
 	.shapla-media-item {
 		border: 1px solid rgba(#000, .2);
