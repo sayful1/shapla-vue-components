@@ -45,8 +45,9 @@ export default {
 ```
 
 ### Props
-| Property      | Type      | Required  | Default   | Description                                                                   |
-|---------------|-----------|-----------|-----------|-------------------------------------------------------------------------------|
-| `hoverable`   | Boolean   | **no**    | `true`    | If set `true`, the dropdown will show up when hovering the trigger slot.      |
-| `right`       | Boolean   | **no**    | `false`   | Set `true` to have a right-aligned dropdown.                                  |
-| `up`          | Boolean   | **no**    | `false`   | Set `true` to have a dropdown menu that appears above the dropdown button.    |
+| Property      | Type      | Required  | Default   | Description
+|---------------|-----------|-----------|-----------|---------------------------------------------------------------------------
+| `hoverable`   | Boolean   | **no**    | `true`    | If set `true`, the dropdown will show up when hovering the trigger slot.
+| `right`       | Boolean   | **no**    | `false`   | Set `true` to have a right-aligned dropdown.
+| `up`          | Boolean   | **no**    | `false`   | Set `true` to have a dropdown menu that appears above the dropdown button.
+| `role`        | String    | **no**    | `menu`    | Role of component. Mostly for accessibility.
