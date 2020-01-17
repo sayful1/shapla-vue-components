@@ -111,9 +111,9 @@ const selectFieldMixins = {
             // Select item
             if (13 === event.keyCode) {
                 // Go Down
+                this.selectOption(this.selectedOption);
                 this.isReadonly = false;
                 this.showDropdown = false;
-                this.selectOption(this.selectedOption);
             }
         },
         scrollUpIfNeeded() {
@@ -141,8 +141,10 @@ const selectFieldMixins = {
             this.showDropdown = true;
         },
         handleBlurEvent() {
-            this.isReadonly = false;
-            this.showDropdown = false;
+            setTimeout(() => {
+                this.isReadonly = false;
+                this.showDropdown = false;
+            }, 200);
         },
     }
 };

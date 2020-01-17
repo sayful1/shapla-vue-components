@@ -59,26 +59,26 @@ $dropdown-divider-background-color: #ededed !default;
 	font-size: .875rem;
 	line-height: 1.5;
 	padding: .375rem 1rem;
-	position: relative
-}
+	position: relative;
 
-a.dropdown-item,
-button.dropdown-item {
-	padding-right: 3rem;
-	text-align: left;
-	white-space: nowrap;
-	width: 100%;
+	&.is-link {
+		cursor: pointer;
+		padding-right: 3rem;
+		text-align: left;
+		white-space: nowrap;
+		width: 100%;
 
-	&:hover,
-	&.is-hover {
-		background-color: $dropdown-item-hover-background-color;
-		color: $dropdown-item-hover-color;
-	}
+		&:hover,
+		&.is-hover {
+			background-color: $dropdown-item-hover-background-color;
+			color: $dropdown-item-hover-color;
+		}
 
-	&:active,
-	&.is-active {
-		background-color: $dropdown-item-active-background-color;
-		color: $dropdown-item-active-color;
+		&:active,
+		&.is-active {
+			background-color: $dropdown-item-active-background-color;
+			color: $dropdown-item-active-color;
+		}
 	}
 }
 

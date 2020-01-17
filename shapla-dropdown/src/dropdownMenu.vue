@@ -1,6 +1,6 @@
 <template>
     <div class="dropdown-menu" :class="menuClasses" :role="role">
-        <div class="dropdown-menu__content" @click="handleContentClick">
+        <div class="dropdown-menu__content">
             <slot></slot>
         </div>
     </div>
@@ -32,11 +32,6 @@
                 }
 
                 return classes;
-            }
-        },
-        methods: {
-            handleContentClick() {
-                this.$emit('click:content');
             }
         }
     }

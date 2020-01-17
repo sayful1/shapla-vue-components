@@ -1,8 +1,11 @@
 @import "~shapla-color-system/src/variables";
 
-.shapla-select {
-	.dropdown,
-	.dropdown-trigger,
+.shapla-select-field {
+
+	&__control {
+		position: relative;
+	}
+
 	.dropdown-menu {
 		width: 100%;
 	}
@@ -13,21 +16,18 @@
 	}
 
 	.dropdown-item {
-		cursor: pointer;
 		padding-right: calc(24px + 1rem);
-		text-align: left;
-		white-space: nowrap;
-		width: 100%;
+
+		&:active,
+		&.is-active {
+			background: $background;
+			color: $primary;
+		}
 
 		&.is-hover,
 		&:hover {
 			background-color: #f5f5f5;
 			color: $text-primary;
-		}
-
-		&:active,
-		&.is-active {
-			color: $primary;
 		}
 
 		.icon {

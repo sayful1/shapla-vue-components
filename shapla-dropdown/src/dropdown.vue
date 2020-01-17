@@ -1,10 +1,9 @@
 <template>
-    <div :class="wrapperClasses">
-        <div class="dropdown-trigger" aria-haspopup="true" :aria-expanded="isActive"
-             @click.prevent="isActive = !isActive">
+    <div class="dropdown" :class="{'is-hoverable':hoverable}">
+        <div class="dropdown-trigger" aria-haspopup="true" :aria-expanded="isActive?'true':'false'" @click="isActive = !isActive">
             <slot name="trigger"></slot>
         </div>
-        <dropdown-menu :active="isActive" :role="role" :right="right" :up="up" @click:content="handleContentClick">
+        <dropdown-menu :active="isActive" :role="role" :right="right" :up="up">
             <slot></slot>
         </dropdown-menu>
     </div>
@@ -21,7 +20,6 @@
             role: {type: String, default: 'menu'},
             right: {type: Boolean, default: false},
             up: {type: Boolean, default: false},
-            closeOnSelect: {type: Boolean, default: false},
         },
         data() {
             return {
@@ -36,24 +34,6 @@
                             this.isActive = false;
                         }
                     });
-                }
-            }
-        },
-        computed: {
-            wrapperClasses() {
-                let classes = ['dropdown'];
-
-                if (this.hoverable) {
-                    classes.push('is-hoverable');
-                }
-
-                return classes;
-            }
-        },
-        methods: {
-            handleContentClick() {
-                if (this.isActive && this.closeOnSelect) {
-                    this.isActive = false;
                 }
             }
         }
