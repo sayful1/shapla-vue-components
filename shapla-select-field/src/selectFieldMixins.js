@@ -114,6 +114,7 @@ const selectFieldMixins = {
                 this.selectOption(this.selectedOption);
                 this.isReadonly = false;
                 this.showDropdown = false;
+                this.$el.querySelector('input').blur();
             }
         },
         scrollUpIfNeeded() {

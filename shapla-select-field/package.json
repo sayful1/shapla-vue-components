@@ -41,8 +41,8 @@
   "dependencies": {
     "shapla-color-system": "^1.0.2",
     "shapla-delete": "^1.0.2",
-    "shapla-dropdown": "^1.0.1",
-    "shapla-text-field": "^1.0.2",
+    "shapla-dropdown": "^1.0.3",
+    "shapla-text-field": "^1.0.3",
     "vue": "^2.6.11"
   },
   "devDependencies": {
@@ -52,8 +52,8 @@
     "babel-eslint": "^10.0.3",
     "eslint": "^6.8.0",
     "eslint-plugin-vue": "^6.1.2",
-    "node-sass": "^4.13.0",
-    "sass-loader": "^8.0.0",
+    "node-sass": "^4.13.1",
+    "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
