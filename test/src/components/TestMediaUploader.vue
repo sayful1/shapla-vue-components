@@ -1,6 +1,8 @@
 <template>
     <div>
-        <media-uploader :options="dropzoneOptions" @upload="dropzoneSuccess"/>
+        <div style="margin-bottom: 1rem">
+            <media-uploader :options="dropzoneOptions" @upload="dropzoneSuccess"/>
+        </div>
         <featured-image :options="dropzoneOptions" @upload="dropzoneSuccess"/>
         <media-modal :options="dropzoneOptions" @upload="dropzoneSuccess"/>
     </div>

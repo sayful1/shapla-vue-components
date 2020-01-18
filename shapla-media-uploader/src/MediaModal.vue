@@ -1,11 +1,11 @@
 <template>
     <div class="shapla-media-modal">
-        <modal :active="active" @close="closeModal" :title="title">
+        <modal :active="active" @close="closeModal" :title="title" content-size="large">
             <columns desktop>
                 <column :desktop="6" class="column--dropzone" v-if="Object.keys(options).length">
                     <media-uploader
                             :options="options"
-                            @upload="upload"
+                            @success="upload"
                             :text-line-one="textLineOne"
                             :text-line-two="textLineTwo"
                             :text-max-upload-limit="textMaxUploadLimit"

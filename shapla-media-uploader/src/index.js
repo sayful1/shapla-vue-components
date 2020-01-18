@@ -5,15 +5,10 @@
  */
 
 // Import vue component
+import Dropzone from "dropzone";
 import MediaUploader from './MediaUploader';
 import MediaModal from './MediaModal';
 import FeaturedImage from './FeaturedImage';
-
-const Components = {
-    MediaModal,
-    MediaUploader,
-    FeaturedImage
-};
 
 // Declare install function executed by Vue.use()
 export function install(Vue) {
@@ -38,6 +33,6 @@ if (GlobalVue) {
     GlobalVue.use(plugin);
 }
 
-export {MediaUploader, MediaModal, FeaturedImage};
 // To allow use as module (npm/webpack/etc.) export component
-export default Components;
+export {Dropzone, MediaUploader, MediaModal, FeaturedImage};
+export default MediaUploader;

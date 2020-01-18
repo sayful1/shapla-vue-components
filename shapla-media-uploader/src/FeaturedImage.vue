@@ -49,8 +49,8 @@
             images: {type: Array, default: () => []},
             // Props for MediaUploader
             options: {type: Object, required: true},
-            textLineOne: {String, default: 'Drag &amp; Drop or'},
-            textLineTwo: {String, default: 'Click here to browse your computer'},
+            textLineOne: {String, default: 'Drag &amp; drop files'},
+            textLineTwo: {String, default: 'or'},
             textMaxUploadLimit: {String, default: 'Maximum upload limit: 5MB'},
         },
         data() {

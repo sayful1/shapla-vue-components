@@ -1,7 +1,6 @@
 <template>
-    <div class="dropzone-media-uploader" v-if="hasOptions">
-        <vue2-dropzone id="shaplaMediaModal" ref="shaplaMediaModal" :options="options" :useCustomSlot="true"
-                       @vdropzone-success="upload">
+    <div class="shapla-media-uploader">
+        <div :id="id" ref="dropzoneElement" class="dropzone">
             <div class="dz-default dz-message">
                 <div class="shapla-dropzone-icon">
                     <svg class="icon-plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -13,76 +12,28 @@
                 <div class="shapla-dropzone-select-files shapla-button is-primary" v-html="textButton"></div>
                 <div class="shapla-dropzone-maxsize" v-html="textMaxUploadLimit"></div>
             </div>
-        </vue2-dropzone>
+        </div>
     </div>
 </template>
 
 <script>
-    import vue2Dropzone from 'vue2-dropzone'
+    import mediaUploaderMixins from "./mediaUploaderMixins";
 
     export default {
         name: "MediaUploader",
-        components: {vue2Dropzone},
+        components: {},
+        mixins: [mediaUploaderMixins],
         props: {
+            id: {type: String, default: "shapla-media-modal"},
             options: {type: Object, required: true},
             textLineOne: {String, default: 'Drag &amp; drop files'},
-            textLineTwo: {String, default: 'or click to browse your computer'},
+            textLineTwo: {String, default: 'or'},
             textButton: {String, default: 'Select files to upload'},
             textMaxUploadLimit: {String, default: 'Maximum upload limit: 5MB'},
-        },
-        computed: {
-            hasOptions() {
-                return Object.keys(this.options).length > 0;
-            }
-        },
-        methods: {
-            upload(file, response) {
-                this.$emit('upload', file, response);
-                this.$refs.shaplaMediaModal.removeFile(file);
-            }
         }
     }
 </script>
 
 <style lang="scss">
-    @import "~shapla-color-system/src/variables";
-    @import "~dropzone/dist/dropzone.css";
-
-    .dropzone-media-uploader {
-
-        .dropzone {
-            border: 2px dashed $text-hint;
-            border-radius: .25rem;
-        }
-
-        .dz-message {
-            margin: 0 !important;
-        }
-
-        .shapla-dropzone-drag {
-            color: $text-primary;
-            font-weight: bold;
-            margin-top: .5rem;
-        }
-
-        .shapla-dropzone-select-files {
-            margin-bottom: 1rem;
-            margin-top: 1rem;
-        }
-
-        .shapla-dropzone-browse {
-            color: $text-secondary;
-        }
-
-        .shapla-dropzone-maxsize {
-            color: $text-hint;
-            font-size: .875em;
-        }
-
-        svg.icon-plus {
-            fill: $primary;
-            height: 32px;
-            width: 32px;
-        }
-    }
+    @import "media-uploader";
 </style>

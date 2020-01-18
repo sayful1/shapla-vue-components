@@ -1,0 +1,40 @@
+@import "~shapla-color-system/src/variables";
+@import "~dropzone/dist/dropzone.css";
+
+.shapla-media-uploader {
+
+	.dropzone {
+		border: 2px dashed $text-hint;
+		border-radius: .25rem;
+	}
+
+	.dz-message {
+		margin: 0 !important;
+	}
+
+	.shapla-dropzone-drag {
+		color: $text-primary;
+		font-weight: bold;
+		margin-top: .5rem;
+	}
+
+	.shapla-dropzone-select-files {
+		margin-bottom: 1rem;
+		margin-top: 1rem;
+	}
+
+	.shapla-dropzone-browse {
+		color: $text-secondary;
+	}
+
+	.shapla-dropzone-maxsize {
+		color: $text-hint;
+		font-size: .75em;
+	}
+
+	svg.icon-plus {
+		fill: $primary;
+		height: 32px;
+		width: 32px;
+	}
+}
