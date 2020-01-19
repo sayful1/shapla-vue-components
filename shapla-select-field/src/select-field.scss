@@ -44,7 +44,7 @@
 	}
 
 	.icon.is-right.icon--delete {
-		right: 2rem;
+		right: 2rem !important;
 		z-index: 4;
 		pointer-events: auto;
 	}

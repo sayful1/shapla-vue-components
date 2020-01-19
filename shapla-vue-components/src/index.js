@@ -20,37 +20,13 @@ import notification from "shapla-notifications";
 import shaplaRadio from "shapla-radio";
 import radioButton from "shapla-radio-button";
 import searchForm from "shapla-search-form";
+import selectField from "shapla-select-field";
 import spinner from "shapla-spinner";
 import StarRating from 'shapla-star-rating';
 import shaplaSwitch from "shapla-switch";
 import {tabs, tab} from 'shapla-tabs';
 import textField from 'shapla-text-field';
 import {toggles, toggle} from 'shapla-toggles';
-
-const Components = {
-    shaplaButton,
-    shaplaChip,
-    shaplaCheckbox,
-    columns, column,
-    Dialog, ConfirmDialog,
-    dataTable,
-    statusList,
-    pagination,
-    deleteIcon,
-    dropdown,
-    inputSlider,
-    modal,
-    notification,
-    shaplaRadio,
-    radioButton,
-    searchForm,
-    spinner,
-    StarRating,
-    shaplaSwitch,
-    tabs, tab,
-    textField,
-    toggles, toggle
-};
 
 // Declare install function executed by Vue.use()
 export function install(Vue) {
@@ -76,6 +52,7 @@ export function install(Vue) {
     Vue.component('shapla-radio', shaplaRadio);
     Vue.component('radio-button', radioButton);
     Vue.component('search-form', searchForm);
+    Vue.component('select-field', selectField);
     Vue.component('spinner', spinner);
     Vue.component('star-rating', StarRating);
     Vue.component('shapla-switch', shaplaSwitch);
@@ -101,4 +78,8 @@ if (GlobalVue) {
 }
 
 // To allow use as module (npm/webpack/etc.) export component
-export default Components;
+export {
+    shaplaButton, shaplaChip, shaplaCheckbox, columns, column, Dialog, ConfirmDialog, dataTable, statusList,
+    pagination, deleteIcon, dropdown, inputSlider, modal, notification, shaplaRadio, radioButton, searchForm,
+    selectField, spinner, StarRating, shaplaSwitch, tabs, tab, textField, toggles, toggle
+};

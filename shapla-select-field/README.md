@@ -69,7 +69,7 @@ The select component fires the following events:
 
 ```html
 <!-- template -->
-<select-field @click="handleChangeEvent"/>
+<select-field @change="handleChangeEvent"/>
 
 
 <!-- method -->
