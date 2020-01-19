@@ -1,4 +1,21 @@
-<template>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>select field demo</title>
+    <link rel="stylesheet" href="../dist/select-field.css">
+    <style type="text/css">
+        html, body, html *, body * {
+            box-sizing: border-box;
+        }
+
+        .column {
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+<div id="app" class="shapla-select-field-demo">
     <div>
         <div class="columns">
             <div class="column">
@@ -37,25 +54,19 @@
             </div>
         </div>
     </div>
-</template>
-
+</div>
+<script src="https://unpkg.com/vue"></script>
+<script src="../dist/select-field.umd.js"></script>
 <script>
-    import selectField from "../../../shapla-select-field";
-
-    export default {
-        name: "TestSelectField",
-        components: {selectField},
-        data() {
-            return {
-                option: '',
-                option2: 'SA',
-                options: ['Sayful Islam', 'Saif Al Araf', 'Aklima', 3, true, false, 0, 1,
-                    {label: 'Sayful', value: 'SA'}],
-            }
-        },
-    }
+    new Vue({
+        el: '#app',
+        data: {
+            option: '',
+            option2: 'SA',
+            options: ['Sayful Islam', 'Saif Al Araf', 'Aklima', 3, true, false, 0, 1,
+                {label: 'Sayful', value: 'SA'}],
+        }
+    });
 </script>
-
-<style scoped>
-
-</style>
+</body>
+</html>
