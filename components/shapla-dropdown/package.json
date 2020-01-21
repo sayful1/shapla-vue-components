@@ -21,7 +21,6 @@
   "bugs": {
     "url": "https://github.com/sayful1/shapla-vue-components/issues"
   },
-  "homepage": "https://github.com/sayful1/shapla-vue-components/tree/master/shapla-dropdown#readme",
   "main": "dist/dropdown.common.js",
   "unpkg": "dist/dropdown.umd.js",
   "module": "src/index.js",

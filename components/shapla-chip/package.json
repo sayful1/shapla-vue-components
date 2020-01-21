@@ -21,7 +21,6 @@
   "bugs": {
     "url": "https://github.com/sayful1/shapla-vue-components/issues"
   },
-  "homepage": "https://github.com/sayful1/shapla-vue-components/tree/master/shapla-chip#readme",
   "main": "dist/shapla-chip.common.js",
   "unpkg": "dist/shapla-chip.umd.js",
   "module": "src/index.js",
@@ -39,7 +38,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "shapla-color-system": "^1.0.1",
+    "shapla-color-system": "^1.0.2",
     "shapla-delete": "^1.0.2",
     "vue": "^2.6.11"
   },
@@ -50,8 +49,8 @@
     "babel-eslint": "^10.0.3",
     "eslint": "^6.8.0",
     "eslint-plugin-vue": "^6.1.2",
-    "node-sass": "^4.13.0",
-    "sass-loader": "^8.0.0",
+    "node-sass": "^4.13.1",
+    "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {

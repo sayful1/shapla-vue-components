@@ -62,7 +62,7 @@ The button component fires the following events:
 
 <!-- method -->
 methods: {
-  handleClick(){
+  handleClick(value){
     // Handle click event
   }
 }
