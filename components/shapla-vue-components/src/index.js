@@ -21,6 +21,7 @@ import shaplaRadio from "shapla-radio";
 import radioButton from "shapla-radio-button";
 import searchForm from "shapla-search-form";
 import selectField from "shapla-select-field";
+import sideNavigation from "shapla-side-navigation";
 import spinner from "shapla-spinner";
 import StarRating from 'shapla-star-rating';
 import shaplaSwitch from "shapla-switch";
@@ -53,6 +54,7 @@ export function install(Vue) {
     Vue.component('radio-button', radioButton);
     Vue.component('search-form', searchForm);
     Vue.component('select-field', selectField);
+    Vue.component('side-navigation', sideNavigation);
     Vue.component('spinner', spinner);
     Vue.component('star-rating', StarRating);
     Vue.component('shapla-switch', shaplaSwitch);
@@ -81,5 +83,5 @@ if (GlobalVue) {
 export {
     shaplaButton, shaplaChip, shaplaCheckbox, columns, column, Dialog, ConfirmDialog, dataTable, statusList,
     pagination, deleteIcon, dropdown, inputSlider, modal, notification, shaplaRadio, radioButton, searchForm,
-    selectField, spinner, StarRating, shaplaSwitch, tabs, tab, textField, toggles, toggle
+    selectField, sideNavigation, spinner, StarRating, shaplaSwitch, tabs, tab, textField, toggles, toggle
 };

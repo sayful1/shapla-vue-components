@@ -19,6 +19,7 @@ Some reusable vue components for our projects.
 * [Shapla Radio Button](components/shapla-radio-button/README.md)
 * [Shapla Search Form](components/shapla-search-form/README.md)
 * [Shapla Select Field](components/shapla-select-field/README.md)
+* [Shapla Side Navigation](components/shapla-side-navigation/README.md)
 * [Shapla Spinner](components/shapla-spinner/README.md)
 * [Shapla Star Rating](components/shapla-star-rating/README.md)
 * [Shapla Switch](components/shapla-switch/README.md)
@@ -31,5 +32,4 @@ Under Development
 * [Shapla Data Table Full](components/shapla-data-table-full/README.md)
 * [Shapla Media Uploader](components/shapla-media-uploader/README.md)
 * [Shapla Month Navigation](components/shapla-month-navigation/README.md)
-* [Shapla Side Navigation](components/shapla-side-navigation/README.md)
 * [Shapla Signature Canvas](components/shapla-signature-canvas/README.md)

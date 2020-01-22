@@ -21,6 +21,7 @@
     "shapla-modal": "^1.0.4",
     "shapla-search-form": "^1.0.2",
     "shapla-text-field": "^1.0.3",
+    "simplebar": "^5.1.0",
     "vue": "^2.6.11",
     "vue-router": "^3.1.5",
     "vue2-dropzone": "^3.6.0"

@@ -48,8 +48,9 @@
 </template>
 
 <script>
-    import sideNavigation from "../../components/shapla-side-navigation/src/sideNavigation";
+    import sideNavigation from "../../components/shapla-side-navigation";
     import menuItems from "./menuItems";
+    import SimpleBar from 'simplebar';
 
     export default {
         name: 'app',
@@ -71,10 +72,14 @@
                     this.$router.push({name: menuItem.routerName});
                 }
             }
+        },
+        mounted() {
+            new SimpleBar(this.$el.querySelector('.sidenav-menu'));
         }
     }
 </script>
 
 <style lang="scss">
     @import "scss/frontend";
+    @import "~simplebar/src/simplebar.css";
 </style>

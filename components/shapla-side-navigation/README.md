@@ -1,5 +1,6 @@
 # Shapla Side Navigation
-A simple side navigation structure.
+
+A simple side overlay navigation. Normally to use to develop admin panel.
 
 ## Table of contents
 
@@ -40,13 +41,13 @@ export default {
 | `position`    | String    | **no**    | `left`    | Value can be `left` or `right`.                   |
 
 ## Listeners
-The button component fires the following events:
+The side navigation component fires the following events:
 
 **`close`**: When outside area is clicked, it fires the event.
 
 ```html
 <!-- template -->
-<shapla-button @close="handleClose"></shapla-button>
+<side-navigation @close="handleClose"></side-navigation>
 
 
 <!-- method -->

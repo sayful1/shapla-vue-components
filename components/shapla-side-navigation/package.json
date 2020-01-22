@@ -1,6 +1,6 @@
 {
   "name": "shapla-side-navigation",
-  "description": "A simple side navigation",
+  "description": "A simple side overlay navigation",
   "version": "1.0.0",
   "author": {
     "name": "Sayful Islam",
@@ -21,12 +21,9 @@
   "bugs": {
     "url": "https://github.com/sayful1/shapla-vue-components/issues"
   },
-  "main": "dist/navigation.common.js",
-  "unpkg": "dist/navigation.umd.js",
+  "main": "dist/side-navigation.common.js",
+  "unpkg": "dist/side-navigation.umd.js",
   "module": "src/index.js",
-  "browser": {
-    "./sfc": "src/sideNavigation.vue"
-  },
   "files": [
     "dist/*",
     "src/*",
@@ -37,7 +34,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build:lib": "vue-cli-service build --target lib --name button ./src/index.js",
+    "build:lib": "vue-cli-service build --target lib --name side-navigation ./src/index.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
