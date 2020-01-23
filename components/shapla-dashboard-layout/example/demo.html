@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>chip demo</title>
+    <link rel="stylesheet" href="../dist/dashboard.css">
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body, html *, body * {
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <dashboard-layout
+            title="Dashboard"
+            :activate-side-nav="activateSideNav"
+            @open:sidenav="activateSideNav = true"
+            @close:sidenav="activateSideNav = false"
+            user-display-name="Sayful Islam"
+            avatar-url="https://s.gravatar.com/avatar/5ba82fcf5f7f8b24097ff9f7ad4b3d5b?s=80"
+            greeting="Hello, "
+    >
+        <template v-slot:sidenav-menu>
+            <ul class="sidenav-list">
+                <li class="sidenav-list__item">
+                    <a class="sidenav-list__link" href="#">Menu item 1</a>
+                    <a class="sidenav-list__link" href="#">Menu item 2</a>
+                    <a class="sidenav-list__link" href="#">Menu item 3</a>
+                    <a class="sidenav-list__link" href="#">Menu item 4</a>
+                    <a class="sidenav-list__link" href="#">Menu item 5</a>
+                    <a class="sidenav-list__link" href="#">Menu item 5</a>
+                    <a class="sidenav-list__link" href="#">Menu item 5</a>
+                    <a class="sidenav-list__link" href="#">Menu item 5</a>
+                    <a class="sidenav-list__link" href="#">Menu item 5</a>
+                    <a class="sidenav-list__link" href="#">Menu item 5</a>
+                    <a class="sidenav-list__link" href="#">Menu item 5</a>
+                    <a class="sidenav-list__link" href="#">Menu item 5</a>
+                    <a class="sidenav-list__link" href="#">Menu item 5</a>
+                    <a class="sidenav-list__link" href="#">Menu item 5</a>
+                    <a class="sidenav-list__link" href="#">Menu item 5</a>
+                    <a class="sidenav-list__link" href="#">Menu item 5</a>
+                    <a class="sidenav-list__link" href="#">Menu item 5</a>
+                    <a class="sidenav-list__link" href="#">Menu item 5</a>
+                </li>
+            </ul>
+        </template>
+        <p>Dashboard Content will go here</p>
+        <p>Dashboard Content will go here</p>
+        <p>Dashboard Content will go here</p>
+        <p>Dashboard Content will go here</p>
+        <p>Dashboard Content will go here</p>
+        <p>Dashboard Content will go here</p>
+        <p>Dashboard Content will go here</p>
+        <p>Dashboard Content will go here</p>
+        <p>Dashboard Content will go here</p>
+        <p>Dashboard Content will go here</p>
+        <p>Dashboard Content will go here</p>
+        <p>Dashboard Content will go here</p>
+        <p>Dashboard Content will go here</p>
+        <p>Dashboard Content will go here</p>
+        <p>Dashboard Content will go here</p>
+        <p>Dashboard Content will go here</p>
+        <p>Dashboard Content will go here</p>
+        <p>Dashboard Content will go here</p>
+        <p>Dashboard Content will go here</p>
+        <p>Dashboard Content will go here</p>
+    </dashboard-layout>
+</div>
+<script src="https://unpkg.com/vue"></script>
+<script src="../dist/dashboard.umd.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data() {
+            return {
+                activateSideNav: false,
+            }
+        }
+    });
+</script>
+</body>
+</html>
