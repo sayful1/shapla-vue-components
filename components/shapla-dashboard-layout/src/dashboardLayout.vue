@@ -50,7 +50,6 @@
 
 <script>
     import sideNavigation from 'shapla-side-navigation';
-    import SimpleBar from 'simplebar';
 
     export default {
         name: "dashboardLayout",
@@ -72,10 +71,6 @@
         },
         mounted() {
             document.querySelector('body').classList.add('has-shapla-dashboard');
-            setTimeout(() => {
-                new SimpleBar(this.$el.querySelector('.shapla-dashboard-sidenav-menu'));
-                new SimpleBar(this.$el.querySelector('.shapla-dashboard-content'));
-            }, 100);
         }
     }
 </script>
@@ -85,5 +80,4 @@
     @import "dashboard";
     @import "dashboard-sidenav";
     @import "sidenav-list";
-    @import "~simplebar/src/simplebar.css";
 </style>
