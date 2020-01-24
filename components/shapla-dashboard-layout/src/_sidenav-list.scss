@@ -1,3 +1,5 @@
+@import "~shapla-color-system/src/variables";
+
 .sidenav-list {
 	list-style-type: none;
 	margin: 0;
@@ -9,13 +11,13 @@
 	&__link {
 		display: flex;
 		text-decoration: none;
-		color: #111;
-		padding: 12px 16px;
+		color: $text-primary;
+		padding: .75rem 1rem;
 		align-items: center;
 
 		&:hover {
 			background-color: #f1f1f1;
-			color: #111;
+			color: $text-primary;
 		}
 
 		&.is-active {

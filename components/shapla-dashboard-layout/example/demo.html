@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>chip demo</title>
+    <title>Dashboard demo</title>
     <link rel="stylesheet" href="../dist/dashboard.css">
     <style type="text/css">
         html, body {
@@ -24,52 +24,17 @@
             @close:sidenav="activateSideNav = false"
             user-display-name="Sayful Islam"
             avatar-url="https://s.gravatar.com/avatar/5ba82fcf5f7f8b24097ff9f7ad4b3d5b?s=80"
-            greeting="Hello, "
+            greeting="Hello,"
     >
         <template v-slot:sidenav-menu>
             <ul class="sidenav-list">
-                <li class="sidenav-list__item">
-                    <a class="sidenav-list__link" href="#">Menu item 1</a>
-                    <a class="sidenav-list__link" href="#">Menu item 2</a>
-                    <a class="sidenav-list__link" href="#">Menu item 3</a>
-                    <a class="sidenav-list__link" href="#">Menu item 4</a>
-                    <a class="sidenav-list__link" href="#">Menu item 5</a>
-                    <a class="sidenav-list__link" href="#">Menu item 5</a>
-                    <a class="sidenav-list__link" href="#">Menu item 5</a>
-                    <a class="sidenav-list__link" href="#">Menu item 5</a>
-                    <a class="sidenav-list__link" href="#">Menu item 5</a>
-                    <a class="sidenav-list__link" href="#">Menu item 5</a>
-                    <a class="sidenav-list__link" href="#">Menu item 5</a>
-                    <a class="sidenav-list__link" href="#">Menu item 5</a>
-                    <a class="sidenav-list__link" href="#">Menu item 5</a>
-                    <a class="sidenav-list__link" href="#">Menu item 5</a>
-                    <a class="sidenav-list__link" href="#">Menu item 5</a>
-                    <a class="sidenav-list__link" href="#">Menu item 5</a>
-                    <a class="sidenav-list__link" href="#">Menu item 5</a>
-                    <a class="sidenav-list__link" href="#">Menu item 5</a>
+                <li class="sidenav-list__item" v-for="number in menuItems">
+                    <a class="sidenav-list__link" href="#">Menu item {{number}}</a>
                 </li>
             </ul>
         </template>
-        <p>Dashboard Content will go here</p>
-        <p>Dashboard Content will go here</p>
-        <p>Dashboard Content will go here</p>
-        <p>Dashboard Content will go here</p>
-        <p>Dashboard Content will go here</p>
-        <p>Dashboard Content will go here</p>
-        <p>Dashboard Content will go here</p>
-        <p>Dashboard Content will go here</p>
-        <p>Dashboard Content will go here</p>
-        <p>Dashboard Content will go here</p>
-        <p>Dashboard Content will go here</p>
-        <p>Dashboard Content will go here</p>
-        <p>Dashboard Content will go here</p>
-        <p>Dashboard Content will go here</p>
-        <p>Dashboard Content will go here</p>
-        <p>Dashboard Content will go here</p>
-        <p>Dashboard Content will go here</p>
-        <p>Dashboard Content will go here</p>
-        <p>Dashboard Content will go here</p>
-        <p>Dashboard Content will go here</p>
+
+        <p v-for="number in menuItems">{{number}}. Dashboard Content will go here</p>
     </dashboard-layout>
 </div>
 <script src="https://unpkg.com/vue"></script>
@@ -80,6 +45,11 @@
         data() {
             return {
                 activateSideNav: false,
+            }
+        },
+        computed: {
+            menuItems() {
+                return Array.from({length: 50}, (x, i) => i + 1);
             }
         }
     });

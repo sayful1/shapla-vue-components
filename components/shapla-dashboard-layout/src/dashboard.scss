@@ -14,19 +14,8 @@ body.has-shapla-dashboard {
 	left: 0;
 	background: $background;
 	z-index: 100;
-}
 
-.shapla-layout {
-
-	&-burger {
-		margin-right: 1rem;
-	}
-
-	&-spacer {
-		flex-grow: 1;
-	}
-
-	&__header {
+	&-header {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: nowrap;
@@ -46,9 +35,20 @@ body.has-shapla-dashboard {
 
 		background: $primary;
 		color: $on-primary;
+
+		&__burger {
+			margin-right: 1rem;
+		}
+
+		&__title {
+		}
+
+		&__spacer {
+			flex-grow: 1;
+		}
 	}
 
-	&__content {
+	&-content {
 		position: relative;
 		display: flex;
 		overflow-y: auto;
@@ -56,16 +56,10 @@ body.has-shapla-dashboard {
 		z-index: 1;
 		width: 100%;
 		height: calc(100% - 56px);
-	}
 
-	&__content-inner {
-		flex-grow: 1;
-		padding: 2rem;
-
-		&:after {
-			clear: both;
-			content: "";
-			display: table;
+		&__inner {
+			flex-grow: 1;
+			padding: 2rem;
 		}
 	}
 }

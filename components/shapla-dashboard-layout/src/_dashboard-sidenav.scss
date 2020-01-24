@@ -1,6 +1,6 @@
 @import "~shapla-color-system/src/variables";
 
-.sidenav-customer-profile {
+.shapla-dashboard-sidenav-profile {
 	align-items: center;
 	display: flex;
 	height: 56px;
@@ -27,7 +27,7 @@
 	}
 }
 
-.sidenav-menu {
+.shapla-dashboard-sidenav-menu {
 	margin: 16px 0;
 	max-height: calc(100vh - (56px + 32px));
 	overflow-y: auto;

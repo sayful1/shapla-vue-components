@@ -1,5 +1,5 @@
-# shapla-columns
-A simple way to build responsive columns for Vue.js
+# shapla-dashboard-layout
+A simple dashboard layout to build your app dashboard. for Vue.js
 
 ## Table of contents
 
@@ -9,7 +9,7 @@ A simple way to build responsive columns for Vue.js
 # Installation
 
 ```
-npm install --save shapla-columns
+npm i shapla-dashboard-layout
 ```
 
 # Usage
@@ -17,47 +17,82 @@ npm install --save shapla-columns
 Add the component:
 
 ```js
-import {columns, column} from 'shapla-columns';
+import dashboardLayout from 'shapla-dashboard-layout';
 
 export default {
-  name: 'Hello',
+    name: 'Hello',
 
-  components: {
-    columns,
-    column
-  },
+    components: {
+        dashboardLayout
+    },
+
+    data() {
+        return {
+            activateSideNav: false,
+        }
+    },
+
+    computed: {
+        menuItems() {
+            return Array.from({length: 50}, (x, i) => i + 1);
+        }
+    }
+
 }
 
 ```
 
 ```html
-<columns multiline centered>
-    <column>Column 1</column>
-    <column :tablet="4" :desktop="3">Column 2</column>
-    <column>Column 3</column>
-    <column>Column 4</column>
-</columns>
+<dashboard-layout
+    title="Dashboard"
+    :activate-side-nav="activateSideNav"
+    @open:sidenav="activateSideNav = true"
+    @close:sidenav="activateSideNav = false"
+    user-display-name="Sayful Islam"
+    avatar-url="https://s.gravatar.com/avatar/5ba82fcf5f7f8b24097ff9f7ad4b3d5b?s=80"
+    greeting="Hello,"
+>
+    <template v-slot:sidenav-menu>
+        <ul class="sidenav-list">
+            <li class="sidenav-list__item" v-for="number in menuItems">
+                <a class="sidenav-list__link" href="#">Menu item {{number}}</a>
+            </li>
+        </ul>
+    </template>
+
+    <p v-for="number in menuItems">{{number}}. Dashboard Content will go here</p>
+</dashboard-layout>
 ```
 
-### Props for `columns`
-| Property      | Type      | Required  | Default   | Description                                                                                                                                                                                                                    |
-|---------------|-----------|-----------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `multiline`   | Boolean   | **no**    | `false`   | Whenever you want to start a new line, you can also add the `multiline` property and add more column elements than would fit in a single row                                                                                   |
-| `centered`    | Boolean   | **no**    | `false`   | For centering columns, you can add the `centered` property                                                                                                                                                                     |
-| `vcentered`   | Boolean   | **no**    | `false`   | To align your columns vertically, add the `vcentered` property to the columns container.                                                                                                                                       |
-| `gapless`     | Boolean   | **no**    | `false`   | There is 1.5rem gap between columns by default. If you want to remove the space between the columns, add the `gapless` property on the columns container                                                                       |
-| `mobile`      | Boolean   | **no**    | `false`   | By default, columns are only activated from tablet onwards. This means columns are stacked on top of each other on mobile. If you want columns to work on mobile too, just add the `mobile` property on the columns container. |
-| `desktop`     | Boolean   | **no**    | `false`   | If you only want columns on desktop upwards, just use the `desktop` property on the columns container. |
+### Props
+
+| Property          | Type      | Required  | Default   | Description
+|-------------------|-----------|-----------|-----------|---------------------------------
+| `activateSideNav` | Boolean   | **no**    | `false`   | Boolean value hide/show sidenav
+| `title`           | String    | **no**    | ``        | Dashboard title
+| `userDisplayName` | String    | **no**    | ``        | User display name
+| `avatarUrl`       | String    | **no**    | ``        | User avatar url
+| `greeting`        | String    | **no**    | `Hello,`  | Greeting text
+
+## Listeners
+The dashboard layout component fires the following events:
+
+**`open:sidenav`**: When burger icon is clicked, it fires the event.
+
+**`close:sidenav`**: When outside of sidenav is clicked, it fires the event.
+
+```html
+<!-- template -->
+<dashboard-layout @open:sidenav="handleOpenSidenav" @close:sidenav="handleCloseSidenav"></dashboard-layout>
 
 
-### Props for `column`
-If you want to change the size of a single column, you can use one of the following props
-Each props can take value from 1 to 12 as it 12 columns grid system.
-
-| Property      | Type     | Required  | Default  | Description                                         |
-|---------------|----------|-----------|----------|-----------------------------------------------------|
-| `mobile`      | Number   | **no**    | `null`   | When screen size less than 769px.                   |
-| `tablet`      | Number   | **no**    | `null`   | When screen size (greater than/equal to) 769px.     |
-| `desktop`     | Number   | **no**    | `null`   | When screen size (greater than/equal to) 1088px.    |
-| `widescreen`  | Number   | **no**    | `null`   | When screen size (greater than/equal to) 1280px.    |
-| `fullhd`      | Number   | **no**    | `null`   | When screen size (greater than/equal to) 1472px.    |
+<!-- method -->
+methods: {
+  handleOpenSidenav(){
+    // Handle click event
+  },
+  handleCloseSidenav(){
+    // Handle click event
+  }
+}
+```
