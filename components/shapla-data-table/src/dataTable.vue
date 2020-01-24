@@ -60,8 +60,7 @@
                             </slot>
                         </div>
 
-                        <button type="button" class="data-table-toggle-button"
-                                v-if="actionColumn === column.key && hasActions"
+                        <button type="button" class="data-table-toggle-button" v-if="actionColumn === column.key"
                                 @click="toggleRow($event)">
                             <span class="screen-reader-text">Show more details</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">

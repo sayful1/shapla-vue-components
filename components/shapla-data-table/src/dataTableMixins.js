@@ -4,7 +4,6 @@ const dataTableMixins = {
         columns: {type: Array, required: true,},
         selectedItems: {type: Array, default: () => []},
         actions: {type: Array, default: () => []},
-        actionColumn: {type: String, default: 'title'},
         index: {type: String, default: 'id'},
         showCb: {type: Boolean, default: true},
         selectAllText: {type: String, default: 'Select All'},
@@ -19,6 +18,13 @@ const dataTableMixins = {
         }
     },
     computed: {
+        actionColumn() {
+            let column = 'title';
+            this.columns.forEach((col, index) => {
+                if (index === 0) column = col.key;
+            });
+            return column;
+        },
         tableClasses() {
             return {
                 'shapla-data-table': true,

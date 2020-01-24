@@ -298,5 +298,9 @@ table.shapla-data-table--mobile {
 				background-color: rgba(0, 0, 0, 0.025);
 			}
 		}
+
+		&.no-items td {
+			display: table-cell;
+		}
 	}
 }
