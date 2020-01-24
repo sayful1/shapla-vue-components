@@ -9,6 +9,7 @@ import shaplaChip from 'shapla-chip';
 import shaplaCheckbox from "shapla-checkbox";
 import {columns, column} from 'shapla-columns'
 import {Dialog, ConfirmDialog} from 'shapla-confirm-dialog'
+import dashboardLayout from 'shapla-dashboard-layout';
 import dataTable from "shapla-data-table";
 import pagination from "shapla-data-table-pagination";
 import statusList from "shapla-data-table-status";
@@ -42,6 +43,7 @@ export function install(Vue) {
     Vue.component('columns', columns);
     Vue.component('column', column);
     Vue.component('confirm-dialog', ConfirmDialog);
+    Vue.component('dashboard-layout', dashboardLayout);
     Vue.component('data-table', dataTable);
     Vue.component('pagination', pagination);
     Vue.component('status-list', statusList);
@@ -81,7 +83,7 @@ if (GlobalVue) {
 
 // To allow use as module (npm/webpack/etc.) export component
 export {
-    shaplaButton, shaplaChip, shaplaCheckbox, columns, column, Dialog, ConfirmDialog, dataTable, statusList,
-    pagination, deleteIcon, dropdown, inputSlider, modal, notification, shaplaRadio, radioButton, searchForm,
-    selectField, sideNavigation, spinner, StarRating, shaplaSwitch, tabs, tab, textField, toggles, toggle
+    shaplaButton, shaplaChip, shaplaCheckbox, columns, column, Dialog, ConfirmDialog, dashboardLayout, dataTable,
+    statusList, pagination, deleteIcon, dropdown, inputSlider, modal, notification, shaplaRadio, radioButton,
+    searchForm, selectField, sideNavigation, spinner, StarRating, shaplaSwitch, tabs, tab, textField, toggles, toggle
 };
