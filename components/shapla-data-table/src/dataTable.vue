@@ -5,12 +5,8 @@
             <tr class="shapla-data-table__header-row">
                 <th v-if="showCb"
                     class="check-column shapla-data-table__header-cell mdc-data-table__header-cell--checkbox">
-                    <span @click="handleSelectAll">
-                        <slot name="check-box-all">
-                            <label class="screen-reader-text" for="cb-select-all-1">{{selectAllText}}</label>
-                            <input type="checkbox" id="cb-select-all-1" :checked="isAllSelected">
-                        </slot>
-                    </span>
+                    <label class="screen-reader-text" for="cb-select-all-1">{{selectAllText}}</label>
+                    <shapla-checkbox id="cb-select-all-1" @change="handleSelectAll" :checked="isAllSelected"/>
                 </th>
                 <th v-for="column in columns" :key="column.key" :class="getHeadColumnClass(column.key, column)">
                     <template v-if="!isSortable(column)">
@@ -36,14 +32,11 @@
             <template v-if="items.length">
                 <tr v-for="row in items" :key="row[index]" :class="{'is-selected':selectedItems.includes(row[index])}">
                     <td class="check-column" v-if="showCb">
-                        <span @click="handleSelectItem(row)">
-                            <slot name="check-box" :row="row">
-                                <label class="screen-reader-text" :for="`cb-select-${row[index]}`">Select
-                                    {{row[actionColumn]}}</label>
-                                <input type="checkbox" :id="`cb-select-${row[index]}`" :value="row[index]"
-                                       :checked="selectedItems.includes(row[index])">
-                            </slot>
-                        </span>
+                        <label class="screen-reader-text" :for="`cb-select-${row[index]}`">
+                            Select {{row[actionColumn]}}
+                        </label>
+                        <shapla-checkbox :id="`cb-select-${row[index]}`" :value="row[index]"
+                                         @change="handleSelectItem(row)" :checked="selectedItems.includes(row[index])"/>
                     </td>
                     <td v-for="column in columns" :key="column.key" :class="getBodyColumnClass(column)"
                         :data-colname="column.label">
@@ -82,10 +75,12 @@
 
 <script>
     import dataTableMixins from "./dataTableMixins";
+    import shaplaCheckbox from "shapla-checkbox";
 
     export default {
         name: "dataTable",
         mixins: [dataTableMixins],
+        components: {shaplaCheckbox}
     }
 </script>
 

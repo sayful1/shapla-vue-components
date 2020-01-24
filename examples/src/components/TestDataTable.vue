@@ -7,7 +7,6 @@
                 :sort-order="sortOrder"
                 :selected-items="selectedItems"
                 @sort="sortData"
-                action-column="title"
                 :actions="actions"
                 @action:click="onActionClick"
                 @item:select="selectItems"
