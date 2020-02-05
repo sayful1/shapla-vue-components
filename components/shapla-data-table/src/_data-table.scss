@@ -6,6 +6,7 @@
 	border-collapse: collapse;
 	font-size: $data-table-font-size;
 	position: relative;
+	table-layout: fixed;
 
 	&--fullwidth {
 		width: 100%;
@@ -171,6 +172,7 @@
 
 // Mobile
 table.shapla-data-table--mobile {
+	table-layout: auto;
 
 	button.data-table-toggle-button {
 		background: none;
