@@ -3,11 +3,13 @@
 
         <div class="shapla-dashboard-header">
 
-            <div class="shapla-dashboard-header__burger shapla-icon is-hoverable" @click="openSideNavigation">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" fill="currentColor"/>
-                </svg>
+            <div class="shapla-dashboard-header__burger" @click="openSideNavigation">
+                <icon-container :hoverable="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" fill="currentColor"/>
+                    </svg>
+                </icon-container>
             </div>
 
             <slot name="navbar-brand">
@@ -50,10 +52,11 @@
 
 <script>
     import sideNavigation from 'shapla-side-navigation';
+    import iconContainer from "shapla-icon-container";
 
     export default {
         name: "dashboardLayout",
-        components: {sideNavigation},
+        components: {sideNavigation, iconContainer},
         props: {
             activateSideNav: {type: Boolean, default: false},
             title: {type: String},
@@ -76,7 +79,6 @@
 </script>
 
 <style lang="scss">
-    @import "icon";
     @import "dashboard";
     @import "dashboard-sidenav";
     @import "sidenav-list";
