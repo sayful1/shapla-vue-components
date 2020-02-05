@@ -1,17 +1,17 @@
 /*!
- * Shapla Dashboard Layout v1.0.2
+ * Shapla Delete Icon v1.0.2
  * (c) 2019 Sayful Islam
  * Released under the MIT License.
  */
 
 // Import vue component
-import dashboardLayout from './dashboardLayout';
+import iconContainer from './iconContainer';
 
 // Declare install function executed by Vue.use()
 export function install(Vue) {
     if (install.installed) return;
     install.installed = true;
-    Vue.component('dashboard-layout', dashboardLayout);
+    Vue.component('icon-container', iconContainer);
 }
 
 // Create module definition for Vue.use()
@@ -29,4 +29,4 @@ if (GlobalVue) {
 }
 
 // To allow use as module (npm/webpack/etc.) export component
-export default dashboardLayout;
+export default iconContainer;

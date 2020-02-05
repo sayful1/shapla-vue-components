@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Icon container demo</title>
+    <link rel="stylesheet" href="../dist/icon-container.css">
+    <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@5.12.0/css/all.css">
+    <style type="text/css">
+        html {
+            box-sizing: border-box;
+        }
+
+        html * {
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <icon-container hoverable><i class="fas fa-user"></i></icon-container>
+    <icon-container><i class="fas fa-user"></i></icon-container>
+    <icon-container size="small"><i class="fas fa-user"></i></icon-container>
+    <icon-container size="medium"><i class="fas fa-user"></i></icon-container>
+    <icon-container size="large"><i class="fas fa-user"></i></icon-container>
+</div>
+<script src="https://unpkg.com/vue"></script>
+<script src="../dist/icon-container.umd.js"></script>
+<script>
+    new Vue({el: '#app'});
+</script>
+</body>
+</html>
