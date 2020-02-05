@@ -1,0 +1,95 @@
+.shapla-data-table--mobile {
+
+	button.data-table-toggle-button {
+		align-items: center;
+		background: none;
+		border: none;
+		display: inline-flex !important;
+		height: 40px;
+		justify-content: center;
+		padding: 0;
+		width: 40px;
+		position: absolute;
+		right: 6px;
+		top: 6px;
+
+		.triangle-up {
+			display: none;
+		}
+	}
+
+	.shapla-data-table__row {
+
+		.column-primary ~ .shapla-data-table__cell {
+			display: none;
+		}
+
+		.row-actions {
+			visibility: visible !important;
+		}
+
+		&.is-expanded {
+
+			.shapla-data-table__cell:not(.shapla-data-table__cell--checkbox) {
+				display: block !important;
+			}
+
+			.triangle-up {
+				display: block;
+			}
+
+			.triangle-down {
+				display: none;
+			}
+		}
+	}
+
+	.shapla-data-table__header-cell {
+		&.column-primary {
+			width: 100%;
+
+			~ .shapla-data-table__header-cell {
+				display: none;
+			}
+		}
+	}
+
+	.shapla-data-table__cell {
+		display: block;
+		text-align: right;
+		position: relative;
+		padding-top: .5em;
+
+		&--checkbox {
+			display: table-cell;
+			vertical-align: top;
+			padding-top: 14px;
+
+			&:after {
+				content: ' ';
+			}
+		}
+
+		&.column-primary {
+			padding-right: 52px;
+			text-align: left;
+		}
+
+		&:not(.shapla-data-table__cell--checkbox):not(.column-primary)::before {
+			content: attr(data-colname) ' : ';
+			font-weight: bold;
+			float: left;
+			color: $text-secondary;
+		}
+
+		&--no-item {
+			display: table-cell;
+			text-align: center;
+
+			&:before {
+				display: none;
+			}
+		}
+	}
+}
+

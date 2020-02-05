@@ -1,12 +1,12 @@
 /*!
- * Shapla Data Table v1.0.2
+ * Shapla Data Table v1.1.0
  * (c) 2019 Sayful Islam
  * Released under the MIT License.
  */
 
 // Import vue component
+import dataTableMixins from "./mixins/dataTableMixins";
 import dataTable from './dataTable';
-import dataTableMixins from "./dataTableMixins";
 
 // Declare install function executed by Vue.use()
 export function install(Vue) {
@@ -30,5 +30,5 @@ if (GlobalVue) {
 }
 
 // To allow use as module (npm/webpack/etc.) export component
-export {dataTableMixins};
+export {dataTableMixins, dataTable};
 export default dataTable;
