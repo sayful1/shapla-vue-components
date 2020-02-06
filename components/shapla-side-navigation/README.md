@@ -30,15 +30,18 @@ export default {
 ```
 
 ```html
-<side-navigation :active="true"></side-navigation>
+<side-navigation :active="true" nav-width="300px" position="left" :show-overlay="true">
+    Nav content goes here
+</side-navigation>
 ```
 
 ### Props
-| Property      | Type      | Required  | Default   | Description                                       |
-|---------------|-----------|-----------|-----------|---------------------------------------------------|
-| `active`      | Boolean   | **no**    | `true`    | If set `true`, side navigation will be opened.    |
-| `navWidth`    | String    | **no**    | `300px`   | Sidenav width in pixels.                          |
-| `position`    | String    | **no**    | `left`    | Value can be `left` or `right`.                   |
+| Property      | Type      | Required  | Default   | Description
+|---------------|-----------|-----------|-----------|-------------------------------------------------
+| `active`      | Boolean   | **no**    | `true`    | If set `true`, side navigation will be opened.
+| `showOverlay` | Boolean   | **no**    | `true`    | If set `true`, overlay background will be shown
+| `navWidth`    | String    | **no**    | `300px`   | Sidenav width in pixels.
+| `position`    | String    | **no**    | `left`    | Value can be `left` or `right`.
 
 ## Listeners
 The side navigation component fires the following events:

@@ -1,6 +1,6 @@
 <template>
     <div class="shapla-sidenav" :class="navClasses">
-        <div class="shapla-sidenav__background" @click="closeNav"></div>
+        <div class="shapla-sidenav__background" v-if="showOverlay" @click="closeNav"></div>
         <div class="shapla-sidenav__body" :style="navStyle">
             <div class="shapla-sidenav__content">
                 <slot></slot>
@@ -15,6 +15,7 @@
 
         props: {
             active: {type: Boolean, default: true},
+            showOverlay: {type: Boolean, default: true},
             navWidth: {type: String, default: '300px'},
             position: {type: String, default: 'left'},
         },
