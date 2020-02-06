@@ -43,8 +43,23 @@
 </head>
 <body>
 <div id="app">
+    <h2>Demo Table One</h2>
     <data-table
             :items="items"
+            :columns="columns"
+            :sort-by="sortBy"
+            :sort-order="sortOrder"
+            :selected-items="selectedItems"
+            @sort="sortData"
+            action-column="title"
+            :actions="actions"
+            @action:click="onActionClick"
+            @item:select="selectItems"
+    ></data-table>
+
+    <h2>Demo Table Two (No items)</h2>
+    <data-table
+            :items="[]"
             :columns="columns"
             :sort-by="sortBy"
             :sort-order="sortOrder"

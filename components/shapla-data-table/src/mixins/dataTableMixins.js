@@ -11,6 +11,7 @@ const dataTableMixins = {
         sortBy: {type: String, default: 'id'},
         sortOrder: {type: String, default: "desc"},
         mobileWidth: {type: Number, default: 768},
+        areaLabel: {type: String, required: false}
     },
     data() {
         return {
@@ -18,6 +19,9 @@ const dataTableMixins = {
         }
     },
     computed: {
+        isMobileView() {
+            return this.windowWidth <= this.mobileWidth;
+        },
         actionColumn() {
             let column = 'title';
             this.columns.forEach((col, index) => {
@@ -28,8 +32,7 @@ const dataTableMixins = {
         tableClasses() {
             return {
                 'shapla-data-table': true,
-                'shapla-data-table--fullwidth': true,
-                'shapla-data-table--mobile': this.windowWidth <= this.mobileWidth
+                'shapla-data-table--mobile': this.isMobileView
             }
         },
         colspan() {
@@ -73,29 +76,28 @@ const dataTableMixins = {
                 this.windowWidth = window.innerWidth;
             }
         },
-        getHeadColumnClass(key, value) {
-            let nonNumeric = typeof value.numeric === "undefined" || (typeof value.numeric !== "undefined" && value.numeric === false);
+
+        getHeadCellClass(value) {
+            let isNumeric = (typeof value.numeric !== "undefined" && value.numeric === true);
             return [
-                'manage-column',
-                'manage-' + key,
-                {'shapla-data-table__cell--non-numeric': nonNumeric},
-                {'column-primary': this.actionColumn === key},
-                {'sortable': this.isSortable(value)},
-                {'sorted': this.isSorted(key)},
-                {'shapla-data-table__header--sorted-ascending': this.isSorted(key) && this.sortOrder === 'asc'},
-                {'shapla-data-table__header--sorted-descending': this.isSorted(key) && this.sortOrder === 'desc'}
+                'shapla-data-table__header-cell',
+                'shapla-data-table__header-cell-' + value.key,
+                {'shapla-data-table__header-cell--numeric': isNumeric},
+                {'column-primary': this.actionColumn === value.key},
+                {'is-sortable': this.isSortable(value)},
+                {'is-sorted-ascending': this.isSorted(value.key) && this.sortOrder === 'asc'},
+                {'is-sorted-descending': this.isSorted(value.key) && this.sortOrder === 'desc'}
             ]
         },
-        getBodyColumnClass(value) {
-            let nonNumeric = typeof value.numeric === "undefined" || (typeof value.numeric !== "undefined" && value.numeric === false);
+        getBodyCellClass(value) {
+            let isNumeric = (typeof value.numeric !== "undefined" && value.numeric === true);
             return [
-                'manage-column',
-                'manage-' + value.key,
-                {'shapla-data-table__cell--non-numeric': nonNumeric},
+                'shapla-data-table__cell',
+                'shapla-data-table__cell-' + value.key,
+                {'shapla-data-table__cell--numeric': isNumeric},
                 {'column-primary': this.actionColumn === value.key},
             ]
         },
-
         toggleRow(event) {
             let el = event.target, tr = el.closest('tr'), table = el.closest('table');
             table.querySelectorAll('tr').forEach(element => {
@@ -114,7 +116,7 @@ const dataTableMixins = {
         },
 
         isSortable(column) {
-            return column.hasOwnProperty('sortable') && column.sortable === true;
+            return column.sortable && column.sortable === true;
         },
 
         isSorted(column) {
