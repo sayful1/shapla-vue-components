@@ -31,7 +31,6 @@
                 </div>
                 <div class="shapla-dashboard-sidenav-profile__name" v-if="userDisplayName">
                     <span v-if="greeting">{{greeting}}</span>
-                    <span>&nbsp;</span>
                     <b v-if="userDisplayName">{{userDisplayName}}</b>
                 </div>
             </div>

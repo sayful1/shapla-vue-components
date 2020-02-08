@@ -50,6 +50,7 @@
     "shapla-delete": "^1.0.2",
     "shapla-dropdown": "^1.0.3",
     "shapla-icon-container": "^1.0.0",
+    "shapla-image-container": "^1.0.0",
     "shapla-input-slider": "^1.0.0",
     "shapla-modal": "^1.0.4",
     "shapla-notifications": "^1.0.6",
@@ -67,9 +68,9 @@
     "vue": "^2.6.11"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.1.2",
-    "@vue/cli-plugin-eslint": "^4.1.2",
-    "@vue/cli-service": "^4.1.2",
+    "@vue/cli-plugin-babel": "^4.2.2",
+    "@vue/cli-plugin-eslint": "^4.2.2",
+    "@vue/cli-service": "^4.2.2",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.8.0",
     "eslint-plugin-vue": "^6.1.2",

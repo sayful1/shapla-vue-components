@@ -16,6 +16,7 @@ import statusList from "shapla-data-table-status";
 import deleteIcon from 'shapla-delete';
 import dropdown from "shapla-dropdown";
 import iconContainer from 'shapla-icon-container';
+import imageContainer from 'shapla-image-container';
 import inputSlider from 'shapla-input-slider';
 import modal from "shapla-modal";
 import notification from "shapla-notifications";
@@ -51,6 +52,7 @@ export function install(Vue) {
     Vue.component('delete-icon', deleteIcon);
     Vue.component('dropdown', dropdown);
     Vue.component('icon-container', iconContainer);
+    Vue.component('image-container', imageContainer);
     Vue.component('input-slider', inputSlider);
     Vue.component('modal', modal);
     Vue.component('notification', notification);
@@ -86,7 +88,7 @@ if (GlobalVue) {
 // To allow use as module (npm/webpack/etc.) export component
 export {
     shaplaButton, shaplaChip, shaplaCheckbox, columns, column, Dialog, ConfirmDialog, dashboardLayout, dataTable,
-    statusList, pagination, deleteIcon, dropdown, iconContainer, inputSlider, modal, notification, shaplaRadio,
-    radioButton, searchForm, selectField, sideNavigation, spinner, StarRating, shaplaSwitch, tabs, tab, textField,
-    toggles, toggle
+    statusList, pagination, deleteIcon, dropdown, imageContainer, iconContainer, inputSlider, modal, notification,
+    shaplaRadio, radioButton, searchForm, selectField, sideNavigation, spinner, StarRating, shaplaSwitch, tabs, tab,
+    textField, toggles, toggle
 };
