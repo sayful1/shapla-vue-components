@@ -17,7 +17,7 @@
         computed: {
             classes() {
                 return [
-                    'shapla-image',
+                    'shapla-image-container',
                     {'is-fullwidth': !this.containerWidth},
                     {'is-rounded': this.isRounded},
                 ]
@@ -39,7 +39,7 @@
 </script>
 
 <style lang="scss">
-    .shapla-image {
+    .shapla-image-container {
         display: block;
         position: relative;
 

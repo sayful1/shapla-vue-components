@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Image container demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="../dist/image-container.css">
     <style type="text/css">
         html {
@@ -17,18 +18,18 @@
 <body>
 <div id="app">
     <image-container container-width="32px" container-height="32px">
-        <img src="https://bulma.io/images/placeholders/128x128.png">
+        <img src="https://via.placeholder.com/48x48">
     </image-container>
-    <image-container container-width="32px" container-height="32px" has-rounded-image>
-        <img src="https://bulma.io/images/placeholders/128x128.png">
+    <image-container container-width="32px" container-height="32px" is-rounded>
+        <img src="https://via.placeholder.com/128x128">
     </image-container>
     <div style="width: 420px;height: 560px;">
-        <image-container :width-ratio="420" :height-ratio="560">
-            <img src="https://assets.myntassets.com/f_webp,dpr_2.0,q_60,w_210,c_limit,fl_progressive/assets/images/9329399/2019/4/24/8df4ed41-1e43-4a0d-97fe-eb47edbdbacd1556086871124-Libas-Women-Kurtas-6161556086869769-1.jpg">
+        <image-container :width-ratio="3" :height-ratio="4">
+            <img src="https://via.placeholder.com/420x560">
         </image-container>
     </div>
     <div style="width: 420px;height: 560px;">
-        <image-container :width-ratio="1920" :height-ratio="1080" class="has-ratio">
+        <image-container :width-ratio="16" :height-ratio="9">
             <iframe class="" width="640" height="360" src="https://www.youtube.com/embed/YE7VzlLtp-4?showinfo=0"
                     frameborder="0" allowfullscreen></iframe>
         </image-container>

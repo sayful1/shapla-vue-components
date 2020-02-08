@@ -1,6 +1,6 @@
-# shapla-icon-container
+# shapla-image-container
 
-The icon-container component is a container for any type of icon font. Because the icons can take a few seconds to load, and because you want control over the space the icons will take, you can use the icon class as a reliable square container that will prevent the page to "jump" on page load.
+The image container to specify a precisely sized container so that your layout isn't broken because of image loading or image errors.
 
 ## Table of contents
 
@@ -10,31 +10,45 @@ The icon-container component is a container for any type of icon font. Because t
 # Installation
 
 ```
-npm i shapla-icon-container
+npm i shapla-image-container
 ```
 
 # Usage
 Add the component:
 
 ```js
-import iconContainer from 'shapla-icon-container';
+import imageContainer from 'shapla-image-container';
 
 export default {
   name: 'Hello',
 
   components: {
-    iconContainer
+    imageContainer
   },
 }
 
 ```
 
 ```html
-<icon-container size="medium"><i class="fas fa-fw"></i></icon-container>
+<image-container container-width="32px" container-height="32px" is-rounded>
+    <img src="https://via.placeholder.com/48x48">
+</image-container>
+
+<image-container :width-ratio="3" :height-ratio="4">
+    <img src="https://via.placeholder.com/420x560">
+</image-container>
+
+<image-container :width-ratio="16" :height-ratio="9">
+    <iframe width="640" height="360" src="https://www.youtube.com/embed/YE7VzlLtp-4?showinfo=0"
+        frameborder="0" allowfullscreen></iframe>
+</image-container>
 ```
 
 ### Props
-| Property      | Type      | Required  | Default   | Description
-|---------------|-----------|-----------|-----------|---------------------------------------------
-| `size`        | String    | **no**    | ``        | Value can be `small` or `medium` or `large`
-| `hoverable`   | Boolean   | **no**    | `false`   | If set `true`, transparent background color will be added on hover
+| Property          | Type      | Required  | Default   | Description
+|-------------------|-----------|-----------|-----------|---------------------------------------------
+| `heightRatio`     | Number    | **no**    | `1`       | Image height ratio. You can also put image height
+| `widthRatio`      | Number    | **no**    | `1`       | Image width ratio. You can also put image width
+| `containerWidth`  | String    | **no**    | ``        | Width of the container.
+| `containerHeight` | String    | **no**    | ``        | Height of the container.
+| `isRounded`       | Boolean   | **no**    | `false`   | If set `true`, inside item will be rounded
