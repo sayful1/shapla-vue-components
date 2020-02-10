@@ -118,8 +118,8 @@ const selectFieldMixins = {
             }
         },
         scrollUpIfNeeded() {
-            let dropdownContent = this.$el.querySelector('.dropdown-menu__content'),
-                hoverEl = dropdownContent.querySelector('.dropdown-item.is-hover'),
+            let dropdownContent = this.$el.querySelector('.shapla-dropdown-menu__content'),
+                hoverEl = dropdownContent.querySelector('.shapla-dropdown-item.is-hover'),
                 hoverElHeight = hoverEl ? hoverEl.clientHeight : 0,
                 hoverElFromTop = hoverEl ? hoverEl.offsetTop : 0;
 
@@ -129,8 +129,8 @@ const selectFieldMixins = {
         },
         scrollDownIfNeeded() {
             setTimeout(() => {
-                let dropdownContent = this.$el.querySelector('.dropdown-menu__content'),
-                    hoverEl = dropdownContent.querySelector('.dropdown-item.is-hover'),
+                let dropdownContent = this.$el.querySelector('.shapla-dropdown-menu__content'),
+                    hoverEl = dropdownContent.querySelector('.shapla-dropdown-item.is-hover'),
                     hoverElHeight = hoverEl ? hoverEl.clientHeight : 0,
                     hoverElFromTop = hoverEl ? hoverEl.offsetTop : 0;
 

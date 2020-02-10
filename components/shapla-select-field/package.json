@@ -1,7 +1,7 @@
 {
   "name": "shapla-select-field",
   "description": "A simple customized select field",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",
@@ -40,14 +40,14 @@
   "dependencies": {
     "shapla-color-system": "^1.0.2",
     "shapla-delete": "^1.0.2",
-    "shapla-dropdown": "^1.0.3",
+    "shapla-dropdown": "^1.0.4",
     "shapla-text-field": "^1.0.3",
     "vue": "^2.6.11"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.1.2",
-    "@vue/cli-plugin-eslint": "^4.1.2",
-    "@vue/cli-service": "^4.1.2",
+    "@vue/cli-plugin-babel": "^4.2.2",
+    "@vue/cli-plugin-eslint": "^4.2.2",
+    "@vue/cli-service": "^4.2.2",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.8.0",
     "eslint-plugin-vue": "^6.1.2",

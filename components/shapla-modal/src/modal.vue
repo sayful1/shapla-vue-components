@@ -20,7 +20,7 @@
             </div>
             <div class="shapla-modal-card-foot is-pulled-right">
                 <slot name="foot">
-                    <button @click.prevent="close">Cancel</button>
+                    <button class="shapla-button" @click.prevent="close">Cancel</button>
                 </slot>
             </div>
         </div>

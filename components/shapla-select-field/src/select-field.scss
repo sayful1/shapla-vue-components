@@ -6,16 +6,16 @@
 		position: relative;
 	}
 
-	.dropdown-menu {
+	.shapla-dropdown-menu {
 		width: 100%;
 	}
 
-	.dropdown-menu__content {
+	.shapla-dropdown-menu__content {
 		max-height: 11em;
 		overflow: auto;
 	}
 
-	.dropdown-item {
+	.shapla-dropdown-item {
 		padding-right: calc(24px + 1rem);
 
 		&:active,
@@ -24,8 +24,8 @@
 			color: $primary;
 		}
 
-		&.is-hover,
-		&:hover {
+		&:not(:active):not(.is-active).is-hover,
+		&:not(:active):not(.is-active):hover {
 			background-color: #f5f5f5;
 			color: $text-primary;
 		}

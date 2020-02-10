@@ -18,10 +18,10 @@
                 </template>
             </text-field>
             <dropdown-menu :active="showDropdown" role="listbox">
-                <span role="option" class="dropdown-item is-link" v-for="_option in filteredOptions"
-                      :key="_option[valueKey]"
-                      :class="dropdownItemClasses(_option)" :aria-selected="value.toString() === _option[valueKey]"
-                      :data-value="_option[valueKey]" @click="selectOption(_option)">
+                <span role="option" class="shapla-dropdown-item is-link" v-for="_option in filteredOptions"
+                      :key="_option[valueKey]" :class="dropdownItemClasses(_option)"
+                      :aria-selected="value.toString() === _option[valueKey]" :data-value="_option[valueKey]"
+                      @click="selectOption(_option)">
                     <span v-html="_option[labelKey]"> </span>
                     <span v-if="value.toString() === _option[valueKey]" class="icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
