@@ -1,6 +1,6 @@
 <template>
-    <div class="dropdown-menu" :class="menuClasses" :role="role">
-        <div class="dropdown-menu__content">
+    <div class="shapla-dropdown-menu" :class="menuClasses" :role="role">
+        <div class="shapla-dropdown-menu__content">
             <slot></slot>
         </div>
     </div>
@@ -38,5 +38,5 @@
 </script>
 
 <style lang="scss">
-    @import "dropdown";
+    @import "dropdown-menu";
 </style>

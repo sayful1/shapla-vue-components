@@ -1,6 +1,7 @@
 <template>
-    <div class="dropdown" :class="{'is-hoverable':hoverable}">
-        <div class="dropdown-trigger" aria-haspopup="true" :aria-expanded="isActive?'true':'false'" @click="isActive = !isActive">
+    <div class="shapla-dropdown" :class="{'is-hoverable':hoverable}">
+        <div class="shapla-dropdown-trigger" aria-haspopup="true" :aria-expanded="isActive?'true':'false'"
+             @click="isActive = !isActive">
             <slot name="trigger"></slot>
         </div>
         <dropdown-menu :active="isActive" :role="role" :right="right" :up="up">
@@ -30,7 +31,7 @@
             isActive(isActive) {
                 if (isActive) {
                     document.addEventListener('click', event => {
-                        if (!event.target.closest('.dropdown')) {
+                        if (!event.target.closest('.shapla-dropdown')) {
                             this.isActive = false;
                         }
                     });
@@ -41,13 +42,13 @@
 </script>
 
 <style lang="scss">
-    .dropdown {
+    .shapla-dropdown {
         display: inline-flex;
         position: relative;
         vertical-align: top;
 
         &.is-hoverable:hover {
-            .dropdown-menu {
+            .shapla-dropdown-menu {
                 display: block
             }
         }
