@@ -1,0 +1,56 @@
+@import "~shapla-color-system/src/variables";
+
+.dragndrop {
+	--dragndrop-min-height: 200px;
+	width: 100%;
+	min-height: var(--dragndrop-min-height);
+	background-color: #f8f8f8;
+	position: relative;
+	border: 3px dashed rgba(0, 0, 0, .2);
+}
+
+.dragndrop--dragged {
+	border-color: #333;
+}
+
+.dragndrop__input {
+	display: none;
+}
+
+.dragndrop-message {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 20px;
+
+	&__icon {
+		color: $primary;
+		height: 32px;
+		width: 32px;
+
+		svg.icon-plus {
+			fill: currentColor;
+		}
+	}
+
+	&__drag {
+		color: $text-primary;
+		font-weight: bold;
+		margin-top: .5rem;
+	}
+
+	&__select-files {
+		margin-bottom: 1rem;
+		margin-top: 1rem;
+	}
+
+	&__browse {
+		color: $text-secondary;
+	}
+
+	&__maxsize {
+		color: $text-hint;
+		font-size: 12px;
+	}
+}
