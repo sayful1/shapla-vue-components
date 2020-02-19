@@ -53,12 +53,17 @@ export default {
 ## Listeners
 The uploader component fires the following events:
 
-**`init`**: When a file initiate to upload. `FormData` object pass as parameter.
-**`before:send`**: it fires the event before sending data to server. `XMLHttpRequest` object pass as first parameter and `FormData` pass as second parameter.
-**`progress`**: When a file upload in progress. `fileObject` object pass as first parameter and `event` pass as second parameter.
-**`success`**: When a file uploaded successfully. `fileObject` object pass as first parameter and `serverResponse` pass as second parameter.
-**`failed`**: When a file uploaded failed on server. `fileObject` object pass as first parameter and `serverResponse` pass as second parameter.
-**`error`**: When a file uploaded failed on server. `fileObject` object pass as first parameter.
+**`init`**: It fires the event when a file initiate to upload. `FormData` pass as parameter.
+
+**`before:send`**: It fires the event before sending data to server. `XMLHttpRequest` pass as first parameter and `FormData` pass as second parameter.
+
+**`progress`**: It fires the event when a file upload in progress. `fileObject` object pass as first parameter and `event` pass as second parameter.
+
+**`success`**: It fires the event when a file uploaded successfully. `fileObject` object pass as first parameter and `serverResponse` pass as second parameter.
+
+**`failed`**: It fires the event when a file uploaded failed on server. `fileObject` object pass as first parameter and `serverResponse` pass as second parameter.
+
+**`error`**: It fires the event when a file uploaded failed. `fileObject` object pass as first parameter.
 
 ```html
 <!-- template -->
@@ -66,7 +71,6 @@ The uploader component fires the following events:
     @before:send="handleBeforeSendEvent"
     @success="handleSuccess"
 />
-
 
 <!-- method -->
 methods: {
