@@ -1,22 +1,23 @@
 /*!
- * Shapla Media Uploader v1.0.0
+ * Shapla File Uploader v1.0.0
  * (c) 2019 Sayful Islam
  * Released under the MIT License.
  */
 
 // Import vue component
-import Dropzone from "dropzone";
-import MediaUploader from './MediaUploader';
-import MediaModal from './MediaModal';
-import FeaturedImage from './FeaturedImage';
+import FileUploader from './FileUploader';
+import FileUploadStatus from './FileUploadStatus';
+import UploadStatus from './UploadStatus';
+import pad from "./helpers/pad";
+import timeRemaining from "./helpers/timeremaining";
 
 // Declare install function executed by Vue.use()
 export function install(Vue) {
     if (install.installed) return;
     install.installed = true;
-    Vue.component('media-uploader', MediaUploader);
-    Vue.component('media-modal', MediaModal);
-    Vue.component('featured-image', FeaturedImage);
+    Vue.component('file-uploader', FileUploader);
+    Vue.component('upload-status', UploadStatus);
+    Vue.component('file-upload-status', FileUploadStatus);
 }
 
 // Create module definition for Vue.use()
@@ -34,5 +35,5 @@ if (GlobalVue) {
 }
 
 // To allow use as module (npm/webpack/etc.) export component
-export {Dropzone, MediaUploader, MediaModal, FeaturedImage};
-export default MediaUploader;
+export {FileUploader, UploadStatus, FileUploadStatus, pad, timeRemaining};
+export default FileUploader;

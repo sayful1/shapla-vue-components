@@ -1,5 +1,5 @@
-# shapla-columns
-A simple way to build responsive columns for Vue.js
+# shapla-file-uploader
+A collection of vue component for handling frontend drag and drop file upload functionality.
 
 ## Table of contents
 
@@ -9,7 +9,7 @@ A simple way to build responsive columns for Vue.js
 # Installation
 
 ```
-npm install --save shapla-columns
+npm install --save shapla-file-uploader
 ```
 
 # Usage
@@ -17,47 +17,65 @@ npm install --save shapla-columns
 Add the component:
 
 ```js
-import {columns, column} from 'shapla-columns';
+import FileUploader from 'shapla-file-uploader';
 
 export default {
   name: 'Hello',
 
   components: {
-    columns,
-    column
+    FileUploader
   },
+  
+  methods: {
+    handleSuccess(fileObject,serverResponse){
+      // Handle click event
+    }
+  }
 }
 
 ```
 
 ```html
-<columns multiline centered>
-    <column>Column 1</column>
-    <column :tablet="4" :desktop="3">Column 2</column>
-    <column>Column 3</column>
-    <column>Column 4</column>
-</columns>
+<file-uploader @success="handleSuccess"></file-uploader>
 ```
 
-### Props for `columns`
-| Property      | Type      | Required  | Default   | Description                                                                                                                                                                                                                    |
-|---------------|-----------|-----------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `multiline`   | Boolean   | **no**    | `false`   | Whenever you want to start a new line, you can also add the `multiline` property and add more column elements than would fit in a single row                                                                                   |
-| `centered`    | Boolean   | **no**    | `false`   | For centering columns, you can add the `centered` property                                                                                                                                                                     |
-| `vcentered`   | Boolean   | **no**    | `false`   | To align your columns vertically, add the `vcentered` property to the columns container.                                                                                                                                       |
-| `gapless`     | Boolean   | **no**    | `false`   | There is 1.5rem gap between columns by default. If you want to remove the space between the columns, add the `gapless` property on the columns container                                                                       |
-| `mobile`      | Boolean   | **no**    | `false`   | By default, columns are only activated from tablet onwards. This means columns are stacked on top of each other on mobile. If you want columns to work on mobile too, just add the `mobile` property on the columns container. |
-| `desktop`     | Boolean   | **no**    | `false`   | If you only want columns on desktop upwards, just use the `desktop` property on the columns container. |
+### Props
+| Property              | Type      | Required  | Default                           | Description
+|-----------------------|-----------|-----------|-----------------------------------|----------------------------
+| `url`                 | String    | **yes**   | `null`                            | File upload url
+| `method`              | String    | **no**    | `POST`                            | File upload method
+| `paramName`           | String    | **no**    | `file`                            | File upload parameter name
+| `textLineOne`         | String    | **no**    | `Drag &amp; drop files`           | Placeholder first line text
+| `textLineTwo`         | String    | **no**    | `or`                              | Placeholder second line text
+| `textButton`          | String    | **no**    | `Select files to upload`          | Button text
+| `textMaxUploadLimit`  | String    | **no**    | `Maximum upload file size: 2MB`   | Max upload limit text
+
+## Listeners
+The uploader component fires the following events:
+
+**`init`**: When a file initiate to upload. `FormData` object pass as parameter.
+**`before:send`**: it fires the event before sending data to server. `XMLHttpRequest` object pass as first parameter and `FormData` pass as second parameter.
+**`progress`**: When a file upload in progress. `fileObject` object pass as first parameter and `event` pass as second parameter.
+**`success`**: When a file uploaded successfully. `fileObject` object pass as first parameter and `serverResponse` pass as second parameter.
+**`failed`**: When a file uploaded failed on server. `fileObject` object pass as first parameter and `serverResponse` pass as second parameter.
+**`error`**: When a file uploaded failed on server. `fileObject` object pass as first parameter.
+
+```html
+<!-- template -->
+<file-uploader 
+    @before:send="handleBeforeSendEvent"
+    @success="handleSuccess"
+/>
 
 
-### Props for `column`
-If you want to change the size of a single column, you can use one of the following props
-Each props can take value from 1 to 12 as it 12 columns grid system.
-
-| Property      | Type     | Required  | Default  | Description                                         |
-|---------------|----------|-----------|----------|-----------------------------------------------------|
-| `mobile`      | Number   | **no**    | `null`   | When screen size less than 769px.                   |
-| `tablet`      | Number   | **no**    | `null`   | When screen size (greater than/equal to) 769px.     |
-| `desktop`     | Number   | **no**    | `null`   | When screen size (greater than/equal to) 1088px.    |
-| `widescreen`  | Number   | **no**    | `null`   | When screen size (greater than/equal to) 1280px.    |
-| `fullhd`      | Number   | **no**    | `null`   | When screen size (greater than/equal to) 1472px.    |
+<!-- method -->
+methods: {
+    handleBeforeSendEvent(xhr,formData){
+        // You can add custom header to xhr
+        xhr.setRequestHeader('Authorization', 'authorization code goes here');
+    },
+    handleSuccess(fileObject,serverResponse){
+        // Handle click event
+    }
+}
+```

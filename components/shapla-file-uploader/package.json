@@ -1,6 +1,6 @@
 {
-  "name": "shapla-media-uploader",
-  "description": "A collection of vue component for handling frontend upload functionality",
+  "name": "shapla-file-uploader",
+  "description": "A collection of vue component for handling frontend drag and drop file upload functionality.",
   "version": "1.0.0",
   "author": {
     "name": "Sayful Islam",
@@ -11,8 +11,8 @@
     "vue",
     "vuejs",
     "plugin",
-    "grid",
-    "column"
+    "uploader",
+    "file-uploader"
   ],
   "license": "MIT",
   "repository": {
@@ -22,8 +22,8 @@
   "bugs": {
     "url": "https://github.com/sayful1/shapla-vue-components/issues"
   },
-  "main": "dist/media-uploader.common.js",
-  "unpkg": "dist/media-uploader.umd.js",
+  "main": "dist/file-uploader.common.js",
+  "unpkg": "dist/file-uploader.umd.js",
   "module": "src/index.js",
   "files": [
     "dist/*",
@@ -35,18 +35,12 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build:lib": "vue-cli-service build --target lib --name media-uploader ./src/index.js",
+    "build:lib": "vue-cli-service build --target lib --name file-uploader ./src/index.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "dropzone": "^5.5.1",
-    "shapla-button": "^1.0.5",
     "shapla-color-system": "^1.0.2",
-    "shapla-columns": "^1.0.3",
-    "shapla-delete": "^1.0.2",
-    "shapla-modal": "^1.0.4",
-    "vue": "^2.6.11",
-    "vue2-dropzone": "^3.6.0"
+    "vue": "^2.6.11"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.1.2",

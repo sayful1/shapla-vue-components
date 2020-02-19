@@ -1,18 +1,19 @@
-.drag-n-drop-status {
-	text-align: center;
+.shapla-file-uploader-status {
 	padding: 0 20px 20px;
+	text-align: center;
 
 	&__items {
-		display: flex;
-		justify-content: center;
 		align-items: center;
+		display: flex;
 		flex-wrap: wrap;
+		justify-content: center;
+		list-style-type: none;
 		margin: 0;
 		padding: 0;
 	}
 
 	&__item {
-		padding: 0 1rem;
 		margin: 0;
+		padding: 0 1rem;
 	}
 }
