@@ -42,8 +42,8 @@ const selectFieldMixins = {
             let label = '';
             if (this.value) {
                 this.filteredOptions.forEach(option => {
-                    if (option[this.valueKey] === this.value) {
-                        label = option[this.labelKey];
+                    if (option['value'] === this.value) {
+                        label = option['label'];
                     }
                 })
             }
@@ -68,10 +68,10 @@ const selectFieldMixins = {
     methods: {
         dropdownItemClasses(option) {
             let classes = [];
-            if (this.value === option[this.valueKey]) {
+            if (this.value === option['value']) {
                 classes.push('is-active');
             }
-            if (this.hasSelectedOption && option[this.valueKey] === this.selectedOption[this.valueKey]) {
+            if (this.hasSelectedOption && option['value'] === this.selectedOption['value']) {
                 classes.push('is-hover');
             }
 
@@ -79,7 +79,7 @@ const selectFieldMixins = {
         },
         selectOption(option) {
             this.selectedOption = option;
-            this.$emit('change', option[this.valueKey]);
+            this.$emit('change', option['value']);
         },
         clearSelectedValue() {
             if (this.clearable) {
