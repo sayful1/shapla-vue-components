@@ -1,6 +1,6 @@
 /*!
  * Shapla Vue Components
- * (c) 2019 Sayful Islam
+ * (c) 2020 Sayful Islam
  * Released under the MIT License.
  */
 
@@ -15,6 +15,7 @@ import pagination from "shapla-data-table-pagination";
 import statusList from "shapla-data-table-status";
 import deleteIcon from 'shapla-delete';
 import dropdown from "shapla-dropdown";
+import {FileUploader, UploadStatus, FileUploadStatus} from 'shapla-file-uploader';
 import iconContainer from 'shapla-icon-container';
 import imageContainer from 'shapla-image-container';
 import inputSlider from 'shapla-input-slider';
@@ -51,6 +52,9 @@ export function install(Vue) {
     Vue.component('status-list', statusList);
     Vue.component('delete-icon', deleteIcon);
     Vue.component('dropdown', dropdown);
+    Vue.component('file-uploader', FileUploader);
+    Vue.component('upload-status', UploadStatus);
+    Vue.component('file-upload-status', FileUploadStatus);
     Vue.component('icon-container', iconContainer);
     Vue.component('image-container', imageContainer);
     Vue.component('input-slider', inputSlider);
@@ -90,5 +94,5 @@ export {
     shaplaButton, shaplaChip, shaplaCheckbox, columns, column, Dialog, ConfirmDialog, dashboardLayout, dataTable,
     statusList, pagination, deleteIcon, dropdown, imageContainer, iconContainer, inputSlider, modal, notification,
     shaplaRadio, radioButton, searchForm, selectField, sideNavigation, spinner, StarRating, shaplaSwitch, tabs, tab,
-    textField, toggles, toggle
+    textField, toggles, toggle, FileUploader, UploadStatus, FileUploadStatus
 };
