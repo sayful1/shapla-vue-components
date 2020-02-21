@@ -5,8 +5,6 @@
  */
 
 // Import vue component
-import Dropzone from "dropzone";
-import MediaUploader from './MediaUploader';
 import MediaModal from './MediaModal';
 import FeaturedImage from './FeaturedImage';
 
@@ -14,7 +12,6 @@ import FeaturedImage from './FeaturedImage';
 export function install(Vue) {
     if (install.installed) return;
     install.installed = true;
-    Vue.component('media-uploader', MediaUploader);
     Vue.component('media-modal', MediaModal);
     Vue.component('featured-image', FeaturedImage);
 }
@@ -34,5 +31,4 @@ if (GlobalVue) {
 }
 
 // To allow use as module (npm/webpack/etc.) export component
-export {Dropzone, MediaUploader, MediaModal, FeaturedImage};
-export default MediaUploader;
+export {MediaModal, FeaturedImage};

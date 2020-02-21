@@ -1,6 +1,6 @@
 {
   "name": "shapla-media-uploader",
-  "description": "A collection of vue component for handling frontend upload functionality",
+  "description": "A collection of vue component for handling upload functionality",
   "version": "1.0.0",
   "author": {
     "name": "Sayful Islam",
@@ -39,14 +39,15 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "dropzone": "^5.5.1",
-    "shapla-button": "^1.0.5",
+    "shapla-button": "^1.0.6",
     "shapla-color-system": "^1.0.2",
     "shapla-columns": "^1.0.3",
     "shapla-delete": "^1.0.2",
-    "shapla-modal": "^1.0.4",
-    "vue": "^2.6.11",
-    "vue2-dropzone": "^3.6.0"
+    "shapla-file-uploader": "^1.0.2",
+    "shapla-image-container": "^1.0.0",
+    "shapla-modal": "^1.0.5",
+    "shapla-tabs": "^1.0.3",
+    "vue": "^2.6.11"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.1.2",

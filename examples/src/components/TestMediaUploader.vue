@@ -1,19 +1,23 @@
 <template>
     <div>
-        <div style="margin-bottom: 1rem">
-            <media-uploader :options="dropzoneOptions" @upload="dropzoneSuccess"/>
-        </div>
-        <featured-image :options="dropzoneOptions" @upload="dropzoneSuccess"/>
-        <media-modal :options="dropzoneOptions" @upload="dropzoneSuccess"/>
+        <featured-image
+                @click:add="openLogoModal = true"
+                image-url-temp="https://avatars2.githubusercontent.com/u/6873334?s=460&v=4"
+        />
+        <media-modal
+                url="http://wordpress.test/wp-json/stackonet-tracker/v1/avatar"
+                :active="openLogoModal"
+                @close="openLogoModal = false"
+        />
     </div>
 </template>
 
 <script>
-    import {FeaturedImage, MediaModal, MediaUploader} from '../../../components/shapla-media-uploader'
+    import {FeaturedImage, MediaModal} from '../../../components/shapla-media-uploader'
 
     export default {
         name: "TestMediaUploader",
-        components: {FeaturedImage, MediaUploader, MediaModal},
+        components: {FeaturedImage, MediaModal},
         data() {
             return {
                 openLogoModal: false,

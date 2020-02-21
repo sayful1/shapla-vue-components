@@ -1,90 +1,150 @@
 <template>
     <div class="shapla-media-modal">
-        <modal :active="active" @close="closeModal" :title="title" content-size="large">
-            <columns desktop>
-                <column :desktop="6" class="column--dropzone" v-if="Object.keys(options).length">
-                    <media-uploader
-                            :options="options"
-                            @success="upload"
-                            :text-line-one="textLineOne"
-                            :text-line-two="textLineTwo"
-                            :text-max-upload-limit="textMaxUploadLimit"
-                    />
-                </column>
-                <column :desktop="6" class="column--media-list">
-                    <template v-if="images.length">
-                        <media-item
-                                v-for="attachment in images"
-                                :key="attachment.image_id"
-                                :media="attachment"
-                                :active="isActive(attachment)"
-                                @select="chooseMedia"
-                                @delete="deleteMedia"
+        <modal :active="active" :title="title" content-size="large" type="card" @close="closeModal">
+            <div class="shapla-media-modal__inside">
+                <tabs alignment="center">
+                    <tab name="Upload Images" :selected="true">
+                        <file-uploader
+                                :url="url"
+                                @init="initEvent"
+                                @success="finishedEvent"
+                                @before:send="beforeSendEvent"
                         />
-                    </template>
-                </column>
-            </columns>
-            <template slot="foot">
-                <button class="button" @click="closeModal">Close</button>
+                    </tab>
+                    <tab name="Media Library">
+                        <div v-if="images.length" class="shapla-media-modal__items">
+                            <div :class="itemClasses(_image)" :key="_image.image_id" v-for="_image in images"
+                                 @click="selectImage(_image)">
+                                <div class="shapla-media-modal__image">
+                                    <image-container container-width="100px" container-height="100px">
+                                        <img :src="_image.attachment_url" :alt="_image.title"/>
+                                    </image-container>
+                                </div>
+                            </div>
+                        </div>
+                        <div v-else class="no-item-found" v-html="notFoundText"></div>
+                    </tab>
+                </tabs>
+            </div>
+            <template v-slot:foot>
+                <shapla-button theme="primary" @click="chooseImage" :disabled="!selectedImages.length">
+                    {{modalButtonText}}
+                </shapla-button>
             </template>
         </modal>
     </div>
 </template>
 
 <script>
-    import {column, columns} from 'shapla-columns';
     import modal from 'shapla-modal';
-    import MediaUploader from './MediaUploader';
-    import MediaItem from "./mediaItem";
+    import {tabs, tab} from 'shapla-tabs';
+    import imageContainer from 'shapla-image-container';
+    import shaplaButton from "shapla-button";
+    import FileUploader from "shapla-file-uploader";
 
     export default {
         name: "MediaModal",
-        components: {MediaItem, MediaUploader, modal, columns, column},
+        components: {modal, tabs, tab, FileUploader, imageContainer, shaplaButton},
         props: {
             active: {type: Boolean, default: false},
-            title: {type: String, default: "Edit Images"},
+            title: {type: String, default: "Media Images"},
+            modalButtonText: {type: String, default: 'Set Image'},
+            notFoundText: {type: String, default: 'No images found.'},
             images: {type: Array, default: () => []},
-            image: {type: [Object, Array], default: () => []},
-            // Props for MediaUploader
-            options: {type: Object, required: true},
-            textLineOne: {String, default: 'Drag &amp; Drop or'},
-            textLineTwo: {String, default: 'Click here to browse your computer'},
-            textMaxUploadLimit: {String, default: 'Maximum upload limit: 5MB'},
+            multiple: {type: Boolean, default: false},
+            // File Uploader
+            url: {type: String, default: null, required: true},
+        },
+        data() {
+            return {
+                selectedImages: [],
+            }
         },
         methods: {
-            isActive(attachment) {
-                if (Array.isArray(this.image)) {
-                    return this.image.indexOf(attachment) !== -1;
-                }
-                if (typeof this.image === "object") {
-                    return this.image === attachment;
-                }
-
-                return false;
-            },
-            chooseMedia(attachment) {
-                this.$emit('selected', attachment);
-            },
             closeModal() {
+                this.selectedImages = [];
                 this.$emit('close');
             },
-            deleteMedia(attachment) {
-                if (confirm('Are you sure to delete this item permanently?')) {
-                    this.$emit('delete', attachment);
+            itemClasses(image) {
+                let classes = ['shapla-media-modal__item'];
+
+                if (this.selectedImages.length) {
+                    this.selectedImages.forEach(_image => {
+                        if (_image.image_id === image.image_id) {
+                            classes.push('is-selected');
+                        }
+                    });
+                }
+
+                return classes;
+            },
+            selectImage(image) {
+                if (this.multiple) {
+                    this.selectedImages.push(image);
+                } else {
+                    this.selectedImages = [image];
                 }
             },
-            upload(file, response) {
-                this.$emit('upload', file, response);
-            }
+            chooseImage() {
+                this.$emit('select:image', this.multiple ? this.selectedImages : this.selectedImages[0]);
+                this.closeModal();
+            },
+            initEvent(formData) {
+                this.$emit('init', formData);
+            },
+            progressEvent(fileObject, event) {
+                this.$emit('progress', fileObject, event);
+            },
+            finishedEvent(fileObject, response) {
+                this.$emit('success', fileObject, response);
+            },
+            failedEvent(fileObject, response) {
+                this.$emit('failed', fileObject, response);
+            },
+            errorEvent(fileObject) {
+                this.$emit('error', fileObject);
+            },
+            beforeSendEvent(xhr, formData) {
+                this.$emit('before:send', xhr, formData);
+            },
         }
     }
 </script>
 
 <style lang="scss">
-    .shapla-media-modal {
+    @import "~shapla-color-system/src/variables";
 
-        .shapla-columns {
-            align-items: flex-start !important;
+    .shapla-media-modal {
+        &__inside {
+            min-height: 250px;
+        }
+
+        &__items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: -8px;
+        }
+
+        &__item {
+            padding: 8px;
+
+            &.is-selected {
+                .shapla-media-modal__image {
+                    border-color: $primary;
+                    padding: 3px;
+                    border-width: 3px;
+                }
+            }
+        }
+
+        &__image {
+            padding: 5px;
+            border: 1px solid rgba(#000, .12);
+        }
+
+        .no-item-found {
+            text-align: center;
         }
     }
 </style>
