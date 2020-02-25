@@ -14,6 +14,7 @@
                         label="Choose a country"
                         help-text="Help text goes here"
                         :options="options"
+                        :searchable="true"
                 />
             </div>
             <div class="column">

@@ -6,6 +6,11 @@
 		position: relative;
 	}
 
+	&__search {
+		margin: 0;
+		width: 100%;
+	}
+
 	.shapla-dropdown-menu {
 		width: 100%;
 	}
@@ -15,7 +20,11 @@
 		overflow: auto;
 	}
 
-	.shapla-dropdown-item {
+	&.is-searchable .shapla-dropdown-menu__content {
+		max-height: 14em;
+	}
+
+	.shapla-dropdown-item:not(.is-search-input) {
 		padding-right: calc(24px + 1rem);
 
 		&:active,

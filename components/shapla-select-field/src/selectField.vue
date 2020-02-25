@@ -1,5 +1,5 @@
 <template>
-    <div class="shapla-select-field">
+    <div class="shapla-select-field" :class="{'is-searchable':searchable}">
         <div class="shapla-select-field__control">
             <text-field :label="label" :value="getLabelFromValue" :name="name" :id="id" :required="required"
                         :autocomplete="autocomplete" :has-error="hasError" :has-success="hasSuccess"
@@ -18,6 +18,9 @@
                 </template>
             </text-field>
             <dropdown-menu :active="showDropdown" role="listbox">
+				<span class="shapla-dropdown-item is-search-input" v-if="searchable">
+					<input type="text" class="shapla-select-field__search" v-model="search">
+				</span>
                 <span role="option" class="shapla-dropdown-item is-link" v-for="_option in filteredOptions"
                       :key="_option['value']" :class="dropdownItemClasses(_option)"
                       :aria-selected="value.toString() === _option['value']" :data-value="_option['value']"

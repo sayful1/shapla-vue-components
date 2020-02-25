@@ -19,17 +19,25 @@ const selectFieldMixins = {
         hasSuccess: {type: Boolean, default: false},
         disabled: {type: Boolean, default: false},
         required: {type: Boolean, default: false},
-        // searchable: {type: Boolean, default: false},
-        // clearSearchOnSelect: {type: Boolean, default: true},
+        searchable: {type: Boolean, default: false},
+        closeOnSelect: {type: Boolean, default: true},
+        clearSearchOnSelect: {type: Boolean, default: true},
         // multiple: {type: Boolean, default: false},
-        // closeOnSelect: {type: Boolean, default: true},
     },
     data() {
         return {
             selectedOption: null,
             isReadonly: false,
             showDropdown: false,
+            search: '',
         }
+    },
+    mounted() {
+        window.addEventListener('click', event => {
+            if (!this.$el.contains(event.target)) {
+                this.showDropdown = false;
+            }
+        })
     },
     computed: {
         hasValue() {
@@ -62,6 +70,11 @@ const selectFieldMixins = {
                 }
             });
 
+            if (this.search.length) {
+                return newOptions.filter(option => option['label'].toLowerCase().includes(this.search.toLowerCase()) ||
+                    option['value'].toLowerCase().includes(this.search.toLowerCase()));
+            }
+
             return newOptions;
         }
     },
@@ -80,6 +93,12 @@ const selectFieldMixins = {
         selectOption(option) {
             this.selectedOption = option;
             this.$emit('change', option['value']);
+            if (this.closeOnSelect) {
+                this.showDropdown = false;
+            }
+            if (this.clearSearchOnSelect) {
+                this.search = '';
+            }
         },
         clearSelectedValue() {
             if (this.clearable) {
@@ -144,7 +163,7 @@ const selectFieldMixins = {
         handleBlurEvent() {
             setTimeout(() => {
                 this.isReadonly = false;
-                this.showDropdown = false;
+                // this.showDropdown = false;
             }, 200);
         },
     }
