@@ -1,7 +1,7 @@
 {
   "name": "shapla-select-field",
   "description": "A simple customized select field",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",
@@ -38,6 +38,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "shapla-chip": "^1.0.1",
     "shapla-color-system": "^1.0.2",
     "shapla-delete": "^1.0.2",
     "shapla-dropdown": "^1.0.4",

@@ -64,6 +64,10 @@ export default {
 | `searchable`          | Boolean   | **no**    | `false`   | If set `true`, a search input will be available to filter
 | `closeOnSelect`       | Boolean   | **no**    | `true`    | If set `true`, on selecting value dropdown will be closed
 | `clearSearchOnSelect` | Boolean   | **no**    | `true`    | If set `true`, search value will be cleared on select
+| `multiple`            | Boolean   | **no**    | `false`   | If set `true`, multiple value can be selected
+| `noOptionsText`       | String    | **no**    | `Sorry, no matching options.`   | Text for no options text
+| `singularSelectedText` | String   | **no**    | `item selected.`   | Placeholder text for singular selected options text
+| `pluralSelectedText`   | String   | **no**    | `items selected.`  | Placeholder text for plural selected options text
 
 ## Listeners
 The select component fires the following events:

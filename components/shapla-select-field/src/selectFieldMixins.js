@@ -5,7 +5,7 @@ const selectFieldMixins = {
     },
     props: {
         label: {type: String, default: 'Label'},
-        value: {type: [String, Number, Boolean], default: null},
+        value: {type: [String, Number, Boolean, Array], default: null},
         options: {type: Array, default: () => []},
         labelKey: {type: String, default: 'label'},
         valueKey: {type: String, default: 'value'},
@@ -22,11 +22,15 @@ const selectFieldMixins = {
         searchable: {type: Boolean, default: false},
         closeOnSelect: {type: Boolean, default: true},
         clearSearchOnSelect: {type: Boolean, default: true},
-        // multiple: {type: Boolean, default: false},
+        multiple: {type: Boolean, default: false},
+        noOptionsText: {type: String, default: 'Sorry, no matching options.'},
+        singularSelectedText: {type: String, default: 'item selected'},
+        pluralSelectedText: {type: String, default: 'items selected'},
     },
     data() {
         return {
             selectedOption: null,
+            selectedOptions: [],
             isReadonly: false,
             showDropdown: false,
             search: '',
@@ -37,10 +41,16 @@ const selectFieldMixins = {
             if (!this.$el.contains(event.target)) {
                 this.showDropdown = false;
             }
-        })
+        });
+        if (this.multiple && Array.isArray(this.value)) {
+            this.selectedOptions = this.filteredOptions.filter(option => this.value.indexOf(option['value']) !== -1);
+        }
     },
     computed: {
         hasValue() {
+            if (Array.isArray(this.value)) {
+                return !!this.value.length;
+            }
             return !(this.value === null || this.value === '' || this.value === undefined);
         },
         hasSelectedOption() {
@@ -48,12 +58,19 @@ const selectFieldMixins = {
         },
         getLabelFromValue() {
             let label = '';
-            if (this.value) {
+            if (this.value && !this.multiple) {
                 this.filteredOptions.forEach(option => {
                     if (option['value'] === this.value) {
                         label = option['label'];
                     }
                 })
+            }
+            if (this.multiple && this.selectedOptions.length) {
+                if (this.selectedOptions.length > 1) {
+                    label = `${this.selectedOptions.length} ${this.pluralSelectedText}`;
+                } else {
+                    label = `${this.selectedOptions.length} ${this.singularSelectedText}`;
+                }
             }
             return label;
         },
@@ -79,9 +96,15 @@ const selectFieldMixins = {
         }
     },
     methods: {
+        isItemSelected(option) {
+            if (Array.isArray(this.value)) {
+                return this.value.indexOf(option['value']) !== -1;
+            }
+            return this.value === option['value'];
+        },
         dropdownItemClasses(option) {
             let classes = [];
-            if (this.value === option['value']) {
+            if (this.isItemSelected(option)) {
                 classes.push('is-active');
             }
             if (this.hasSelectedOption && option['value'] === this.selectedOption['value']) {
@@ -91,9 +114,18 @@ const selectFieldMixins = {
             return classes;
         },
         selectOption(option) {
-            this.selectedOption = option;
-            this.$emit('change', option['value']);
-            if (this.closeOnSelect) {
+            if (this.multiple) {
+                if (!this.selectedOptions.find(word => word.value == option.value)) {
+                    this.selectedOptions.push(option);
+                    let values = this.selectedOptions.map(_option => _option.value);
+                    this.$emit('change', values);
+                }
+            } else {
+                this.selectedOption = option;
+                this.$emit('change', this.selectedOption['value']);
+            }
+
+            if (this.closeOnSelect && !this.multiple) {
                 this.showDropdown = false;
             }
             if (this.clearSearchOnSelect) {
@@ -103,7 +135,16 @@ const selectFieldMixins = {
         clearSelectedValue() {
             if (this.clearable) {
                 this.selectedOption = null;
-                this.$emit('change', "");
+                this.selectedOptions = [];
+                this.$emit('change', this.multiple ? [] : "");
+            }
+        },
+        removeSelectedItem(_option) {
+            this.selectedOptions.splice(this.selectedOptions.indexOf(_option), 1);
+            if (this.selectedOptions.length) {
+                this.$emit('change', this.selectedOptions.map(option => option.value));
+            } else {
+                this.$emit('change', []);
             }
         },
         handleKeydownEvent(event) {

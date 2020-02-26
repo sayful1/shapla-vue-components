@@ -1,5 +1,5 @@
 /*!
- * Shapla Select Field v1.0.3
+ * Shapla Select Field v1.0.4
  * (c) 2019 Sayful Islam
  * Released under the MIT License.
  */

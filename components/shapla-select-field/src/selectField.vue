@@ -17,22 +17,29 @@
                     </span>
                 </template>
             </text-field>
+            <div v-if="multiple && selectedOptions.length" class="shapla-select-field__selected-values">
+                <shapla-chip :deletable="true" :small="true" v-for="_option in selectedOptions" :key="_option.value"
+                             :text="_option.label" @delete="removeSelectedItem(_option)"/>
+            </div>
             <dropdown-menu :active="showDropdown" role="listbox">
 				<span class="shapla-dropdown-item is-search-input" v-if="searchable">
 					<input type="text" class="shapla-select-field__search" v-model="search">
 				</span>
-                <span role="option" class="shapla-dropdown-item is-link" v-for="_option in filteredOptions"
+                <span role="option" class="shapla-dropdown-item" v-for="_option in filteredOptions"
                       :key="_option['value']" :class="dropdownItemClasses(_option)"
-                      :aria-selected="value.toString() === _option['value']" :data-value="_option['value']"
+                      :aria-selected="isItemSelected(_option)" :data-value="_option['value']"
                       @click="selectOption(_option)">
                     <span v-html="_option['label']"> </span>
-                    <span v-if="value.toString() === _option['value']" class="icon">
+                    <span v-if="isItemSelected(_option)" class="icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <path d="M0 0h24v24H0z" fill="none"/>
                             <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
                         </svg>
                     </span>
                 </span>
+                <span v-if="!filteredOptions.length" class="shapla-dropdown-item is-link no-options">
+					<slot name="no-options">{{noOptionsText}}</slot>
+				</span>
             </dropdown-menu>
         </div>
         <small class="shapla-text-field__help-text is-invalid" v-if="hasError" v-html="validationText"/>
@@ -44,12 +51,13 @@
     import {dropdownMenu} from 'shapla-dropdown';
     import deleteIcon from 'shapla-delete';
     import textField from "shapla-text-field";
+    import shaplaChip from 'shapla-chip';
     import selectFieldMixins from './selectFieldMixins'
 
     export default {
         name: "selectField",
-        components: {dropdownMenu, textField, deleteIcon},
-        mixins: [selectFieldMixins],
+        components: {dropdownMenu, textField, deleteIcon, shaplaChip},
+        mixins: [selectFieldMixins]
     }
 </script>
 
