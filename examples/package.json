@@ -12,6 +12,7 @@
     "dropzone": "^5.7.0",
     "shapla-button": "^1.0.6",
     "shapla-checkbox": "^1.0.3",
+    "shapla-chip": "^1.0.1",
     "shapla-color-system": "^1.0.2",
     "shapla-columns": "^1.0.3",
     "shapla-data-table": "^1.1.0",

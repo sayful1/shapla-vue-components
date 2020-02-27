@@ -36,6 +36,16 @@ const selectFieldMixins = {
             search: '',
         }
     },
+    watch: {
+        value(newValue) {
+            if (Array.isArray(newValue) && this.multiple) {
+                this.selectedOptions = this.selectedOptions.filter(option => newValue.indexOf(option['value']) !== -1);
+            }
+            if (!newValue) {
+                this.selectedOption = {};
+            }
+        }
+    },
     mounted() {
         window.addEventListener('click', event => {
             if (!this.$el.contains(event.target)) {
