@@ -88,7 +88,7 @@ export default {
   <template slot="author" slot-scope="data">
     {{ data.row.author.join(', ') }}
   </template>
-</list-table>
+</data-table>
 ```
 
 ### Props
@@ -135,9 +135,9 @@ The table component fires the following events:
 
 ```html
 <!-- template -->
-<list-table
+<data-table
   @action:click="onActionClick"
-</list-table>
+</data-table>
 
 
 <!-- method -->
@@ -156,9 +156,9 @@ methods: {
 
 ```html
 <!-- template -->
-<list-table
+<data-table
   @sort="sortCallback"
-</list-table>
+</data-table>
 
 <!-- method -->
 methods: {
@@ -175,9 +175,9 @@ methods: {
 
 ```html
 <!-- template -->
-<list-table
+<data-table
   @item:select="onItemSelect"
-</list-table>
+</data-table>
 
 
 <!-- method -->

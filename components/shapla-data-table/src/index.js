@@ -1,5 +1,5 @@
 /*!
- * Shapla Data Table v1.1.0
+ * Shapla Data Table v1.1.1
  * (c) 2019 Sayful Islam
  * Released under the MIT License.
  */

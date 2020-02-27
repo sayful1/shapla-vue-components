@@ -1,7 +1,7 @@
 {
   "name": "shapla-data-table",
   "description": "A simple data table component for VueJS based on Material Design Lite Data Table.",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",
