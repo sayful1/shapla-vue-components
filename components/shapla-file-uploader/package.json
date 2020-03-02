@@ -1,7 +1,7 @@
 {
   "name": "shapla-file-uploader",
   "description": "A collection of vue component for handling frontend drag and drop file upload functionality.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",

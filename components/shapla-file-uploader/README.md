@@ -49,6 +49,10 @@ export default {
 | `textLineTwo`         | String    | **no**    | `or`                              | Placeholder second line text
 | `textButton`          | String    | **no**    | `Select files to upload`          | Button text
 | `textMaxUploadLimit`  | String    | **no**    | `Maximum upload file size: 2MB`   | Max upload limit text
+| `inputId`             | String    | **no**    | `shapla-file-uploader__input`     | Input field id to make it unique. You must set `inputId` if you are using multiple instance in a same page.
+| `params`              | Object    | **no**    | `{}`   | An object of additional parameters to transfer to the server
+| `showFileUploadStatus`    | Boolean    | **no**    | `true`   | If set `true`, individual file upload status will be shown
+| `showFilesUploadStatus`   | Boolean    | **no**    | `true`   | If set `true`, all files upload status will be shown
 
 ## Listeners
 The uploader component fires the following events:

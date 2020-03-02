@@ -1,11 +1,11 @@
 <template>
-    <div>
+    <div class="shapla-file-uploader-container">
         <div class="shapla-file-uploader" v-bind:class="{ 'shapla-file-uploader--dragged': isDraggedOver }"
              @dragover.prevent="enter" @dragenter.prevent="enter" @dragleave.prevent="leave" @dragend.prevent="leave"
              @drop.prevent="drop">
 
-            <input type="file" name="files[]" id="shapla-file-uploader__input" class="shapla-file-uploader__input"
-                   multiple @change="select" ref="shaplaFileUploaderInput">
+            <input type="file" name="files[]" :id="inputId" class="shapla-file-uploader__input" multiple
+                   @change="select">
 
             <div class="shapla-file-uploader-message">
                 <div class="shapla-file-uploader-message__icon">
@@ -16,14 +16,14 @@
                 </div>
                 <div class="shapla-file-uploader-message__drag" v-html="textLineOne"></div>
                 <div class="shapla-file-uploader-message__browse" v-html="textLineTwo"></div>
-                <label for="shapla-file-uploader__input"
+                <label :for="inputId"
                        class="shapla-file-uploader-message__select-files shapla-button is-primary">{{textButton}}</label>
                 <div class="shapla-file-uploader-message__maxsize" v-html="textMaxUploadLimit"></div>
             </div>
 
-            <upload-status :files="files"/>
+            <upload-status v-if="showFileUploadStatus" :files="files"/>
         </div>
-        <div class="shapla-file-uploader-files">
+        <div class="shapla-file-uploader-files" v-if="showFilesUploadStatus">
             <file-upload-status v-for="(file,index) in files" :key="index" :file="file"/>
         </div>
     </div>
@@ -41,10 +41,17 @@
             url: {type: String, default: null, required: true},
             method: {type: String, default: 'POST'},
             paramName: {type: String, default: 'file'},
-            textLineOne: {String, default: 'Drag &amp; drop files'},
-            textLineTwo: {String, default: 'or'},
-            textButton: {String, default: 'Select files to upload'},
-            textMaxUploadLimit: {String, default: 'Maximum upload file size: 2MB'},
+            inputId: {type: String, default: 'shapla-file-uploader__input'},
+            textLineOne: {type: String, default: 'Drag &amp; drop files'},
+            textLineTwo: {type: String, default: 'or'},
+            textButton: {type: String, default: 'Select files to upload'},
+            textMaxUploadLimit: {type: String, default: 'Maximum upload file size: 2MB'},
+            params: {
+                type: Object, required: false, default: () => {
+                }
+            },
+            showFileUploadStatus: {type: Boolean, default: true},
+            showFilesUploadStatus: {type: Boolean, default: true},
         },
         data() {
             return {
@@ -64,7 +71,7 @@
                 this.addFiles(e.dataTransfer.files)
             },
             select() {
-                this.addFiles(this.$refs.shaplaFileUploaderInput.files);
+                this.addFiles(this.$el.querySelector("input[type=file]").files);
             },
             addFiles(files) {
                 let i, file;
@@ -122,6 +129,12 @@
                 });
 
                 xhr.open(this.method, this.url);
+
+                if (this.params && typeof this.params === "object" && Object.keys(this.params).length) {
+                    for (let [key, value] of Object.entries(this.params)) {
+                        formData.append(key, value);
+                    }
+                }
 
                 this.$emit('before:send', xhr, formData);
 
