@@ -1,4 +1,5 @@
 .shapla-sidenav {
+	--shapla-side-navigation-width: 300px;
 
 	&__background {
 		background: rgba(#000, .5);
@@ -20,7 +21,6 @@
 		overflow: hidden;
 		top: 0;
 		transition: 0.5s;
-		width: 0;
 		z-index: 5;
 		transform-style: preserve-3d;
 		will-change: transform;
@@ -35,14 +35,25 @@
 	}
 
 	&.is-active {
-
 		.shapla-sidenav__background {
 			display: block;
 		}
 
 		.shapla-sidenav__body {
-			box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+			box-shadow: 0 2px 2px 0 rgba(#000, .14), 0 3px 1px -2px rgba(#000, .2), 0 1px 5px 0 rgba(#000, .12);
 			transform: translateX(0);
+		}
+	}
+
+	&--left:not(.is-active) {
+		.shapla-sidenav__body {
+			transform: translateX(calc(-1 * var(--shapla-side-navigation-width, 300px)));
+		}
+	}
+
+	&--right:not(.is-active) {
+		.shapla-sidenav__body {
+			transform: translateX(var(--shapla-side-navigation-width, 300px));
 		}
 	}
 
