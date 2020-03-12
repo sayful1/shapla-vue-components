@@ -15,6 +15,17 @@ body.has-shapla-dashboard {
 	background: $background;
 	z-index: 100;
 
+	// WordPress hack
+	.admin-bar & {
+		height: calc(100vh - 32px);
+		top: 32px;
+
+		@media screen and (max-width: 782px) {
+			height: calc(100vh - 46px);
+			top: 46px;
+		}
+	}
+
 	&-header {
 		display: flex;
 		flex-direction: row;

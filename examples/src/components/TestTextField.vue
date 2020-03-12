@@ -52,6 +52,22 @@
                     validation-text="Please enter a valid full name"
             />
         </div>
+
+        <div class="text-field-column">
+            <text-field
+                    label="Date field"
+                    type="date"
+                    v-model="date_field"
+            />
+        </div>
+
+        <div class="text-field-column">
+            <text-field
+                    label="Time field"
+                    type="time"
+                    v-model="time_field"
+            />
+        </div>
     </div>
 </template>
 
@@ -65,6 +81,8 @@
                 field_one: 'default text',
                 field_two: '',
                 email: '',
+                date_field: '',
+                time_field: '',
                 hasEmailError: false,
                 hasEmailSuccess: false,
                 emailValidationText: 'write some text'
