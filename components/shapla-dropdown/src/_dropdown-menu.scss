@@ -20,7 +20,6 @@ $dropdown-item-active-background-color: $primary !default;
 $dropdown-divider-background-color: rgba(#000, 0.12) !default;
 
 .shapla-dropdown-menu {
-	display: none;
 	font-size: 16px;
 	left: 0;
 	min-width: $dropdown-menu-min-width;
@@ -28,9 +27,10 @@ $dropdown-divider-background-color: rgba(#000, 0.12) !default;
 	position: absolute;
 	top: 100%;
 	z-index: $dropdown-content-z;
+	visibility: hidden;
 
 	&.is-active {
-		display: block;
+		visibility: visible;
 	}
 
 	&.is-right {
