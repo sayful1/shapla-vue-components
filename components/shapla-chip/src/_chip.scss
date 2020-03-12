@@ -1,7 +1,7 @@
 @import "~shapla-color-system/src/variables";
 
-$chip-bg-color: #dedede !default;
-$chip-bg-active-color: #d6d6d6 !default;
+$chip-bg-color: rgba(#000, 0.06) !default;
+$chip-bg-active-color: rgba(#000, 0.12) !default;
 $chip-height: var(--shapla-chip-height, 32px) !default;
 
 .shapla-chip {
@@ -15,6 +15,10 @@ $chip-height: var(--shapla-chip-height, 32px) !default;
 	color: $text-primary;
 	margin: 2px 0;
 	white-space: nowrap;
+
+	&:not(:last-child) {
+		margin-right: 2px;
+	}
 
 	&__text {
 		font-size: 12px;
