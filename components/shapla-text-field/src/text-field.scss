@@ -116,6 +116,11 @@
 	line-height: 1.2;
 }
 
+.shapla-text-field__input[type=date]:not(:focus):not(.has-value),
+.shapla-text-field__input[type=time]:not(:focus):not(.has-value) {
+	color: transparent;
+}
+
 .shapla-text-field__input.has-value + label,
 .shapla-text-field__input:focus + label,
 .shapla-text-field__textarea.has-value + label,

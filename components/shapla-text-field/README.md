@@ -52,6 +52,8 @@ export default {
 | `hasSuccess`      | Boolean   | **no**    | `false`   | If set `true`, field will show success status
 | `disabled`        | Boolean   | **no**    | `false`   | If set `true`, field will be read only
 | `required`        | Boolean   | **no**    | `false`   | If set `true`, field must be filled
+| `readonly`        | Boolean   | **no**    | `false`   | If set `true`, User cannot modify field value but data can be submit
+| `rows`            | Number    | **no**    | ``        | Set number of rows for textarea field
 
 ## Listeners
 The button component fires the following events:

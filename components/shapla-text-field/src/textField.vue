@@ -4,7 +4,7 @@
             <template v-if="isTextarea">
                 <textarea class="shapla-text-field__textarea" :class="inputClasses" :id="id" :name="name"
                           :value="value" :required="required" :disabled="disabled" :autocomplete="autocomplete"
-                          :readonly="readonly" placeholder="" @focus="handleFocusEvent($event)"
+                          :rows="rows" :readonly="readonly" placeholder="" @focus="handleFocusEvent($event)"
                           @keydown="handleKeydownEvent($event)" @blur="handleBlurEvent($event)"
                           @input="handleInputEvent($event)"/>
             </template>

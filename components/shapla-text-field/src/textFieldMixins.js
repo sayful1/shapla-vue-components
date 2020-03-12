@@ -3,7 +3,7 @@ const textFieldMixins = {
         type: {
             type: String,
             default: 'text',
-            validator: value => (['text', 'email', 'search', 'password', 'tel', 'url', 'number', 'textarea'].indexOf(value) !== -1),
+            validator: value => (['text', 'email', 'search', 'password', 'tel', 'url', 'number', 'textarea', 'date', 'time'].indexOf(value) !== -1),
         },
         value: {type: [Number, String]},
         label: {type: String, required: true},
@@ -17,6 +17,7 @@ const textFieldMixins = {
         disabled: {type: Boolean, default: false},
         required: {type: Boolean, default: false},
         readonly: {type: Boolean, default: false},
+        rows: {type: [String, Number]},
     },
     data() {
         return {
