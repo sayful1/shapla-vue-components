@@ -1,13 +1,16 @@
 const menuItems = [
     {routerName: 'Button', label: 'Button'},
     {routerName: 'Checkbox', label: 'Checkbox'},
+    {routerName: 'Chip', label: 'Chip'},
     {routerName: 'ColorSystem', label: 'Color System'},
     {routerName: 'Columns', label: 'Columns'},
     {routerName: 'Confirm', label: 'Confirm'},
     {routerName: 'DataTable', label: 'Data Table'},
-    {routerName: 'DataTableFull', label: 'Data Table Full'},
+    {routerName: 'DataTablePagination', label: 'Pagination'},
+    {routerName: 'StatusList', label: 'Data Table Status'},
     {routerName: 'Delete', label: 'Delete'},
     {routerName: 'Dropdown', label: 'Dropdown'},
+    {routerName: 'TestFileUploader', label: 'File Uploader'},
     {routerName: 'MediaUploader', label: 'Media Uploader'},
     {routerName: 'Modal', label: 'Modal'},
     {routerName: 'MonthNavigation', label: 'Month Navigation'},
@@ -18,13 +21,11 @@ const menuItems = [
     {routerName: 'SignatureCanvas', label: 'Signature Canvas'},
     {routerName: 'Spinner', label: 'Spinner'},
     {routerName: 'StarRating', label: 'Star Rating'},
-    {routerName: 'StatusList', label: 'Status List'},
     {routerName: 'Switch', label: 'Switch'},
     {routerName: 'Tabs', label: 'Tabs'},
     {routerName: 'Toggles', label: 'Toggles'},
     {routerName: 'TextField', label: 'Text Field'},
     {routerName: 'SelectField', label: 'Select Field'},
-    {routerName: 'Chip', label: 'Chip'},
 ];
 
 export default menuItems;

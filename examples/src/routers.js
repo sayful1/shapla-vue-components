@@ -7,7 +7,6 @@ import TestColorSystem from "./components/TestColorSystem";
 import TestColumns from "./components/TestColumns";
 import TestConfirmationDialogs from "./components/TestConfirmationDialogs";
 import TestDataTable from "./components/TestDataTable";
-import TestDataTableFull from "./components/TestDataTableFull";
 import TestDelete from "./components/TestDelete";
 import TestDropdown from "./components/TestDropdown";
 import TestMediaUploader from "./components/TestMediaUploader";
@@ -27,6 +26,8 @@ import TestToggles from "./components/TestToggles";
 import TestTextField from "./components/TestTextField";
 import TestSelectField from "./components/TestSelectField";
 import TestChip from "./components/TestChip";
+import TestPagination from "./components/TestPagination";
+import TestFileUploader from "./components/TestFileUploader";
 
 Vue.use(VueRouter);
 
@@ -38,9 +39,9 @@ const routes = [
     {path: '/columns', name: 'Columns', component: TestColumns},
     {path: '/confirm', name: 'Confirm', component: TestConfirmationDialogs},
     {path: '/data-table', name: 'DataTable', component: TestDataTable},
-    {path: '/data-table-full', name: 'DataTableFull', component: TestDataTableFull},
     {path: '/delete', name: 'Delete', component: TestDelete},
     {path: '/dropdown', name: 'Dropdown', component: TestDropdown},
+    {path: '/file-uploader', name: 'TestFileUploader', component: TestFileUploader},
     {path: '/media-uploader', name: 'MediaUploader', component: TestMediaUploader},
     {path: '/modal', name: 'Modal', component: TestModal},
     {path: '/month-nav', name: 'MonthNavigation', component: TestMonthNavigation},
@@ -58,8 +59,7 @@ const routes = [
     {path: '/text-field', name: 'TextField', component: TestTextField},
     {path: '/select-field', name: 'SelectField', component: TestSelectField},
     {path: '/chip', name: 'Chip', component: TestChip},
+    {path: '/pagination', name: 'DataTablePagination', component: TestPagination},
 ];
 
-export default new VueRouter({
-    routes // short for `routes: routes`
-});
+export default new VueRouter({routes});

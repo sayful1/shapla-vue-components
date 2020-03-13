@@ -32,7 +32,6 @@ Some reusable vue components for our projects.
 
 Under Development
 
-* [Shapla Data Table Full](components/shapla-data-table-full/README.md)
 * [Shapla Media Uploader](components/shapla-media-uploader/README.md)
 * [Shapla Month Navigation](components/shapla-month-navigation/README.md)
 * [Shapla Signature Canvas](components/shapla-signature-canvas/README.md)
