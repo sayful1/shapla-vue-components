@@ -4,7 +4,7 @@
              @click="isActive = !isActive">
             <slot name="trigger"></slot>
         </div>
-        <dropdown-menu :active="isActive" :role="role" :right="right" :up="up">
+        <dropdown-menu :active="isActive" :role="role" :right="right" :up="up" :direction="direction">
             <slot></slot>
         </dropdown-menu>
     </div>
@@ -21,6 +21,10 @@
             role: {type: String, default: 'menu'},
             right: {type: Boolean, default: false},
             up: {type: Boolean, default: false},
+            direction: {
+                type: String, default: 'auto',
+                validator: value => ['auto', 'up', 'down'].indexOf(value) !== -1
+            },
         },
         data() {
             return {
@@ -31,7 +35,7 @@
             isActive(isActive) {
                 if (isActive) {
                     document.addEventListener('click', event => {
-                        if (!event.target.closest('.shapla-dropdown')) {
+                        if (!this.$el.contains(event.target)) {
                             this.isActive = false;
                         }
                     });
@@ -49,7 +53,7 @@
 
         &.is-hoverable:hover {
             .shapla-dropdown-menu {
-                display: block
+                visibility: visible;
             }
         }
     }

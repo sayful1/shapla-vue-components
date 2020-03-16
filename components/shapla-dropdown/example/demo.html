@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Dropdown demo</title>
     <link rel="stylesheet" href="../dist/dropdown.css">
     <style type="text/css">
@@ -39,6 +41,18 @@
         <dropdown :hoverable="false" :right="false" :up="true">
             <template v-slot:trigger>
                 <button class="shapla-button">From Bottom to top: Click</button>
+            </template>
+            <a href="https://example.com" class="shapla-dropdown-item is-active">Link 1</a>
+            <a href="https://example.com" class="shapla-dropdown-item">Link 2</a>
+            <span class="shapla-dropdown-divider"></span>
+            <a href="https://example.com" class="shapla-dropdown-item">Link 3</a>
+            <a href="https://example.com" class="shapla-dropdown-item">Link 4</a>
+        </dropdown>
+    </div>
+    <div style="margin-top:150px">
+        <dropdown :hoverable="false" :right="false">
+            <template v-slot:trigger>
+                <button class="shapla-button">Auto direction: Click</button>
             </template>
             <a href="https://example.com" class="shapla-dropdown-item is-active">Link 1</a>
             <a href="https://example.com" class="shapla-dropdown-item">Link 2</a>

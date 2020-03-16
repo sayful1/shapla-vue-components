@@ -10,25 +10,12 @@
     export default {
         name: "dropdownMenu",
         props: {
-            active: {
-                type: Boolean,
-                default: false
-            },
-            role: {
-                type: String,
-                default: 'menu'
-            },
-            right: {
-                type: Boolean,
-                default: false
-            },
-            up: {
-                type: Boolean,
-                default: false
-            },
+            active: {type: Boolean, default: false},
+            role: {type: String, default: 'menu'},
+            right: {type: Boolean, default: false},
+            up: {type: Boolean, default: false},
             direction: {
-                type: String,
-                default: 'auto',
+                type: String, default: 'auto',
                 validator: value => ['auto', 'up', 'down'].indexOf(value) !== -1
             },
         },
@@ -40,7 +27,7 @@
         watch: {
             active(isActive) {
                 if (isActive) {
-                    if (this.direction === 'auto') {
+                    if (this.direction === 'auto' && !this.up) {
                         this.calculateDirection();
                     }
                     this.classes.push('is-active');
