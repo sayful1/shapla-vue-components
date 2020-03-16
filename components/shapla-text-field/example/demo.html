@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>demo text field</title>
     <link rel="stylesheet" href="../dist/text-field.css">
+    <link rel="stylesheet" href="https://unpkg.com/shapla-columns@1.0.3/dist/columns.css">
     <style type="text/css">
         html, body, p, ol, ul, li, dl, dt, dd, blockquote, figure, fieldset,
         legend, textarea, pre, iframe, hr, h1, h2, h3, h4, h5, h6 {
@@ -26,25 +27,72 @@
 </head>
 <body>
 <div id="app">
-    <text-field
-            label="Email *"
-            help-text="Write a valid email address."
-            validation-text="Please enter a valid email"
-            :has-error="hasEmailError"
-            :has-success="hasEmailSuccess"
-            v-model="email"
-            @blur="handleBlurEvent"
-            @input="handleInputEvent"
-    ></text-field>
+    <div class="shapla-columns is-multiline">
+        <div class="shapla-column is-4-tablet">
+            <text-field
+                    label="Recipient’s Full Name *"
+                    validation-text="Please enter a valid full name"
+                    v-model="field_two"
+            />
+        </div>
 
-    <div class="text-field-column">
-        <text-field
-                v-model="email"
-                type="textarea"
-                label="Recipient’s Full Name *"
-                help-text="*in case of hospital, company or resort, please indicate before street name"
-                validation-text="Please enter a valid full name"
-        ></text-field>
+        <div class="shapla-column is-4-tablet">
+            <text-field
+                    label="Recipient’s Full Name *"
+                    help-text="*in case of hospital, company or resort, please indicate before street name"
+                    validation-text="Please enter a valid full name"
+                    :has-success="true"
+                    v-model="field_one"
+            />
+        </div>
+
+        <div class="shapla-column is-4-tablet">
+            <text-field
+                    label="Recipient’s Full Name *"
+                    help-text="*in case of hospital, company or resort, please indicate before street name"
+                    validation-text="Please enter a valid full name"
+                    :has-error="true"
+            />
+        </div>
+
+        <div class="shapla-column is-4-tablet">
+            <text-field
+                    label="Email *"
+                    help-text="Write a valid email address."
+                    validation-text="Please enter a valid email"
+                    :has-error="hasEmailError"
+                    :has-success="hasEmailSuccess"
+                    v-model="email"
+                    @blur="handleBlurEvent"
+                    @input="handleInputEvent"
+            />
+        </div>
+
+        <div class="shapla-column is-4-tablet">
+            <text-field
+                    v-model="field_one"
+                    type="textarea"
+                    label="Recipient’s Full Name *"
+                    help-text="*in case of hospital, company or resort, please indicate before street name"
+                    validation-text="Please enter a valid full name"
+            />
+        </div>
+
+        <div class="shapla-column is-4-tablet">
+            <text-field
+                    label="Date field"
+                    type="date"
+                    v-model="date_field"
+            />
+        </div>
+
+        <div class="shapla-column is-4-tablet">
+            <text-field
+                    label="Time field"
+                    type="time"
+                    v-model="time_field"
+            />
+        </div>
     </div>
 </div>
 <script src="https://unpkg.com/vue"></script>
@@ -53,9 +101,14 @@
     new Vue({
         el: '#app',
         data: {
+            field_one: 'default text',
+            field_two: '',
             email: '',
+            date_field: '',
+            time_field: '',
             hasEmailError: false,
             hasEmailSuccess: false,
+            emailValidationText: 'write some text'
         },
         methods: {
             handleBlurEvent(value) {
@@ -65,13 +118,13 @@
                     this.hasEmailSuccess = true;
                 }
             },
-            handleInputEvent(value) {
+            handleInputEvent() {
                 this.hasEmailError = false;
             },
             validateEmail(value) {
-                var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+                // var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
 
-                return reg.test(value) !== false;
+                return !!value;//reg.test(value) !== false;
             }
         }
     });

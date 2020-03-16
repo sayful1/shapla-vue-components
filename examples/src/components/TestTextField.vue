@@ -1,6 +1,6 @@
 <template>
-    <div class="text-field-columns">
-        <div class="text-field-column">
+    <div class="shapla-columns is-multiline">
+        <div class="shapla-column is-4-tablet">
             <text-field
                     label="Recipient’s Full Name *"
                     validation-text="Please enter a valid full name"
@@ -8,7 +8,7 @@
             />
         </div>
 
-        <div class="text-field-column">
+        <div class="shapla-column is-4-tablet">
             <text-field
                     label="Recipient’s Full Name *"
                     help-text="*in case of hospital, company or resort, please indicate before street name"
@@ -16,11 +16,9 @@
                     :has-success="true"
                     v-model="field_one"
             />
-
-            {{field_one}}
         </div>
 
-        <div class="text-field-column">
+        <div class="shapla-column is-4-tablet">
             <text-field
                     label="Recipient’s Full Name *"
                     help-text="*in case of hospital, company or resort, please indicate before street name"
@@ -29,8 +27,7 @@
             />
         </div>
 
-        <div class="text-field-column">
-
+        <div class="shapla-column is-4-tablet">
             <text-field
                     label="Email *"
                     help-text="Write a valid email address."
@@ -43,7 +40,7 @@
             />
         </div>
 
-        <div class="text-field-column">
+        <div class="shapla-column is-4-tablet">
             <text-field
                     v-model="field_one"
                     type="textarea"
@@ -53,7 +50,7 @@
             />
         </div>
 
-        <div class="text-field-column">
+        <div class="shapla-column is-4-tablet">
             <text-field
                     label="Date field"
                     type="date"
@@ -61,7 +58,7 @@
             />
         </div>
 
-        <div class="text-field-column">
+        <div class="shapla-column is-4-tablet">
             <text-field
                     label="Time field"
                     type="time"
@@ -112,17 +109,5 @@
 </script>
 
 <style lang="scss">
-    .text-field-columns {
-        margin: -1rem;
-        display: flex;
-        flex-wrap: wrap;
-    }
 
-    .text-field-column {
-        margin-bottom: 1rem;
-        width: 33%;
-        display: inline-block;
-        padding: 1rem;
-        float: left;
-    }
 </style>
