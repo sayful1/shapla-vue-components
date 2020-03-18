@@ -1,7 +1,7 @@
 {
   "name": "shapla-columns",
   "description": "A simple way to build responsive columns for Vue.js",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",
@@ -42,14 +42,14 @@
     "vue": "^2.6.11"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.1.2",
-    "@vue/cli-plugin-eslint": "^4.1.2",
-    "@vue/cli-service": "^4.1.2",
+    "@vue/cli-plugin-babel": "^4.2.3",
+    "@vue/cli-plugin-eslint": "^4.2.3",
+    "@vue/cli-service": "^4.2.3",
     "autoprefixer": "^9.7.4",
-    "babel-eslint": "^10.0.3",
+    "babel-eslint": "^10.1.0",
     "css-loader": "^3.4.2",
     "eslint": "^6.8.0",
-    "eslint-plugin-vue": "^6.1.2",
+    "eslint-plugin-vue": "^6.2.2",
     "node-sass": "^4.13.1",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.1.3",

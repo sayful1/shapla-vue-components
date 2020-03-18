@@ -136,3 +136,22 @@ $fullhd: 1344px + (2 * $gap) !default;
 		}
 	}
 }
+
+.shapla-columns.is-variable {
+	--shapla-column-gap: 0.75rem;
+	margin-left: calc(-1 * var(--shapla-column-gap));
+	margin-right: calc(-1 * var(--shapla-column-gap));
+	margin-top: calc(-1 * var(--shapla-column-gap));
+
+	&:last-child {
+		margin-bottom: calc(-1 * var(--shapla-column-gap));
+	}
+
+	&:not(:last-child) {
+		margin-bottom: calc(1.5rem - var(--shapla-column-gap));
+	}
+
+	.shapla-column {
+		padding: var(--shapla-column-gap);
+	}
+}

@@ -48,6 +48,7 @@ export default {
 | `gapless`     | Boolean   | **no**    | `false`   | There is 1.5rem gap between columns by default. If you want to remove the space between the columns, add the `gapless` property on the columns container                                                                       |
 | `mobile`      | Boolean   | **no**    | `false`   | By default, columns are only activated from tablet onwards. This means columns are stacked on top of each other on mobile. If you want columns to work on mobile too, just add the `mobile` property on the columns container. |
 | `desktop`     | Boolean   | **no**    | `false`   | If you only want columns on desktop upwards, just use the `desktop` property on the columns container. |
+| `columnGap`   | String    | **no**    | `0.75rem` | If you want to use custom column gap, you can change this value
 
 
 ### Props for `column`
