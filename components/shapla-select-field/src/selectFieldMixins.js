@@ -70,7 +70,7 @@ const selectFieldMixins = {
             let label = '';
             if (this.value && !this.multiple) {
                 this.filteredOptions.forEach(option => {
-                    if (option['value'] === this.value) {
+                    if (option['value'] == this.value) {
                         label = option['label'];
                     }
                 })
@@ -110,7 +110,7 @@ const selectFieldMixins = {
             if (Array.isArray(this.value)) {
                 return this.value.indexOf(option['value']) !== -1;
             }
-            return this.value === option['value'];
+            return this.value == option['value'];
         },
         dropdownItemClasses(option) {
             let classes = [];
