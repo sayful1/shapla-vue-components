@@ -1,7 +1,7 @@
 <template>
     <div class="shapla-dashboard">
 
-        <div class="shapla-dashboard-header">
+        <div class="shapla-dashboard-header" :class="headerClasses">
 
             <div class="shapla-dashboard-header__burger" @click="openSideNavigation">
                 <icon-container :hoverable="true">
@@ -24,7 +24,7 @@
 
         </div>
 
-        <side-navigation :active="activateSideNav" @close="closeSideNavigation" position="left">
+        <side-navigation :active="activateSideNav" :nav-width="navWidth" @close="closeSideNavigation" position="left">
             <div class="shapla-dashboard-sidenav-profile">
                 <div class="shapla-dashboard-sidenav-profile__avatar" v-if="avatarUrl">
                     <img :src="avatarUrl" :alt="userDisplayName">
@@ -57,11 +57,27 @@
         name: "dashboardLayout",
         components: {sideNavigation, iconContainer},
         props: {
-            activateSideNav: {type: Boolean, default: false},
             title: {type: String},
             userDisplayName: {type: String},
             avatarUrl: {type: String},
             greeting: {type: String, default: 'Hello,'},
+            headerHeight: {type: String, default: '56px'},
+            headerTheme: {
+                type: String,
+                default: 'primary',
+                validator: value => ['default', 'primary', 'secondary'].indexOf(value) !== -1
+            },
+            // Side navigation props
+            activateSideNav: {type: Boolean, default: false},
+            showOverlay: {type: Boolean, default: true},
+            navWidth: {type: String, default: '300px'},
+        },
+        computed: {
+            headerClasses() {
+                let classes = [];
+                classes.push(`theme-${this.headerTheme}`);
+                return classes;
+            }
         },
         methods: {
             openSideNavigation() {
