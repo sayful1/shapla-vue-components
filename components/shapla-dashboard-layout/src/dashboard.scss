@@ -1,4 +1,4 @@
-@import "~shapla-color-system/src/variables";
+@import "variables";
 
 body.has-shapla-dashboard {
 	height: 100vh;
@@ -35,7 +35,7 @@ body.has-shapla-dashboard {
 		flex-shrink: 0;
 		width: 100%;
 		border: none;
-		min-height: 56px;
+		min-height: $header-height;
 		z-index: 3;
 		font-size: 20px;
 		align-self: stretch;
@@ -82,11 +82,24 @@ body.has-shapla-dashboard {
 		overflow-x: hidden;
 		z-index: 1;
 		width: 100%;
-		height: calc(100% - 56px);
+		height: calc(100% - #{$header-height});
 
 		&__inner {
 			flex-grow: 1;
 			padding: 2rem;
+		}
+	}
+
+	// Sidenav type
+	&.sidenav-type--off-canvas {
+		transition: width, margin-left 300ms ease-in-out;
+
+		&.is-sidenav-active {
+			.shapla-dashboard-header,
+			.shapla-dashboard-content {
+				width: calc(100% - #{$sidenav-width});
+				margin-left: $sidenav-width;
+			}
 		}
 	}
 }

@@ -1,9 +1,9 @@
 <template>
-    <div class="shapla-dashboard">
+    <div class="shapla-dashboard" :class="dashboardClasses" :style="dashboardStyles">
 
         <div class="shapla-dashboard-header" :class="headerClasses">
 
-            <div class="shapla-dashboard-header__burger" @click="openSideNavigation">
+            <div class="shapla-dashboard-header__burger" @click="toggleSideNavigation">
                 <icon-container :hoverable="true">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                         <path d="M0 0h24v24H0z" fill="none"/>
@@ -24,8 +24,9 @@
 
         </div>
 
-        <side-navigation :active="activateSideNav" :nav-width="navWidth" @close="closeSideNavigation" position="left">
-            <div class="shapla-dashboard-sidenav-profile">
+        <side-navigation :active="activateSideNav" :nav-width="navWidth" :show-overlay="showOverlay" position="left"
+                         @close="closeSideNavigation">
+            <div class="shapla-dashboard-sidenav-profile" :class="sidenavProfileClass">
                 <div class="shapla-dashboard-sidenav-profile__avatar" v-if="avatarUrl">
                     <img :src="avatarUrl" :alt="userDisplayName">
                 </div>
@@ -67,19 +68,50 @@
                 default: 'primary',
                 validator: value => ['default', 'primary', 'secondary'].indexOf(value) !== -1
             },
+            sideNavType: {
+                type: String,
+                default: 'overlay',
+                validator: value => ['overlay', 'off-canvas'].indexOf(value) !== -1
+            },
             // Side navigation props
             activateSideNav: {type: Boolean, default: false},
             showOverlay: {type: Boolean, default: true},
             navWidth: {type: String, default: '300px'},
         },
         computed: {
+            dashboardClasses() {
+                let classes = [];
+                classes.push(`sidenav-type--${this.sideNavType}`);
+                if (this.activateSideNav) {
+                    classes.push('is-sidenav-active');
+                }
+                return classes;
+            },
+            dashboardStyles() {
+                let styles = {};
+                styles['--shapla-dashboard-header-height'] = this.headerHeight;
+                styles['--shapla-dashboard-sidenav-width'] = this.navWidth;
+                return styles;
+            },
             headerClasses() {
+                let classes = [];
+                classes.push(`theme-${this.headerTheme}`);
+                return classes;
+            },
+            sidenavProfileClass() {
                 let classes = [];
                 classes.push(`theme-${this.headerTheme}`);
                 return classes;
             }
         },
         methods: {
+            toggleSideNavigation() {
+                if (this.activateSideNav) {
+                    this.closeSideNavigation();
+                } else {
+                    this.openSideNavigation();
+                }
+            },
             openSideNavigation() {
                 this.$emit('open:sidenav');
             },

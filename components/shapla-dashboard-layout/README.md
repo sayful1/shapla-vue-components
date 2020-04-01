@@ -73,6 +73,11 @@ export default {
 | `userDisplayName` | String    | **no**    | ``        | User display name
 | `avatarUrl`       | String    | **no**    | ``        | User avatar url
 | `greeting`        | String    | **no**    | `Hello,`  | Greeting text
+| `headerHeight`    | String    | **no**    | `56px`    | Height of header
+| `headerTheme`     | String    | **no**    | `primary` | Value can be `default` or `primary` or `secondary`
+| `navWidth`        | String    | **no**    | `300px`   | Width of side navigation
+| `sideNavType`     | String    | **no**    | `overlay` | Value can be `overlay` or `off-canvas`. `off-canvas` is experimental
+| `showOverlay`     | Boolean   | **no**    | `true`    | Should show overlay color when side navigation active.
 
 ## Listeners
 The dashboard layout component fires the following events:

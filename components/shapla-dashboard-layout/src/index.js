@@ -1,5 +1,5 @@
 /*!
- * Shapla Dashboard Layout v1.0.2
+ * Shapla Dashboard Layout v1.0.3
  * (c) 2019 Sayful Islam
  * Released under the MIT License.
  */

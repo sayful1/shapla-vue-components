@@ -1,21 +1,36 @@
-@import "~shapla-color-system/src/variables";
+@import "variables";
 
 .shapla-dashboard-sidenav-profile {
 	align-items: center;
 	display: flex;
-	height: 56px;
+	height: $header-height;
 	padding: 0 16px;
 
-	background: $primary;
-	color: $on-primary;
+	&.theme-default {
+		border-bottom: 1px solid rgba(#000, 0.12);
+	}
+
+	&.is-primary {
+		background: $primary;
+		color: $on-primary;
+	}
+
+	&.theme-secondary {
+		background: $secondary;
+		color: $on-secondary;
+	}
 
 	&__avatar {
+		background: rgba(#000, 0.12);
+		border-radius: 16px;
+		height: 32px;
 		margin-right: 1rem;
+		width: 32px;
 
 		img {
-			border-radius: 32px;
-			max-height: 32px;
-			width: auto;
+			border-radius: 16px;
+			height: 32px;
+			width: 32px;
 		}
 	}
 
@@ -29,10 +44,10 @@
 
 .shapla-dashboard-sidenav-menu {
 	margin: 16px 0;
-	max-height: calc(100vh - (56px + 32px));
+	max-height: calc(100vh - (#{$header-height} + 32px));
 	overflow-y: auto;
 
 	.admin-bar & {
-		max-height: calc(100vh - (56px + 32px + 32px));
+		max-height: calc(100vh - (#{$header-height} + 32px + 32px));
 	}
 }
