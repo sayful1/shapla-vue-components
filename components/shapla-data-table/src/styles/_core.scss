@@ -12,11 +12,12 @@
 }
 
 .shapla-data-table__table {
-	min-width: 100%;
 	border: 0;
-	white-space: nowrap;
 	border-collapse: collapse;
+	min-width: 100%;
+	margin: 0;
 	table-layout: fixed;
+	white-space: nowrap;
 }
 
 .shapla-data-table__row {
@@ -51,6 +52,7 @@
 	&--checkbox {
 		padding-right: 0;
 		width: 40px;
+		overflow: visible;
 	}
 
 	&--numeric {
