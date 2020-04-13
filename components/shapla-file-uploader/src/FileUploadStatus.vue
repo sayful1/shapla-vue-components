@@ -25,6 +25,7 @@
             <span v-if="file.failed">Failed</span>
             <span v-if="file.finished">Complete</span>
             <span v-if="file.cancelled">Cancelled</span>
+            <span v-if="isProcessing">Processing</span>
         </div>
 
         <div class="shapla-file-uploader-file__actions">
@@ -47,10 +48,13 @@
         },
         computed: {
             canCancel() {
-                return (!this.file.finished && !this.file.cancelled);
+                return (!this.file.finished && !this.file.cancelled && !this.isProcessing);
             },
             isInProgress() {
                 return (!this.file.finished && !this.file.failed && !this.file.cancelled);
+            },
+            isProcessing() {
+                return !!(this.file.progress && this.file.progress === 100 && !this.file.finished);
             },
             fillClass() {
                 return {

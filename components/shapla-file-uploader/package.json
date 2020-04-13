@@ -1,7 +1,7 @@
 {
   "name": "shapla-file-uploader",
   "description": "A collection of vue component for handling frontend drag and drop file upload functionality.",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",
@@ -43,14 +43,14 @@
     "vue": "^2.6.11"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.1.2",
-    "@vue/cli-plugin-eslint": "^4.1.2",
-    "@vue/cli-service": "^4.1.2",
-    "autoprefixer": "^9.7.4",
-    "babel-eslint": "^10.0.3",
-    "css-loader": "^3.4.2",
+    "@vue/cli-plugin-babel": "^4.3.1",
+    "@vue/cli-plugin-eslint": "^4.3.1",
+    "@vue/cli-service": "^4.3.1",
+    "autoprefixer": "^9.7.6",
+    "babel-eslint": "^10.1.0",
+    "css-loader": "^3.5.2",
     "eslint": "^6.8.0",
-    "eslint-plugin-vue": "^6.1.2",
+    "eslint-plugin-vue": "^6.2.2",
     "node-sass": "^4.13.1",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.1.3",
