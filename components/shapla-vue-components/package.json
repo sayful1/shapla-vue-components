@@ -1,7 +1,7 @@
 {
   "name": "shapla-vue-components",
   "description": "A collection of reusable vue components for rapid development.",
-  "version": "1.4.7",
+  "version": "1.4.8",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",
@@ -43,13 +43,13 @@
     "shapla-color-system": "^1.0.2",
     "shapla-columns": "^1.0.4",
     "shapla-confirm-dialog": "^1.0.0",
-    "shapla-dashboard-layout": "^1.0.3",
-    "shapla-data-table": "^1.1.1",
+    "shapla-dashboard-layout": "^1.0.4",
+    "shapla-data-table": "^1.1.2",
     "shapla-data-table-pagination": "^1.0.0",
     "shapla-data-table-status": "^1.0.3",
     "shapla-delete": "^1.0.2",
     "shapla-dropdown": "^1.1.0",
-    "shapla-file-uploader": "^1.0.3",
+    "shapla-file-uploader": "^1.0.4",
     "shapla-icon-container": "^1.0.0",
     "shapla-image-container": "^1.0.0",
     "shapla-input-slider": "^1.0.0",
@@ -69,9 +69,9 @@
     "vue": "^2.6.11"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.2.3",
-    "@vue/cli-plugin-eslint": "^4.2.3",
-    "@vue/cli-service": "^4.2.3",
+    "@vue/cli-plugin-babel": "^4.3.1",
+    "@vue/cli-plugin-eslint": "^4.3.1",
+    "@vue/cli-service": "^4.3.1",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
     "eslint-plugin-vue": "^6.2.2",
