@@ -63,4 +63,36 @@
 			right: 0;
 		}
 	}
+
+	&--bottom:not(.is-active) {
+		.shapla-sidenav__body {
+			transform: translateY(var(--shapla-side-navigation-width, 100%));
+			height: 0;
+		}
+	}
+
+	&--bottom {
+		.shapla-sidenav__body {
+			top: auto;
+			bottom: 0;
+			height: 300px;
+			width: 100%;
+		}
+	}
+
+	&--top:not(.is-active) {
+		.shapla-sidenav__body {
+			transform: translateY(-(var(--shapla-side-navigation-width, 100%)));
+			height: 0;
+		}
+	}
+
+	&--top {
+		.shapla-sidenav__body {
+			bottom: auto;
+			top: 0;
+			height: 300px;
+			width: 100%;
+		}
+	}
 }
