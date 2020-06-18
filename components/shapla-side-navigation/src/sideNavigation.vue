@@ -40,6 +40,8 @@
                 return {
                     'shapla-sidenav--left': this.position === 'left',
                     'shapla-sidenav--right': this.position === 'right',
+                    'shapla-sidenav--bottom': this.position === 'bottom',
+                    'shapla-sidenav--top': this.position === 'top',
                     'is-active': this.active,
                 };
             },
