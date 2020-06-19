@@ -1,7 +1,7 @@
 <template>
     <div class="shapla-sidenav" :class="navClasses" :style="`--shapla-side-navigation-width:${navWidth}`">
         <div class="shapla-sidenav__background" v-if="showOverlay" @click="closeNav"></div>
-        <div class="shapla-sidenav__body" :style="{ width : bodyWidth }">
+        <div class="shapla-sidenav__body" :style="sidenavBodyStyle">
             <div class="shapla-sidenav__content">
                 <slot></slot>
             </div>
@@ -17,7 +17,11 @@
             active: {type: Boolean, default: true},
             showOverlay: {type: Boolean, default: true},
             navWidth: {type: String, default: '300px'},
-            position: {type: String, default: 'left'},
+            position: {
+                type: String,
+                default: 'left',
+                validator: value => ['left', 'right', 'bottom', 'top'].indexOf(value) !== -1
+            },
         },
 
         data() {
@@ -45,6 +49,12 @@
                     'is-active': this.active,
                 };
             },
+            sidenavBodyStyle() {
+                if (['left', 'right'].indexOf(this.position) !== -1) {
+                    return {width: this.bodyWidth};
+                }
+                return {height: this.bodyWidth};
+            }
         }
     }
 </script>

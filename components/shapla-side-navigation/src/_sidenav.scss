@@ -66,23 +66,23 @@
 
 	&--bottom:not(.is-active) {
 		.shapla-sidenav__body {
-			transform: translateY(var(--shapla-side-navigation-width, 100%));
+			transform: translateY(var(--shapla-side-navigation-width, 300px));
 			height: 0;
 		}
 	}
 
 	&--bottom {
 		.shapla-sidenav__body {
-			top: auto;
 			bottom: 0;
-			height: 300px;
+			position: fixed;
+			top: auto;
 			width: 100%;
 		}
 	}
 
 	&--top:not(.is-active) {
 		.shapla-sidenav__body {
-			transform: translateY(-(var(--shapla-side-navigation-width, 100%)));
+			transform: translateY(calc(-1 * var(--shapla-side-navigation-width, 300px)));
 			height: 0;
 		}
 	}
@@ -90,8 +90,8 @@
 	&--top {
 		.shapla-sidenav__body {
 			bottom: auto;
+			position: fixed;
 			top: 0;
-			height: 300px;
 			width: 100%;
 		}
 	}
