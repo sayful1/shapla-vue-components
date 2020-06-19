@@ -1,5 +1,5 @@
 /*!
- * Shapla Side Navigation v1.0.1
+ * Shapla Side Navigation v1.0.2
  * (c) 2019 Sayful Islam
  * Released under the MIT License.
  */

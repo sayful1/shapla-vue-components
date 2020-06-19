@@ -1,7 +1,7 @@
 {
   "name": "shapla-vue-components",
   "description": "A collection of reusable vue components for rapid development.",
-  "version": "1.4.10",
+  "version": "1.4.11",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",
@@ -59,7 +59,7 @@
     "shapla-radio-button": "^1.0.1",
     "shapla-search-form": "^1.0.2",
     "shapla-select-field": "^1.0.7",
-    "shapla-side-navigation": "^1.0.1",
+    "shapla-side-navigation": "^1.0.2",
     "shapla-spinner": "^1.0.5",
     "shapla-star-rating": "^1.0.3",
     "shapla-switch": "^1.0.1",
@@ -69,11 +69,11 @@
     "vue": "^2.6.11"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.3.1",
-    "@vue/cli-plugin-eslint": "^4.3.1",
-    "@vue/cli-service": "^4.3.1",
+    "@vue/cli-plugin-babel": "^4.4.4",
+    "@vue/cli-plugin-eslint": "^4.4.4",
+    "@vue/cli-service": "^4.4.4",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.0.0",
+    "eslint": "^7.2.0",
     "eslint-plugin-vue": "^6.2.2",
     "node-sass": "^4.14.1",
     "sass-loader": "^8.0.2",
