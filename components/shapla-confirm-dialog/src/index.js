@@ -1,6 +1,6 @@
 /*!
- * Shapla Confirm Modal v1.0.0
- * (c) 2019 Sayful Islam
+ * Shapla Confirm Modal v1.0.1
+ * (c) 2020 Sayful Islam
  * Released under the MIT License.
  */
 

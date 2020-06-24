@@ -2,9 +2,7 @@
     <modal type="confirm" class="shapla-modal--confirm" :active="modalActive" :show-close-icon="false"
            content-size="small">
         <div class="shapla-confirm-modal">
-            <div class="shapla-confirm-modal__content">
-                {{ params.message }}
-            </div>
+            <div class="shapla-confirm-modal__content" v-html="params.message"></div>
             <div class="shapla-confirm-modal__actions">
                 <shapla-button theme="default" :class="cancelButtonClass" @click.prevent="handleClick(false)"
                                v-if="params.cancelButton" v-text="params.cancelButton"/>
