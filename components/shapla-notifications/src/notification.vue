@@ -46,7 +46,7 @@
             position: {
                 type: String,
                 default: 'top-right',
-                validator: value => ['top-right', 'bottom-left'].indexOf(value) !== -1
+                validator: value => ['top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right'].indexOf(value) !== -1
             }
         },
         watch: {
@@ -70,7 +70,12 @@
         },
         computed: {
             classes() {
-                return ['shapla-notification--' + this.position]
+                let position = this.position.split('-');
+                return [
+                    'shapla-notification--' + this.position,
+                    'is-position-' + position[0],
+                    'is-align-' + position[1],
+                ]
             }
         },
         methods: {
@@ -87,7 +92,8 @@
                 if (options && options.message) {
                     this.itemsCounts += 1;
                     options.id = this.itemsCounts;
-                    if (this.position === 'bottom-left') {
+                    let position = this.position.split('-');
+                    if (position[0] === 'bottom') {
                         this.items.push(options);
                     } else {
                         this.items.unshift(options);

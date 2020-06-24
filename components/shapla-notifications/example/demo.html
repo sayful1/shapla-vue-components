@@ -7,12 +7,23 @@
 </head>
 <body>
 <div id="app">
-    <button @click="showDefaultNotification">Show Default Notification</button>
-    <button @click="showSuccessNotification">Show Success Notification</button>
-    <button @click="showInfoNotification">Show Info Notification</button>
-    <button @click="showWarningNotification">Show Warning Notification</button>
-    <button @click="showErrorNotification">Show Error Notification</button>
-    <notification :options="notification"></notification>
+    <div>
+        <label><input type="radio" v-model="position" value="top-left">Top Left</label>
+        <label><input type="radio" v-model="position" value="top-center">Top Center</label>
+        <label><input type="radio" v-model="position" value="top-right">Top Right</label>
+        <label><input type="radio" v-model="position" value="bottom-left">Bottom Left</label>
+        <label><input type="radio" v-model="position" value="bottom-center">Bottom Center</label>
+        <label><input type="radio" v-model="position" value="bottom-right">Bottom Right</label>
+    </div>
+    <p>&nbsp;</p>
+    <div>
+        <button @click="showDefaultNotification">Show Default Notification</button>
+        <button @click="showSuccessNotification">Show Success Notification</button>
+        <button @click="showInfoNotification">Show Info Notification</button>
+        <button @click="showWarningNotification">Show Warning Notification</button>
+        <button @click="showErrorNotification">Show Error Notification</button>
+    </div>
+    <notification :options="notification" :position="position"></notification>
 </div>
 <script src="https://unpkg.com/vue"></script>
 <script src="../dist/notification.umd.min.js"></script>
@@ -20,7 +31,8 @@
     new Vue({
         el: '#app',
         data: {
-            notification: {}
+            notification: {},
+            position: 'top-right',
         },
         methods: {
             showDefaultNotification: function () {

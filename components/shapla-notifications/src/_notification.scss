@@ -2,7 +2,6 @@
 
 $success: var(--shapla-success, #23d160);
 $on-success: var(--shapla-on-success, #ffffff);
-
 $warning: var(--shapla-warning, #ffdd57);
 $on-warning: var(--shapla-on-warning, #000);
 
@@ -10,14 +9,25 @@ $on-warning: var(--shapla-on-warning, #000);
 	position: fixed;
 	z-index: 999999;
 
-	&--top-right {
-		right: 2rem;
+	&.is-position-top {
 		top: 2rem;
 	}
 
-	&--bottom-left {
+	&.is-position-bottom {
 		bottom: 2rem;
+	}
+
+	&.is-align-left {
 		left: 2rem;
+	}
+
+	&.is-align-center {
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	&.is-align-right {
+		right: 2rem;
 	}
 
 	&__item {
