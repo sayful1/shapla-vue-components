@@ -1,5 +1,5 @@
 <template>
-    <div class="shapla-modal" v-show="active">
+    <div class="shapla-modal" :class="{'is-active':active}" v-show="active">
         <div class="shapla-modal-background" @click="backgroundClick"></div>
 
         <template v-if="!is_card">
@@ -36,26 +36,11 @@
         components: {deleteIcon},
 
         props: {
-            active: {
-                type: Boolean,
-                required: true
-            },
-            title: {
-                type: String,
-                default: 'Untitled'
-            },
-            type: {
-                type: String,
-                default: 'card'
-            },
-            closeOnBackgroundClick: {
-                type: Boolean,
-                default: true
-            },
-            showCloseIcon: {
-                type: Boolean,
-                default: true
-            },
+            active: {type: Boolean, required: true},
+            title: {type: String, default: 'Untitled'},
+            type: {type: String, default: 'card'}, // Also support 'box' design
+            closeOnBackgroundClick: {type: Boolean, default: true},
+            showCloseIcon: {type: Boolean, default: true},
             contentSize: {
                 type: String,
                 default: 'medium',
@@ -82,6 +67,7 @@
                     {'shapla-modal-content': !this.is_card},
                     {'shapla-modal-card': this.is_card},
                     'is-' + this.contentSize,
+                    'shapla-modal-content--' + this.type,
                 ]
             }
         },
@@ -96,10 +82,15 @@
                 }
             },
             refreshBodyClass(active) {
+                let body = document.querySelector('body');
                 if (active) {
-                    document.querySelector('body').classList.add('has-shapla-modal');
+                    body.classList.add('has-shapla-modal');
                 } else {
-                    document.querySelector('body').classList.remove('has-shapla-modal');
+                    setTimeout(() => {
+                        if (document.querySelectorAll('.shapla-modal.is-active').length === 0) {
+                            body.classList.remove('has-shapla-modal');
+                        }
+                    }, 50);
                 }
             }
         }

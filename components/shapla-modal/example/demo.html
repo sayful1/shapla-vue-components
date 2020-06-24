@@ -10,11 +10,15 @@
 </head>
 <body>
 <div id="app">
+    <button @click="openBoxModal = true">Open Box Modal</button>
     <button @click="openCardModal = true">Open Card Modal</button>
     <button @click="openSmallCardModal = true">Open Small Card Modal</button>
     <button @click="openLargeCardModal = true">Open Large Card Modal</button>
     <button @click="openFullCardModal = true">Open Full Card Modal</button>
 
+    <modal :active="openBoxModal" @close="openBoxModal = false" type="box">
+        Box modal only have white background, border radius and 1rem padding
+    </modal>
     <modal :active="openCardModal" @close="openCardModal = false" title="Modal Demo 1">
         Medium width modal.
     </modal>
@@ -36,6 +40,7 @@
     new Vue({
         el: '#app',
         data: {
+            openBoxModal: false,
             openCardModal: false,
             openSmallCardModal: false,
             openLargeCardModal: false,
