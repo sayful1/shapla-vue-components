@@ -40,7 +40,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "shapla-button": "^1.0.6",
+    "shapla-button": "^1.0.7",
     "shapla-modal": "^1.0.6",
     "vue": "^2.6.11"
   },
