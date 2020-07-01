@@ -1,23 +1,5 @@
 .shapla-data-table--mobile {
 
-	button.data-table-toggle-button {
-		align-items: center;
-		background: none;
-		border: none;
-		display: inline-flex !important;
-		height: 40px;
-		justify-content: center;
-		padding: 0;
-		width: 40px;
-		position: absolute;
-		right: 6px;
-		top: 6px;
-
-		.triangle-up {
-			display: none;
-		}
-	}
-
 	.shapla-data-table__row {
 
 		.column-primary ~ .shapla-data-table__cell {
@@ -85,6 +67,23 @@
 		&--no-item {
 			display: table-cell;
 			text-align: center;
+
+			&:before {
+				display: none;
+			}
+		}
+
+		&--expand {
+			margin-left: auto;
+
+			&:before {
+				display: none;
+			}
+		}
+
+		&--expand-content {
+			display: table-cell;
+			text-align: left;
 
 			&:before {
 				display: none;

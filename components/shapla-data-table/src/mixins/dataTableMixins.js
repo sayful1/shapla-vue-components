@@ -11,7 +11,8 @@ const dataTableMixins = {
         sortBy: {type: String, default: 'id'},
         sortOrder: {type: String, default: "desc"},
         mobileWidth: {type: Number, default: 768},
-        areaLabel: {type: String, required: false}
+        areaLabel: {type: String, required: false},
+        showExpand: {type: Boolean, default: false},
     },
     data() {
         return {
@@ -43,6 +44,14 @@ const dataTableMixins = {
             }
 
             return columns;
+        },
+
+        expandColSpanLength() {
+            let length = this.columns.length + 1;
+            if (this.showCb) {
+                length += 1;
+            }
+            return length;
         },
 
         hasActions() {
@@ -109,6 +118,23 @@ const dataTableMixins = {
             setTimeout(() => {
                 tr.classList.toggle('is-expanded');
             }, 50);
+        },
+
+
+        toggleExpandRow(event) {
+            let el = event.target, tr = el.closest('tr'), nextTr = tr.nextElementSibling,
+                up = tr.querySelector('.expand-triangle-up'),
+                down = tr.querySelector('.expand-triangle-down');
+
+            if ("none" === nextTr.style.display) {
+                nextTr.style.display = '';
+                up.style.display = 'block';
+                down.style.display = 'none';
+            } else {
+                up.style.display = 'none';
+                nextTr.style.display = 'none';
+                down.style.display = 'block';
+            }
         },
 
         actionClicked(action, row) {

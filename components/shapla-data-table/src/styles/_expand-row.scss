@@ -1,0 +1,17 @@
+.shapla-data-table__header-cell--expand,
+.shapla-data-table__cell--expand {
+	width: 48px;
+	position: relative;
+}
+
+button {
+	.expand-triangle-up {
+		display: none;
+	}
+
+	&.is-active {
+		.expand-triangle-up {
+			display: block;
+		}
+	}
+}

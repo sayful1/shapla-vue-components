@@ -26,45 +26,73 @@
                         </a>
                     </template>
                 </th>
+                <th v-if="showExpand" class="shapla-data-table__header-cell shapla-data-table__header-cell--expand"
+                    role="columnheader" scope="col">
+                    &nbsp;
+                </th>
             </tr>
             </thead>
 
             <tbody class="shapla-data-table__content">
             <template v-if="items.length">
-                <tr class="shapla-data-table__row" v-for="row in items" :key="row[index]"
-                    :class="{'is-selected':selectedItems.includes(row[index])}">
+                <template v-for="row in items">
+                    <tr class="shapla-data-table__row" :key="row[index]"
+                        :class="{'is-selected':selectedItems.includes(row[index])}">
 
-                    <td class="shapla-data-table__cell shapla-data-table__cell--checkbox" v-if="showCb">
-                        <shapla-checkbox :value="row[index]" @change="handleSelectItem(row)"
-                                         :checked="selectedItems.includes(row[index])"/>
-                    </td>
+                        <td class="shapla-data-table__cell shapla-data-table__cell--checkbox" v-if="showCb">
+                            <shapla-checkbox :value="row[index]" @change="handleSelectItem(row)"
+                                             :checked="selectedItems.includes(row[index])"/>
+                        </td>
 
-                    <td v-for="column in columns" :key="column.key" :data-colname="column.label"
-                        :class="getBodyCellClass(column)">
+                        <td v-for="column in columns" :key="column.key" :data-colname="column.label"
+                            :class="getBodyCellClass(column)">
 
-                        <slot :name="column.key" :row="row">{{ row[column.key] }}</slot>
+                            <slot :name="column.key" :row="row">{{ row[column.key] }}</slot>
 
-                        <div v-if="actionColumn === column.key && hasActions" class="row-actions">
-                            <slot name="row-actions" :row="row">
+                            <div v-if="actionColumn === column.key && hasActions" class="row-actions">
+                                <slot name="row-actions" :row="row">
                                 <span v-for="action in actions" :key="action.key" :class="action.key">
                                     <a href="#" @click.prevent="actionClicked(action.key, row)">{{ action.label }}</a>
                                 </span>
-                            </slot>
-                        </div>
+                                </slot>
+                            </div>
 
-                        <template v-if="actionColumn === column.key && isMobileView">
-                            <button @click="toggleRow($event)" type="button" class="data-table-toggle-button"
+                            <template v-if="actionColumn === column.key && isMobileView">
+                                <button @click="toggleRow($event)" type="button" class="data-table-toggle-button"
+                                        aria-label="Show more details">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                        <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"
+                                              class="triangle-up"></path>
+                                        <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                                              class="triangle-down"></path>
+                                        <path d="M0 0h24v24H0z" fill="none"></path>
+                                    </svg>
+                                </button>
+                            </template>
+
+                        </td>
+
+                        <td class="shapla-data-table__cell shapla-data-table__cell--expand" v-if="showExpand">
+                            <button @click="toggleExpandRow($event)" type="button" class="data-table-toggle-button"
                                     aria-label="Show more details">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                                    <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z" class="triangle-up"></path>
-                                    <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" class="triangle-down"></path>
+                                    <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"
+                                          class="expand-triangle-up"></path>
+                                    <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                                          class="expand-triangle-down"></path>
                                     <path d="M0 0h24v24H0z" fill="none"></path>
                                 </svg>
                             </button>
-                        </template>
-
-                    </td>
-                </tr>
+                        </td>
+                    </tr>
+                    <tr v-if="showExpand" :key="`${row[index]}-expand`" class="shapla-data-table__row"
+                        style="display: none">
+                        <td class="shapla-data-table__cell shapla-data-table__cell--expand-content"
+                            :colspan="expandColSpanLength">
+                            <slot name="cellExpand" :row="row">&nbsp;</slot>
+                        </td>
+                    </tr>
+                </template>
             </template>
             <tr v-else class="shapla-data-table__row no-items">
                 <td :colspan="colspan" class="shapla-data-table__cell shapla-data-table__cell--no-item">
