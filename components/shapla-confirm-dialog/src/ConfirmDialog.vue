@@ -1,6 +1,6 @@
 <template>
     <modal type="confirm" class="shapla-modal--confirm" :active="modalActive" :show-close-icon="false"
-           content-size="small">
+           content-size="small" v-if="modalActive">
         <div class="shapla-confirm-modal">
             <div class="shapla-confirm-modal__content">
                 <div class="shapla-confirm-modal__icon" :class="`is-${params.icon}`" v-if="params.icon">
@@ -46,7 +46,13 @@
 
         beforeMount() {
             Dialog.events.$on('show', params => {
-                Object.assign(this.params, params);
+                this.params = Object.assign({
+                    title: '',
+                    icon: '',
+                    message: 'Are you sure?',
+                    confirmButton: 'Ok',
+                    cancelButton: 'Cancel'
+                }, params);
                 this.modalActive = true;
             });
         },
