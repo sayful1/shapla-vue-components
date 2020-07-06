@@ -46,7 +46,7 @@
             position: {
                 type: String,
                 default: 'top-right',
-                validator: value => ['top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right'].indexOf(value) !== -1
+                validator: value => ['top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right', 'center-center'].indexOf(value) !== -1
             }
         },
         watch: {

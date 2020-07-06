@@ -2,7 +2,13 @@
     <modal type="confirm" class="shapla-modal--confirm" :active="modalActive" :show-close-icon="false"
            content-size="small">
         <div class="shapla-confirm-modal">
-            <div class="shapla-confirm-modal__content" v-html="params.message"></div>
+            <div class="shapla-confirm-modal__content">
+                <div class="shapla-confirm-modal__icon" :class="`is-${params.icon}`" v-if="params.icon">
+                    <div class="shapla-confirm-modal__icon-content">!</div>
+                </div>
+                <h3 class="shapla-confirm-modal__title" v-if="params.title" v-html="params.title"></h3>
+                <div class="shapla-confirm-modal__message" v-html="params.message"></div>
+            </div>
             <div class="shapla-confirm-modal__actions">
                 <shapla-button theme="default" :class="cancelButtonClass" @click.prevent="handleClick(false)"
                                v-if="params.cancelButton" v-text="params.cancelButton"/>
@@ -28,6 +34,8 @@
         data() {
             return {
                 params: {
+                    title: '',
+                    icon: '',
                     message: 'Are you sure?',
                     confirmButton: 'Ok',
                     cancelButton: 'Cancel'
@@ -53,6 +61,8 @@
 </script>
 
 <style lang="scss">
+    @import "~shapla-color-system/src/variables";
+
     .shapla-modal--confirm {
         .shapla-modal-background {
             background-color: rgba(#fff, 0.6);
@@ -69,17 +79,52 @@
 
         &__content {
             padding: 1rem;
+            text-align: center;
         }
 
         &__actions {
             padding: 1rem;
             display: flex;
-            justify-content: flex-end;
-            border-top: 1px solid rgba(#000, .12);
+            justify-content: center;
 
             button:not(:last-child) {
                 margin-right: 1rem;
             }
+        }
+
+        &__icon {
+            display: flex;
+            justify-content: center;
+            width: 5em;
+            height: 5em;
+            margin: 1.25em auto 1.875em;
+            border-radius: 50%;
+            cursor: default;
+            user-select: none;
+            border: .25em solid $primary;
+            color: $primary;
+
+            &.is-success {
+                border-color: $success;
+                color: $success;
+            }
+
+            &.is-error {
+                border-color: $error;
+                color: $error;
+            }
+
+            &-content {
+                display: flex;
+                align-items: center;
+                font-size: 3.75em;
+            }
+        }
+
+        &__title {
+            font-size: 1.875em;
+            text-align: center;
+            margin: 0 0 .4em;
         }
     }
 </style>

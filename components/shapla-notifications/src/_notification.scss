@@ -30,6 +30,11 @@ $on-warning: var(--shapla-on-warning, #000);
 		right: 2rem;
 	}
 
+	&.is-position-center.is-align-center {
+		top: 50%;
+		transform: translate(-50%) !important;
+	}
+
 	&__item {
 		background-color: $primary;
 		color: $on-primary;
