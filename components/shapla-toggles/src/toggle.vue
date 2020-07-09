@@ -28,7 +28,7 @@
         </div>
         <div class="shapla-toggle-panel__body" :class="panelBodyClass">
             <div class="shapla-toggle-panel__content">
-                <slot></slot>
+                <slot v-bind:active="isSelected"></slot>
             </div>
         </div>
     </div>
