@@ -48,7 +48,7 @@
 </template>
 
 <script>
-    import dropdown from "../../../components/shapla-dropdown/src/dropdown";
+    import dropdown from "shapla-dropdown";
 
     export default {
         name: "TestDropdown",

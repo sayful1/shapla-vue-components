@@ -64,7 +64,7 @@
 </template>
 
 <script>
-    import {columns, column} from '../../../components/shapla-columns/src/index';
+    import {columns, column} from 'shapla-columns';
 
     export default {
         name: "TestColumns",

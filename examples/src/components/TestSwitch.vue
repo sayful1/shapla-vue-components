@@ -21,7 +21,7 @@
 </template>
 
 <script>
-    import shaplaSwitch from "../../../components/shapla-switch";
+    import shaplaSwitch from "shapla-switch";
 
     export default {
         name: "TestSwitch",

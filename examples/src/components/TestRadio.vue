@@ -13,7 +13,7 @@
 </template>
 
 <script>
-    import shaplaRadio from "../../../components/shapla-radio";
+    import shaplaRadio from "shapla-radio";
 
     export default {
         name: "TestRadio",

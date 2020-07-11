@@ -12,7 +12,7 @@
 </template>
 
 <script>
-    import radioButton from "../../../components/shapla-radio-button/src/radioButton";
+    import radioButton from "shapla-radio-button";
 
     export default {
         name: "TestRadioButtons",

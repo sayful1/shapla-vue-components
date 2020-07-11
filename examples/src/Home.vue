@@ -15,8 +15,8 @@
 
 <script>
     import menuItems from "./menuItems";
-    import shaplaButton from "../../components/shapla-button";
-    import {columns, column} from '../../components/shapla-columns'
+    import shaplaButton from "shapla-button";
+    import {columns, column} from 'shapla-columns'
 
     export default {
         name: "Home",

@@ -46,7 +46,7 @@
 </template>
 
 <script>
-    import shaplaButton from "../../../components/shapla-button/src/shaplaButton";
+    import shaplaButton from "shapla-button";
 
     export default {
         name: "TestButton",

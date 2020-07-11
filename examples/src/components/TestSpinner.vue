@@ -13,8 +13,8 @@
 </template>
 
 <script>
-    import spinner from '../../../components/shapla-spinner';
-    import {columns, column} from '../../../components/shapla-columns'
+    import spinner from 'shapla-spinner';
+    import {columns, column} from 'shapla-columns'
 
     export default {
         name: "TestSpinner",

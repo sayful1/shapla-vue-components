@@ -54,7 +54,7 @@
 </script>
 
 <style lang="scss">
-    @import "../../../components/shapla-color-system/src/theme";
+    @import "~shapla-color-system/src/theme";
 
     .shapla-color-system {
         background: #f1f1f1;

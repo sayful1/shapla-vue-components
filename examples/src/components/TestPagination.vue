@@ -10,7 +10,7 @@
 </template>
 
 <script>
-    import pagination from "../../../components/shapla-data-table-pagination/src/pagination";
+    import pagination from "shapla-data-table-pagination";
 
     export default {
         name: "TestPagination",

@@ -37,7 +37,7 @@
 </template>
 
 <script>
-    import {tabs, tab} from '../../../components/shapla-tabs';
+    import {tabs, tab} from 'shapla-tabs';
 
     export default {
         name: "TestTabs",

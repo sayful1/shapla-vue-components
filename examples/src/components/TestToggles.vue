@@ -37,7 +37,7 @@
 </template>
 
 <script>
-    import {toggles, toggle} from "../../../components/shapla-toggles";
+    import {toggles, toggle} from "shapla-toggles";
 
     export default {
         name: "TestToggles",

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import FileUploader from "../../../components/shapla-file-uploader/src/FileUploader";
+    import FileUploader from "shapla-file-uploader";
 
     export default {
         name: "TestFileUploader",

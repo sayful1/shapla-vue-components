@@ -9,14 +9,11 @@ import TestConfirmationDialogs from "./components/TestConfirmationDialogs";
 import TestDataTable from "./components/TestDataTable";
 import TestDelete from "./components/TestDelete";
 import TestDropdown from "./components/TestDropdown";
-import TestMediaUploader from "./components/TestMediaUploader";
 import TestModal from "./components/TestModal";
-import TestMonthNavigation from "./components/TestMonthNavigation";
 import TestNotifications from "./components/TestNotifications";
 import TestRadio from "./components/TestRadio";
 import TestRadioButtons from "./components/TestRadioButtons";
 import TestSideNavigation from "./components/TestSideNavigation";
-import TestSignatureCanvas from "./components/TestSignatureCanvas";
 import TestSpinner from "./components/TestSpinner";
 import TestStarRating from "./components/TestStarRating";
 import TestStatusList from "./components/TestStatusList";
@@ -42,14 +39,11 @@ const routes = [
     {path: '/delete', name: 'Delete', component: TestDelete},
     {path: '/dropdown', name: 'Dropdown', component: TestDropdown},
     {path: '/file-uploader', name: 'TestFileUploader', component: TestFileUploader},
-    {path: '/media-uploader', name: 'MediaUploader', component: TestMediaUploader},
     {path: '/modal', name: 'Modal', component: TestModal},
-    {path: '/month-nav', name: 'MonthNavigation', component: TestMonthNavigation},
     {path: '/notifications', name: 'Notifications', component: TestNotifications},
     {path: '/radio', name: 'Radio', component: TestRadio},
     {path: '/radio-button', name: 'RadioButton', component: TestRadioButtons},
     {path: '/side-nav', name: 'SideNavigation', component: TestSideNavigation},
-    {path: '/signature-canvas', name: 'SignatureCanvas', component: TestSignatureCanvas},
     {path: '/spinner', name: 'Spinner', component: TestSpinner},
     {path: '/star-rating', name: 'StarRating', component: TestStarRating},
     {path: '/status-list', name: 'StatusList', component: TestStatusList},

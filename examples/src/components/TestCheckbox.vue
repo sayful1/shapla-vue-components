@@ -31,7 +31,7 @@
 </template>
 
 <script>
-    import shaplaCheckbox from "../../../components/shapla-checkbox/src/shaplaCheckbox";
+    import shaplaCheckbox from "shapla-checkbox";
 
     export default {
         name: "TestCheckbox",

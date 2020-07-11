@@ -26,8 +26,8 @@
 </template>
 
 <script>
-    import StarRating from "../../../components/shapla-star-rating/src/StarRating";
-    import {columns, column} from '../../../components/shapla-columns'
+    import StarRating from "shapla-star-rating";
+    import {columns, column} from 'shapla-columns'
 
     export default {
         name: "TestStarRating",

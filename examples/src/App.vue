@@ -48,7 +48,7 @@
 </template>
 
 <script>
-    import sideNavigation from "../../components/shapla-side-navigation";
+    import sideNavigation from "shapla-side-navigation";
     import menuItems from "./menuItems";
     import SimpleBar from 'simplebar';
 

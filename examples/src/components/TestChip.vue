@@ -39,7 +39,7 @@
 </template>
 
 <script>
-    import shaplaChip from "../../../components/shapla-chip/src/shaplaChip";
+    import shaplaChip from "shapla-chip";
 
     export default {
         name: "TestChip",

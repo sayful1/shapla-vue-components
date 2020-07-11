@@ -15,7 +15,7 @@
 </template>
 
 <script>
-    import dataTable from "../../../components/shapla-data-table/src/dataTable";
+    import dataTable from "shapla-data-table";
 
     export default {
         name: "TestDataTable",

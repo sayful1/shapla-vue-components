@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import Dialog from "../../components/shapla-confirm-dialog";
+import Dialog from "shapla-confirm-dialog";
 import router from './routers.js';
 
 Vue.config.productionTip = false;

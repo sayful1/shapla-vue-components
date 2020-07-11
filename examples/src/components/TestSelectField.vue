@@ -53,7 +53,7 @@
 </template>
 
 <script>
-    import selectField from "../../../components/shapla-select-field";
+    import selectField from "shapla-select-field";
 
     export default {
         name: "TestSelectField",

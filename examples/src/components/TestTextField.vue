@@ -69,7 +69,7 @@
 </template>
 
 <script>
-    import textField from "../../../components/shapla-text-field";
+    import textField from "shapla-text-field";
 
     export default {
         name: "TestTextField",
