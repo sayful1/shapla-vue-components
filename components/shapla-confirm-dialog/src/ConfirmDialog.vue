@@ -34,8 +34,9 @@
         data() {
             return {
                 params: {
-                    title: '',
+                    type: '',
                     icon: '',
+                    title: '',
                     message: 'Are you sure?',
                     confirmButton: 'Ok',
                     cancelButton: 'Cancel'
@@ -47,8 +48,9 @@
         beforeMount() {
             Dialog.events.$on('show', params => {
                 this.params = Object.assign({
-                    title: '',
+                    type: '',
                     icon: '',
+                    title: '',
                     message: 'Are you sure?',
                     confirmButton: 'Ok',
                     cancelButton: 'Cancel'

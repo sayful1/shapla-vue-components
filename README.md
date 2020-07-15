@@ -7,6 +7,7 @@ Some reusable vue components for our projects.
 * [Shapla Color System](components/shapla-color-system/README.md)
 * [Shapla Columns](components/shapla-columns/README.md)
 * [Shapla Confirm Dialog](components/shapla-confirm-dialog/README.md)
+* [Shapla Dashboard Layout](components/shapla-dashboard-layout/README.md)
 * [Shapla Data Table](components/shapla-data-table/README.md)
 * [Shapla Data Table Pagination](components/shapla-data-table-pagination/README.md)
 * [Shapla Data Table Status](components/shapla-data-table-status/README.md)
@@ -34,4 +35,5 @@ Under Development
 
 * [Shapla Media Uploader](components/shapla-media-uploader/README.md)
 * [Shapla Month Navigation](components/shapla-month-navigation/README.md)
+* [Shapla Progress Bar](components/shapla-progress-bar/README.md)
 * [Shapla Signature Canvas](components/shapla-signature-canvas/README.md)
