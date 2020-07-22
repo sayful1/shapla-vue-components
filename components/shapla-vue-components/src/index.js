@@ -21,6 +21,7 @@ import imageContainer from 'shapla-image-container';
 import inputSlider from 'shapla-input-slider';
 import modal from "shapla-modal";
 import notification from "shapla-notifications";
+import progressBar from 'shapla-progress-bar';
 import shaplaRadio from "shapla-radio";
 import radioButton from "shapla-radio-button";
 import searchForm from "shapla-search-form";
@@ -60,6 +61,7 @@ export function install(Vue) {
     Vue.component('input-slider', inputSlider);
     Vue.component('modal', modal);
     Vue.component('notification', notification);
+    Vue.component('progress-bar', progressBar);
     Vue.component('shapla-radio', shaplaRadio);
     Vue.component('radio-button', radioButton);
     Vue.component('search-form', searchForm);
@@ -94,5 +96,5 @@ export {
     shaplaButton, shaplaChip, shaplaCheckbox, columns, column, Dialog, ConfirmDialog, dashboardLayout, dataTable,
     statusList, pagination, deleteIcon, dropdown, imageContainer, iconContainer, inputSlider, modal, notification,
     shaplaRadio, radioButton, searchForm, selectField, sideNavigation, spinner, StarRating, shaplaSwitch, tabs, tab,
-    textField, toggles, toggle, FileUploader, UploadStatus, FileUploadStatus
+    textField, toggles, toggle, FileUploader, UploadStatus, FileUploadStatus, progressBar
 };

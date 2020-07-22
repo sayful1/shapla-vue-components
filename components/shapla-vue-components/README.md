@@ -30,6 +30,7 @@ npm i shapla-vue-components
 * [Shapla Input Slider](/components/shapla-input-slider/README.md)
 * [Shapla Modal](/components/shapla-modal/README.md)
 * [Shapla Notifications](/components/shapla-notifications/README.md)
+* [Shapla Progress Bar](/components/shapla-progress-bar/README.md)
 * [Shapla Radio](/components/shapla-radio/README.md)
 * [Shapla Radio Button](/components/shapla-radio-button/README.md)
 * [Shapla Search Form](/components/shapla-search-form/README.md)
