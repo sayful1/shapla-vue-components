@@ -1,7 +1,7 @@
 {
   "name": "shapla-vue-components",
   "description": "A collection of reusable vue components for rapid development.",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",
@@ -66,7 +66,7 @@
     "shapla-switch": "^1.0.1",
     "shapla-tabs": "^1.0.3",
     "shapla-text-field": "^1.0.4",
-    "shapla-toggles": "^1.0.1",
+    "shapla-toggles": "^1.0.2",
     "vue": "^2.6.11"
   },
   "devDependencies": {
