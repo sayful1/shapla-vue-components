@@ -17,6 +17,7 @@
             label: {type: String, default: '', required: false},
             value: {type: String,},
             modelValue: {default: ''},
+            checked: {type: Boolean, default: undefined},
         },
         data() {
             return {
@@ -26,6 +27,9 @@
         },
         computed: {
             shouldBeChecked() {
+                if (typeof this.checked === "boolean") {
+                    return this.checked;
+                }
                 return this.modelValue === this.value
             },
             getClasses() {
