@@ -21,8 +21,32 @@ npm install shapla-vue-components
 
 # Usage
 
+To user button and progress bar component:
 ```js
-import {shaplaButton} from 'shapla-vue-components'; // Or import shaplaButton from 'shapla-button';
+import {shaplaButton} from 'shapla-vue-components'; // or import shaplaButton from 'shapla-button';
+import {progressBar} from 'shapla-vue-components'; // or import progressBar from 'shapla-progress-bar';
+
+
+export default {
+  name: 'Hello',
+
+  components: {
+    shaplaButton,
+    progressBar
+  },
+  
+  methods: {
+    handleClick(){
+      // Handle click event
+    }
+  }
+}
+
+```
+
+```html
+<progress-bar :value="1" :max="10" :striped="true" :animated="true" size="small" theme="primary"/>
+<shapla-button @click="handleClick"></shapla-button>
 ```
 
 # Components
