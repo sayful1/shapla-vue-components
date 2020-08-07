@@ -1,5 +1,11 @@
 # shapla-vue-components
+
+[![npm](https://img.shields.io/npm/v/shapla-vue-components.svg) ![npm](https://img.shields.io/npm/dm/shapla-vue-components.svg)](https://www.npmjs.com/package/shapla-vue-components)
+[![vue2](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://vuejs.org/)
+
 A collection of reusable vue components for rapid development.
+
+[Visit Demo Page](https://sayful1.github.io/shapla-vue-components/demo)
 
 ## Table of contents
 
@@ -15,13 +21,13 @@ npm install shapla-vue-components
 
 **You can also install each component separately as your requirement.**
 
-**For example, to install `Shapla Data Table` component, you can run in terminal `npm install shapla-data-table`**
+For example, to install `Shapla Data Table` component, you can run in terminal `npm install shapla-data-table`
 
-**Or to install `Shapla Tabs` component, you can run in terminal `npm install shapla-tabs`**
+Or to install `Shapla Tabs` component, you can run in terminal `npm install shapla-tabs`
 
 # Usage
 
-To user button and progress bar component:
+For example, to use button and progress bar components:
 ```js
 import {shaplaButton} from 'shapla-vue-components'; // or import shaplaButton from 'shapla-button';
 import {progressBar} from 'shapla-vue-components'; // or import progressBar from 'shapla-progress-bar';
