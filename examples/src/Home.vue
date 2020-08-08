@@ -4,7 +4,7 @@
         <div class="about-description">We’ve assembled some links to get you started:</div>
 
         <columns :multiline="true" class="sidenav-list">
-            <column :tablet="3" class="sidenav-list__item" v-for="menuItem in menuItems" :key="menuItem.routerName">
+            <column :tablet="4" :desktop="3" :widescreen="2" class="sidenav-list__item" v-for="menuItem in menuItems" :key="menuItem.routerName">
                 <shapla-button :fullwidth="true" size="medium" @click="handleMenuItemClick(menuItem)">
                     {{menuItem.label}}
                 </shapla-button>

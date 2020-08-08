@@ -50,6 +50,7 @@ export default {
   },
   mounted() {
     new SimpleBar(this.$el.querySelector('.shapla-dashboard-sidenav-menu'));
+    new SimpleBar(this.$el.querySelector('.shapla-dashboard-content'));
   }
 }
 </script>
