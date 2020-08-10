@@ -58,4 +58,18 @@ export default {
 <style lang="scss">
 @import "scss/frontend";
 @import "~simplebar/src/simplebar.css";
+@import "~highlight.js/scss/github";
+
+.section {
+	margin-bottom: 3rem;
+}
+
+.section-title {
+	border-bottom: 1px solid rgba(#000, 0.12);
+	font-size: 24px;
+	font-weight: 600;
+	margin-bottom: 15px;
+	padding-bottom: 15px;
+	line-height: 1.2;
+}
 </style>
