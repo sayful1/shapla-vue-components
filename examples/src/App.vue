@@ -1,13 +1,13 @@
 <template>
   <div id="app" class="shapla-vue-components--demo">
     <dashboard-layout
-        title="Shapla Vue Components"
-        :activate-side-nav="activateSideNav"
-        @open:sidenav="activateSideNav = true"
-        @close:sidenav="activateSideNav = false"
-        user-display-name="Sayful Islam"
-        avatar-url="https://s.gravatar.com/avatar/5ba82fcf5f7f8b24097ff9f7ad4b3d5b?s=80"
-        greeting="Hello, "
+      title="Shapla Vue Components"
+      :activate-side-nav="activateSideNav"
+      @open:sidenav="activateSideNav = true"
+      @close:sidenav="activateSideNav = false"
+      user-display-name="Sayful Islam"
+      avatar-url="https://s.gravatar.com/avatar/5ba82fcf5f7f8b24097ff9f7ad4b3d5b?s=80"
+      greeting="Hello, "
     >
       <template v-slot:sidenav-menu>
         <ul class="sidenav-list">
@@ -61,15 +61,15 @@ export default {
 @import "~highlight.js/scss/github";
 
 .section {
-	margin-bottom: 3rem;
+  margin-bottom: 3rem;
 }
 
 .section-title {
-	border-bottom: 1px solid rgba(#000, 0.12);
-	font-size: 24px;
-	font-weight: 600;
-	margin-bottom: 15px;
-	padding-bottom: 15px;
-	line-height: 1.2;
+  border-bottom: 1px solid rgba(#000, 0.12);
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  line-height: 1.2;
 }
 </style>

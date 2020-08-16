@@ -8,7 +8,7 @@ Vue.config.productionTip = false;
 Vue.use(Dialog);
 
 new Vue({
-    el: '#app',
-    router: router,
-    render: h => h(App),
+  el: '#app',
+  router: router,
+  render: h => h(App),
 });
