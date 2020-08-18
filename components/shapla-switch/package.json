@@ -1,7 +1,7 @@
 {
   "name": "shapla-switch",
   "description": "A custom switch for VueJS that exactly work same way as native checkbox",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",
@@ -31,8 +31,8 @@
     "*.js"
   ],
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "serve": "vue-cli-service serve --public ../../public ./example/main.js",
+    "build": "vue-cli-service build --public ../../public ./example/main.js",
     "build:lib": "vue-cli-service build --target lib --name switch ./src/index.js",
     "lint": "vue-cli-service lint"
   },
@@ -41,14 +41,14 @@
     "vue": "^2.6.11"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.4.6",
-    "@vue/cli-plugin-eslint": "^4.4.6",
-    "@vue/cli-service": "^4.4.6",
+    "@vue/cli-plugin-babel": "^4.5.4",
+    "@vue/cli-plugin-eslint": "^4.5.4",
+    "@vue/cli-service": "^4.5.4",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.3.1",
+    "eslint": "^7.7.0",
     "eslint-plugin-vue": "^6.2.2",
     "node-sass": "^4.14.1",
-    "sass-loader": "^8.0.2",
+    "sass-loader": "^9.0.3",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {

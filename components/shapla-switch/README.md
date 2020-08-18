@@ -46,6 +46,7 @@ export default {
 | `trueValue`   | String    | **no**    | `true`    | The value when user checked the switch
 | `falseValue`  | String    | **no**    | `false`   | The value when user unchecked the switch
 | `disabled`    | Boolean   | **no**    | `false`   | If set `true`, box-shadow will be added around button.
+| `readonly`    | Boolean   | **no**    | `false`   | If set `true`, you cannot change the value.
 
 ## Listeners
 The switch component fires the following events:

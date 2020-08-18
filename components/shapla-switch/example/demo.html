@@ -1,41 +1,44 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>switch demo</title>
-    <link rel="stylesheet" href="../dist/switch.css">
+  <meta charset="utf-8">
+  <title>switch demo</title>
+  <link rel="stylesheet" href="../dist/switch.css">
 </head>
 <body>
 <div id="app">
-    <div>
-        <h4>Single Switch</h4>
+  <div>
+    <h4>Single Switch</h4>
 
-        <shapla-switch v-model="singleSwitch">Enable this</shapla-switch>
+    <shapla-switch v-model="singleSwitch">Enable this</shapla-switch>
 
-        <shapla-switch v-model="singleSwitch" disabled>Disabled Switch</shapla-switch>
+    <shapla-switch v-model="singleSwitch" disabled>Disabled Switch</shapla-switch>
 
-        <pre><code>{{singleSwitch}}</code></pre>
-    </div>
-    <div>
-        <h4>Multiple Switch</h4>
+    <pre><code>{{ singleSwitch }}</code></pre>
+  </div>
+  <div>
+    <h4>Multiple Switch</h4>
 
-        <shapla-switch v-model="multiSwitches" value="one">If checked, value should be added one.</shapla-switch>
-        <shapla-switch v-model="multiSwitches" value="two">If checked, value should be added two.</shapla-switch>
-        <shapla-switch v-model="multiSwitches" value="three">If checked, value should be added three.</shapla-switch>
+    <shapla-switch v-model="multiSwitches" value="one">If checked, value should be added one.</shapla-switch>
+    <shapla-switch v-model="multiSwitches" value="two">If checked, value should be added two.</shapla-switch>
+    <shapla-switch v-model="multiSwitches" value="three">If checked, value should be added three.</shapla-switch>
+    <shapla-switch v-model="multiSwitches" value="four" readonly>
+      Readonly field, you cannot change it
+    </shapla-switch>
 
-        <pre><code>{{multiSwitches}}</code></pre>
-    </div>
+    <pre><code>{{ multiSwitches }}</code></pre>
+  </div>
 </div>
 <script src="https://unpkg.com/vue"></script>
 <script src="../dist/switch.umd.js"></script>
 <script>
-    new Vue({
-        el: '#app',
-        data: {
-            singleSwitch: false,
-            multiSwitches: []
-        }
-    });
+  new Vue({
+    el: '#app',
+    data: {
+      singleSwitch: false,
+      multiSwitches: ['four']
+    }
+  });
 </script>
 </body>
 </html>
