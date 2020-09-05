@@ -1,14 +1,14 @@
 @import "../variables";
 @import "../mixins";
 
-@each $breakpoint in (sm, md, lg, xl) {
-  @include media($breakpoint) {
-    .is-invisible-#{$breakpoint} {
-      visibility: hidden !important;
-    }
+@include responsiveContent('visible') {
+  visibility: visible !important;
+}
 
-    .is-hidden-#{$breakpoint} {
-      display: none !important;
-    }
-  }
+@include responsiveContent('invisible') {
+  visibility: hidden !important;
+}
+
+@include responsiveContent('hidden') {
+  display: none !important;
 }

@@ -31,3 +31,13 @@
     }
   }
 }
+
+@mixin responsiveContent($className) {
+  @each $breakpoint in (sm, md, lg, xl) {
+    @include media($breakpoint) {
+      .#{$breakpoint}\:#{$className} {
+        @content;
+      }
+    }
+  }
+}
