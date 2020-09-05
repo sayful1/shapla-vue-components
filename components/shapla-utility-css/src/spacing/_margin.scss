@@ -1,0 +1,21 @@
+@import "variables";
+
+@each $index, $size in $sizes {
+  .m-#{$index} {
+    margin: $size;
+  }
+}
+
+@each $index, $size in $sizes {
+  .mx-#{$index} {
+    margin-left: $size;
+    margin-right: $size;
+  }
+}
+
+@each $index, $size in $sizes {
+  .my-#{$index} {
+    margin-top: $size;
+    margin-bottom: $size;
+  }
+}

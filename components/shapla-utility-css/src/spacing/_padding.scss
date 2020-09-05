@@ -1,0 +1,21 @@
+@import "variables";
+
+@each $index, $size in $sizes {
+  .p-#{$index} {
+    padding: $size;
+  }
+}
+
+@each $index, $size in $sizes {
+  .px-#{$index} {
+    padding-left: $size;
+    padding-right: $size;
+  }
+}
+
+@each $index, $size in $sizes {
+  .py-#{$index} {
+    padding-top: $size;
+    padding-bottom: $size;
+  }
+}

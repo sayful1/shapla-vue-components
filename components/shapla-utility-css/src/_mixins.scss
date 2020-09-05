@@ -1,0 +1,30 @@
+@import "variables";
+
+@mixin media( $res ) {
+  @if mobile == $res {
+    @media screen and (max-width: ($screen-sm - 1px)) {
+      @content;
+    }
+  }
+  @if tablet-small == $res {
+    @media screen and (min-width: $screen-sm) {
+      @content;
+    }
+  }
+  @if tablet == $res {
+    @media screen and (min-width: $screen-md) {
+      @content;
+    }
+  }
+  @if desktop == $res {
+    @media screen and (min-width: $screen-lg) {
+      @content;
+    }
+  }
+
+  @if wide == $res {
+    @media screen and (min-width: $screen-xl) {
+      @content;
+    }
+  }
+}
