@@ -4,10 +4,6 @@
   flex-grow: 1;
   width: 100%;
 
-  @include media(tablet-small) {
-    max-width: $container-sm;
-  }
-
   @include media(tablet) {
     max-width: $container-md;
   }
@@ -18,6 +14,10 @@
 
   @include media(wide) {
     max-width: $container-xl;
+  }
+
+  @include media(fullhd) {
+    max-width: $container-xxl;
   }
 
   &.mx-auto {

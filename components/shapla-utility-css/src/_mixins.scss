@@ -1,30 +1,33 @@
 @import "variables";
 
 @mixin media( $res ) {
-  @if mobile == $res {
-    @media screen and (max-width: ($screen-sm - 1px)) {
+  @if mobile == $res or sm == $res {
+    @media screen and (max-width: ($screen-sm)) {
       @content;
     }
   }
-  @if tablet-small == $res {
-    @media screen and (min-width: $screen-sm) {
+  @if tablet == $res or md == $res {
+    @media print, screen and (min-width: $screen-md) {
       @content;
     }
   }
-  @if tablet == $res {
-    @media screen and (min-width: $screen-md) {
-      @content;
-    }
-  }
-  @if desktop == $res {
+  @if desktop == $res or lg == $res {
     @media screen and (min-width: $screen-lg) {
       @content;
     }
   }
 
-  @if wide == $res {
+  @if wide == $res or xl == $res {
     @media screen and (min-width: $screen-xl) {
       @content;
+    }
+  }
+
+  @if $screen-xxl-enabled {
+    @if fullhd == $res or xxl == $res {
+      @media screen and (min-width: $screen-xxl) {
+        @content;
+      }
     }
   }
 }

@@ -2,13 +2,15 @@
 $column-gap: 1.5rem !default;
 
 //== Grid breakpoints
-$screen-sm: 640px !default;
 $screen-md: 768px !default;
+$screen-sm: ($screen-md - 1px) !default;
 $screen-lg: 1024px !default;
 $screen-xl: 1280px !default;
+$screen-xxl: 1400px !default;
+$screen-xxl-enabled: false !default;
 
 //== Grid containers
-$container-sm: 540px !default;
 $container-md: 720px !default;
 $container-lg: 960px !default;
 $container-xl: 1140px !default;
+$container-xxl: 1320px !default;
