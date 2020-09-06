@@ -1,157 +1,130 @@
-$column-gap: 0.75rem !default;
-// The container horizontal gap, which acts as the offset for breakpoints
-$gap: 64px !default;
-// 960, 1152, and 1344 have been chosen because they are divisible by both 12 and 16
-$tablet: 769px !default;
-// 960px container + 4rem
-$desktop: 960px + (2 * $gap) !default;
-// 1152px container + 4rem
-$widescreen: 1152px + (2 * $gap) !default;
-// 1344px container + 4rem
-$fullhd: 1344px + (2 * $gap) !default;
+$screen-xxl-enabled: true;
+
+@import "~shapla-utility-css/src/variables";
+@import "~shapla-utility-css/src/mixins";
 
 .shapla-column {
-	display: block;
-	flex-basis: 0;
-	flex-grow: 1;
-	flex-shrink: 1;
-	padding: $column-gap;
+  display: block;
+  flex: none;
+  padding: $column-gap / 2;
 
-	@for $i from 1 through 12 {
-		.shapla-columns.is-mobile > &.is-#{$i} {
-			flex: none;
-			width: percentage($i / 12);
-		}
-	}
+  @for $i from 1 through 12 {
+    .shapla-columns.is-mobile > &.is-#{$i} {
+      width: percentage($i / 12);
+    }
+  }
 
-	// Mobile
-	@media screen and (max-width: $tablet - 1px) {
-		@for $i from 1 through 12 {
-			&.is-#{$i}-mobile {
-				flex: none;
-				width: percentage($i / 12);
-			}
-		}
-	}
+  // Mobile
+  @include media('mobile') {
+    @for $i from 1 through 12 {
+      &.is-#{$i}-mobile {
+        width: percentage($i / 12);
+      }
+    }
+  }
 
-	// Tablet
-	@media screen and (min-width: $tablet), print {
-		@for $i from 1 through 12 {
-			&.is-#{$i},
-			&.is-#{$i}-tablet {
-				flex: none;
-				width: percentage($i / 12);
-			}
-		}
-	}
+  // Tablet
+  @include media('tablet') {
+    @for $i from 1 through 12 {
+      &.is-#{$i},
+      &.is-#{$i}-tablet {
+        width: percentage($i / 12);
+      }
+    }
+  }
 
-	// Desktop
-	@media screen and (min-width: $desktop) {
-		@for $i from 1 through 12 {
-			&.is-#{$i}-desktop {
-				flex: none;
-				width: percentage($i / 12);
-			}
-		}
-	}
+  // Desktop
+  @include media('desktop') {
+    @for $i from 1 through 12 {
+      &.is-#{$i}-desktop {
+        width: percentage($i / 12);
+      }
+    }
+  }
 
-	// Wide Screen
-	@media screen and (min-width: $widescreen) {
-		@for $i from 1 through 12 {
-			&.is-#{$i}-widescreen {
-				flex: none;
-				width: percentage($i / 12);
-			}
-		}
-	}
+  // Wide Screen
+  @include media('wide') {
+    @for $i from 1 through 12 {
+      &.is-#{$i}-widescreen {
+        width: percentage($i / 12);
+      }
+    }
+  }
 
-	// Full HD
-	@media screen and (min-width: $fullhd) {
-		@for $i from 1 through 12 {
-			&.is-#{$i}-fullhd {
-				flex: none;
-				width: percentage($i / 12);
-			}
-		}
-	}
+  // Full HD
+  @include media('fullhd') {
+    @for $i from 1 through 12 {
+      &.is-#{$i}-fullhd {
+        width: percentage($i / 12);
+      }
+    }
+  }
 }
 
 .shapla-columns {
-	margin-left: (-$column-gap);
-	margin-right: (-$column-gap);
-	margin-top: (-$column-gap);
+  margin: (-$column-gap / 2);
 
-	&:last-child {
-		margin-bottom: (-$column-gap);
-	}
+  &:not(:last-child) {
+    margin-bottom: calc(1.5rem - #{$column-gap / 2});
+  }
 
-	&:not(:last-child) {
-		margin-bottom: calc(1.5rem - #{$column-gap});
-	}
+  &.is-centered {
+    justify-content: center;
+  }
 
-	&.is-centered {
-		justify-content: center;
-	}
+  &.is-gapless {
+    margin: 0;
 
-	&.is-gapless {
-		margin-left: 0;
-		margin-right: 0;
-		margin-top: 0;
+    &:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
 
-		&:last-child {
-			margin-bottom: 0;
-		}
+    & > .shapla-column {
+      margin: 0;
+      padding: 0;
+    }
+  }
 
-		&:not(:last-child) {
-			margin-bottom: 1.5rem;
-		}
+  &.is-mobile {
+    display: flex;
+  }
 
-		& > .shapla-column {
-			margin: 0;
-			padding: 0;
-		}
-	}
+  &.is-multiline {
+    flex-wrap: wrap;
+  }
 
-	&.is-mobile {
-		display: flex;
-	}
+  &.is-vcentered {
+    align-items: center;
+  }
 
-	&.is-multiline {
-		flex-wrap: wrap;
-	}
+  @include media('tablet') {
+    &:not(.is-desktop) {
+      display: flex;
+    }
+  }
 
-	&.is-vcentered {
-		align-items: center;
-	}
-
-	@media screen and (min-width: $tablet), print {
-		&:not(.is-desktop) {
-			display: flex;
-		}
-	}
-
-	@media screen and (min-width: $desktop) {
-		&.is-desktop {
-			display: flex;
-		}
-	}
+  @include media('desktop') {
+    &.is-desktop {
+      display: flex;
+    }
+  }
 }
 
 .shapla-columns.is-variable {
-	--shapla-column-gap: 0.75rem;
-	margin-left: calc(-1 * var(--shapla-column-gap));
-	margin-right: calc(-1 * var(--shapla-column-gap));
-	margin-top: calc(-1 * var(--shapla-column-gap));
+  --shapla-column-gap: 0.75rem;
+  margin-left: calc(-1 * var(--shapla-column-gap));
+  margin-right: calc(-1 * var(--shapla-column-gap));
+  margin-top: calc(-1 * var(--shapla-column-gap));
 
-	&:last-child {
-		margin-bottom: calc(-1 * var(--shapla-column-gap));
-	}
+  &:last-child {
+    margin-bottom: calc(-1 * var(--shapla-column-gap));
+  }
 
-	&:not(:last-child) {
-		margin-bottom: calc(1.5rem - var(--shapla-column-gap));
-	}
+  &:not(:last-child) {
+    margin-bottom: calc(1.5rem - var(--shapla-column-gap));
+  }
 
-	.shapla-column {
-		padding: var(--shapla-column-gap);
-	}
+  .shapla-column {
+    padding: var(--shapla-column-gap);
+  }
 }
