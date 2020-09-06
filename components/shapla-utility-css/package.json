@@ -1,7 +1,7 @@
 {
   "name": "shapla-utility-css",
   "description": "Apply helper classes to almost any element, in order to alter their style.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",
@@ -26,22 +26,29 @@
     "*.js"
   ],
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "build:lib": "vue-cli-service build --target lib --name utility ./src/utility.scss",
-    "lint": "vue-cli-service lint"
+    "dev": "webpack --mode=development --progress --colors --watch --hide-modules",
+    "dev-build": "webpack --mode=development",
+    "build": "webpack --mode=production"
   },
-  "dependencies": {},
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.4.6",
-    "@vue/cli-plugin-eslint": "^4.4.6",
-    "@vue/cli-service": "^4.4.6",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.3.1",
-    "eslint-plugin-vue": "^6.2.2",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "autoprefixer": "^9.8.6",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^4.2.2",
+    "file-loader": "^6.1.0",
+    "mini-css-extract-plugin": "^0.11.0",
+    "mini-svg-data-uri": "^1.2.3",
     "node-sass": "^4.14.1",
-    "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11"
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "postcss-combine-media-query": "^1.0.1",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^10.0.2",
+    "style-loader": "^1.2.1",
+    "terser-webpack-plugin": "^4.1.0",
+    "url-loader": "^4.1.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
   },
   "eslintConfig": {
     "root": true,

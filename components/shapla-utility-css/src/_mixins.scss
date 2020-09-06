@@ -33,7 +33,7 @@
 }
 
 @mixin responsiveContent($className) {
-  @each $breakpoint in (sm, md, lg, xl) {
+  @each $breakpoint in (sm, md, lg, xl, xxl) {
     @include media($breakpoint) {
       .#{$breakpoint}\:#{$className} {
         @content;
