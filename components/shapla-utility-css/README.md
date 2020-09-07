@@ -34,6 +34,10 @@ npm i shapla-utility-css
     * Container
     * Visibility
     * Responsive Visibility
+* Sizing
+    * Width
+    * Fluid Width
+    * Height
 * Spacing
     * Margin
     * Responsive Margin
