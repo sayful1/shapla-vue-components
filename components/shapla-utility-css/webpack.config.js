@@ -4,7 +4,6 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserPlugin = require('terser-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const combineMediaQuery = require('postcss-combine-media-query');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const svgToMiniDataURI = require('mini-svg-data-uri');
 
 let plugins = [];
@@ -17,8 +16,6 @@ let entryPoints = {
 plugins.push(new MiniCssExtractPlugin({
   filename: "./[name].css"
 }));
-
-plugins.push(new VueLoaderPlugin());
 
 module.exports = (env, argv) => {
   let isDev = argv.mode !== 'production';
@@ -40,12 +37,6 @@ module.exports = (env, argv) => {
               presets: ['@babel/preset-env']
             }
           }
-        },
-        {
-          test: /\.vue$/i,
-          use: [
-            {loader: 'vue-loader'}
-          ]
         },
         {
           test: /\.(sass|scss|css)$/i,
