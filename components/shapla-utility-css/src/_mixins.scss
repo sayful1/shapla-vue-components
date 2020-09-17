@@ -66,12 +66,6 @@
   0 2px 4px -1px rgba(0, 0, 0, $shadow-key-umbra-opacity);
 }
 
-@mixin shadow-5dp() {
-  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
-  0 1px 14px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
-  0 3px 5px -1px rgba(0, 0, 0, $shadow-key-umbra-opacity);
-}
-
 @mixin shadow-6dp() {
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
   0 1px 18px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
