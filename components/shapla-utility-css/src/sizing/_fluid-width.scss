@@ -1,4 +1,4 @@
-@import "../mixins";
+@import "../utilities/mixins";
 
 @for $index from 1 through 12 {
   .w-#{$index}-12 {

@@ -1,5 +1,5 @@
-@import "../variables";
-@import "../mixins";
+@import "../utilities/variables";
+@import "../utilities/mixins";
 
 @include responsiveContent('visible') {
   visibility: visible !important;

@@ -8,8 +8,17 @@ const svgToMiniDataURI = require('mini-svg-data-uri');
 
 let plugins = [];
 let entryPoints = {
-  utility: [
-    "./src/utility.scss",
+  utility: "./src/utility.scss",
+  flexbox: "./src/flexbox.scss",
+  sizing: "./src/sizing/_all.scss",
+  spacing: [
+    "./src/spacing/_margin.scss",
+    "./src/spacing/_padding.scss",
+    "./src/spacing/_space-between.scss",
+  ],
+  "responsive-spacing": [
+    "./src/spacing/_margin-responsive.scss",
+    "./src/spacing/_padding-responsive.scss",
   ],
 };
 

@@ -1,5 +1,5 @@
 @import "variables";
-@import "../mixins";
+@import "../utilities/mixins";
 
 @each $index, $size in $sizes {
   @include responsiveContent('p-#{$index}') {
