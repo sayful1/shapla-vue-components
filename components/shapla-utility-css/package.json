@@ -1,7 +1,7 @@
 {
   "name": "shapla-utility-css",
   "description": "Apply helper classes to almost any element, in order to alter their style.",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",
@@ -20,15 +20,16 @@
   },
   "files": [
     "dist/*",
+    "example/*",
     "src/*",
-    "public/*",
     "*.json",
     "*.js"
   ],
   "scripts": {
     "dev": "webpack --mode=development --progress --colors --watch --hide-modules",
     "dev-build": "webpack --mode=development",
-    "build": "webpack --mode=production"
+    "build": "webpack --mode=production",
+    "build:lib": "webpack --mode=production"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
