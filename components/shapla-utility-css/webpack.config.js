@@ -10,6 +10,7 @@ let plugins = [];
 let entryPoints = {
   utility: "./src/utility.scss",
   flexbox: "./src/flexbox.scss",
+  grid: "./src/grid.scss",
   sizing: "./src/sizing/_all.scss",
   spacing: [
     "./src/spacing/_margin.scss",
