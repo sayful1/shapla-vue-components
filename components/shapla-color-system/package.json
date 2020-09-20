@@ -31,7 +31,9 @@
     "build:lib": "vue-cli-service build --target lib --name theme ./src/theme.scss",
     "lint": "vue-cli-service lint"
   },
-  "dependencies": {},
+  "dependencies": {
+    "shapla-utility-css": "^1.0.8"
+  },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.4.6",
     "@vue/cli-plugin-eslint": "^4.4.6",

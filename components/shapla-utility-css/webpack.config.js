@@ -12,6 +12,7 @@ let entryPoints = {
   flexbox: "./src/flexbox.scss",
   grid: "./src/grid.scss",
   sizing: "./src/sizing/_all.scss",
+  "color-theme": "./src/colors/_all.scss",
   spacing: [
     "./src/spacing/_margin.scss",
     "./src/spacing/_padding.scss",
