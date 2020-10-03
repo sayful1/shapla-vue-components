@@ -1,0 +1,101 @@
+@import "~shapla-utility-css/src/flexbox";
+@import "~shapla-utility-css/src/effects/box-shadow";
+@import "~shapla-utility-css/src/spacing/padding";
+@import "~shapla-utility-css/src/spacing/margin";
+
+$offset: 187;
+$duration: 1.4s;
+
+@keyframes shapla-spinner__container-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
+}
+
+@keyframes shapla-spinner__circle-colors {
+  0% {
+    stroke: #42A5F5;
+  }
+  25% {
+    stroke: #f44336;
+  }
+  50% {
+    stroke: #FDD835;
+  }
+  75% {
+    stroke: #4CAF50;
+  }
+  100% {
+    stroke: #42A5F5;
+  }
+}
+
+@keyframes shapla-spinner__circle-dash {
+  0% {
+    stroke-dashoffset: $offset;
+  }
+  50% {
+    stroke-dashoffset: $offset / 4;
+    transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: $offset;
+    transform: rotate(450deg);
+  }
+}
+
+.shapla-simple-spinner-inner {
+  &.has-text {
+    background: white;
+    border-radius: 4px;
+  }
+}
+
+.shapla-simple-spinner-container {
+  --spinner-duration: #{$duration};
+  --spinner-offset: #{$offset};
+  left: 0;
+  top: 0;
+  z-index: 999999;
+
+  &.is-static {
+
+  }
+
+  &.is-fixed {
+    height: 100vh;
+    position: fixed;
+    width: 100vw;
+  }
+
+  &.is-absolute {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.shapla-simple-spinner {
+  animation: shapla-spinner__container-rotate var(--spinner-duration) linear infinite;
+}
+
+.shapla-simple-spinner-text {
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.shapla-simple-spinner__circle {
+  stroke-dasharray: var(--spinner-offset);
+  stroke-dashoffset: 0;
+  transform-origin: center;
+  stroke: #42A5F5;
+  animation: shapla-spinner__circle-dash var(--spinner-duration) ease-in-out infinite,
+  shapla-spinner__circle-colors calc(var(--spinner-duration) * 4) ease-in-out infinite;
+
+  &.is-single {
+    animation: shapla-spinner__circle-dash var(--spinner-duration) ease-in-out infinite;
+  }
+}
