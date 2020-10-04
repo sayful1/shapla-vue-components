@@ -1,8 +1,5 @@
 @import "~shapla-utility-css/src/utilities/colors";
-@import "~shapla-utility-css/src/flexbox";
-@import "~shapla-utility-css/src/effects/box-shadow";
-@import "~shapla-utility-css/src/spacing/padding";
-@import "~shapla-utility-css/src/spacing/margin";
+@import "~shapla-utility-css/src/utilities/mixins";
 
 $offset: 187;
 $duration: 1.4s;
@@ -18,19 +15,19 @@ $duration: 1.4s;
 
 @keyframes shapla-spinner__circle-colors {
   0% {
-    stroke: #42A5F5;
+    stroke: $primary;
   }
   25% {
-    stroke: #f44336;
+    stroke: $error;
   }
   50% {
-    stroke: #FDD835;
+    stroke: $secondary;
   }
   75% {
-    stroke: #4CAF50;
+    stroke: $success;
   }
   100% {
-    stroke: #42A5F5;
+    stroke: $primary;
   }
 }
 
@@ -48,11 +45,11 @@ $duration: 1.4s;
   }
 }
 
+.shapla-simple-spinner-container,
 .shapla-simple-spinner-inner {
-  &.has-text {
-    background: white;
-    border-radius: 4px;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .shapla-simple-spinner-container {
@@ -61,10 +58,6 @@ $duration: 1.4s;
   left: 0;
   top: 0;
   z-index: 999999;
-
-  &.is-static {
-
-  }
 
   &.is-fixed {
     height: 100vh;
@@ -77,6 +70,30 @@ $duration: 1.4s;
     width: 100%;
     height: 100%;
   }
+
+  &.is-light-theme {
+    background: rgba(#fff, 0.75);
+
+    .has-text {
+      background: #fff;
+      color: rgba(#000, .86);
+    }
+  }
+
+  &.is-dark-theme {
+    background: rgba(#000, 0.75);
+
+    .has-text {
+      background: #444;
+      color: rgba(#fff, .86);
+    }
+  }
+
+  .has-text {
+    border-radius: 4px;
+    padding: 1rem;
+    @include shadow-3dp();
+  }
 }
 
 .shapla-simple-spinner {
@@ -85,7 +102,7 @@ $duration: 1.4s;
 
 .shapla-simple-spinner-text {
   font-family: inherit;
-  font-size: 1rem;
+  margin-left: 1rem;
 }
 
 .shapla-simple-spinner__circle {

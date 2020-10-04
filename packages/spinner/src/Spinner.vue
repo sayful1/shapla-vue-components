@@ -1,6 +1,6 @@
 <template>
-  <div v-if="active" class="shapla-simple-spinner-container flex items-center justify-center" :class="containerClass">
-    <div class="shapla-simple-spinner-inner flex items-center justify-center flex-row" :class="innerClasses">
+  <div v-if="active" class="shapla-simple-spinner-container" :class="containerClass">
+    <div class="shapla-simple-spinner-inner" :class="innerClasses">
       <slot>
         <svg class="shapla-simple-spinner" :width="size" :height="size" viewBox="0 0 66 66"
              xmlns="http://www.w3.org/2000/svg">
@@ -8,7 +8,7 @@
                   :stroke-width="strokeWidth" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
         </svg>
       </slot>
-      <div class="shapla-simple-spinner-text m-2" v-if="showText">Loading...</div>
+      <div class="shapla-simple-spinner-text" v-if="showText">Loading...</div>
     </div>
   </div>
 </template>
@@ -23,7 +23,7 @@ export default {
     theme: {type: String, default: 'light', validator: value => ['light', 'dark'].indexOf(value) !== -1},
     position: {type: String, default: 'fixed'},
     size: {type: String, default: '28px'},
-    strokeWidth: {type: String, default: '3px'},
+    strokeWidth: {type: String, default: '6'},
   },
   computed: {
     containerClass() {
@@ -38,7 +38,7 @@ export default {
     innerClasses() {
       let classes = [];
       if (this.showText) {
-        classes.push('has-text p-4 shadow-3');
+        classes.push('has-text');
       }
       return classes;
     }
