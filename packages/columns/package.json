@@ -1,6 +1,6 @@
 {
-  "name": "@shapla-vue/spinner",
-  "description": "A loading spinner component for Vue.js",
+  "name": "@shapla-vue/columns",
+  "description": "A simple way to build responsive columns for Vue.js",
   "version": "2.0.0-alpha1",
   "author": {
     "name": "Sayful Islam",
@@ -10,8 +10,9 @@
   "keywords": [
     "vue",
     "vuejs",
-    "spinner",
-    "loading"
+    "plugin",
+    "grid",
+    "column"
   ],
   "license": "MIT",
   "repository": {
@@ -21,12 +22,9 @@
   "bugs": {
     "url": "https://github.com/sayful1/shapla-vue-components/issues"
   },
-  "main": "dist/spinner.common.js",
-  "unpkg": "dist/spinner.umd.js",
+  "main": "dist/columns.common.js",
+  "unpkg": "dist/columns.umd.js",
   "module": "src/index.js",
-  "browser": {
-    "./sfc": "src/spinner.vue"
-  },
   "files": [
     "dist/*",
     "src/*",
@@ -35,25 +33,28 @@
     "*.js"
   ],
   "scripts": {
-    "serve": "vue-cli-service serve ./example/main.js",
+    "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build:lib": "vue-cli-service build --target lib --name spinner ./src/index.js",
+    "build:lib": "vue-cli-service build --target lib --name columns ./src/index.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "shapla-utility-css": "^1.0.10",
-    "vue": "^2.6.12"
+    "shapla-utility-css": "^1.0.8",
+    "vue": "^2.6.11"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.5.6",
-    "@vue/cli-plugin-eslint": "^4.5.6",
-    "@vue/cli-service": "^4.5.6",
+    "@vue/cli-plugin-babel": "^4.4.6",
+    "@vue/cli-plugin-eslint": "^4.4.6",
+    "@vue/cli-service": "^4.4.6",
+    "autoprefixer": "^9.8.4",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.10.0",
-    "eslint-plugin-vue": "^7.0.0",
+    "css-loader": "^3.6.0",
+    "eslint": "^7.3.1",
+    "eslint-plugin-vue": "^6.2.2",
     "node-sass": "^4.14.1",
-    "sass-loader": "^10.0.2",
-    "vue-template-compiler": "^2.6.12"
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
+    "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
     "root": true,
