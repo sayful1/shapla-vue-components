@@ -16,30 +16,26 @@ export default {
   },
   computed: {
     classes() {
-      let _class = [];
+      let _class = {'shapla-column': true};
 
       if (this.mobile) {
-        _class.push(`sm:w-${this.mobile}/12`)
+        _class[`is-${this.mobile}-mobile`] = true;
       }
 
       if (this.tablet) {
-        _class.push(`md:w-${this.tablet}/12`)
+        _class[`is-${this.tablet}-tablet`] = true;
       }
 
       if (this.desktop) {
-        _class.push(`lg:w-${this.desktop}/12`)
+        _class[`is-${this.desktop}-desktop`] = true;
       }
 
       if (this.widescreen) {
-        _class.push(`xl:w-${this.widescreen}/12`)
+        _class[`is-${this.widescreen}-widescreen`] = true;
       }
 
       if (this.fullhd) {
-        _class.push(`xxl:w-${this.fullhd}/12`)
-      }
-
-      if (_class.length < 1) {
-        _class.push('flex-1');
+        _class[`is-${this.fullhd}-fullhd`] = true;
       }
 
       return _class;

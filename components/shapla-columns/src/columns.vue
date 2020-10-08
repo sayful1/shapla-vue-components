@@ -8,7 +8,7 @@
 export default {
   name: "columns",
   props: {
-    multiline: {type: Boolean, default: true},
+    multiline: {type: Boolean, default: false},
     centered: {type: Boolean, default: false},
     gapless: {type: Boolean, default: false},
     vcentered: {type: Boolean, default: false},
@@ -19,22 +19,20 @@ export default {
   computed: {
     classes() {
       return {
-        'column-gutter-width': true,
-        'flex-wrap': this.multiline,
-        'justify-center': this.centered,
-        'items-center': this.vcentered,
-        'sm:flex': this.mobile,
-        'md:flex': !this.desktop,
-        'lg:flex': this.desktop,
+        'shapla-columns': true,
+        'is-multiline': this.multiline,
+        'is-centered': this.centered,
+        'is-gapless': this.gapless,
+        'is-vcentered': this.vcentered,
+        'is-mobile': this.mobile,
+        'is-desktop': this.desktop,
+        'is-variable': !!this.columnGap,
       }
     },
     styles() {
       let styles = {};
       if (this.columnGap) {
-        styles['--column-gutter-width'] = this.columnGap;
-      }
-      if (this.gapless) {
-        styles['--column-gutter-width'] = 0;
+        styles['--shapla-column-gap'] = this.columnGap;
       }
       return styles;
     }
