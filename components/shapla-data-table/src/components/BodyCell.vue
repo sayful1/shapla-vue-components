@@ -13,13 +13,8 @@
 
       <button v-if="isMobile" @click="toggleRow($event)" class="data-table-toggle-button"
               aria-label="Show more details">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-          <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"
-                class="triangle-up"></path>
-          <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                class="triangle-down"></path>
-          <path d="M0 0h24v24H0z" fill="none"></path>
-        </svg>
+        <data-table-icon icon="expand-less" class="triangle-up"/>
+        <data-table-icon icon="expand-more" class="triangle-down"/>
       </button>
     </template>
 
@@ -27,8 +22,11 @@
 </template>
 
 <script>
+import DataTableIcon from "./DataTableIcon";
+
 export default {
   name: "BodyCell",
+  components: {DataTableIcon},
   props: {
     column: {type: Object, required: true},
     item: {type: Object, required: true},

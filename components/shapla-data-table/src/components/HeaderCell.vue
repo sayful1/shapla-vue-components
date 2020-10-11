@@ -3,14 +3,8 @@
     <template v-if="!isSortable">{{ column.label }}</template>
     <template v-else>
       <a href="#" @click.prevent="handleSort">
-        <svg v-if="isSortedDesc" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-          <title>Sort ascending</title>
-          <use xlink:href="#icon--arrow-upward"></use>
-        </svg>
-        <svg v-if="isSortedAsc" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-          <title>Sort descending</title>
-          <use xlink:href="#icon--arrow-downward"></use>
-        </svg>
+        <data-table-icon v-if="isSortedDesc" icon="arrow-upward"/>
+        <data-table-icon v-if="isSortedAsc" icon="arrow-downward"/>
         <span>{{ column.label }}</span>
       </a>
     </template>
@@ -18,8 +12,10 @@
 </template>
 
 <script>
+import DataTableIcon from "./DataTableIcon";
 export default {
   name: "HeaderCell",
+  components: {DataTableIcon},
   props: {
     column: {type: Object, required: true},
     isPrimary: {type: Boolean, default: false},
