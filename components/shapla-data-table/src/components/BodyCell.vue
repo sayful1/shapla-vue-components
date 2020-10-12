@@ -49,9 +49,11 @@ export default {
   },
   methods: {
     toggleRow(event) {
+      // eslint-disable-next-line vue/custom-event-name-casing
       this.$emit('click:toggle', event);
     },
     actionClicked(key, item) {
+      // eslint-disable-next-line vue/custom-event-name-casing
       this.$emit('click:action', key, item);
     },
   }
