@@ -142,6 +142,7 @@ const dataTableMixins = {
     },
 
     actionClicked(action, row) {
+      // eslint-disable-next-line vue/custom-event-name-casing
       this.$emit('action:click', action, row);
     },
 
@@ -167,6 +168,7 @@ const dataTableMixins = {
       } else {
         selectedItems.splice(index, 1);
       }
+      // eslint-disable-next-line vue/custom-event-name-casing
       this.$emit('item:select', selectedItems);
     },
     handleSelectAll() {
@@ -182,6 +184,7 @@ const dataTableMixins = {
         });
       }
 
+      // eslint-disable-next-line vue/custom-event-name-casing
       this.$emit('item:select', selected);
     }
   }
