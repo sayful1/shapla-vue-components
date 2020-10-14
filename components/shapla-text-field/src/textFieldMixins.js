@@ -5,8 +5,14 @@ const textFieldMixins = {
       default: 'text',
       validator: value => (['text', 'email', 'search', 'password', 'tel', 'url', 'number', 'textarea', 'date', 'time', 'datetime-local'].indexOf(value) !== -1),
     },
+    size: {
+      type: String,
+      default: 'default',
+      validator: value => (['default', 'small', 'medium', 'large'].indexOf(value) !== -1),
+    },
     value: {type: [Number, String]},
-    label: {type: String, required: true},
+    label: {type: String, required: false},
+    placeholder: {type: String},
     autocomplete: {type: String},
     name: {type: String, required: false},
     id: {type: String, required: false},
@@ -26,6 +32,25 @@ const textFieldMixins = {
     }
   },
   computed: {
+    containerClasses() {
+      let classes = [];
+      if (this.hasNoLabel) {
+        classes.push('has-no-label');
+      }
+      if (this.size !== 'default') {
+        classes.push(`is-${this.size}`);
+      }
+      return classes;
+    },
+    placeholderText() {
+      if (!this.hasNoLabel) {
+        return "";
+      }
+      return this.placeholder;
+    },
+    hasNoLabel() {
+      return !(this.label && this.label.length);
+    },
     hasValue() {
       return !(this.value === null || this.value === '' || this.value === undefined);
     },
