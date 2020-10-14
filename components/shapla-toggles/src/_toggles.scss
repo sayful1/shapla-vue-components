@@ -1,102 +1,98 @@
 @import "~shapla-color-system/src/variables";
 
 .shapla-toggle-panel {
-	background-color: #ffffff;
-	border: 1px none rgba(#000, .1);
-	border-bottom-style: solid;
-	box-shadow: none;
-	font-size: 1rem;
+  background-color: #ffffff;
+  border: 1px none rgba(#000, .1);
+  border-bottom-style: solid;
+  box-shadow: none;
+  font-size: 1rem;
 
-	&:first-child {
-		border-top-style: solid;
-	}
+  &:first-child {
+    border-top-style: solid;
+  }
 
-	&--no-divider {
-		border-bottom: none;
+  &--no-divider {
+    border-bottom: none;
 
-		&:first-child {
-			border-top-style: none;
-		}
-	}
+    &:first-child {
+      border-top-style: none;
+    }
+  }
 
-	&--boxed-mode {
-		border-style: solid;
-		margin-bottom: 1em;
-		margin-top: 1em;
-		cursor: pointer;
-	}
+  &--boxed-mode {
+    border-style: solid;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    cursor: pointer;
+  }
 
-	&__heading {
-		align-items: center;
-		cursor: pointer;
-		display: flex;
-		padding: .75em 1.25em;
-		color: $text-primary;
-		position: relative;
-		line-height: 1.5;
-		font-size: 1.25em;
-		font-weight: 400;
+  &__heading {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    padding: .75em 1.25em;
+    color: $text-primary;
+    position: relative;
+    line-height: 1.5;
+    font-size: 1.25em;
+    font-weight: 400;
 
-		&.has-icon-right {
-			justify-content: space-between;
-		}
-	}
+    &.has-icon-right {
+      justify-content: space-between;
+    }
+  }
 
-	&__icon {
-		display: flex;
+  &__icon {
+    display: flex;
 
-		&.is-icon-left {
-			margin-right: 1rem;
-			order: -1;
-		}
+    &.is-icon-left {
+      margin-right: 1rem;
+      order: -1;
+    }
 
-		&.is-icon-right {
-			margin-left: 1rem;
-		}
+    &.is-icon-right {
+      margin-left: 1rem;
+    }
 
-		&, svg {
-			width: 1em;
-			height: 1em;
-			overflow: hidden;
-		}
-	}
+    &, svg {
+      width: 1em;
+      height: 1em;
+      overflow: hidden;
+    }
+  }
 
-	&__title {
-	}
+  &__title {
+  }
 
-	&__title-text {
-		font-weight: inherit;
-		margin: 0;
-		padding: 0;
-	}
+  &__title-text {
+    font-weight: inherit;
+    margin: 0;
+    padding: 0;
+  }
 
-	&__title-subtext {
-		color: $text-secondary;
-		font-size: .75em;
-	}
+  &__title-subtext {
+    color: $text-secondary;
+    font-size: .75em;
+  }
 
-	&__body {
-		transition: max-height 0.2s ease-out;
-		overflow: hidden;
+  &__body {
+    transition: max-height 0.2s ease-out;
+    overflow: hidden;
 
-		&:not(.is-active) {
-			max-height: 0;
-		}
-	}
+    &:not(.is-active) {
+      max-height: 0;
+    }
+  }
 
-	&__content {
-		border: none;
-		padding: 10px 25px 15px;
-		position: relative;
+  &__content {
+    border: none;
+    padding: 10px 25px 15px;
+    position: relative;
 
-		&:before,
-		&:after {
-			display: table;
-			content: "";
-		}
-
-		&:after {
-			clear: both;
-		}
-	}
+    &:after {
+      display: table;
+      content: "";
+      clear: both;
+    }
+  }
 }
