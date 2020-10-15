@@ -88,8 +88,12 @@
   }
 
   &__body {
-    transition: max-height 0.2s ease-out;
+    transition: max-height 300ms ease-out;
     overflow: hidden;
+
+    &.is-overflow-visible {
+      overflow: visible;
+    }
 
     &:not(.is-active) {
       max-height: 0;

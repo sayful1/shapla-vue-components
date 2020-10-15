@@ -50,6 +50,7 @@ export default {
   data() {
     return {
       isSelected: false,
+      isOverflowVisible: false,
       panelContent: null,
       toggleIconPosition: 'left',
       toggleShowDivider: true,
@@ -78,6 +79,7 @@ export default {
     panelBodyClass() {
       return {
         'is-active': this.isSelected,
+        'is-overflow-visible': this.isOverflowVisible,
       }
     }
   },
@@ -133,7 +135,10 @@ export default {
     },
     handleSelect(active) {
       this.panelContent.style.maxHeight = this.panelContent.scrollHeight + "px";
-      setTimeout(() => this.panelContent.style.maxHeight = null, active ? 300 : 10);
+      setTimeout(() => {
+        this.panelContent.style.maxHeight = null;
+        this.isOverflowVisible = active;
+      }, active ? 300 : 10);
     }
   }
 }

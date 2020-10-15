@@ -1,5 +1,5 @@
 /*!
- * Shapla Toggles v1.0.3
+ * Shapla Toggles v1.0.4
  * (c) 2020 Sayful Islam
  * Released under the MIT License.
  */
