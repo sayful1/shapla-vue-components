@@ -40,6 +40,14 @@
     &.has-icon-right {
       justify-content: space-between;
     }
+
+    &.is-color-primary {
+      color: $primary;
+    }
+
+    &.is-color-secondary {
+      color: $secondary;
+    }
   }
 
   &__icon {
@@ -58,6 +66,10 @@
       width: 1em;
       height: 1em;
       overflow: hidden;
+    }
+
+    svg {
+      fill: currentColor;
     }
   }
 

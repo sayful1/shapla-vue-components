@@ -1,17 +1,12 @@
 {
   "name": "shapla-toggles",
   "description": "A simple accordion/toggle component for Vue.js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "contributors": [
     {
       "name": "Sayful Islam",
       "email": "sayful.islam001@gmail.com",
       "url": "https://sayfulislam.com"
-    },
-    {
-      "name": "Simpi Singh",
-      "email": "simpi21@gmail.com",
-      "url": "https://github.com/simpi21"
     }
   ],
   "keywords": [

@@ -14,6 +14,11 @@ export default {
     },
     boxedMode: {type: Boolean, default: true},
     showDivider: {type: Boolean, default: true},
+    titleColor: {
+      type: String,
+      default: 'default',
+      validator: value => -1 !== ['default', 'primary', 'secondary'].indexOf(value)
+    },
   }
 }
 </script>

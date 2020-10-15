@@ -1,6 +1,6 @@
 <template>
   <div class="test-toggle-container">
-    <toggles :accordion="true" iconPosition="left" :boxed-mode="false" :show-divider="true">
+    <toggles :accordion="true" iconPosition="left" :boxed-mode="false" :show-divider="true" title-color="primary">
       <toggle name="Toggle One" :selected="true">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, id.
       </toggle>
@@ -36,12 +36,15 @@
 
     <div>
       <h1 class="mb-4 mt-4">Single toggle</h1>
-      <toggle name="Nested Toggle" :boxed-mode="false" :show-divider="true">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, consequuntur.
-      </toggle>
-      <toggle name="Nested Toggle" :boxed-mode="false" :show-divider="true">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, consequuntur.
-      </toggle>
+      <div>
+        <toggle name="Nested Toggle" subtext="Subtext go here" title-color="primary" :boxed-mode="true"
+                :show-divider="false">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, consequuntur.
+        </toggle>
+        <toggle name="Nested Toggle" :boxed-mode="true" title-color="secondary" :show-divider="true">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, consequuntur.
+        </toggle>
+      </div>
     </div>
   </div>
 </template>

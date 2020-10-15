@@ -1,6 +1,6 @@
 <template>
   <div class="shapla-toggle-panel" :class="panelClass">
-    <div class="shapla-toggle-panel__heading" :class="`has-icon-${toggleIconPosition}`" @click.prevent="toggleActive">
+    <div class="shapla-toggle-panel__heading" :class="headingClasses" @click.prevent="toggleActive">
       <div class="shapla-toggle-panel__title">
         <h4 class="shapla-toggle-panel__title-text">
           <slot name="title">{{ name }}</slot>
@@ -10,18 +10,12 @@
       <div class="shapla-toggle-panel__icon" :class="`is-icon-${toggleIconPosition}`">
         <template v-if="isSelected">
           <slot name="icon-close">
-            <svg class="icon-minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-              <path d="M19 13H5v-2h14v2z"/>
-              <path d="M0 0h24v24H0z" fill="none"/>
-            </svg>
+            <toggle-icon icon="minus"/>
           </slot>
         </template>
         <template v-if="!isSelected">
           <slot name="icon-open">
-            <svg class="icon-plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-              <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-              <path d="M0 0h24v24H0z" fill="none"/>
-            </svg>
+            <toggle-icon icon="plus"/>
           </slot>
         </template>
       </div>
@@ -35,8 +29,11 @@
 </template>
 
 <script>
+import ToggleIcon from "./toggleIcon";
+
 export default {
   name: "toggle",
+  components: {ToggleIcon},
   props: {
     name: {type: String, required: true},
     subtext: {type: String, required: false},
@@ -44,6 +41,11 @@ export default {
     iconPosition: {type: String, validator: value => -1 !== ['left', 'right'].indexOf(value)},
     boxedMode: {type: Boolean, default: undefined},
     showDivider: {type: Boolean, default: undefined},
+    titleColor: {
+      type: String,
+      default: 'default',
+      validator: value => -1 !== ['default', 'primary', 'secondary'].indexOf(value)
+    },
   },
   data() {
     return {
@@ -52,6 +54,7 @@ export default {
       toggleIconPosition: 'left',
       toggleShowDivider: true,
       toggleBoxedMode: true,
+      toggleTitleColor: 'default',
     }
   },
   computed: {
@@ -61,6 +64,16 @@ export default {
         'shapla-toggle-panel--no-divider': !this.toggleShowDivider && !this.toggleBoxedMode,
         'shapla-toggle-panel--boxed-mode': this.toggleBoxedMode,
       }
+    },
+    headingClasses() {
+      let classes = [];
+      if (this.toggleIconPosition !== 'left') {
+        classes.push(`has-icon-${this.toggleIconPosition}`);
+      }
+      if (this.toggleTitleColor !== 'default') {
+        classes.push(`is-color-${this.toggleTitleColor}`);
+      }
+      return classes
     },
     panelBodyClass() {
       return {
@@ -93,6 +106,13 @@ export default {
       this.toggleShowDivider = this.$parent.showDivider;
     } else if (this.showDivider !== undefined) {
       this.toggleShowDivider = this.showDivider;
+    }
+
+    // Update title color
+    if (this.$parent.titleColor !== undefined) {
+      this.toggleTitleColor = this.$parent.titleColor;
+    } else if (this.titleColor !== undefined) {
+      this.toggleTitleColor = this.titleColor;
     }
   },
   watch: {
