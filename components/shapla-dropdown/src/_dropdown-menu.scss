@@ -45,7 +45,7 @@ $dropdown-divider-background-color: rgba(#000, 0.12) !default;
     top: auto
   }
 
-  &__content {
+  &__inner {
     background-color: $dropdown-content-background-color;
     border-radius: $dropdown-content-radius;
     box-shadow: $dropdown-content-shadow;
@@ -53,9 +53,12 @@ $dropdown-divider-background-color: rgba(#000, 0.12) !default;
     padding-top: $dropdown-content-padding-top;
   }
 
+  &__content {
+  }
+
   &.has-max-items {
     .shapla-dropdown-menu__content {
-      max-height: calc(2.0625em * var(--max-menu-items, 10));
+      max-height: calc(2em * var(--max-menu-items, 10));
       overflow-y: auto;
     }
   }

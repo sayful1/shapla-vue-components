@@ -52,25 +52,17 @@
         <template v-slot:trigger>
           <button>Auto direction: Click</button>
         </template>
-        <a href="https://example.com" class="shapla-dropdown-item is-link is-active">Link 1</a>
-        <a href="https://example.com" class="shapla-dropdown-item is-link">Link 2</a>
-        <span class="dropdown-divider"></span>
-        <a href="https://example.com" class="shapla-dropdown-item is-link">Link 3</a>
-        <a href="https://example.com" class="shapla-dropdown-item is-link">Link 3</a>
-        <a href="https://example.com" class="shapla-dropdown-item is-link">Link 3</a>
-        <a href="https://example.com" class="shapla-dropdown-item is-link">Link 3</a>
-        <a href="https://example.com" class="shapla-dropdown-item is-link">Link 3</a>
-        <a href="https://example.com" class="shapla-dropdown-item is-link">Link 3</a>
-        <a href="https://example.com" class="shapla-dropdown-item is-link">Link 3</a>
-        <a href="https://example.com" class="shapla-dropdown-item is-link">Link 3</a>
-        <a href="https://example.com" class="shapla-dropdown-item is-link">Link 3</a>
-        <a href="https://example.com" class="shapla-dropdown-item is-link">Link 3</a>
-        <a href="https://example.com" class="shapla-dropdown-item is-link">Link 3</a>
-        <a href="https://example.com" class="shapla-dropdown-item is-link">Link 3</a>
-        <a href="https://example.com" class="shapla-dropdown-item is-link">Link 3</a>
-        <a href="https://example.com" class="shapla-dropdown-item is-link">Link 3</a>
-        <a href="https://example.com" class="shapla-dropdown-item is-link">Link 3</a>
-        <a href="https://example.com" class="shapla-dropdown-item is-link">Link 4</a>
+        <template v-slot:before-content>
+          before content
+        </template>
+        <template v-slot:after-content>
+          after content
+        </template>
+        <a v-for="item in range(2)" :key="item + 10" href="https://example.com"
+           class="shapla-dropdown-item is-link">Link {{ item + 1 }}</a>
+        <span class="shapla-dropdown-divider"></span>
+        <a v-for="item in range(8)" :key="item" href="https://example.com"
+           class="shapla-dropdown-item is-link">Link {{ item + 3 }}</a>
       </dropdown>
     </div>
   </div>
@@ -81,7 +73,12 @@ import dropdown from "../src/index";
 
 export default {
   name: "TestDropdown",
-  components: {dropdown}
+  components: {dropdown},
+  methods: {
+    range(length = 20) {
+      return Array.from({length: length}, (x, i) => i);
+    }
+  }
 }
 </script>
 

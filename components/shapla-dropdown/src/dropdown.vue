@@ -5,7 +5,13 @@
       <slot name="trigger"></slot>
     </div>
     <dropdown-menu :active="isActive" :role="role" :right="right" :up="up" :direction="direction" :max-items="maxItems">
+      <template v-slot:before-content>
+        <slot name="before-content"></slot>
+      </template>
       <slot></slot>
+      <template v-slot:after-content>
+        <slot name="after-content"></slot>
+      </template>
     </dropdown-menu>
   </div>
 </template>
