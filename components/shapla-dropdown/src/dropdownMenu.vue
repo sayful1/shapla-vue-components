@@ -1,11 +1,11 @@
 <template>
   <div class="shapla-dropdown-menu" :class="containerClass" :style="containerStyle" :role="role">
     <div class="shapla-dropdown-menu__inner">
-      <slot name="before-content"></slot>
+      <slot name="before-content" :direction="autoClass"></slot>
       <div class="shapla-dropdown-menu__content">
         <slot></slot>
       </div>
-      <slot name="after-content"></slot>
+      <slot name="after-content" :direction="autoClass"></slot>
     </div>
   </div>
 </template>

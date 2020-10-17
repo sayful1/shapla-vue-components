@@ -32,7 +32,7 @@
     "*.js"
   ],
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve ./example/main.js",
     "build": "vue-cli-service build",
     "build:lib": "vue-cli-service build --target lib --name select-field ./src/index.js",
     "lint": "vue-cli-service lint"
