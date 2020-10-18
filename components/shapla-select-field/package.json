@@ -41,7 +41,7 @@
     "shapla-chip": "^1.0.2",
     "shapla-color-system": "^1.0.3",
     "shapla-delete": "^1.0.2",
-    "shapla-dropdown": "^1.1.1",
+    "shapla-dropdown": "^1.1.2",
     "shapla-text-field": "^1.0.5",
     "vue": "^2.6.12"
   },
@@ -51,7 +51,7 @@
     "@vue/cli-service": "^4.5.7",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.11.0",
-    "eslint-plugin-vue": "^7.0.1",
+    "eslint-plugin-vue": "^7.1.0",
     "node-sass": "^4.14.1",
     "sass-loader": "^10.0.3",
     "vue-template-compiler": "^2.6.12"

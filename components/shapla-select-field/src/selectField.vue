@@ -21,7 +21,7 @@
         <shapla-chip :deletable="true" :small="true" v-for="_option in selectedOptions" :key="_option.value"
                      :text="_option.label" @delete="removeSelectedItem(_option)"/>
       </div>
-      <dropdown-menu :active="showDropdown" role="listbox">
+      <dropdown-menu :active="showDropdown" :max-items="5" role="listbox">
         <template v-slot:before-content="slotProps">
           <span class="shapla-dropdown-item is-search-input" v-if="searchable && slotProps.direction === 'is-down'">
             <input type="text" class="shapla-select-field__search" v-model="search">

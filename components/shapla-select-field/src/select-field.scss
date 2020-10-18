@@ -16,19 +16,10 @@
     width: 100%;
   }
 
-  .shapla-dropdown-menu__content {
-    max-height: 11em;
-    overflow: auto;
-  }
-
   &__selected-values {
     > * {
       margin-right: 2px;
     }
-  }
-
-  &.is-searchable .shapla-dropdown-menu__content {
-    max-height: 14em;
   }
 
   .shapla-dropdown-item:not(.is-search-input) {

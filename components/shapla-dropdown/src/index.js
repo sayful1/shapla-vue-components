@@ -1,5 +1,5 @@
 /*!
- * Shapla Dropdown v1.1.1
+ * Shapla Dropdown v1.1.2
  * (c) 2020 Sayful Islam
  * Released under the MIT License.
  */
