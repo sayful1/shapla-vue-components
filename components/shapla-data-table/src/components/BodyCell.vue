@@ -1,6 +1,6 @@
 <template>
   <td :data-colname="column.label" :class="getBodyCellClass">
-    <slot :name="column.key" :row="item">{{ item[column.key] }}</slot>
+    <slot>{{ item[column.key] }}</slot>
 
     <template v-if="isPrimary">
       <div v-if="actions.length" class="row-actions">

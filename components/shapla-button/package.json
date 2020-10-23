@@ -1,7 +1,7 @@
 {
   "name": "shapla-button",
   "description": "A simple button, in different colors, sizes, and states",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",
@@ -39,18 +39,18 @@
   },
   "dependencies": {
     "shapla-color-system": "^1.0.3",
-    "vue": "^2.6.11"
+    "vue": "^2.6.12"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.4.6",
-    "@vue/cli-plugin-eslint": "^4.4.6",
-    "@vue/cli-service": "^4.4.6",
+    "@vue/cli-plugin-babel": "^4.5.8",
+    "@vue/cli-plugin-eslint": "^4.5.8",
+    "@vue/cli-service": "^4.5.8",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.3.1",
-    "eslint-plugin-vue": "^6.2.2",
+    "eslint": "^7.11.0",
+    "eslint-plugin-vue": "^7.1.0",
     "node-sass": "^4.14.1",
-    "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11"
+    "sass-loader": "^10.0.4",
+    "vue-template-compiler": "^2.6.12"
   },
   "eslintConfig": {
     "root": true,
