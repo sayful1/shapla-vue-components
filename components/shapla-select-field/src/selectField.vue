@@ -6,20 +6,20 @@
                   :readonly="isReadonly" :disabled="disabled" @focus="handleFocusEvent" @blur="handleBlurEvent"
                   @keydown="handleKeydownEvent">
         <template v-slot:icon-right>
-                    <span class="icon is-right icon--delete" v-if="clearable && ( hasSelectedOption || hasValue )">
-                        <delete-icon @click="clearSelectedValue"/>
-                    </span>
+          <span class="icon is-right icon--delete" v-if="clearable && ( hasSelectedOption || hasValue )">
+            <delete-icon @click="clearSelectedValue"/>
+          </span>
           <span class="icon is-right">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                            <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
-                            <path fill="none" d="M0 0h24v24H0V0z"/>
-                        </svg>
-                    </span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+              <path fill="none" d="M0 0h24v24H0V0z"/>
+            </svg>
+          </span>
         </template>
       </text-field>
       <div v-if="multiple && selectedOptions.length" class="shapla-select-field__selected-values">
         <shapla-chip :deletable="true" :small="true" v-for="_option in selectedOptions" :key="_option.value"
-                     :text="_option.label" @delete="removeSelectedItem(_option)"/>
+                     @delete="removeSelectedItem(_option)" v-html="_option.label"/>
       </div>
       <dropdown-menu :active="showDropdown" :max-items="5" role="listbox">
         <template v-slot:before-content="slotProps">
