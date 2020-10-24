@@ -19,7 +19,9 @@
       </text-field>
       <div v-if="multiple && selectedOptions.length" class="shapla-select-field__selected-values">
         <shapla-chip :deletable="true" :small="true" v-for="_option in selectedOptions" :key="_option.value"
-                     @delete="removeSelectedItem(_option)" v-html="_option.label"/>
+                     @delete="removeSelectedItem(_option)">
+          <span v-html="_option.label"></span>
+        </shapla-chip>
       </div>
       <dropdown-menu :active="showDropdown" :max-items="5" role="listbox">
         <template v-slot:before-content="slotProps">
