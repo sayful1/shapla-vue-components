@@ -44,14 +44,11 @@ export default {
 ```
 
 ### Props
-| Property          | Type      | Required  | Default   | Description                                                       |
-|-------------------|-----------|-----------|-----------|-------------------------------------------------------------------|
-| `active`          | Boolean   | **no**    | `true`    | Spinner will be shown only when `active` value is `true`          |
-| `single`          | Boolean   | **no**    | `false`   | If set `true`, only primary color will be shown for all layers.   |
-| `showText`        | Boolean   | **no**    | `false`   | If set `true`, `Loading...` text will be show beside spinner.     |
-| `position`        | String    | **no**    | `fixed`   | Value can be `fixed`, `absolute`, or `static`.                    |
-| `primaryColor`    | String    | **no**    | `#3F51B5` | You can use any hex/rgb/rgba color code.                          |
-| `layer1Color`     | String    | **no**    | `#42A5F5` | You can use any hex/rgb/rgba color code.                          |
-| `layer2Color`     | String    | **no**    | `#f44336` | You can use any hex/rgb/rgba color code.                          |
-| `layer3Color`     | String    | **no**    | `#FDD835` | You can use any hex/rgb/rgba color code.                          |
-| `layer4Color`     | String    | **no**    | `#4CAF50` | You can use any hex/rgb/rgba color code.                          |
+| Property          | Type      | Required  | Default       | Description                                                       |
+|-------------------|-----------|-----------|---------------|-------------------------------------------------------------------|
+| `active`          | Boolean   | **no**    | `true`        | Spinner will be shown only when `active` value is `true`          |
+| `single`          | Boolean   | **no**    | `false`       | If set `true`, only primary color will be shown for all layers.   |
+| `showText`        | Boolean   | **no**    | `false`       | If set `true`, `Loading...` text will be show beside spinner.     |
+| `loadingText`     | String    | **no**    | `Loading...`  | Loading text                                                      |
+| `position`        | String    | **no**    | `fixed`       | Value can be `fixed`, `absolute`, or `static`.                    |
+| `size`            | String    | **no**    | `default`     | Value can be `default`, `small`, or `medium` or `large`.          |

@@ -1,7 +1,7 @@
 {
   "name": "shapla-spinner",
   "description": "A loading spinner component based on Material Design Lite Spinner for Vue.js",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",
@@ -35,8 +35,8 @@
     "*.js"
   ],
   "scripts": {
-    "serve": "vue-cli-service serve --public ../../public ./example/main.js",
-    "build": "vue-cli-service build",
+    "serve": "vue-cli-service serve ./example/main.js",
+    "build": "vue-cli-service build ./example/main.js",
     "build:lib": "vue-cli-service build --target lib --name spinner ./src/index.js",
     "lint": "vue-cli-service lint"
   },
@@ -45,14 +45,14 @@
     "vue": "^2.6.12"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.5.7",
-    "@vue/cli-plugin-eslint": "^4.5.7",
-    "@vue/cli-service": "^4.5.7",
+    "@vue/cli-plugin-babel": "^4.5.8",
+    "@vue/cli-plugin-eslint": "^4.5.8",
+    "@vue/cli-service": "^4.5.8",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.11.0",
-    "eslint-plugin-vue": "^7.0.1",
+    "eslint": "^7.12.0",
+    "eslint-plugin-vue": "^7.1.0",
     "node-sass": "^4.14.1",
-    "sass-loader": "^10.0.3",
+    "sass-loader": "^10.0.4",
     "vue-template-compiler": "^2.6.12"
   },
   "eslintConfig": {

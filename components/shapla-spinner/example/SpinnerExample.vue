@@ -2,7 +2,7 @@
   <div id="app" class="shapla-vue-components--demo">
     <div class="container mx-auto">
       <div class="flex space-x-4 p-4">
-        <spinner size="48px" :single="false" :show-text="false"/>
+        <spinner :active="true" size="default" :single="false" :show-text="true"/>
       </div>
     </div>
   </div>
@@ -21,5 +21,4 @@ export default {
 </script>
 
 <style lang="scss">
-// @import "~shapla-utility-css/src/all";
 </style>

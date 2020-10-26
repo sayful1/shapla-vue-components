@@ -14,7 +14,7 @@
           </div>
         </div>
       </div>
-      <div class="shapla-spinner-text" v-if="showText">Loading...</div>
+      <div class="shapla-spinner-text" v-if="showText">{{ loadingText }}</div>
     </div>
   </div>
 </template>
@@ -23,24 +23,32 @@
 export default {
   name: "spinner",
   props: {
-    active: {type: Boolean, default: true},
-    single: {type: Boolean, default: false},
-    showText: {type: Boolean, default: false},
-    position: {type: String, default: 'fixed'},
+    active: {type: Boolean, default: true, required: true},
+    single: {type: Boolean, default: false, required: false,},
+    showText: {type: Boolean, default: false, required: false},
+    loadingText: {type: String, default: 'Loading...', required: false},
+    position: {
+      type: String, default: 'fixed', required: false,
+      validator: value => ['fixed', 'absolute', 'static'].indexOf(value) !== -1
+    },
+    size: {
+      type: String, default: 'default', required: false,
+      validator: value => ['default', 'large', 'medium', 'small'].indexOf(value) !== -1
+    },
   },
   computed: {
     containerClass() {
-      return {
-        'shapla-spinner-container': true,
-        'is-fixed': this.position === 'fixed',
-        'is-absolute': this.position === 'absolute',
-        'is-static': this.position === 'static',
-      }
+      let classes = ['shapla-spinner-container'];
+      classes.push(`is-${this.position}`);
+      return classes;
     },
     getClass() {
-      return {
-        'shapla-spinner--single-color': this.single,
+      let classes = [];
+      classes.push(`is-${this.size}`);
+      if (this.single) {
+        classes.push('shapla-spinner-container');
       }
+      return classes
     }
   },
   watch: {
