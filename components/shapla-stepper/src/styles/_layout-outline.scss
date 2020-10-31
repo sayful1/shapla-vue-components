@@ -1,24 +1,24 @@
-.shapla-multistep-tabs.is-layout-outline {
-	&:after {
-		content: "";
-		display: block;
-		width: 100%;
-		height: 1px;
-		border-bottom-width: 2px;
-		border-bottom-style: solid;
-		position: absolute;
-		top: 15px;
-		z-index: -1;
-		border-color: #ddd;
-	}
+.shapla-steppers.is-layout-outline {
+  &:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    position: absolute;
+    top: 15px;
+    z-index: -1;
+    border-color: #ddd;
+  }
 
-	.shapla-multistep-tab {
-		&__outer {
-			background: #fff;
+  .shapla-stepper {
+    &__outer {
+      background: #fff;
 
-			@media screen and (max-width: 768px) {
-				background: transparent;
-			}
-		}
-	}
+      @media screen and (max-width: 768px) {
+        background: transparent;
+      }
+    }
+  }
 }

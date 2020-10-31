@@ -1,0 +1,43 @@
+.shapla-stepper {
+  position: relative;
+
+  &.is-incomplete {
+    cursor: pointer;
+  }
+
+  &.is-current {
+  }
+
+  &.is-completed {
+  }
+
+  &__outer {
+  }
+
+  &__inner {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 0 1rem;
+    position: relative;
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+      padding: 0 !important;
+    }
+  }
+
+  &:first-child .shapla-stepper__inner {
+    padding-left: 0;
+  }
+
+  &:last-child .shapla-stepper__inner {
+    padding-right: 0;
+  }
+
+  &__text {
+    vertical-align: middle;
+    font-size: 14px;
+    display: table-cell;
+  }
+}

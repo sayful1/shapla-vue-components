@@ -1,0 +1,12 @@
+.shapla-steppers {
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+
+  &__items {
+    display: flex;
+    justify-content: space-between;
+    margin: 1em 0 3em;
+    width: 100%;
+  }
+}
