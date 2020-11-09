@@ -1,6 +1,6 @@
 <template>
   <div class="shapla-tabs__panel" :id="panelId" :class="tabClass">
-    <slot></slot>
+    <slot :active="isActive"></slot>
   </div>
 </template>
 
