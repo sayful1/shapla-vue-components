@@ -42,11 +42,12 @@ export default {
 ```
 
 ### Props
-| Property              | Type     | Required  | Default        | Description               |
-|-----------------------|----------|-----------|----------------|---------------------------|
-| `value`               | String   | **no**    | ``             | Search value              |
-| `placeholder`         | String   | **no**    | `Search …`     | Input placeholder text    |
-| `screenReaderText`    | String   | **no**    | `Search for:`  | Screen reader text        |
+| Property              | Type     | Required  | Default        | Description
+|-----------------------|----------|-----------|----------------|---------------------------------------------------------
+| `value`               | String   | **no**    | ``             | Search value
+| `fontSize`            | String   | **no**    | ``             | Form base font size. This can be used to control height
+| `placeholder`         | String   | **no**    | `Search …`     | Input placeholder text
+| `screenReaderText`    | String   | **no**    | `Search for:`  | Screen reader text
 
 ## Listeners
 The component fires the following events:
