@@ -79,6 +79,18 @@
                     help-text="Some help text." validation-text="Please enter full address"/>
       </div>
     </div>
+    <div class="shapla-columns is-multiline">
+      <div class="shapla-column is-12-tablet">
+        <h2>RTL support</h2>
+      </div>
+      <div class="shapla-column is-3-tablet">
+        <text-field label="Text field" help-text="default size" v-model="field_two" size="default" dir="rtl"/>
+      </div>
+      <div class="shapla-column is-3-tablet">
+        <text-field type="textarea" label="Text field" help-text="default size" v-model="field_two" size="default"
+                    dir="rtl"/>
+      </div>
+    </div>
   </div>
 </template>
 

@@ -8,6 +8,10 @@
   position: relative;
   text-align: left;
 
+  &[dir="rtl"] {
+    text-align: right;
+  }
+
   &.is-small {
     font-size: 12px;
   }
@@ -56,7 +60,6 @@
 
 .shapla-text-field__input,
 .shapla-text-field__textarea {
-  text-align: left;
   text-transform: none;
   display: block;
   width: 100%;
@@ -168,6 +171,10 @@
   pointer-events: none;
   text-overflow: ellipsis;
   line-height: 1.2;
+
+  [dir="rtl"] & {
+    right: 1em;
+  }
 }
 
 .shapla-text-field__input[type=datetime-local]:not(:focus):not(.has-value),

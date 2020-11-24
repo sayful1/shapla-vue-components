@@ -24,6 +24,7 @@ const textFieldMixins = {
     required: {type: Boolean, default: false},
     readonly: {type: Boolean, default: false},
     rows: {type: [String, Number]},
+    dir: {type: String, default: 'ltr'},
   },
   data() {
     return {
@@ -32,6 +33,12 @@ const textFieldMixins = {
     }
   },
   computed: {
+    direction() {
+      if (-1 !== ['ltr', 'rtl', 'auto'].indexOf(this.dir)) {
+        return this.dir;
+      }
+      return 'ltr'
+    },
     containerClasses() {
       let classes = [];
       if (this.hasNoLabel) {
@@ -39,6 +46,9 @@ const textFieldMixins = {
       }
       if (this.size !== 'default') {
         classes.push(`is-${this.size}`);
+      }
+      if ('ltr' !== this.direction) {
+        classes.push(`is-direction-${this.direction}`);
       }
       return classes;
     },

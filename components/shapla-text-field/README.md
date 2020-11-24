@@ -54,6 +54,7 @@ export default {
 | `required`        | Boolean   | **no**    | `false`   | If set `true`, field must be filled
 | `readonly`        | Boolean   | **no**    | `false`   | If set `true`, User cannot modify field value but data can be submit
 | `rows`            | Number    | **no**    | ``        | Set number of rows for textarea field
+| `dir`             | String    | **no**    | `ltr`     | Set direction. Value can be `ltr` or `rtl` or `auto`
 
 ## Listeners
 The button component fires the following events:
