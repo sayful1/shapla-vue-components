@@ -1,5 +1,5 @@
 /*!
- * Shapla Search Form v1.0.3
+ * Shapla Search Form v1.0.4
  * (c) 2020 Sayful Islam
  * Released under the MIT License.
  */

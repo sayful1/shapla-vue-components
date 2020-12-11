@@ -7,6 +7,7 @@
              :placeholder="placeholder"
              :value="searchValue"
              @input="input($event.target.value)"
+             @search.prevent="submit"
       >
     </label>
     <button type="submit" class="shapla-search-form__submit">
