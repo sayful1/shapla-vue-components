@@ -1,15 +1,7 @@
 <template>
   <div class="test-toggle-container">
     <toggles :accordion="true" iconPosition="left" :boxed-mode="false" :show-divider="true" title-color="primary">
-      <toggle name="Toggle One" :selected="true">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, id.
-      </toggle>
-
-      <toggle name="Toggle right">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, id.
-      </toggle>
-
-      <toggle name="Toggle Two">
+      <toggle :name="`Toggle ${_range + 1}`" :key="_range" v-for="_range in range" :selected="_range === 1">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam at et itaque magnam nulla officiis
         perferendis ratione velit, veritatis.
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aspernatur assumenda at autem beatae
@@ -20,32 +12,8 @@
         et, impedit laborum maiores, molestias natus nisi quae quo repudiandae velit! Dignissimos ex impedit
         laborum nisi qui suscipit temporibus voluptas? Ipsam, mollitia, natus? Assumenda dignissimos expedita
         ipsum laboriosam molestiae quos recusandae, soluta vel?
-
-        <toggle name="Nested Toggle">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam autem dolorum explicabo ipsam,
-          molestiae nesciunt. Alias atque corporis cum earum exercitationem facilis harum illum itaque
-          necessitatibus nihil nobis numquam odio officia pariatur praesentium quam quas ratione repudiandae
-          rerum, sunt suscipit unde vel voluptate, voluptates voluptatibus. Accusamus amet animi consequuntur
-          corporis distinctio ea eius hic illo laborum, maxime mollitia nobis non odit perferendis quae quasi
-          qui soluta vel. Asperiores aspernatur blanditiis dolore est excepturi exercitationem labore nihil,
-          quidem quo sapiente soluta tenetur ullam. Aliquam autem dignissimos dolor, eius facere illo impedit
-          iure laboriosam magni maiores nesciunt optio porro quibusdam velit voluptates.
-        </toggle>
       </toggle>
     </toggles>
-
-    <div>
-      <h1 class="mb-4 mt-4">Single toggle</h1>
-      <div>
-        <toggle name="Nested Toggle" subtext="Subtext go here" title-color="primary" :boxed-mode="true"
-                :show-divider="false">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, consequuntur.
-        </toggle>
-        <toggle name="Nested Toggle" :boxed-mode="true" title-color="secondary" :show-divider="true">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, consequuntur.
-        </toggle>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -54,7 +22,12 @@ import {toggle, toggles} from "../src/index";
 
 export default {
   name: "TestToggles",
-  components: {toggles, toggle}
+  components: {toggles, toggle},
+  computed: {
+    range() {
+      return [...Array(5000).keys()];
+    }
+  }
 }
 </script>
 

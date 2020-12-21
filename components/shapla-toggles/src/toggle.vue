@@ -29,7 +29,8 @@
 </template>
 
 <script>
-import ToggleIcon from "./toggleIcon";
+import ToggleIcon from "@/toggleIcon";
+import ToggleEvent from "@/ToggleEvent";
 
 export default {
   name: "toggle",
@@ -85,9 +86,7 @@ export default {
   },
   mounted() {
     this.isSelected = this.selected;
-
-    this.panelContent = this.$el.querySelector('.shapla-toggle-panel__body');
-    this.handleSelect(this.isSelected);
+    this.isOverflowVisible = this.selected;
 
     // Update icon position
     if (this.$parent.iconPosition !== undefined) {
@@ -116,29 +115,21 @@ export default {
     } else if (this.titleColor !== undefined) {
       this.toggleTitleColor = this.titleColor;
     }
-  },
-  watch: {
-    isSelected(newValue) {
-      this.handleSelect(newValue);
-    }
+
+    ToggleEvent.$on('changeActive', element => {
+      if (this.$el !== element && this.isSelected) {
+        this.isSelected = false;
+        this.isOverflowVisible = false;
+      }
+    })
   },
   methods: {
     toggleActive() {
       if (this.$parent.accordion && this.$parent.accordion === true) {
-        this.$parent.$children.forEach(element => {
-          if (element !== this && element.isSelected) {
-            element.isSelected = false
-          }
-        });
+        ToggleEvent.$emit('changeActive', this.$el);
       }
       this.isSelected = !this.isSelected;
-    },
-    handleSelect(active) {
-      this.panelContent.style.maxHeight = this.panelContent.scrollHeight + "px";
-      setTimeout(() => {
-        this.panelContent.style.maxHeight = null;
-        this.isOverflowVisible = active;
-      }, active ? 300 : 10);
+      this.isOverflowVisible = !this.isOverflowVisible;
     }
   }
 }
