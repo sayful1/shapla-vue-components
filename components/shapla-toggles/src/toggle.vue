@@ -29,8 +29,8 @@
 </template>
 
 <script>
-import ToggleIcon from "@/toggleIcon";
-import ToggleEvent from "@/ToggleEvent";
+import ToggleIcon from "./toggleIcon";
+import ToggleEvent from "./ToggleEvent";
 
 export default {
   name: "toggle",
