@@ -1,10 +1,12 @@
 <template>
-  <button :class="getClasses" :disabled="disabled" @click="handleClick($event)">
+  <button :class="btnClasses" :disabled="disabled">
     <slot></slot>
   </button>
 </template>
 
 <script>
+import {computed} from 'vue';
+
 export default {
   name: "ShaplaButton",
   props: {
@@ -18,70 +20,28 @@ export default {
       default: 'normal',
       validator: value => ['small', 'normal', 'medium', 'large'].indexOf(value) !== -1
     },
-    fullwidth: {
-      type: Boolean,
-      default: false
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    outline: {
-      type: Boolean,
-      default: false
-    },
-    rounded: {
-      type: Boolean,
-      default: false
-    },
-    fab: {
-      type: Boolean,
-      default: false
-    },
-    shadow: {
-      type: Boolean,
-      default: false
-    },
+    fullwidth: {type: Boolean, default: false},
+    disabled: {type: Boolean, default: false},
+    outline: {type: Boolean, default: false},
+    rounded: {type: Boolean, default: false},
+    fab: {type: Boolean, default: false},
+    shadow: {type: Boolean, default: false},
   },
-  computed: {
-    getClasses() {
+  setup(props) {
+    const btnClasses = computed(() => {
       let classes = ['shapla-button'];
-
-      if (this.fullwidth) {
-        classes.push('is-fullwidth')
-      }
-
-      if (this.outline) {
-        classes.push('is-outline')
-      }
-
-      if (this.rounded) {
-        classes.push('is-rounded')
-      }
-
-      if (this.fab) {
-        classes.push('is-fab')
-      }
-
-      if (this.shadow) {
-        classes.push('has-shadow')
-      }
-
-      if ('default' !== this.theme) {
-        classes.push(`is-${this.theme}`);
-      }
-
-      if ('normal' !== this.size) {
-        classes.push(`is-${this.size}`);
-      }
+      if (props.fullwidth) classes.push('is-fullwidth');
+      if (props.outline) classes.push('is-outline');
+      if (props.rounded) classes.push('is-rounded');
+      if (props.fab) classes.push('is-fab');
+      if (props.shadow) classes.push('has-shadow');
+      if ('default' !== props.theme) classes.push(`is-${props.theme}`);
+      if ('normal' !== props.size) classes.push(`is-${props.size}`);
 
       return classes;
-    }
-  },
-  methods: {
-    handleClick(event) {
-      this.$emit('click', event);
-    }
+    });
+
+    return {btnClasses}
   }
 }
 </script>

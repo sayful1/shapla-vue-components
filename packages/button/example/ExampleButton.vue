@@ -2,7 +2,7 @@
   <div>
     <h4>Button Theme</h4>
     <div class="shapla-buttons">
-      <shapla-button>Default</shapla-button>
+      <shapla-button @click="handleClick">Default</shapla-button>
       <shapla-button disabled>Default disabled</shapla-button>
       <shapla-button theme="primary">Primary</shapla-button>
       <shapla-button theme="primary" disabled>Primary disabled</shapla-button>
@@ -62,7 +62,12 @@ import ShaplaButton from '../src'
 
 export default {
   name: "ExampleButton",
-  components: {ShaplaButton}
+  components: {ShaplaButton},
+  methods: {
+    handleClick(event) {
+      console.log(event);
+    }
+  }
 }
 </script>
 
