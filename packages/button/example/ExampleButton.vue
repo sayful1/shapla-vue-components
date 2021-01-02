@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="example-shapla-button-container">
     <h4>Button Theme</h4>
     <div class="shapla-buttons">
       <shapla-button @click="handleClick">Default</shapla-button>
@@ -14,6 +14,15 @@
       <shapla-button theme="warning" disabled>Warning disabled</shapla-button>
       <shapla-button theme="error">Error</shapla-button>
       <shapla-button theme="error" disabled>Error disabled</shapla-button>
+    </div>
+    <h4>Button Link</h4>
+    <div class="shapla-buttons">
+      <shapla-button href="https://example.com" target="_blank">Link Default</shapla-button>
+      <shapla-button theme="primary" href="https://example.com" target="_blank">Link Primary</shapla-button>
+      <shapla-button theme="secondary" href="https://example.com" target="_blank">Link Secondary</shapla-button>
+      <shapla-button theme="success" href="https://example.com" target="_blank">Link Success</shapla-button>
+      <shapla-button theme="warning" href="https://example.com" target="_blank">Link Warning</shapla-button>
+      <shapla-button theme="error" href="https://example.com" target="_blank">Link Error</shapla-button>
     </div>
     <h4>Button Size</h4>
     <div class="shapla-buttons">
@@ -63,15 +72,25 @@ import ShaplaButton from '../src'
 export default {
   name: "ExampleButton",
   components: {ShaplaButton},
-  methods: {
-    handleClick(event) {
+  setup() {
+    const handleClick = (event) => {
       console.log(event);
+      alert('Click event');
     }
+    return {handleClick}
   }
 }
 </script>
 
 <style lang="scss" scoped>
+.example-shapla-button-container {
+  box-sizing: border-box;
+
+  *, *:before, *:after {
+    box-sizing: border-box;
+  }
+}
+
 .shapla-buttons {
   > * {
     margin: 5px;

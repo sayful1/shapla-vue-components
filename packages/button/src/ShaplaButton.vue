@@ -1,5 +1,8 @@
 <template>
-  <button :class="btnClasses" :disabled="disabled">
+  <a v-if="href" :href="href" :class="btnClasses">
+    <slot></slot>
+  </a>
+  <button v-else :class="btnClasses" :disabled="disabled">
     <slot></slot>
   </button>
 </template>
@@ -26,6 +29,7 @@ export default {
     rounded: {type: Boolean, default: false},
     fab: {type: Boolean, default: false},
     shadow: {type: Boolean, default: false},
+    href: {type: String, default: ''},
   },
   setup(props) {
     const btnClasses = computed(() => {
