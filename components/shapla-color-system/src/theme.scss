@@ -28,6 +28,19 @@
     background-color: $secondary !important;
   }
 
+  // Success Colors
+  &--success {
+    color: $success !important;
+  }
+
+  &--on-success {
+    color: $on-success !important;
+  }
+
+  &--success-bg {
+    background-color: $success !important;
+  }
+
   // Error Colors
   &--error {
     color: $error !important;
