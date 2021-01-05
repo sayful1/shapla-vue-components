@@ -8,6 +8,7 @@
 import modal from './modal';
 import ModalCore from "./components/ModalCore";
 import ModalCard from "./components/ModalCard";
+import ModalBox from "./components/ModalBox";
 
 // Declare install function executed by Vue.use()
 export function install(Vue) {
@@ -31,5 +32,5 @@ if (GlobalVue) {
 }
 
 // To allow use as module (npm/webpack/etc.) export component
-export {ModalCore, ModalCard, modal}
+export {ModalCore, ModalCard, ModalBox, modal}
 export default modal;

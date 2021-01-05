@@ -2,7 +2,7 @@
   <modal-core :active="active" :show-close-icon="false" content-class="shapla-modal-card" @close="close">
     <div class="shapla-modal-card__header">
       <p class="shapla-modal-card__title">{{ title }}</p>
-      <delete-icon v-if="showCloseIcon" @click="close"></delete-icon>
+      <delete-icon medium v-if="showCloseIcon" @click="close"></delete-icon>
     </div>
     <div class="shapla-modal-card__body">
       <slot></slot>
@@ -24,7 +24,7 @@ export default {
   components: {ModalCore, deleteIcon},
   props: {
     active: {type: Boolean, required: true},
-    showCloseIcon: {type: Boolean, default: false},
+    showCloseIcon: {type: Boolean, default: true},
     closeOnBackgroundClick: {type: Boolean, default: true},
     backgroundTheme: {type: String, default: 'dark', validator: value => ['dark', 'light'].indexOf(value) !== -1},
     contentSize: {
