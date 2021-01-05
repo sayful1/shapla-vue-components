@@ -35,14 +35,17 @@
     "*.js"
   ],
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve ./example/main.js",
     "build": "vue-cli-service build",
     "build:lib": "vue-cli-service build --target lib --name modal ./src/index.js",
     "lint": "vue-cli-service lint"
   },
+  "peerDependencies": {
+    "vue": "^2.6 || ^3.0"
+  },
   "dependencies": {
-    "shapla-delete": "^1.0.2",
-    "vue": "^2.6.11"
+    "shapla-color-system": ">=1.0.3",
+    "shapla-delete": "^1.0.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.4.6",
