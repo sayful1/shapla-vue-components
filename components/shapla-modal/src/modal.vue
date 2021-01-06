@@ -38,7 +38,7 @@ export default {
   props: {
     active: {type: Boolean, required: true},
     title: {type: String, default: 'Untitled'},
-    type: {type: String, default: 'card'}, // Also support 'box' design
+    type: {type: String, default: 'card'}, // Also support 'box', 'confirm' design
     closeOnBackgroundClick: {type: Boolean, default: true},
     showCloseIcon: {type: Boolean, default: true},
     contentSize: {

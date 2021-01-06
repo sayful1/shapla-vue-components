@@ -1,5 +1,6 @@
 <template>
-  <modal-core :active="active" :show-close-icon="false" content-class="shapla-modal-card" @close="close">
+  <modal-core :active="active" :show-close-icon="false" content-class="shapla-modal-card" :content-size="contentSize"
+              :close-on-background-click="closeOnBackgroundClick" :background-theme="backgroundTheme" @close="close">
     <div class="shapla-modal-card__header">
       <p class="shapla-modal-card__title">{{ title }}</p>
       <delete-icon medium v-if="showCloseIcon" @click="close"></delete-icon>

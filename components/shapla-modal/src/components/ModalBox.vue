@@ -5,8 +5,8 @@
     :show-close-icon="showCloseIcon"
     :background-theme="backgroundTheme"
     :close-on-background-click="closeOnBackgroundClick"
-    @close="$emit('close')"
     content-class="shapla-modal-box"
+    @close="$emit('close')"
   >
     <slot/>
   </modal-core>
@@ -34,6 +34,6 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style lang="scss">
+@import "../styles/modal-box";
 </style>
