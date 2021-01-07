@@ -1,28 +1,29 @@
 <template>
-  <div class="shapla-modal" :class="{'is-active':active}" v-show="active">
+  <div class="shapla-modal" :class="{'is-active':active}">
     <div class="shapla-modal-background" @click="backgroundClick"></div>
+    <delete-icon v-if="showCloseIcon && !is_card" fixed large @click="close"/>
 
-    <template v-if="!is_card">
-      <div :class="contentClass">
+    <div :class="contentClass">
+
+      <template v-if="is_card">
+        <div class="shapla-modal-card__header">
+          <p class="shapla-modal-card__title">{{ title }}</p>
+          <delete-icon medium v-if="showCloseIcon" @click="close"></delete-icon>
+        </div>
+        <div class="shapla-modal-card__body">
+          <slot></slot>
+        </div>
+        <div class="shapla-modal-card__footer is-pulled-right">
+          <slot name="foot">
+            <button class="shapla-button" @click.prevent="close">Cancel</button>
+          </slot>
+        </div>
+      </template>
+
+      <template v-if="!is_card">
         <slot></slot>
-      </div>
+      </template>
 
-      <delete-icon v-if="showCloseIcon" fixed large @click="close"></delete-icon>
-    </template>
-
-    <div :class="contentClass" v-if="is_card">
-      <div class="shapla-modal-card-head">
-        <p class="shapla-modal-card-title">{{ title }}</p>
-        <delete-icon v-if="showCloseIcon" @click="close"></delete-icon>
-      </div>
-      <div class="shapla-modal-card-body">
-        <slot></slot>
-      </div>
-      <div class="shapla-modal-card-foot is-pulled-right">
-        <slot name="foot">
-          <button class="shapla-button" @click.prevent="close">Cancel</button>
-        </slot>
-      </div>
     </div>
   </div>
 </template>
@@ -32,9 +33,7 @@ import deleteIcon from 'shapla-delete';
 
 export default {
   name: "modal",
-
   components: {deleteIcon},
-
   props: {
     active: {type: Boolean, required: true},
     title: {type: String, default: 'Untitled'},
@@ -47,17 +46,14 @@ export default {
       validator: value => ['small', 'medium', 'large', 'full'].indexOf(value) !== -1
     },
   },
-
   watch: {
     active(newValue) {
       this.refreshBodyClass(newValue);
     }
   },
-
   mounted() {
     this.refreshBodyClass(this.active);
   },
-
   computed: {
     is_card() {
       return this.type === 'card';
@@ -65,13 +61,14 @@ export default {
     contentClass() {
       return [
         {'shapla-modal-content': true},
-        {'shapla-modal-card': this.is_card},
+        {'shapla-modal-card': this.type === 'card'},
+        {'shapla-modal-box': this.type === 'box'},
+        {'shapla-modal-confirm': this.type === 'confirm'},
         'is-' + this.contentSize,
         'shapla-modal-content--' + this.type,
       ]
     }
   },
-
   methods: {
     close() {
       this.$emit('close');

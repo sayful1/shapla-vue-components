@@ -1,14 +1,10 @@
 /*!
  * Shapla Modal v1.0.6
- * (c) 2019 Sayful Islam
+ * (c) 2021 Sayful Islam
  * Released under the MIT License.
  */
 
 // Import vue component
-import ModalCore from "./components/ModalCore";
-import ModalCard from "./components/ModalCard";
-import ModalBox from "./components/ModalBox";
-import ModalConfirm from "./components/ModalConfirm";
 import modal from './modal';
 
 // Declare install function executed by Vue.use()
@@ -33,5 +29,11 @@ if (GlobalVue) {
 }
 
 // To allow use as module (npm/webpack/etc.) export component
-export {ModalCore, ModalCard, ModalBox, ModalConfirm, modal}
+
+export {default as ModalCore} from './components/ModalCore';
+export {default as ModalCard} from "./components/ModalCard";
+export {default as ModalBox} from "./components/ModalBox";
+export {default as ModalConfirm} from "./components/ModalConfirm";
+
+export {modal}
 export default modal;
