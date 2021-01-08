@@ -1,9 +1,9 @@
 <template>
   <div :class="tableClasses">
-    <table class="shapla-data-table__table" :aria-label="areaLabel">
+    <table class="shapla-data-table" :aria-label="areaLabel">
 
       <table-header>
-        <th v-if="showCb" class="shapla-data-table__header-cell shapla-data-table__header-cell--checkbox"
+        <th v-if="showCb" class="shapla-data-table__header-cell is-checkbox-cell"
             role="columnheader" scope="col">
           <shapla-checkbox id="cb-select-all-1" @change="handleSelectAll" :checked="isAllSelected"/>
         </th>
@@ -11,7 +11,7 @@
         <header-cell v-for="column in columns" :key="column.key" :column="column" :sort-by="sortBy"
                      :sort-order="sortOrder" :is-primary="actionColumn === column.key" @sort="handleSortBy"/>
 
-        <th v-if="showExpand" class="shapla-data-table__header-cell shapla-data-table__header-cell--expand"
+        <th v-if="showExpand" class="shapla-data-table__header-cell is-expand-toggle-cell"
             role="columnheader" scope="col">
           &nbsp;
         </th>
@@ -21,7 +21,7 @@
         <template v-if="items.length">
           <template v-for="row in items">
             <body-row :key="row[index]" :class="{'is-selected':selectedItems.includes(row[index])}">
-              <td class="shapla-data-table__cell shapla-data-table__cell--checkbox" v-if="showCb">
+              <td class="shapla-data-table__cell is-checkbox-cell" v-if="showCb">
                 <shapla-checkbox :value="row[index]" @change="handleSelectItem(row)"
                                  :checked="selectedItems.includes(row[index])"/>
               </td>

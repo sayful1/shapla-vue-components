@@ -1,5 +1,5 @@
 <template>
-  <td class="shapla-data-table__cell shapla-data-table__cell--expand-toggle">
+  <td class="shapla-data-table__cell is-expand-toggle-cell">
     <button @click="toggleExpandRow($event)" type="button" class="data-table-toggle-button"
             aria-label="Show more details">
       <data-table-icon icon="expand-less" class="expand-triangle-up"/>

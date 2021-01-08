@@ -1,75 +1,83 @@
 @import "variables";
 
+.shapla-data-table-container {
+  background-color: $surface;
+  border: $data-table-dividers;
+  -webkit-overflow-scrolling: touch;
+  display: inline-flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow-x: auto;
+  width: 100%;
+}
+
 .shapla-data-table {
-	background-color: $surface;
-	border: $data-table-dividers;
-	-webkit-overflow-scrolling: touch;
-	display: inline-flex;
-	flex-direction: column;
-	box-sizing: border-box;
-	overflow-x: auto;
-	width: 100%;
-}
+  border: 0;
+  border-collapse: collapse;
+  min-width: 100%;
+  margin: 0;
+  table-layout: fixed;
+  white-space: nowrap;
 
-.shapla-data-table__table {
-	border: 0;
-	border-collapse: collapse;
-	min-width: 100%;
-	margin: 0;
-	table-layout: fixed;
-	white-space: nowrap;
-}
+  td, th {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-size: $data-table-font-size;
+    color: $text-primary;
+    line-height: 1.25;
+    padding-right: $data-table-column-padding;
+    padding-left: $data-table-column-padding;
+    text-decoration: inherit;
+    text-transform: inherit;
+    box-sizing: border-box;
+    text-align: left;
+    text-overflow: ellipsis;
+    overflow: hidden;
 
-.shapla-data-table__row {
-	border-top: $data-table-dividers;
-	position: relative;
+    &.is-checkbox-cell {
+      padding-right: 0;
+      width: 40px;
+      overflow: visible;
+    }
 
-	&.is-selected {
-		background-color: $data-table-selection-color;
-	}
+    &.is-numeric-cell {
+      text-align: right;
+    }
 
-	&:not(.is-selected):hover {
-		background-color: $data-table-hover-color;
-	}
-}
+    &.is-expand-toggle-cell {
+      width: 48px;
+      position: relative;
+    }
+  }
 
-.shapla-data-table__cell,
-.shapla-data-table__header-cell {
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-font-smoothing: antialiased;
-	font-size: $data-table-font-size;
-	color: $text-primary;
-	line-height: 1.25;
-	padding-right: $data-table-column-padding;
-	padding-left: $data-table-column-padding;
-	text-decoration: inherit;
-	text-transform: inherit;
-	box-sizing: border-box;
-	text-align: left;
-	text-overflow: ellipsis;
-	overflow: hidden;
+  thead {
+    th, td {
+      font-weight: 500;
+      height: $data-table-header-height;
+    }
+  }
 
-	&--checkbox {
-		padding-right: 0;
-		width: 40px;
-		overflow: visible;
-	}
+  tbody {
+    tr {
+      border-top: $data-table-dividers;
+      position: relative;
 
-	&--numeric {
-		text-align: right;
-	}
-}
+      &.is-selected {
+        background-color: $data-table-selection-color;
+      }
 
-.shapla-data-table__cell {
-	font-weight: 400;
-	height: $data-table-row-height;
+      &:not(.is-selected):hover {
+        background-color: $data-table-hover-color;
+      }
+    }
 
-	&--no-item {
-		text-align: center;
-	}
-}
+    td, th {
+      font-weight: 400;
+      height: $data-table-row-height;
 
-.shapla-data-table__header-cell {
-	font-weight: 500;
-	height: $data-table-header-height;
+      &.has-no-item {
+        text-align: center;
+      }
+    }
+  }
 }

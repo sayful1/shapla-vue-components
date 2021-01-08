@@ -1,18 +1,22 @@
+@import "variables";
+
 .shapla-data-table--mobile {
 
-  .shapla-data-table__row {
-
-    .column-primary ~ .shapla-data-table__cell {
+  .column-primary {
+    // Hide all cell after primary cell
+    ~ th, ~ td {
       display: none;
     }
+  }
 
-    .row-actions {
-      visibility: visible !important;
-    }
+  // make actions always visible
+  .row-actions {
+    visibility: visible !important;
+  }
 
+  .shapla-data-table__row {
     &.is-expanded {
-
-      .shapla-data-table__cell:not(.shapla-data-table__cell--checkbox) {
+      .shapla-data-table__cell:not(.is-checkbox-cell) {
         display: block !important;
       }
 
@@ -26,23 +30,13 @@
     }
   }
 
-  .shapla-data-table__header-cell {
-    &.column-primary {
-      width: 100%;
-
-      ~ .shapla-data-table__header-cell {
-        display: none;
-      }
-    }
-  }
-
   .shapla-data-table__cell {
     display: block;
     text-align: right;
     position: relative;
     padding-top: .5em;
 
-    &--checkbox {
+    &.is-checkbox-cell {
       display: table-cell;
       vertical-align: top;
       padding-top: 14px;
@@ -57,14 +51,14 @@
       text-align: left;
     }
 
-    &:not(.shapla-data-table__cell--checkbox):not(.column-primary)::before {
+    &:not(.is-checkbox-cell):not(.column-primary)::before {
       content: attr(data-colname) ' : ';
       font-weight: bold;
       float: left;
       color: $text-secondary;
     }
 
-    &--no-item {
+    &.has-no-item {
       display: table-cell;
       text-align: center;
 
@@ -73,7 +67,7 @@
       }
     }
 
-    &--expand-toggle {
+    &.is-expand-toggle-cell {
       margin-left: auto;
 
       &:before {
@@ -87,6 +81,11 @@
 
       &:before {
         display: none;
+      }
+
+      &-content {
+        overflow: hidden;
+        white-space: normal;
       }
     }
   }

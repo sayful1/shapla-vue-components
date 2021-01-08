@@ -13,6 +13,7 @@
 
 <script>
 import DataTableIcon from "./DataTableIcon";
+
 export default {
   name: "HeaderCell",
   components: {DataTableIcon},
@@ -43,7 +44,7 @@ export default {
         'shapla-data-table__header-cell',
         'shapla-data-table__header-cell-' + this.column.key,
         {'column-primary': this.isPrimary},
-        {'shapla-data-table__header-cell--numeric': this.isNumeric},
+        {'is-numeric-cell': this.isNumeric},
         {'is-sortable': this.column.sortable},
         {'is-sorted-ascending': this.isSortedAsc},
         {'is-sorted-descending': this.isSortedDesc}

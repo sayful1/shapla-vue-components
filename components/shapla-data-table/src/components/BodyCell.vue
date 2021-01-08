@@ -42,7 +42,7 @@ export default {
       return [
         'shapla-data-table__cell',
         'shapla-data-table__cell-' + this.column.key,
-        {'shapla-data-table__cell--numeric': this.isNumeric},
+        {'is-numeric-cell': this.isNumeric},
         {'column-primary': this.isPrimary},
       ]
     }

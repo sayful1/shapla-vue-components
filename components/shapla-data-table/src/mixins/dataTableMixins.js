@@ -32,7 +32,7 @@ const dataTableMixins = {
     },
     tableClasses() {
       return {
-        'shapla-data-table': true,
+        'shapla-data-table-container': true,
         'shapla-data-table--mobile': this.isMobileView
       }
     },
@@ -95,7 +95,7 @@ const dataTableMixins = {
       return [
         'shapla-data-table__header-cell',
         'shapla-data-table__header-cell-' + value.key,
-        {'shapla-data-table__header-cell--numeric': isNumeric},
+        {'is-numeric-cell': isNumeric},
         {'column-primary': this.actionColumn === value.key},
         {'is-sortable': this.isSortable(value)},
         {'is-sorted-ascending': this.isSorted(value.key) && this.sortOrder === 'asc'},
@@ -107,7 +107,7 @@ const dataTableMixins = {
       return [
         'shapla-data-table__cell',
         'shapla-data-table__cell-' + value.key,
-        {'shapla-data-table__cell--numeric': isNumeric},
+        {'is-numeric-cell': isNumeric},
         {'column-primary': this.actionColumn === value.key},
       ]
     },

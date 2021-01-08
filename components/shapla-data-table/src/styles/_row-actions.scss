@@ -1,39 +1,40 @@
 @import "variables";
 
-.shapla-data-table__row {
+.shapla-data-table {
+  tr {
+    .row-actions {
+      margin-top: 4px;
+      visibility: hidden;
 
-	.row-actions {
-		margin-top: 4px;
-		visibility: hidden;
+      a {
+        color: $primary;
+        text-decoration: none;
 
-		a {
-			color: $primary;
-			text-decoration: none;
+        &:hover {
+          color: $primary-variant;
+        }
+      }
 
-			&:hover {
-				color: $primary-variant;
-			}
-		}
+      > span {
+        &:not(:last-child) {
+          border-right: 1px solid $data-table-divider-color;
+          margin-right: 5px;
+          padding-right: 5px;
+        }
 
-		> span {
-			&:not(:last-child) {
-				border-right: 1px solid $data-table-divider-color;
-				margin-right: 5px;
-				padding-right: 5px;
-			}
+        &.trash,
+        &.delete {
+          color: $error;
 
-			&.trash,
-			&.delete {
-				color: $error;
+          a {
+            color: currentColor;
+          }
+        }
+      }
+    }
 
-				a {
-					color: currentColor;
-				}
-			}
-		}
-	}
-
-	&:hover .row-actions {
-		visibility: visible;
-	}
+    &:hover .row-actions {
+      visibility: visible;
+    }
+  }
 }
