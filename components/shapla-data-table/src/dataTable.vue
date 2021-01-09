@@ -3,8 +3,7 @@
     <table class="shapla-data-table" :aria-label="areaLabel">
 
       <table-header>
-        <th v-if="showCb" class="shapla-data-table__header-cell is-checkbox-cell"
-            role="columnheader" scope="col">
+        <th v-if="showCb" class="shapla-data-table__header-cell is-checkbox-cell" role="columnheader" scope="col">
           <shapla-checkbox id="cb-select-all-1" @change="handleSelectAll" :checked="isAllSelected"/>
         </th>
 

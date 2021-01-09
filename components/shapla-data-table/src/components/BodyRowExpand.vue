@@ -1,7 +1,7 @@
 <template>
   <tr class="shapla-data-table__row" style="display: none">
-    <td class="shapla-data-table__cell shapla-data-table__cell--expand" :colspan="colspan">
-      <div class="shapla-data-table__cell--expand-content">
+    <td class="shapla-data-table__cell is-expand-cell" :colspan="colspan">
+      <div class="expand-cell-content">
         <slot>&nbsp;</slot>
       </div>
     </td>
