@@ -1,6 +1,6 @@
 /*!
- * Shapla Button v1.1.0
- * (c) 2020 Sayful Islam
+ * Shapla Button v1.2.0
+ * (c) 2021 Sayful Islam
  * Released under the MIT License.
  */
 

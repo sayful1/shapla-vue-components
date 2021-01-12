@@ -1,7 +1,7 @@
 {
   "name": "shapla-color-system",
   "description": "The shapla color system can be used to create a color scheme that reflects your brand or style.",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",
@@ -34,14 +34,14 @@
     "lint": "vue-cli-service lint"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.5.9",
-    "@vue/cli-plugin-eslint": "^4.5.9",
-    "@vue/cli-service": "^4.5.9",
+    "@vue/cli-plugin-babel": "^4.5.10",
+    "@vue/cli-plugin-eslint": "^4.5.10",
+    "@vue/cli-service": "^4.5.10",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.17.0",
-    "eslint-plugin-vue": "^7.4.0",
+    "eslint-plugin-vue": "^7.4.1",
     "node-sass": "^5.0.0",
-    "sass-loader": "^10.1.0",
+    "sass-loader": "^10.1.1",
     "vue-template-compiler": "^2.6.12"
   },
   "eslintConfig": {
