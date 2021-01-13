@@ -30,6 +30,10 @@
   outline: none;
 }
 
+.shapla-button:focus {
+  box-shadow: 0 0 0 1px transparent, 0 0 0 3px var(--shapla-button-color-alpha, rgba(0, 0, 0, 0.25));
+}
+
 .shapla-button strong {
   color: currentColor;
 }
@@ -81,30 +85,35 @@
 .shapla-button.is-primary {
   --shapla-button-color: var(--shapla-primary, #00d1b2);
   --shapla-button-color-dark: var(--shapla-primary-variant, #00b89c);
+  --shapla-button-color-alpha: var(--shapla-primary-alpha, rgba(0, 209, 178, 0.25));
   --shapla-button-on-color: var(--shapla-on-primary, #fff);
 }
 
 .shapla-button.is-secondary {
   --shapla-button-color: var(--shapla-secondary, #9c27b0);
   --shapla-button-color-dark: var(--shapla-secondary-variant, #89229b);
+  --shapla-button-color-alpha: var(--shapla-secondary-alpha, rgba(156, 39, 176, 0.25));
   --shapla-button-on-color: var(--shapla-on-secondary, #fff);
 }
 
 .shapla-button.is-success {
   --shapla-button-color: var(--shapla-success, #48c774);
   --shapla-button-color-dark: var(--shapla-success-variant, #3abc67);
+  --shapla-button-color-alpha: var(--shapla-success-alpha, rgba(72, 199, 116, 0.25));
   --shapla-button-on-color: var(--shapla-on-success, #fff);
 }
 
 .shapla-button.is-warning {
   --shapla-button-color: var(--shapla-warning, #ffdd57);
   --shapla-button-color-dark: var(--shapla-warning-variant, #ffd83e);
+  --shapla-button-color-alpha: var(--shapla-warning-alpha, rgba(255, 221, 87, 0.25));
   --shapla-button-on-color: var(--shapla-on-warning, #000);
 }
 
 .shapla-button.is-error {
   --shapla-button-color: var(--shapla-error, #f14668);
   --shapla-button-color-dark: var(--shapla-error-variant, #ef2e55);
+  --shapla-button-color-alpha: var(--shapla-error-alpha, rgba(241, 70, 104, 0.25));
   --shapla-button-on-color: var(--shapla-on-error, #fff);
 }
 
@@ -144,4 +153,8 @@
 
 .shapla-button.has-shadow:not(:disabled):hover {
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+}
+
+.shapla-button.has-shadow:not(:disabled):focus {
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
 }
