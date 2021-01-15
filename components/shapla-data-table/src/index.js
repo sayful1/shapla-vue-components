@@ -1,6 +1,6 @@
 /*!
- * Shapla Data Table v1.3.1
- * (c) 2020 Sayful Islam
+ * Shapla Data Table v1.4.0
+ * (c) 2021 Sayful Islam
  * Released under the MIT License.
  */
 
