@@ -3,17 +3,12 @@
     <table class="shapla-data-table" :aria-label="areaLabel">
 
       <table-header>
-        <th v-if="showCb" class="shapla-data-table__header-cell is-checkbox-cell" role="columnheader" scope="col">
+        <header-cell v-if="showCb" :is-checkbox="true">
           <shapla-checkbox id="cb-select-all-1" @change="handleSelectAll" :checked="isAllSelected"/>
-        </th>
-
+        </header-cell>
         <header-cell v-for="column in columns" :key="column.key" :column="column" :sort-by="sortBy"
                      :sort-order="sortOrder" :is-primary="actionColumn === column.key" @sort="handleSortBy"/>
-
-        <th v-if="showExpand" class="shapla-data-table__header-cell is-expand-toggle-cell"
-            role="columnheader" scope="col">
-          &nbsp;
-        </th>
+        <header-cell v-if="showExpand" :is-expand-toggle="true"/>
       </table-header>
 
       <table-body>
