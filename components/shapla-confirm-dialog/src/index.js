@@ -1,18 +1,18 @@
 /*!
- * Shapla Confirm Modal v1.0.2
- * (c) 2020 Sayful Islam
+ * Shapla Confirm Modal v1.1.0
+ * (c) 2021 Sayful Islam
  * Released under the MIT License.
  */
 
 import Dialog from './ModalPlugin';
-import ConfirmDialog from './ConfirmDialog';
+import DialogContainer from './DialogContainer';
 
 // Declare install function executed by Vue.use()
 export function install(Vue) {
   if (install.installed) return;
   install.installed = true;
   Vue.use(Dialog);
-  Vue.component('confirm-dialog', ConfirmDialog);
+  Vue.component('confirm-dialog', DialogContainer);
 }
 
 // Create module definition for Vue.use()
@@ -29,5 +29,5 @@ if (GlobalVue) {
   GlobalVue.use(plugin);
 }
 
-export {Dialog, ConfirmDialog};
+export {Dialog, DialogContainer, DialogContainer as ConfirmDialog};
 export default Dialog;

@@ -1,7 +1,7 @@
 {
   "name": "shapla-confirm-dialog",
   "description": "A simple confirm modal/dialog based on modal component for Vue",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",
@@ -24,7 +24,7 @@
     "url": "https://github.com/sayful1/shapla-vue-components/issues"
   },
   "main": "dist/confirm-dialog.common.js",
-  "unpkg": "dist/confirm-dialog.umd.js",
+  "unpkg": "dist/confirm-dialog.umd.min.js",
   "module": "src/index.js",
   "files": [
     "dist/*",
@@ -34,27 +34,29 @@
     "*.js"
   ],
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve ./example/main.js",
     "build": "vue-cli-service build",
     "build:lib": "vue-cli-service build --target lib --name confirm-dialog ./src/index.js",
     "lint": "vue-cli-service lint"
   },
+  "peerDependencies": {
+    "vue": "^2.6 || ^3.0"
+  },
   "dependencies": {
-    "shapla-button": "^1.0.7",
-    "shapla-color-system": "^1.0.3",
-    "shapla-modal": "^1.0.6",
-    "vue": "^2.6.11"
+    "shapla-button": "^1.2.1",
+    "shapla-color-system": ">=1.1.0",
+    "shapla-modal": "^1.1.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.4.6",
-    "@vue/cli-plugin-eslint": "^4.4.6",
-    "@vue/cli-service": "^4.4.6",
+    "@vue/cli-plugin-babel": "^4.5.10",
+    "@vue/cli-plugin-eslint": "^4.5.10",
+    "@vue/cli-service": "^4.5.10",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.3.1",
-    "eslint-plugin-vue": "^6.2.2",
-    "node-sass": "^4.14.1",
-    "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11"
+    "eslint": "^7.18.0",
+    "eslint-plugin-vue": "^7.5.0",
+    "node-sass": "^5.0.0",
+    "sass-loader": "^10.1.1",
+    "vue-template-compiler": "^2.6.12"
   },
   "eslintConfig": {
     "root": true,

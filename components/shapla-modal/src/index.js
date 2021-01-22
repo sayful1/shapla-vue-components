@@ -1,5 +1,5 @@
 /*!
- * Shapla Modal v1.0.6
+ * Shapla Modal v1.1.0
  * (c) 2021 Sayful Islam
  * Released under the MIT License.
  */

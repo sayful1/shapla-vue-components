@@ -1,7 +1,7 @@
 {
   "name": "shapla-modal",
   "description": "A classic modal overlay, in which you can include any content you want for Vue.js",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",
@@ -44,19 +44,19 @@
     "vue": "^2.6 || ^3.0"
   },
   "dependencies": {
-    "shapla-color-system": ">=1.0.3",
+    "shapla-color-system": ">=1.1.0",
     "shapla-delete": "^1.0.2"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.4.6",
-    "@vue/cli-plugin-eslint": "^4.4.6",
-    "@vue/cli-service": "^4.4.6",
+    "@vue/cli-plugin-babel": "^4.5.10",
+    "@vue/cli-plugin-eslint": "^4.5.10",
+    "@vue/cli-service": "^4.5.10",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.3.1",
-    "eslint-plugin-vue": "^6.2.2",
-    "node-sass": "^4.14.1",
-    "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11"
+    "eslint": "^7.18.0",
+    "eslint-plugin-vue": "^7.5.0",
+    "node-sass": "^5.0.0",
+    "sass-loader": "^10.1.1",
+    "vue-template-compiler": "^2.6.12"
   },
   "eslintConfig": {
     "root": true,

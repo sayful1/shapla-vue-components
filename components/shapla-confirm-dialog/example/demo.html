@@ -1,32 +1,34 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Confirm Modal</title>
-    <link rel="stylesheet" href="../dist/confirm-dialog.css">
+  <meta charset="utf-8">
+  <title>Confirm Modal</title>
+  <link rel="stylesheet" href="../dist/confirm-dialog.css">
 </head>
 <body>
 <div id="app">
-    <button @click="confirm">Confirm</button>
-    <confirm-dialog/>
+  <button @click="confirm">Confirm</button>
+  <confirm-dialog/>
 </div>
 <script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/shapla-button"></script>
+<script src="https://unpkg.com/shapla-modal"></script>
 <script src="../dist/confirm-dialog.umd.js"></script>
 <script>
-    new Vue({
-        el: '#app',
-        methods: {
-            confirm() {
-                this.$dialog.confirm({
-                    message: 'Are you sure to delete this item permanently?',
-                    cancelButton: 'Cancel',
-                    confirmButton: 'Yes'
-                }).then(confirmed => {
-                    console.log('Do somethings', confirmed);
-                });
-            }
-        }
-    });
+  new Vue({
+    el: '#app',
+    methods: {
+      confirm() {
+        this.$dialog.confirm({
+          message: 'Are you sure to delete this item permanently?',
+          cancelButton: 'Cancel',
+          confirmButton: 'Yes'
+        }).then(confirmed => {
+          console.log('Do somethings', confirmed);
+        });
+      }
+    }
+  });
 </script>
 </body>
 </html>
