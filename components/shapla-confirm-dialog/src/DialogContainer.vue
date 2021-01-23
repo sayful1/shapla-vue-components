@@ -1,6 +1,6 @@
 <template>
-  <modal-core v-if="modalActive" :active="modalActive" background-theme="light" content-size="small"
-              content-class="shapla-modal-confirm" :show-close-icon="false" :close-on-background-click="false">
+  <modal v-if="modalActive" :active="modalActive" background-theme="light" content-size="small" type="confirm"
+         :show-close-icon="false" :close-on-background-click="false">
     <div class="shapla-modal-confirm__content">
       <div class="shapla-modal-confirm__icon" :class="`is-${params.icon}`" v-if="params.icon">
         <div class="shapla-modal-confirm__icon-content">!</div>
@@ -18,17 +18,17 @@
         </shapla-button>
       </slot>
     </div>
-  </modal-core>
+  </modal>
 </template>
 
 <script>
-import {ModalCore} from 'shapla-modal';
+import modal from 'shapla-modal';
 import {shaplaButton} from "shapla-button";
 import Dialog from './ModalPlugin';
 
 export default {
   name: 'DialogContainer',
-  components: {ModalCore, shaplaButton},
+  components: {modal, shaplaButton},
   data() {
     return {
       modalActive: false,
