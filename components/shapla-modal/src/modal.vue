@@ -1,9 +1,9 @@
 <template>
-  <div class="shapla-modal" :class="{'is-active':active}">
-    <div class="shapla-modal-background" @click="backgroundClick"></div>
+  <div :class="modalClasses">
+    <div :class="backgroundClasses" @click="backgroundClick"></div>
     <delete-icon v-if="showCloseIcon && !is_card" fixed large @click="close"/>
 
-    <div :class="contentClass">
+    <div :class="contentClasses">
 
       <template v-if="is_card">
         <div class="shapla-modal-card__header">
@@ -40,6 +40,11 @@ export default {
     type: {type: String, default: 'card'}, // Also support 'box', 'confirm' design
     closeOnBackgroundClick: {type: Boolean, default: true},
     showCloseIcon: {type: Boolean, default: true},
+    contentClass: {type: String, default: ''},
+    backgroundTheme: {
+      type: String, default: 'dark',
+      validator: value => ['dark', 'light'].indexOf(value) !== -1
+    },
     contentSize: {
       type: String,
       default: 'medium',
@@ -58,16 +63,26 @@ export default {
     is_card() {
       return this.type === 'card';
     },
-    contentClass() {
-      return [
-        {'shapla-modal-content': true},
-        {'shapla-modal-card': this.type === 'card'},
-        {'shapla-modal-box': this.type === 'box'},
-        {'shapla-modal-confirm': this.type === 'confirm'},
-        'is-' + this.contentSize,
-        'shapla-modal-content--' + this.type,
-      ]
-    }
+    modalClasses() {
+      let classes = ['shapla-modal'];
+      if (this.active) {
+        classes.push('is-active');
+      }
+      return classes;
+    },
+    backgroundClasses() {
+      return ['shapla-modal-background', `is-${this.backgroundTheme}`];
+    },
+    contentClasses() {
+      let classes = ['shapla-modal-content', `is-${this.contentSize}`];
+      if (this.type === 'card') classes.push('shapla-modal-card')
+      if (this.type === 'box') classes.push('shapla-modal-box')
+      if (this.type === 'confirm') classes.push('shapla-modal-confirm')
+      if (this.contentClass) {
+        classes.push(this.contentClass);
+      }
+      return classes;
+    },
   },
   methods: {
     close() {
