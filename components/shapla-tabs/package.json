@@ -1,7 +1,7 @@
 {
   "name": "shapla-tabs",
   "description": "A simple responsive horizontal navigation tabs component based on Bulma Tabs for Vue.js",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",
@@ -41,7 +41,7 @@
     "shapla-color-system": "latest"
   },
   "peerDependencies": {
-    "vue": "^2.6"
+    "vue": "^2.6.12"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.5.9",
@@ -52,6 +52,7 @@
     "eslint-plugin-vue": "^7.3.0",
     "node-sass": "^5.0.0",
     "sass-loader": "^10.1.0",
+    "vue": "^2.6",
     "vue-template-compiler": "^2.6.12"
   },
   "eslintConfig": {

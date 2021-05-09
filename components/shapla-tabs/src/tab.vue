@@ -1,6 +1,9 @@
 <template>
   <div class="shapla-tabs__panel" :id="panelId" :class="tabClass">
-    <slot :active="isActive"></slot>
+    <div class="shapla-tabs__panel-title" style="display: none">
+      <slot name="name"/>
+    </div>
+    <slot :active="isActive"/>
   </div>
 </template>
 
@@ -13,6 +16,9 @@ export default {
     navItemClass: {type: String, required: false, default: ''}
   },
   computed: {
+    title() {
+      return this.$el.querySelector('.shapla-tabs__panel-title').innerHTML || this.name;
+    },
     panelId() {
       return this.name.toLowerCase().replace(/ /g, '-');
     },

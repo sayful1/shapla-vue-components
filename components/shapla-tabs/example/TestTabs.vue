@@ -27,6 +27,10 @@
     </tabs>
     <tabs alignment="center" fullwidth>
       <tab name="Tab 1" selected>
+        <template v-slot:name>
+          <span class="icon is-small"><i class="fas fa-image" aria-hidden="true"></i></span>
+          <span>Pictures</span>
+        </template>
         Tab One Content
       </tab>
       <tab name="Tab 2">
@@ -45,6 +49,6 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style lang="scss">
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
 </style>

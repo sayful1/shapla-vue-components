@@ -3,11 +3,11 @@
     <div :class="tabClasses">
       <ul class="shapla-tabs__nav">
         <li class="shapla-tabs__nav-item" :class="navItemClass(tab)" v-for="(tab, index) in tabs" :key="index">
-          <a @click.prevent="changeSelectedTab(tab)" :href="tab.href">{{ tab.name }}</a>
+          <a @click.prevent="changeSelectedTab(tab)" :href="tab.href" v-html="tab.title || tab.name"/>
         </li>
       </ul>
     </div>
-    <slot></slot>
+    <slot/>
   </div>
 </template>
 
