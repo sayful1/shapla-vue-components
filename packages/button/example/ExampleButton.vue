@@ -67,7 +67,7 @@
 </template>
 
 <script>
-import ShaplaButton from '../src'
+import ShaplaButton from '../src/index.js'
 
 export default {
   name: "ExampleButton",

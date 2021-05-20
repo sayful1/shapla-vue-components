@@ -51,5 +51,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "button";
+@import "index";
 </style>

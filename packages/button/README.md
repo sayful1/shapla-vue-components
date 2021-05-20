@@ -9,20 +9,20 @@ A simple button, in different colors, sizes, and states
 # Installation
 
 ```
-npm install --save shapla-button
+npm install --save @shapla/vue-button
 ```
 
 # Usage
 Add the component:
 
 ```js
-import shaplaButton from 'shapla-button';
+import ShaplaButton from '@shapla/vue-button';
 
 export default {
   name: 'Hello',
 
   components: {
-    shaplaButton
+    ShaplaButton
   },
   
   methods: {
@@ -49,21 +49,3 @@ export default {
 | `rounded`     | Boolean   | **no**    | `false`   | If set `true`, rounded style will be used
 | `fab`         | Boolean   | **no**    | `false`   | If set `true`, circle style will be used.
 | `shadow`      | Boolean   | **no**    | `false`   | If set `true`, box-shadow will be added around button.
-
-## Listeners
-The button component fires the following events:
-
-**`click`**: When button is clicked, it fires the event.
-
-```html
-<!-- template -->
-<shapla-button @click="handleClick"></shapla-button>
-
-
-<!-- method -->
-methods: {
-  handleClick(){
-    // Handle click event
-  }
-}
-```

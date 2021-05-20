@@ -1,4 +1,5 @@
 import {createApp} from 'vue'
-import ExampleButton from './ExampleButton'
+import ExampleButton from './ExampleButton.vue'
 
-createApp(ExampleButton).mount('#app');
+const app = createApp(ExampleButton);
+app.mount('#app');
