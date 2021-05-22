@@ -1,0 +1,11 @@
+@import "shapla-css/src/components/notification/notification";
+
+.shapla-notification-transition-enter,
+.shapla-notification-transition-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.shapla-notification-transition-leave-active {
+  position: absolute;
+}
