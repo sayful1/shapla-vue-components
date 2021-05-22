@@ -1,77 +1,87 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>notification demo</title>
-    <link rel="stylesheet" href="../dist/notification.css">
+  <meta charset="utf-8">
+  <title>notification demo</title>
+  <link rel="stylesheet" href="../dist/style.css">
 </head>
 <body>
 <div id="app">
-    <div>
-        <label><input type="radio" v-model="position" value="top-left">Top Left</label>
-        <label><input type="radio" v-model="position" value="top-center">Top Center</label>
-        <label><input type="radio" v-model="position" value="top-right">Top Right</label>
-        <label><input type="radio" v-model="position" value="bottom-left">Bottom Left</label>
-        <label><input type="radio" v-model="position" value="bottom-center">Bottom Center</label>
-        <label><input type="radio" v-model="position" value="bottom-right">Bottom Right</label>
-        <label><input type="radio" v-model="position" value="center-center">Center Center</label>
-    </div>
-    <p>&nbsp;</p>
-    <div>
-        <button @click="showDefaultNotification">Show Default Notification</button>
-        <button @click="showSuccessNotification">Show Success Notification</button>
-        <button @click="showInfoNotification">Show Info Notification</button>
-        <button @click="showWarningNotification">Show Warning Notification</button>
-        <button @click="showErrorNotification">Show Error Notification</button>
-    </div>
-    <notification :options="notification" :position="position"></notification>
+  <div>
+    <label><input type="radio" v-model="position" value="top-left">Top Left</label>
+    <label><input type="radio" v-model="position" value="top-center">Top Center</label>
+    <label><input type="radio" v-model="position" value="top-right">Top Right</label>
+    <label><input type="radio" v-model="position" value="bottom-left">Bottom Left</label>
+    <label><input type="radio" v-model="position" value="bottom-center">Bottom Center</label>
+    <label><input type="radio" v-model="position" value="bottom-right">Bottom Right</label>
+    <label><input type="radio" v-model="position" value="center-center">Center Center</label>
+  </div>
+  <p>&nbsp;</p>
+  <div>
+    <button @click="showDefaultNotification">Show Default Notification</button>
+    <button @click="showSuccessNotification">Show Success Notification</button>
+    <button @click="showInfoNotification">Show Info Notification</button>
+    <button @click="showWarningNotification">Show Warning Notification</button>
+    <button @click="showErrorNotification">Show Error Notification</button>
+  </div>
+  <shapla-notification-container :position="position"/>
 </div>
-<script src="https://unpkg.com/vue"></script>
-<script src="../dist/notification.umd.min.js"></script>
+<script src="https://unpkg.com/vue@next"></script>
+<script src="../dist/notification.umd.js"></script>
 <script>
-    new Vue({
-        el: '#app',
-        data: {
-            notification: {},
-            position: 'top-right',
-        },
-        methods: {
-            showDefaultNotification: function () {
-                this.notification = {
-                    message: 'This is default message.'
-                };
-            },
-            showSuccessNotification() {
-                this.notification = {
-                    type: 'success',
-                    title: 'Success!',
-                    timeout: 60000,
-                    message: 'This is success message. Self close after 1 minute.'
-                };
-            },
-            showInfoNotification() {
-                this.notification = {
-                    type: 'info',
-                    title: 'Info!',
-                    message: 'This is info message.'
-                };
-            },
-            showWarningNotification() {
-                this.notification = {
-                    type: 'warning',
-                    title: 'Warning!',
-                    message: 'This is warning message.'
-                };
-            },
-            showErrorNotification() {
-                this.notification = {
-                    type: 'error',
-                    title: 'Error!',
-                    message: 'This is error message.'
-                };
-            },
-        }
-    });
+  const app = Vue.createApp({
+    data() {
+      return {
+        notification: {},
+        position: 'top-right',
+      }
+    },
+    methods: {
+      showDefaultNotification: function () {
+        this.notification = {
+          message: 'This is default message.'
+        };
+      },
+      showSuccessNotification() {
+        this.notification = {
+          type: 'success',
+          title: 'Success!',
+          timeout: 60000,
+          message: 'This is success message. Self close after 1 minute.'
+        };
+      },
+      showInfoNotification() {
+        this.notification = {
+          type: 'info',
+          title: 'Info!',
+          message: 'This is info message.'
+        };
+      },
+      showWarningNotification() {
+        this.notification = {
+          type: 'warning',
+          title: 'Warning!',
+          message: 'This is warning message.'
+        };
+      },
+      showErrorNotification() {
+        this.notification = {
+          type: 'error',
+          title: 'Error!',
+          message: 'This is error message.'
+        };
+      },
+    },
+    watch: {
+      notification(newValue) {
+        const Notify = ShaplaNotification["Notify"];
+        newValue.id = Notify.createUUID();
+        Notify.dispatch(newValue);
+      }
+    }
+  });
+  app.component('shapla-notification-container', ShaplaNotification["ShaplaNotificationContainer"])
+  app.mount('#app');
 </script>
 </body>
 </html>
