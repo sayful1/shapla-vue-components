@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Cross demo</title>
+  <link rel="stylesheet" href="../dist/style.css">
+</head>
+<body>
+<div id="app">
+  <div>
+    <shapla-cross small @click="triggerAlert('small')"></shapla-cross>
+    <shapla-cross @click="triggerAlert('default size')"></shapla-cross>
+    <shapla-cross medium @click="triggerAlert('medium size')"></shapla-cross>
+    <shapla-cross large @click="triggerAlert('large size')"></shapla-cross>
+  </div>
+</div>
+<script src="https://unpkg.com/vue@next"></script>
+<script src="../dist/cross.umd.js"></script>
+<script>
+  const app = Vue.createApp({
+    setup() {
+      const triggerAlert = (message = 'Default message') => {
+        alert(message);
+      }
+      return {triggerAlert}
+    }
+  });
+  app.component('shapla-cross', ShaplaCross)
+  app.mount('#app');
+</script>
+</body>
+</html>
