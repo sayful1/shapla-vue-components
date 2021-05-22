@@ -1,5 +1,5 @@
 /*!
- * Shapla Button v1.1.0
+ * Shapla Cross v1.0.0
  * (c) 2021 Sayful Islam
  * Released under the MIT License.
  */

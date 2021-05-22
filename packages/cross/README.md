@@ -1,5 +1,6 @@
-# Shapla Button
-A simple button, in different colors, sizes, and states
+# Shapla Cross
+
+A versatile delete cross for Vue 3
 
 ## Table of contents
 
@@ -9,24 +10,37 @@ A simple button, in different colors, sizes, and states
 # Installation
 
 ```
-npm install --save @shapla/vue-button
+npm install --save @shapla/vue-cross
 ```
 
 # Usage
-Add the component:
+
+with Sass:
 
 ```js
-import ShaplaButton from '@shapla/vue-button';
+import '@shapla/vue-cross/src/index.scss';
+```
+
+with CSS:
+
+```js
+import '@shapla/vue-cross/dist/style.css';
+```
+
+### Javascript Instantiation
+
+```js
+import ShaplaCross from '@shapla/vue-cross';
 
 export default {
   name: 'Hello',
 
   components: {
-    ShaplaButton
+    ShaplaCross
   },
-  
+
   methods: {
-    handleClick(){
+    handleClick() {
       // Handle click event
     }
   }
@@ -34,18 +48,19 @@ export default {
 
 ```
 
-```html
-<shapla-button @click="handleClick"></shapla-button>
+```vue
+
+<shapla-cross @click="handleClick"/>
 ```
 
 ### Props
+
 | Property      | Type      | Required  | Default   | Description
-|---------------|-----------|-----------|-----------|----------------------------------------------------------------------------------------
-| `theme`       | String    | **no**    | `default` | Value can be `default` or `primary` or `secondary` or `success` or `warning` or `error`
-| `size`        | String    | **no**    | `normal`  | Value can be `normal` or `small` or `medium` or `large`
-| `fullwidth`   | Boolean   | **no**    | `false`   | If set `true`, button will take full width.
-| `disabled`    | Boolean   | **no**    | `false`   | If set `true`, disabled attribute will be added.
-| `outline`     | Boolean   | **no**    | `false`   | If set `true`, outline style will be used.
-| `rounded`     | Boolean   | **no**    | `false`   | If set `true`, rounded style will be used
-| `fab`         | Boolean   | **no**    | `false`   | If set `true`, circle style will be used.
-| `shadow`      | Boolean   | **no**    | `false`   | If set `true`, box-shadow will be added around button.
+|---------------|-----------|-----------|-----------|--------------------------------------------------------
+| `size`        | String    | **no**    | `normal`  | Value can be `normal` or `small` or `medium` or `large`.
+| `ariaLabel`   | String    | **no**    | `close`   | Value for html `aria-label` attribute
+
+```vue
+
+<shapla-cross size="large"/>
+```
