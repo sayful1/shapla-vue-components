@@ -3,7 +3,7 @@
               :close-on-background-click="closeOnBackgroundClick" :background-theme="backgroundTheme" @close="close">
     <div class="shapla-modal-card__header">
       <p class="shapla-modal-card__title">{{ title }}</p>
-      <delete-icon medium v-if="showCloseIcon" @click="$emit('close')"></delete-icon>
+      <shapla-cross size="medium" v-if="showCloseIcon" @click="$emit('close')"/>
     </div>
     <div class="shapla-modal-card__body">
       <slot/>
@@ -18,11 +18,12 @@
 
 <script>
 import ModalCore from "./ModalCore.vue";
-import DeleteIcon from "./DeleteIcon.vue";
+import ShaplaCross from "@shapla/vue-cross";
 
 export default {
   name: "ModalCard",
-  components: {ModalCore, DeleteIcon},
+  components: {ModalCore, ShaplaCross},
+  emits: ['close'],
   props: {
     active: {type: Boolean, required: true},
     showCloseIcon: {type: Boolean, default: true},
@@ -33,10 +34,11 @@ export default {
       validator: value => ['small', 'medium', 'large', 'full'].indexOf(value) !== -1
     },
     title: {type: String, default: 'Untitled'},
+  },
+  setup(props, {emit}) {
+    const close = () => emit('close');
+
+    return {close}
   }
 }
 </script>
-
-<style lang="scss">
-@import "../styles/modal-card";
-</style>

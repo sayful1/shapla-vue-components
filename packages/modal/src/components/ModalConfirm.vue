@@ -46,16 +46,12 @@ export default {
     confirmButton: {type: [String, Boolean], default: 'Ok'},
     cancelButton: {type: [String, Boolean], default: 'Cancel'}
   },
-  setup() {
+  setup(props, {emit}) {
     const handleClick = (confirmed) => {
-      this.$emit('click', confirmed)
+      emit('click', confirmed)
     }
 
     return {handleClick}
   }
 }
 </script>
-
-<style lang="scss">
-@import "../styles/modal-confirm";
-</style>

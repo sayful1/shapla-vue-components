@@ -1,7 +1,7 @@
 <template>
   <div :class="modalClasses">
     <div :class="backgroundClasses" @click="backgroundClick"></div>
-    <delete-icon v-if="showCloseIcon" fixed large @click="close"></delete-icon>
+    <shapla-cross v-if="showCloseIcon" :fixed="true" size="large" @click="close"/>
     <div :class="contentClasses">
       <slot/>
     </div>
@@ -9,24 +9,13 @@
 </template>
 
 <script>
-import DeleteIcon from "./DeleteIcon.vue";
+import ShaplaCross from "@shapla/vue-cross";
 import {computed, watch, onMounted} from 'vue';
+import {refreshBodyClass} from '../helpers.js'
 
-const refreshBodyClass = (active) => {
-  let body = document.querySelector('body');
-  if (active) {
-    return body.classList.add('has-shapla-modal');
-  }
-  setTimeout(() => {
-    if (document.querySelectorAll('.shapla-modal.is-active').length === 0) {
-      body.classList.remove('has-shapla-modal');
-    }
-  }, 50);
-}
-export {refreshBodyClass}
 export default {
   name: "ModalCore",
-  components: {DeleteIcon},
+  components: {ShaplaCross},
   props: {
     active: {type: Boolean, required: true},
     showCloseIcon: {type: Boolean, default: true},
@@ -41,7 +30,7 @@ export default {
       validator: value => ['small', 'medium', 'large', 'full'].indexOf(value) !== -1
     },
   },
-  emits: {close: null},
+  emits: ['close'],
   setup(props, {emit}) {
     const modalClasses = computed(() => {
       let classes = ['shapla-modal'];
@@ -73,7 +62,7 @@ export default {
       refreshBodyClass(props.active);
     })
 
-    watch(() => props.active, (newValue) => {
+    watch(() => props.active, newValue => {
       refreshBodyClass(newValue);
     })
 
@@ -88,7 +77,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-@import "../styles/modal-core";
-</style>

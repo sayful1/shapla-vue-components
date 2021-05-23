@@ -1,5 +1,6 @@
-# Shapla Button
-A simple button, in different colors, sizes, and states
+# Shapla Modal
+
+A classic modal overlay component for Vue 3, in which you can include any content you want.
 
 ## Table of contents
 
@@ -9,25 +10,46 @@ A simple button, in different colors, sizes, and states
 # Installation
 
 ```
-npm install --save @shapla/vue-button
+npm install --save @shapla/vue-modal
 ```
 
 # Usage
-Add the component:
+
+### Styles
 
 ```js
-import ShaplaButton from '@shapla/vue-button';
+import '@shapla/vue-modal/src/index.scss';
+```
+
+with CSS:
+
+```js
+import '@shapla/vue-modal/dist/style.css';
+```
+
+*Note: `@shapla/vue-modal` component has dependency over `@shapla/vue-cross`, also remember to include that style*
+
+### Javascript Instantiation
+
+```js
+import ShaplaModal from '@shapla/vue-modal';
 
 export default {
   name: 'Hello',
 
   components: {
-    ShaplaButton
+    ShaplaModal
+  },
+
+  data () {
+    return {
+        modalActive:true,
+    };
   },
   
   methods: {
-    handleClick(){
-      // Handle click event
+    closeModal(){
+      this.modalActive = false;
     }
   }
 }
@@ -35,17 +57,43 @@ export default {
 ```
 
 ```html
-<shapla-button @click="handleClick"></shapla-button>
+<button @click="modalActive = true">Open Modal</button>
+<shapla-modal :active="modalActive" title="Modal Title" content-size="full" @close="closeModal">
+    Modal content goes here.
+    <div slot="foot">
+        <button @close="closeModal">Close</button>
+    </div>
+</shapla-modal>
 ```
 
 ### Props
-| Property      | Type      | Required  | Default   | Description
-|---------------|-----------|-----------|-----------|----------------------------------------------------------------------------------------
-| `theme`       | String    | **no**    | `default` | Value can be `default` or `primary` or `secondary` or `success` or `warning` or `error`
-| `size`        | String    | **no**    | `normal`  | Value can be `normal` or `small` or `medium` or `large`
-| `fullwidth`   | Boolean   | **no**    | `false`   | If set `true`, button will take full width.
-| `disabled`    | Boolean   | **no**    | `false`   | If set `true`, disabled attribute will be added.
-| `outline`     | Boolean   | **no**    | `false`   | If set `true`, outline style will be used.
-| `rounded`     | Boolean   | **no**    | `false`   | If set `true`, rounded style will be used
-| `fab`         | Boolean   | **no**    | `false`   | If set `true`, circle style will be used.
-| `shadow`      | Boolean   | **no**    | `false`   | If set `true`, box-shadow will be added around button.
+| Property                  | Type      | Required  | Default       | Description
+|---------------------------|-----------|-----------|---------------|-------------------------------------------------------------------------------
+| `active`                  | Boolean   | **yes**   | `false`       | Set `true` to show popup and set `false` to hide popup
+| `title`                   | String    | **no**    | `Untitled`    | `title` will not show if you set `type` other than `card`
+| `type`                    | String    | **no**    | `card`        | Currently `card` design available. Use any name like `box` to get blank modal
+| `closeOnBackgroundClick`  | Boolean   | **no**    | `true`        | If set `true`, clicking outside content area will trigger close event.
+| `showCloseIcon`           | Boolean   | **no**    | `true`        | If set `false`, no closing icon will be shown
+| `contentSize`             | String    | **no**    | `medium`      | Value can be `small`, `medium`, `large` or `full`. 
+
+**Note: `small` has content width 320px, `medium` has content width 640px, `large` has content width 960px and `full` will take full browser width*
+
+## Listeners
+The modal component fires the following events:
+
+**`close`**: When close icon or outside content area is clicked, it fires the event.
+
+```html
+<!-- template -->
+<shapla-modal @close="closeModal">
+  <!-- Modal content goes here -->
+</shapla-modal>
+
+
+<!-- method -->
+methods: {
+  closeModal(){
+    this.modalActive = false;
+  }
+}
+```

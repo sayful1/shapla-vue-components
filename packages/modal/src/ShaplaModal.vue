@@ -1,14 +1,14 @@
 <template>
   <div :class="modalClasses">
     <div :class="backgroundClasses" @click="backgroundClick"></div>
-    <delete-icon v-if="showCloseIcon && !is_card" fixed large @click="close"/>
+    <shapla-cross v-if="showCloseIcon && !is_card" :fixed="true" size="large" @click="close"/>
 
     <div :class="contentClasses">
 
       <template v-if="is_card">
         <div class="shapla-modal-card__header">
           <p class="shapla-modal-card__title">{{ title }}</p>
-          <delete-icon medium v-if="showCloseIcon" @click="close"></delete-icon>
+          <shapla-cross size="medium" v-if="showCloseIcon" @click="close"/>
         </div>
         <div class="shapla-modal-card__body">
           <slot></slot>
@@ -29,13 +29,14 @@
 </template>
 
 <script>
-import DeleteIcon from './components/DeleteIcon.vue';
-import {refreshBodyClass} from './components/ModalCore.vue';
+import ShaplaCross from "@shapla/vue-cross";
+import {refreshBodyClass} from './helpers.js';
 import {computed, onMounted, watch} from "vue";
 
 export default {
   name: "ShaplaModal",
-  components: {DeleteIcon},
+  components: {ShaplaCross},
+  emits: ['close'],
   props: {
     active: {type: Boolean, required: true},
     title: {type: String, default: 'Untitled'},

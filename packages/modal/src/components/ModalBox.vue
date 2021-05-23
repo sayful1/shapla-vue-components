@@ -33,7 +33,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-@import "../styles/modal-box";
-</style>
