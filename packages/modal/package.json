@@ -1,7 +1,7 @@
 {
   "name": "@shapla/vue-modal",
-  "description": "A classic modal overlay, in which you can include any content you want for Vue 3",
-  "version": "1.0.0",
+  "description": "A classic modal overlay component for Vue 3, in which you can include any content you want.",
+  "version": "1.0.1",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",
@@ -9,7 +9,7 @@
   },
   "keywords": [
     "vue",
-    "vuejs",
+    "vue-component",
     "popup",
     "dialog",
     "modal"
@@ -25,14 +25,14 @@
   "main": "./dist/modal.umd.js",
   "module": "./dist/modal.es.js",
   "unpkg": "./dist/modal.umd.js",
-  "browser": {
-    "./sfc": "src/ShaplaModal.vue"
-  },
   "exports": {
     ".": {
       "import": "./dist/modal.es.js",
       "require": "./dist/modal.umd.js"
-    }
+    },
+    "./sfc": "./src/ShaplaModal.vue",
+    "./src/index.scss": "./src/index.scss",
+    "./dist/style.css": "./dist/style.css"
   },
   "files": [
     "dist/*",
@@ -49,7 +49,7 @@
     "vue": "^3.0"
   },
   "dependencies": {
-    "@shapla/vue-cross": "^1.0",
+    "@shapla/vue-cross": "^1.0.1",
     "shapla-css": "^2.0"
   },
   "devDependencies": {

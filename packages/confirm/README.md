@@ -1,5 +1,6 @@
-# Shapla Button
-A simple button, in different colors, sizes, and states
+# Shapla Confirm Dialog
+
+A simple confirm modal/dialog based on modal component for Vue 3
 
 ## Table of contents
 
@@ -9,43 +10,66 @@ A simple button, in different colors, sizes, and states
 # Installation
 
 ```
-npm install --save @shapla/vue-button
+npm install --save @shapla/vue-confirm
 ```
 
 # Usage
-Add the component:
+
+### Note
+
+**Use only one 'ShaplaConfirmContainer' component in the app.**
+
+### Javascript Instantiation
 
 ```js
-import ShaplaButton from '@shapla/vue-button';
+import Dialog, {ShaplaConfirmContainer} from '@shapla/vue-confirm';
 
 export default {
   name: 'Hello',
 
   components: {
-    ShaplaButton
+    ShaplaConfirmContainer
   },
-  
-  methods: {
-    handleClick(){
-      // Handle click event
+  setup() {
+    const openConfirmModal = () => {
+      Dialog.confirm('Are you sure to delete the item?').then(confirm => {
+        if (confirm) {
+          console.log('Confirmed');
+        }
+      });
     }
-  }
+
+    const openAlertModal = () => {
+      Dialog.alert({message: 'You need to click Ok button to close it.', title: 'Simple Alert'});
+    }
+
+    return {
+      openAlertModal,
+      openConfirmModal
+    }
+  },
 }
 
 ```
 
-```html
-<shapla-button @click="handleClick"></shapla-button>
+```vue
+<button @click="openConfirmModal">Confirm</button>
+<button @click="openAlertModal">Alert</button>
+
+<shapla-confirm-container/>
 ```
 
-### Props
-| Property      | Type      | Required  | Default   | Description
-|---------------|-----------|-----------|-----------|----------------------------------------------------------------------------------------
-| `theme`       | String    | **no**    | `default` | Value can be `default` or `primary` or `secondary` or `success` or `warning` or `error`
-| `size`        | String    | **no**    | `normal`  | Value can be `normal` or `small` or `medium` or `large`
-| `fullwidth`   | Boolean   | **no**    | `false`   | If set `true`, button will take full width.
-| `disabled`    | Boolean   | **no**    | `false`   | If set `true`, disabled attribute will be added.
-| `outline`     | Boolean   | **no**    | `false`   | If set `true`, outline style will be used.
-| `rounded`     | Boolean   | **no**    | `false`   | If set `true`, rounded style will be used
-| `fab`         | Boolean   | **no**    | `false`   | If set `true`, circle style will be used.
-| `shadow`      | Boolean   | **no**    | `false`   | If set `true`, box-shadow will be added around button.
+## Notify API
+
+- Dialog.alert(message);
+- Dialog.confirm(message);
+
+Both `alert` and `confirm` can accept String for the message or Object with following props.
+
+| Property          | Type              | Required  | Default       | Description
+|-------------------|-------------------|-----------|---------------|-------------------------------------------------------
+| `message`         | String            | **yes**   | ``            | Confirm dialog message
+| `title`           | String            | **no**    | ``            | Confirm dialog title
+| `icon`            | String            | **no**    | `primary`     | Value can be `primary`, `success` or `error`.
+| `confirmButton`   | String, Boolean   | **no**    | `OK`          | Confirm button text. Set `false` to hide confirm button
+| `cancelButton`    | String, Boolean   | **no**    | `Cancel`      | Cancel button text. Set `false` to hide cancel button

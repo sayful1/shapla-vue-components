@@ -50,7 +50,9 @@ export default {
       return classes
     });
 
-    const close = () => emit('close');
+    const close = () => {
+      return emit('close');
+    };
 
     const backgroundClick = () => {
       if (props.closeOnBackgroundClick) {

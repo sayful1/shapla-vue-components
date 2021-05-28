@@ -13,7 +13,22 @@ npm install --save @shapla/vue-button
 ```
 
 # Usage
-Add the component:
+
+### Styles
+
+with SCSS:
+
+```js
+import '@shapla/vue-button/src/index.scss';
+```
+
+with CSS:
+
+```js
+import '@shapla/vue-button/dist/style.css';
+```
+
+### Javascript Instantiation
 
 ```js
 import ShaplaButton from '@shapla/vue-button';

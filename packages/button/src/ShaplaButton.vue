@@ -1,9 +1,9 @@
 <template>
   <a v-if="href" :href="href" :class="btnClasses">
-    <slot></slot>
+    <slot/>
   </a>
   <button v-else :class="btnClasses" :disabled="disabled">
-    <slot></slot>
+    <slot/>
   </button>
 </template>
 

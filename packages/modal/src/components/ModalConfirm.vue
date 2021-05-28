@@ -26,6 +26,7 @@ import ModalCore from "./ModalCore.vue";
 export default {
   name: "ModalConfirm",
   components: {ModalCore},
+  emits: ['click'],
   props: {
     active: {type: Boolean, required: true},
     backgroundTheme: {

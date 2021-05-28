@@ -71,10 +71,12 @@ export default {
 |---------------------------|-----------|-----------|---------------|-------------------------------------------------------------------------------
 | `active`                  | Boolean   | **yes**   | `false`       | Set `true` to show popup and set `false` to hide popup
 | `title`                   | String    | **no**    | `Untitled`    | `title` will not show if you set `type` other than `card`
-| `type`                    | String    | **no**    | `card`        | Currently `card` design available. Use any name like `box` to get blank modal
+| `type`                    | String    | **no**    | `card`        | Currently `card`, `box` and `confirm` design available.
+| `backgroundTheme`         | String    | **no**    | `dark`        | Value can be `dark` or `light`. 
 | `closeOnBackgroundClick`  | Boolean   | **no**    | `true`        | If set `true`, clicking outside content area will trigger close event.
 | `showCloseIcon`           | Boolean   | **no**    | `true`        | If set `false`, no closing icon will be shown
 | `contentSize`             | String    | **no**    | `medium`      | Value can be `small`, `medium`, `large` or `full`. 
+| `contentClass`            | String    | **no**    | ``            | Extra css class for modal content 
 
 **Note: `small` has content width 320px, `medium` has content width 640px, `large` has content width 960px and `full` will take full browser width*
 

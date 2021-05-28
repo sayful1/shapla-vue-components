@@ -24,14 +24,14 @@
   "main": "./dist/notification.umd.js",
   "module": "./dist/notification.es.js",
   "unpkg": "./dist/notification.umd.js",
-  "browser": {
-    "./sfc": "src/ShaplaNotification.vue"
-  },
   "exports": {
     ".": {
       "import": "./dist/notification.es.js",
       "require": "./dist/notification.umd.js"
-    }
+    },
+    "./sfc": "./src/ShaplaNotification.vue",
+    "./src/index.js": "./src/index.js",
+    "./dist/style.css": "./dist/style.css"
   },
   "files": [
     "dist/*",

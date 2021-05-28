@@ -1,5 +1,5 @@
 import {createApp} from 'vue'
-import ExampleButton from './ExampleButton.vue'
+import TestConfirmDialog from './TestConfirmDialog.vue'
 
-const app = createApp(ExampleButton);
+const app = createApp(TestConfirmDialog);
 app.mount('#app');

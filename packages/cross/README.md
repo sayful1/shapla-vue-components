@@ -15,9 +15,9 @@ npm install --save @shapla/vue-cross
 
 # Usage
 
-with Sass:
-
 ### Styles
+
+with Sass:
 
 ```js
 import '@shapla/vue-cross/src/index.scss';

@@ -19,30 +19,30 @@
       <button @click="openFullCardModal2 = true">Open All-in-One modal</button>
     </p>
 
-    <modal-core :active="openCoreModal" @close="openCoreModal = false">
+    <shapla-modal-core :active="openCoreModal" @close="openCoreModal = false">
       <img src="https://via.placeholder.com/600x600.png?text=1280x960" alt="Placeholder image (600x600)">
-    </modal-core>
+    </shapla-modal-core>
 
-    <modal-box v-if="openBoxModal" :active="openBoxModal" @close="openBoxModal = false">
+    <shapla-modal-box v-if="openBoxModal" :active="openBoxModal" @close="openBoxModal = false">
       Box modal
-    </modal-box>
+    </shapla-modal-box>
 
-    <modal-confirm v-if="openConfirmModal" :active="openConfirmModal" @click="openConfirmModal = false">
+    <shapla-modal-confirm v-if="openConfirmModal" :active="openConfirmModal" @click="openConfirmModal = false">
       Confirm
-    </modal-confirm>
+    </shapla-modal-confirm>
 
-    <modal-card v-if="openCardModal" :active="openCardModal" @close="openCardModal = false">
+    <shapla-modal-card v-if="openCardModal" :active="openCardModal" @close="openCardModal = false">
       Add some content
-    </modal-card>
-    <modal-card v-if="openSmallCardModal" :active="openSmallCardModal" @close="openSmallCardModal = false"
-                content-size="small" title="Modal Demo 1"> Small width modal.
-    </modal-card>
-    <modal-card v-if="openLargeCardModal" :active="openLargeCardModal" @close="openLargeCardModal = false"
-                content-size="large" title="Modal Demo 1"> Large width modal.
-    </modal-card>
-    <modal-card v-if="openFullCardModal" :active="openFullCardModal" @close="openFullCardModal = false"
-                content-size="full" title="Modal Demo 1"> Full width modal.
-    </modal-card>
+    </shapla-modal-card>
+    <shapla-modal-card v-if="openSmallCardModal" :active="openSmallCardModal" @close="openSmallCardModal = false"
+                       content-size="small" title="Modal Demo 1"> Small width modal.
+    </shapla-modal-card>
+    <shapla-modal-card v-if="openLargeCardModal" :active="openLargeCardModal" @close="openLargeCardModal = false"
+                       content-size="large" title="Modal Demo 1"> Large width modal.
+    </shapla-modal-card>
+    <shapla-modal-card v-if="openFullCardModal" :active="openFullCardModal" @close="openFullCardModal = false"
+                       content-size="full" title="Modal Demo 1"> Full width modal.
+    </shapla-modal-card>
     <shapla-modal :active="openFullCardModal2" @close="openFullCardModal2 = false"
                   content-size="full" title="Modal Demo 1">
       Full width modal.
@@ -51,11 +51,11 @@
 </template>
 
 <script>
-import ShaplaModal, {ModalBox, ModalCard, ModalConfirm, ModalCore} from "../src";
+import ShaplaModal, {ShaplaModalBox, ShaplaModalCard, ShaplaModalConfirm, ShaplaModalCore} from "../src";
 
 export default {
   name: "TestModal",
-  components: {ShaplaModal, ModalConfirm, ModalBox, ModalCore, ModalCard},
+  components: {ShaplaModal, ShaplaModalConfirm, ShaplaModalBox, ShaplaModalCore, ShaplaModalCard},
   data() {
     return {
       openBoxModal: false,
@@ -71,6 +71,6 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style lang="scss">
+@import "@shapla/vue-cross/src/index.scss";
 </style>

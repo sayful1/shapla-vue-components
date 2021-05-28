@@ -1,7 +1,7 @@
 {
   "name": "@shapla/vue-button",
-  "description": "A simple button, in different colors, sizes, and states",
-  "version": "1.0.0",
+  "description": "A simple button for Vue 3, in different colors, sizes, and states",
+  "version": "1.0.1",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",
@@ -9,8 +9,7 @@
   },
   "keywords": [
     "vue",
-    "vuejs",
-    "plugin",
+    "vue-component",
     "button"
   ],
   "license": "MIT",
@@ -24,14 +23,14 @@
   "main": "./dist/button.umd.js",
   "module": "./dist/button.es.js",
   "unpkg": "./dist/button.umd.js",
-  "browser": {
-    "./sfc": "src/ShaplaButton.vue"
-  },
   "exports": {
     ".": {
       "import": "./dist/button.es.js",
       "require": "./dist/button.umd.js"
-    }
+    },
+    "./sfc": "./src/ShaplaButton.vue",
+    "./src/index.scss": "./src/index.scss",
+    "./dist/style.css": "./dist/style.css"
   },
   "files": [
     "dist/*",
@@ -52,6 +51,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.2.2",
     "@vue/compiler-sfc": "^3.0.5",
+    "autoprefixer": "^10.2.5",
     "sass": "^1.32.13",
     "vite": "^2.3.3",
     "vue": "^3.0"

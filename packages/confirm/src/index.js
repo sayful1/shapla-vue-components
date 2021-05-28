@@ -7,5 +7,5 @@
 import ShaplaConfirmContainer from './ShaplaConfirmContainer.vue';
 import Dialog from "./Dialog.js";
 
-export {ShaplaConfirmContainer}
+export {ShaplaConfirmContainer, Dialog}
 export default Dialog;
