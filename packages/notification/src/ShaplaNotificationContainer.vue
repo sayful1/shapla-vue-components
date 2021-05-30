@@ -26,7 +26,7 @@ export default {
   model: {prop: 'options', event: 'queued'},
   props: {
     showDismisses: {type: Boolean, default: true,},
-    timeout: {type: Number, default: 2750,},
+    timeout: {type: Number, default: 4000,},
     position: {
       type: String,
       default: 'top-right',

@@ -1,18 +1,18 @@
 <template>
   <div class="shapla-notification" :class="itemClass">
-    <delete-icon v-if="showDismisses" @click="requestClose"/>
+    <shapla-cross v-if="showDismisses" @click="requestClose"/>
     <div class="shapla-notification__title" v-if="title">{{ title }}</div>
     <div class="shapla-notification__message" v-if="message" v-html="message"/>
   </div>
 </template>
 
 <script>
-import deleteIcon from "./DeleteIcon.vue";
+import ShaplaCross from "@shapla/vue-cross";
 import {computed, onMounted, onUnmounted} from 'vue';
 
 export default {
   name: "ShaplaNotification",
-  components: {deleteIcon},
+  components: {ShaplaCross},
   emits: ['close'],
   props: {
     type: {

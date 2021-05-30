@@ -70,6 +70,6 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style lang="scss">
+@import "@shapla/vue-cross/src/index.scss";
 </style>

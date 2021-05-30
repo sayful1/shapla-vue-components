@@ -15,11 +15,13 @@ export default defineConfig({
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled into your library
-      external: ['vue'],
+      external: ['vue', '@shapla/vue-button', '@shapla/vue-modal'],
       output: {
         // Provide global variables to use in the UMD build for externalized deps
         globals: {
-          vue: 'Vue'
+          vue: 'Vue',
+          '@shapla/vue-button': 'ShaplaButton',
+          '@shapla/vue-modal': 'ShaplaModal'
         }
       }
     }
