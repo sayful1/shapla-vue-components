@@ -1,6 +1,6 @@
-# Shapla Cross
+# Shapla Spinner
 
-A versatile delete cross for Vue 3
+A loading spinner component for Vue 3
 
 ## Table of contents
 
@@ -10,7 +10,7 @@ A versatile delete cross for Vue 3
 # Installation
 
 ```
-npm install --save @shapla/vue-cross
+npm install --save @shapla/vue-spinner
 ```
 
 # Usage
@@ -18,51 +18,46 @@ npm install --save @shapla/vue-cross
 ### Styles
 
 with Sass:
-
 ```js
-import '@shapla/vue-cross/src/index.scss';
+import '@shapla/vue-spinner/src/index.scss';
 ```
 
 with CSS:
-
 ```js
-import '@shapla/vue-cross/dist/style.css';
+import '@shapla/vue-spinner/dist/style.css';
 ```
 
 ### Javascript Instantiation
 
 ```js
-import ShaplaCross from '@shapla/vue-cross';
+import ShaplaSpinner from '@shapla/vue-spinner';
 
 export default {
   name: 'Hello',
 
   components: {
-    ShaplaCross
+    ShaplaSpinner
   },
 
-  methods: {
-    handleClick() {
-      // Handle click event
-    }
+  data () {
+    return {
+        active:true,
+    };
   }
 }
 
 ```
 
 ```vue
-
-<shapla-cross @click="handleClick"/>
+<shapla-spinner :active="true" :single="false" :show-text="false" position="static"/>
 ```
 
 ### Props
-
-| Property      | Type      | Required  | Default   | Description
-|---------------|-----------|-----------|-----------|--------------------------------------------------------
-| `size`        | String    | **no**    | `normal`  | Value can be `normal` or `small` or `medium` or `large`.
-| `ariaLabel`   | String    | **no**    | `close`   | Value for html `aria-label` attribute
-
-```vue
-
-<shapla-cross size="large"/>
-```
+| Property          | Type      | Required  | Default       | Description                                                       |
+|-------------------|-----------|-----------|---------------|-------------------------------------------------------------------|
+| `active`          | Boolean   | **no**    | `true`        | Spinner will be shown only when `active` value is `true`          |
+| `single`          | Boolean   | **no**    | `false`       | If set `true`, only primary color will be shown for all layers.   |
+| `showText`        | Boolean   | **no**    | `false`       | If set `true`, `Loading...` text will be show beside spinner.     |
+| `loadingText`     | String    | **no**    | `Loading...`  | Loading text                                                      |
+| `position`        | String    | **no**    | `fixed`       | Value can be `fixed`, `absolute`, or `static`.                    |
+| `size`            | String    | **no**    | `default`     | Value can be `default`, `small`, or `medium` or `large`.          |

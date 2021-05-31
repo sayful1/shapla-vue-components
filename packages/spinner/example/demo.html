@@ -2,30 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Cross demo</title>
+  <title>Spinner demo</title>
   <link rel="stylesheet" href="../dist/style.css">
 </head>
 <body>
-<div id="app">
-  <div>
-    <shapla-cross small @click="triggerAlert('small')"></shapla-cross>
-    <shapla-cross @click="triggerAlert('default size')"></shapla-cross>
-    <shapla-cross medium @click="triggerAlert('medium size')"></shapla-cross>
-    <shapla-cross large @click="triggerAlert('large size')"></shapla-cross>
+<div id="app" class="shapla-vue-components--demo">
+  <div class="container mx-auto">
+    <button @click="active = true">Start loading</button>
+    <p>Loader will be close atomically after 4 seconds.</p>
+    <div class="flex space-x-4 p-4">
+      <shapla-spinner :active="active" size="default" :single="false" :show-text="true"/>
+    </div>
   </div>
 </div>
 <script src="https://unpkg.com/vue@next"></script>
-<script src="../dist/cross.umd.js"></script>
+<script src="../dist/spinner.umd.js"></script>
 <script>
   const app = Vue.createApp({
-    setup() {
-      const triggerAlert = (message = 'Default message') => {
-        alert(message);
+    data() {
+      return {
+        active: false
       }
-      return {triggerAlert}
+    },
+    watch: {
+      active(newValue) {
+        if (newValue) {
+          setTimeout(() => this.active = false, 4000);
+        }
+      }
     }
   });
-  app.component('shapla-cross', ShaplaCross)
+  app.component('shapla-spinner', ShaplaSpinner)
   app.mount('#app');
 </script>
 </body>

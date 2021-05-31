@@ -8,7 +8,7 @@
 import {computed} from "vue";
 
 export default {
-  name: "Column",
+  name: "ShaplaColumn",
   props: {
     mobile: {type: Number},
     tablet: {type: Number},

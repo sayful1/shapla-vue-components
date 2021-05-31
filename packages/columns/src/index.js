@@ -4,13 +4,13 @@
  * Released under the MIT License.
  */
 
-import Columns from './Columns.vue';
-import Column from './Column.vue';
+import ShaplaColumns from './ShaplaColumns.vue';
+import ShaplaColumn from './ShaplaColumn.vue';
 
 const Grid = {
-  row: Columns,
-  col: Column
+  row: ShaplaColumns,
+  col: ShaplaColumn
 }
 
-export {Columns, Column}
+export {ShaplaColumns, ShaplaColumn, ShaplaColumns as Columns, ShaplaColumn as Column}
 export default Grid;

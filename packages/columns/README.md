@@ -32,29 +32,29 @@ import '@shapla/vue-columns/dist/style.css';
 ### Javascript Instantiation
 
 ```js
-import {Columns, Column} from '@shapla/vue-columns';
+import {ShaplaColumns, ShaplaColumn} from '@shapla/vue-columns';
 
 export default {
   name: 'Hello',
 
   components: {
-    Columns,
-    Column
+    ShaplaColumns,
+    ShaplaColumn
   },
 }
 
 ```
 
 ```html
-<columns multiline centered>
-    <column>Column 1</column>
-    <column :tablet="4" :desktop="3">Column 2</column>
-    <column>Column 3</column>
-    <column>Column 4</column>
-</columns>
+<shapla-columns multiline centered>
+    <shapla-column>Column 1</shapla-column>
+    <shapla-column :tablet="4" :desktop="3">Column 2</shapla-column>
+    <shapla-column>Column 3</shapla-column>
+    <shapla-column>Column 4</shapla-column>
+</shapla-columns>
 ```
 
-### Props for `columns`
+### Props for `ShaplaColumns`
 | Property      | Type      | Required  | Default   | Description                                                                                                                                                                                                                    |
 |---------------|-----------|-----------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `multiline`   | Boolean   | **no**    | `false`   | Whenever you want to start a new line, you can also add the `multiline` property and add more column elements than would fit in a single row                                                                                   |
@@ -66,7 +66,7 @@ export default {
 | `columnGap`   | String    | **no**    | `0.75rem` | If you want to use custom column gap, you can change this value
 
 
-### Props for `column`
+### Props for `ShaplaColumn`
 If you want to change the size of a single column, you can use one of the following props
 Each props can take value from 1 to 12 as it 12 columns grid system.
 

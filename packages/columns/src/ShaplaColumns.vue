@@ -8,7 +8,7 @@
 import {computed} from "vue";
 
 export default {
-  name: "Columns",
+  name: "ShaplaColumns",
   props: {
     multiline: {type: Boolean, default: false},
     centered: {type: Boolean, default: false},
