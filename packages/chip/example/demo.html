@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Chip demo</title>
+  <link rel="stylesheet" href="../dist/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@shapla/vue-cross/dist/style.css">
+</head>
+<body>
+<div id="app">
+  <div style="display: flex">
+    <shapla-chip text="Sayful Islam"></shapla-chip>
+    <shapla-chip text="Sayful Islam" :deletable="true"></shapla-chip>
+    <shapla-chip text="Sayful Islam" image_src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"></shapla-chip>
+    <shapla-chip text="Sayful Islam" :deletable="true"
+                 image_src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"></shapla-chip>
+  </div>
+</div>
+<script src="https://unpkg.com/vue@next"></script>
+<script src="https://unpkg.com/@shapla/vue-cross"></script>
+<script src="../dist/chip.umd.js"></script>
+<script>
+  const app = Vue.createApp({});
+  app.component('shapla-chip', ShaplaChip)
+  app.mount('#app');
+</script>
+</body>
+</html>
