@@ -1,6 +1,6 @@
 {
   "name": "@shapla/vue-table",
-  "description": "A simple data table component for Vue 3",
+  "description": "A simple responsive data table component for Vue 3",
   "version": "1.0.0",
   "author": {
     "name": "Sayful Islam",

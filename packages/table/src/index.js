@@ -15,6 +15,8 @@ export {default as DataTableIcon} from './components/DataTableIcon.vue';
 export {default as HeaderCell} from './components/HeaderCell.vue';
 export {default as TableBody} from './components/TableBody.vue';
 export {default as TableHeader} from './components/TableHeader.vue';
+export {default as Pagination} from './components/Pagination.vue';
+export {default as StatusList} from './components/StatusList.vue';
 
 export {ShaplaTable, ShaplaTable as DataTable}
 export default ShaplaTable;

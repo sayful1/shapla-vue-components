@@ -7,12 +7,11 @@
       :sort-by="sortBy"
       :sort-order="sortOrder"
       :selected-items="selectedItems"
-      action-column="title"
       :actions="actions"
-      @sort:click="sortData"
-      @action:click="onActionClick"
-      @item:select="selectItems"
-    ></data-table>
+      @click:sort="sortData"
+      @click:action="onActionClick"
+      @select:item="selectItems"
+    />
 
     <h2>Demo Table Two (No items)</h2>
     <data-table
@@ -21,14 +20,16 @@
       :sort-by="sortBy"
       :sort-order="sortOrder"
       :selected-items="selectedItems"
-      action-column="title"
       :actions="actions"
-      @sort:click="sortData"
-      @action:click="onActionClick"
-      @item:select="selectItems"
-    ></data-table>
+      @click:sort="sortData"
+      @click:action="onActionClick"
+      @select:item="selectItems"
+    />
 
     <h2>Demo Table One</h2>
+    <div style="margin-bottom: 1rem;display: flex">
+      <status-list :statuses="statuses" @change="changeStatus"/>
+    </div>
     <data-table
       :show-expand="true"
       :items="items"
@@ -36,27 +37,36 @@
       :sort-by="sortBy"
       :sort-order="sortOrder"
       :selected-items="selectedItems"
-      action-column="title"
       :actions="actions"
-      @sort:click="sortData"
-      @action:click="onActionClick"
-      @item:select="selectItems"
+      @click:sort="sortData"
+      @click:action="onActionClick"
+      @select:item="selectItems"
     >
       <template v-slot:cellExpand="data">
         {{ data.row }}
       </template>
     </data-table>
+
+    <div style="margin-top: 1rem">
+      <pagination :total-items="pagination.totalItems" :current-page="pagination.currentPage"
+                  :per-page="pagination.perPage" @paginate="paginate"/>
+    </div>
   </div>
 </template>
 
 <script>
-import ShaplaTable from "../src";
+import {ShaplaTable, Pagination, StatusList} from "../src";
 
 export default {
   name: "ExampleTable",
-  components: {'data-table': ShaplaTable},
+  components: {'data-table': ShaplaTable, Pagination, StatusList},
   data() {
     return {
+      statuses: [
+        {key: 'all', label: 'All', count: 11, active: true},
+        {key: 'active', label: 'Active', count: 9, active: false},
+        {key: 'trash', label: 'Trash', count: 2, active: false},
+      ],
       columns: [
         {key: 'title', label: 'Title', numeric: false},
         {key: 'bangle', label: 'Bangle', numeric: true},
@@ -78,10 +88,23 @@ export default {
       sortBy: 'math',
       sortOrder: 'asc',
       selectedItems: [],
+      pagination: {
+        totalItems: 100,
+        currentPage: 1,
+        perPage: 20
+      }
     }
   },
   methods: {
-    selectItems: function selectItems(selectedItems) {
+    paginate(page) {
+      this.pagination.currentPage = page;
+    },
+    changeStatus(status) {
+      this.statuses.filter(item => {
+        item.active = item.key === status.key;
+      });
+    },
+    selectItems(selectedItems) {
       this.selectedItems = selectedItems;
     },
     sortData: function sortData(column, order) {

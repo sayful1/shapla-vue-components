@@ -4,7 +4,7 @@
 
       <table-header>
         <header-cell v-if="showCb" :is-checkbox="true">
-          <shapla-checkbox id="cb-select-all-1" @change="selectAllItems" :checked="isAllSelected"/>
+          <shapla-checkbox id="cb-select-all-1" @update:modelValue="selectAllItems" :checked="isAllSelected"/>
         </header-cell>
         <header-cell v-for="column in columns" :key="column.key" :column="column" :sort-by="sortBy"
                      :sort-order="sortOrder" :is-primary="actionColumn === column.key" @sort="sortClicked"/>
@@ -16,7 +16,7 @@
           <template v-for="row in items" :key="row[index]">
             <body-row :class="{'is-selected':selectedItems.includes(row[index])}">
               <td class="shapla-data-table__cell is-checkbox-cell" v-if="showCb">
-                <shapla-checkbox :value="row[index]" @change="selectItem(row)"
+                <shapla-checkbox :value="row[index]" @update:modelValue="selectItem(row)"
                                  :checked="selectedItems.includes(row[index])"/>
               </td>
 
@@ -73,15 +73,15 @@ export default {
     areaLabel: {type: String, required: false},
     showExpand: {type: Boolean, default: false},
   },
-  emits: ['action:click', 'sort:click', 'item:select'],
+  emits: ['click:action', 'click:sort', 'select:item'],
   setup(props, {emit}) {
     const windowWidth = ref(0);
     const isMobileView = computed(() => windowWidth.value <= props.mobileWidth)
     const updateTableWidth = () => windowWidth.value = window.innerWidth;
 
-    const emitItemsSelect = items => emit('item:select', items);
-    const actionClicked = (action, row) => emit('action:click', action, row);
-    const sortClicked = (column) => emit('sort:click', column, props.sortOrder === 'asc' ? 'desc' : 'asc');
+    const emitItemsSelect = items => emit('select:item', items);
+    const actionClicked = (action, row) => emit('click:action', action, row);
+    const sortClicked = (column) => emit('click:sort', column, props.sortOrder === 'asc' ? 'desc' : 'asc');
 
     const tableClasses = computed(() => {
       return {
@@ -110,7 +110,7 @@ export default {
 
     // Check if all items selected
     const isAllSelected = computed(() => !!(props.items.length && props.selectedItems.length === props.items.length));
-    const hasActions = computed(() => this.actions.length > 0)
+    const hasActions = computed(() => props.actions.length > 0)
 
     onMounted(() => {
       updateTableWidth();
@@ -135,15 +135,8 @@ export default {
       let selected = [];
 
       if (props.items.length && (props.selectedItems.length !== props.items.length)) {
-        props.items.forEach(item => {
-          if (item[props.index] !== undefined) {
-            selected.push(item[props.index]);
-          } else {
-            selected.push(item.id);
-          }
-        });
+        props.items.forEach(item => selected.push(item[props.index]));
       }
-
       emitItemsSelect(selected);
     }
 
