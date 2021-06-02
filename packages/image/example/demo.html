@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Image container demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../dist/style.css">
+    <style type="text/css">
+        html {
+            box-sizing: border-box;
+        }
+
+        html * {
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <image-container container-width="32px" container-height="32px">
+        <img src="https://via.placeholder.com/48x48">
+    </image-container>
+    <image-container container-width="32px" container-height="32px" is-rounded>
+        <img src="https://via.placeholder.com/128x128">
+    </image-container>
+    <div style="width: 420px;height: 560px;">
+        <image-container :width-ratio="3" :height-ratio="4">
+            <img src="https://via.placeholder.com/420x560">
+        </image-container>
+    </div>
+    <div style="width: 420px;height: 560px;">
+        <image-container :width-ratio="16" :height-ratio="9">
+            <iframe class="" width="640" height="360" src="https://www.youtube.com/embed/YE7VzlLtp-4?showinfo=0"
+                    frameborder="0" allowfullscreen></iframe>
+        </image-container>
+    </div>
+</div>
+<script src="https://unpkg.com/vue@next"></script>
+<script src="../dist/image.umd.js"></script>
+<script>
+  const app = Vue.createApp({});
+  app.component('image-container', ShaplaImage["default"])
+  app.mount('#app');
+</script>
+</body>
+</html>
