@@ -1,6 +1,6 @@
 {
-  "name": "@shapla/vue-components",
-  "description": "A collection of components for Vue 3",
+  "name": "@shapla/vue-input",
+  "description": "A simple customized input text field.",
   "version": "1.0.0",
   "author": {
     "name": "Sayful Islam",
@@ -9,7 +9,9 @@
   },
   "keywords": [
     "vue",
-    "vue-component"
+    "vue-component",
+    "input",
+    "text"
   ],
   "license": "MIT",
   "repository": {
@@ -19,14 +21,15 @@
   "bugs": {
     "url": "https://github.com/sayful1/shapla-vue-components/issues"
   },
-  "main": "./dist/components.umd.js",
-  "module": "./dist/components.es.js",
-  "unpkg": "./dist/components.umd.js",
+  "main": "./dist/input.umd.js",
+  "module": "./dist/input.es.js",
+  "unpkg": "./dist/input.umd.js",
   "exports": {
     ".": {
-      "import": "./dist/components.es.js",
-      "require": "./dist/components.umd.js"
+      "import": "./dist/input.es.js",
+      "require": "./dist/input.umd.js"
     },
+    "./sfc": "./src/ShaplaInput.vue",
     "./src/index.scss": "./src/index.scss",
     "./dist/style.css": "./dist/style.css"
   },
@@ -45,16 +48,6 @@
     "vue": "^3.0"
   },
   "dependencies": {
-    "@shapla/vue-button": "^1.0.1",
-    "@shapla/vue-checkbox": "^1.0.0",
-    "@shapla/vue-chip": "^1.0.0",
-    "@shapla/vue-columns": "^1.0.0",
-    "@shapla/vue-confirm": "^1.0.0",
-    "@shapla/vue-cross": "^1.0.1",
-    "@shapla/vue-modal": "^1.0.1",
-    "@shapla/vue-notification": "^1.0.0",
-    "@shapla/vue-spinner": "^1.0.0",
-    "@shapla/vue-table": "^1.0.0",
     "shapla-css": "^2.0"
   },
   "devDependencies": {

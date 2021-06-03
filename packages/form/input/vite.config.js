@@ -10,15 +10,17 @@ export default defineConfig({
     sourcemap: true,
     lib: {
       entry: path.resolve(__dirname, 'src/index.js'),
-      name: 'ShaplaVueComponent',
-      fileName: 'components',
+      name: 'ShaplaInput',
+      fileName: 'input',
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled into your library
       external: ['vue'],
       output: {
         // Provide global variables to use in the UMD build for externalized deps
-        globals: {vue: 'Vue'}
+        globals: {
+          vue: 'Vue'
+        }
       }
     }
   }
