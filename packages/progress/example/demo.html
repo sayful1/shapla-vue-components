@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Progress bar demo</title>
+  <link rel="stylesheet" href="../dist/style.css">
+</head>
+<body>
+<div id="app" class="shapla-buttons">
+  <div>
+    <h2>Example 1: (default theme and size)</h2>
+    <progress-bar :value="2" :max="10"/>
+  </div>
+  <div>
+    <h2>Example 2: (primary theme, small size)</h2>
+    <progress-bar :value="3" :max="10" size="small" theme="primary"/>
+  </div>
+  <div>
+    <h2>Example 3: (secondary theme, small size, striped design)</h2>
+    <progress-bar :value="3" :max="10" size="small" theme="secondary" :striped="true" :animated="false"/>
+  </div>
+  <div>
+    <h2>Example 4: (primary theme, small size, striped and animated design)</h2>
+    <progress-bar :value="3" :max="10" size="small" theme="primary" :striped="true" :animated="true"/>
+  </div>
+  <div>
+    <h2>Example 4: (primary theme, indeterminate state)</h2>
+    <progress-bar :max="10" size="small" theme="primary"/>
+  </div>
+</div>
+<script src="https://unpkg.com/vue@next"></script>
+<script src="../dist/progress.umd.js"></script>
+<script>
+  const app = Vue.createApp({});
+  app.component('progress-bar', ShaplaProgress);
+  app.mount('#app')
+</script>
+</body>
+</html>
