@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>button demo</title>
+  <link rel="stylesheet" href="../dist/radio.css">
+</head>
+<body>
+<div id="app">
+  <div>
+    <shapla-radio
+      v-for="_option in testOptions"
+      :key="_option.value"
+      v-model="radioTest"
+      :label="_option.label"
+      :value="_option.value"
+    ></shapla-radio>
+
+    <pre><code>{{ radioTest }}</code></pre>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="../dist/radio.umd.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      radioTest: 'two',
+      testOptions: [
+        {label: 'One', value: 'one'},
+        {label: 'Two', value: 'two'},
+        {label: 'Three', value: 'three'},
+      ],
+    }
+  });
+</script>
+</body>
+</html>
