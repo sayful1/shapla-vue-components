@@ -1,0 +1,36 @@
+<template>
+  <div>
+    <shapla-radio-button
+      v-for="_option in testOptions"
+      :key="_option.value"
+      v-model="radioTest"
+      :label="_option.label"
+      :value="_option.value"
+    />
+
+    <pre><code>{{ radioTest }}</code></pre>
+  </div>
+</template>
+
+<script>
+import ShaplaRadioButton from "../src";
+
+export default {
+  name: "ExampleRadioButton",
+  components: {ShaplaRadioButton},
+  data() {
+    return {
+      radioTest: '',
+      testOptions: [
+        {label: 'One', value: 'one'},
+        {label: 'Two', value: 'two'},
+        {label: 'Three', value: 'three'},
+      ],
+    }
+  }
+}
+</script>
+
+<style lang="scss">
+@import "@shapla/vue-button/dist/style.css";
+</style>
