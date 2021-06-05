@@ -1,5 +1,5 @@
-# shapla-input-slider
-A simple component for input slider for Vue.js
+# Shapla Range Slider
+A simple component for input slider for Vue 3
 
 ## Table of contents
 
@@ -9,7 +9,7 @@ A simple component for input slider for Vue.js
 # Installation
 
 ```
-npm install --save shapla-input-slider
+npm install --save @shapla/vue-slider
 ```
 
 # Usage
@@ -17,7 +17,7 @@ npm install --save shapla-input-slider
 Add the component:
 
 ```js
-import inputSlider from 'shapla-input-slider';
+import ShaplaRangeSlider from '@shapla/vue-slider';
 
 export default {
   name: 'Hello',
@@ -27,20 +27,20 @@ export default {
 		}
 	},
 	components: {
-    	inputSlider
+    ShaplaRangeSlider
 	},
 }
 
 ```
 
 ```html
-<input-slider v-model="number" :default="20"></input-slider>
+<shapla-range-slider v-model="number" :default="20"/>
 ```
 
 ### Props for `columns`
 | Property      | Type     | Required  | Default    | Description 
 |---------------|----------|-----------|------------|-------------------------------------------------
-| `value`       | Number   | **no**    | `null`     | Value of the input
+| `modelValue`  | Number   | **no**    | `null`     | Value of the input
 | `default`     | Number   | **no**    | `0`        | The default value of the input
 | `min`         | Number   | **no**    | `0`        | Min value of input
 | `max`         | Number   | **no**    | `100`      | Maximum value of input
@@ -51,11 +51,11 @@ export default {
 ## Listeners
 The input slider component fires the following events:
 
-**`input`**: When value is changed, it fires the event.
+**`update:modelValue`**: When value is changed, it fires the event.
 
 ```html
 <!-- template -->
-<input-slider :value="20" :default="10" @input="handleInput"></input-slider>
+<input-slider :value="20" :default="10" @update:modelValue="handleInput"></input-slider>
 
 
 <!-- method -->

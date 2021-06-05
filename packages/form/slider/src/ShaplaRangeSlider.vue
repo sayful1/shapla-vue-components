@@ -1,9 +1,9 @@
 <template>
   <div class="shapla-input-slider">
-    <input class="shapla-input-slider__range" type="range" :value="value" :min="min" :max="max" :step="step"
+    <input class="shapla-input-slider__range" type="range" :value="modelValue" :min="min" :max="max" :step="step"
            @input="triggerInput($event)">
     <div class="shapla-input-slider__input-container" v-show="showInput">
-      <input type="number" class="shapla-input-slider__input" :value="value" :min="min" :max="max" :step="step"
+      <input type="number" class="shapla-input-slider__input" :value="modelValue" :min="min" :max="max" :step="step"
              @input="triggerInput($event)">
     </div>
     <div class="shapla-input-slider__reset" title="Reset to default value" @click="resetToDefault"
@@ -28,7 +28,7 @@ export default {
   model: {prop: 'value', event: 'input'},
   components: {ShaplaButton},
   props: {
-    value: {type: [Number, String]},
+    modelValue: {type: [Number, String]},
     default: {type: Number, default: 0},
     min: {type: Number, required: false},
     max: {type: Number, required: false},
@@ -36,21 +36,22 @@ export default {
     showReset: {type: Boolean, default: true},
     showInput: {type: Boolean, default: true}
   },
-  methods: {
-    triggerInput(event) {
-      this.$emit('input', this.formatNumber(event.target.value));
-    },
-    resetToDefault() {
-      this.$emit('input', this.formatNumber(this.default));
-    },
-    formatNumber(value) {
-      let _value = Number.parseFloat(value);
-      return Number.isNaN(_value) ? 0 : _value;
+  emits: ['update:modelValue'],
+  setup(props, {emit}) {
+    const emitEvent = value => emit('update:modelValue', value);
+    const formatNumber = (value) => {
+      let number = Number.parseFloat(value);
+      return Number.isNaN(number) ? 0 : number;
     }
+
+    const triggerInput = (event) => emitEvent(formatNumber(event.target.value))
+    const resetToDefault = () => emitEvent(formatNumber(props.default))
+
+    return {triggerInput, resetToDefault}
   }
 }
 </script>
 
 <style lang="scss">
-@import "slider";
+@import "index";
 </style>

@@ -1,23 +1,25 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>input slider demo</title>
-    <link rel="stylesheet" href="../dist/input-slider.css">
+  <meta charset="utf-8">
+  <title>input slider demo</title>
+  <link rel="stylesheet" href="../dist/style.css">
 </head>
 <body>
 <div id="app">
-    <input-slider v-model="number" :default="20"></input-slider>
+  <input-slider v-model="number" :default="20"></input-slider>
 </div>
-<script src="https://unpkg.com/vue"></script>
-<script src="../dist/input-slider.umd.js"></script>
+<script src="https://unpkg.com/vue@next"></script>
+<script src="https://unpkg.com/@shapla/vue-button"></script>
+<script src="../dist/slider.umd.js"></script>
 <script>
-    new Vue({
-        el: '#app',
-        data: {
-            number: 10,
-        }
-    });
+  const app = Vue.createApp({
+    data() {
+      return {number: 10,}
+    }
+  });
+  app.component('input-slider', ShaplaRangeSlider);
+  app.mount('#app');
 </script>
 </body>
 </html>
