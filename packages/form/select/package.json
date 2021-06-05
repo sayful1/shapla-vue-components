@@ -1,0 +1,64 @@
+{
+  "name": "@shapla/vue-select",
+  "description": "A simple customized select field.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Sayful Islam",
+    "email": "sayful.islam001@gmail.com",
+    "url": "https://sayfulislam.com"
+  },
+  "keywords": [
+    "vue",
+    "vue-component",
+    "select"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sayful1/shapla-vue-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sayful1/shapla-vue-components/issues"
+  },
+  "main": "./dist/select.umd.js",
+  "module": "./dist/select.es.js",
+  "unpkg": "./dist/select.umd.js",
+  "exports": {
+    ".": {
+      "import": "./dist/select.es.js",
+      "require": "./dist/select.umd.js"
+    },
+    "./sfc": "./src/ShaplaSelect.vue",
+    "./src/index.scss": "./src/index.scss",
+    "./dist/style.css": "./dist/style.css"
+  },
+  "files": [
+    "dist/*",
+    "example/*",
+    "src/*",
+    "*.json",
+    "*.js"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "peerDependencies": {
+    "vue": "^3.0"
+  },
+  "dependencies": {
+    "@shapla/vue-chip": "^1.0.0",
+    "@shapla/vue-cross": "^1.0.1",
+    "@shapla/vue-dropdown": "^1.0.0",
+    "@shapla/vue-input": "^1.0.0",
+    "shapla-css": "^2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.2.2",
+    "@vue/compiler-sfc": "^3.0.5",
+    "autoprefixer": "^10.2.5",
+    "sass": "^1.32.13",
+    "vite": "^2.3.3",
+    "vue": "^3.0"
+  }
+}
