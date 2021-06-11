@@ -1,6 +1,6 @@
 # shapla-star-rating
 
-A simple, highly customisable star rating component for Vue
+A simple, highly customisable star rating component for Vue 3
 
 ## Table of contents
 
@@ -10,39 +10,55 @@ A simple, highly customisable star rating component for Vue
 # Installation
 
 ```
-npm install --save shapla-star-rating
+npm install --save @shapla/vue-star-rating
 ```
 
 # Usage
 
-Add the component:
+### Styles
+
+with Sass:
 
 ```js
-import StarRating from 'shapla-star-rating';
+import '@shapla/vue-star-rating/src/index.scss';
+```
+
+with CSS:
+
+```js
+import '@shapla/vue-star-rating/dist/style.css';
+```
+
+### Javascript Instantiation
+
+```js
+import ShaplaStarRating from '@shapla/vue-star-rating';
 
 export default {
   name: 'Hello',
 
   components: {
-    StarRating
+    ShaplaStarRating
   },
-  data(){
+  data() {
     return {
-      rating:4,
-      staticRating:4.6,
-    }    
+      rating: 4,
+      staticRating: 4.6,
+    }
   }
 }
 
 ```
 
-```html
-<star-rating v-model="rating"></star-rating>
+```vue
 
-<star-rating v-model="staticRating" :is-static="true"></star-rating>
+<shapla-star-rating v-model="rating"/>
+
+<shapla-star-rating v-model="staticRating" :is-static="true"/>
 ```
 
 ### Props
+
 | Property       | Type     | Required  | Default           | Description                                           |
 |----------------|----------|-----------|-------------------|-------------------------------------------------------|
 | `value`        | Number   | **yes**   | ``                | The initial rating                                    |
