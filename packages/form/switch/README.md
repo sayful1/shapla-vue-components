@@ -1,5 +1,6 @@
 # Shapla Switch
-A custom switch for VueJS that exactly work same way as native checkbox
+
+Switch is an enhanced version of the standard HTML input checkbox element for Vue 3
 
 ## Table of contents
 
@@ -9,36 +10,39 @@ A custom switch for VueJS that exactly work same way as native checkbox
 # Installation
 
 ```
-npm i shapla-switch
+npm install --save @shapla/vue-switch
 ```
 
 # Usage
+
 Add the component:
 
 ```js
-import shaplaSwitch from 'shapla-switch';
+import ShaplaSwitch from '@shapla/vue-switch';
 
 export default {
   name: 'Hello',
 
   components: {
-    shaplaSwitch
+    ShaplaSwitch
   },
 
-  data(){
+  data() {
     return {
-  	    singleSwitch:false
-  	}
+      singleSwitch: false
+    }
   }
 }
 
 ```
 
 ```html
+
 <shapla-switch v-model="singleSwitch">Enable this</shapla-switch>
 ```
 
 ### Props
+
 | Property      | Type      | Required  | Default   | Description
 |---------------|-----------|-----------|-----------|-----------------------------------------------------------
 | `label`       | String    | **no**    | ``        | Switch label
@@ -49,19 +53,20 @@ export default {
 | `readonly`    | Boolean   | **no**    | `false`   | If set `true`, you cannot change the value.
 
 ## Listeners
+
 The switch component fires the following events:
 
-**`change`**: When switch is clicked, it fires the event.
+**`update:modelValue`**: When switch is clicked, it fires the event.
 
 ```html
 <!-- template -->
-<shapla-button @change="handleChange"></shapla-button>
+<shapla-button @update:modelValue="handleChange"></shapla-button>
 
 
 <!-- method -->
 methods: {
-  handleChange(newValue){
-    // Handle change event
-  }
+handleChange(newValue){
+// Handle change event
+}
 }
 ```

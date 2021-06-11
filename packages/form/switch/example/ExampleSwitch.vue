@@ -15,9 +15,7 @@
       <shapla-switch v-model="multiSwitches" value="one">If checked, value should be added one.</shapla-switch>
       <shapla-switch v-model="multiSwitches" value="two">If checked, value should be added two.</shapla-switch>
       <shapla-switch v-model="multiSwitches" value="three">If checked, value should be added three.</shapla-switch>
-      <shapla-switch v-model="multiSwitches" value="four" readonly>
-        Readonly field, you cannot change it
-      </shapla-switch>
+      <shapla-switch v-model="multiSwitches" value="four" readonly label="Readonly field, you cannot change it"/>
 
       <pre><code>{{ multiSwitches }}</code></pre>
     </div>
@@ -25,11 +23,11 @@
 </template>
 
 <script>
-import shaplaSwitch from "../src/shaplaSwitch";
+import ShaplaSwitch from "../src";
 
 export default {
-  name: 'app',
-  components: {shaplaSwitch},
+  name: 'ExampleSwitch',
+  components: {ShaplaSwitch},
   data() {
     return {
       singleSwitch: false,

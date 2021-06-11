@@ -1,6 +1,5 @@
-import Vue from 'vue'
-import App from './App.vue'
+import {createApp} from 'vue'
+import ExampleSwitch from './ExampleSwitch.vue'
 
-Vue.config.productionTip = false;
-
-new Vue({el: '#app', render: h => h(App)});
+const app = createApp(ExampleSwitch);
+app.mount('#app');

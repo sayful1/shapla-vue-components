@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>switch demo</title>
-  <link rel="stylesheet" href="../dist/switch.css">
+  <link rel="stylesheet" href="../dist/style.css">
 </head>
 <body>
 <div id="app">
@@ -29,16 +29,19 @@
     <pre><code>{{ multiSwitches }}</code></pre>
   </div>
 </div>
-<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/vue@next"></script>
 <script src="../dist/switch.umd.js"></script>
 <script>
-  new Vue({
-    el: '#app',
-    data: {
-      singleSwitch: false,
-      multiSwitches: ['four']
+  const app = Vue.createApp({
+    data() {
+      return {
+        singleSwitch: false,
+        multiSwitches: ['four']
+      }
     }
   });
+  app.component('shapla-switch', ShaplaSwitch);
+  app.mount('#app');
 </script>
 </body>
 </html>
