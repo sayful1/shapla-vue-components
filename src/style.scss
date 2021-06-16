@@ -1,0 +1,6 @@
+@use "./index.scss" as shapla;
+
+@include shapla.button;
+@include shapla.checkbox;
+@include shapla.chip;
+@include shapla.columns;

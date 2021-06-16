@@ -1,3 +1,20 @@
 @mixin button {
-  @import "shapla-css/src/elements/button/button.scss";
+  @import "@shapla/vue-button/dist/style.css";
 }
+
+@mixin checkbox {
+  @import "@shapla/vue-checkbox/dist/style.css";
+}
+
+@mixin chip {
+  @import "@shapla/vue-chip/dist/style.css";
+}
+
+@mixin columns {
+  @import "@shapla/vue-columns/dist/style.css";
+}
+
+@include button;
+@include checkbox;
+@include chip;
+@include columns;
