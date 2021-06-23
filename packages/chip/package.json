@@ -1,7 +1,7 @@
 {
   "name": "@shapla/vue-chip",
   "description": "Chip component is a small, interactive element. Chips are commonly used for contacts, text, rules, icons, and photos.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",

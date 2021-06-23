@@ -8,6 +8,7 @@
 
 <script>
 import ShaplaCross from '@shapla/vue-cross';
+import {computed} from 'vue';
 
 export default {
   name: "ShaplaChip",
@@ -23,32 +24,30 @@ export default {
   setup(props, {emit}) {
     const deleteChip = () => emit('delete');
 
-    return {
-      deleteChip
-    }
-  },
-  computed: {
-    chipClasses() {
+    const chipClasses = computed(() => {
       let classes = [];
-      if (this.deletable) {
+      if (props.deletable) {
         classes.push('shapla-chip--deletable');
       }
-      if (this.image_src) {
+      if (props.image_src) {
         classes.push('shapla-chip--contact');
       }
 
       return classes;
-    },
-    chipStyle() {
+    });
+
+    const chipStyle = computed(() => {
       let style = {};
-      if (this.small) {
+      if (props.small) {
         style['--shapla-chip-height'] = '24px';
       }
-      if (this.height !== '32px') {
-        style['--shapla-chip-height'] = this.height;
+      if (props.height !== '32px') {
+        style['--shapla-chip-height'] = props.height;
       }
       return style;
-    }
+    })
+
+    return {deleteChip, chipClasses, chipStyle}
   }
 }
 </script>
