@@ -1,5 +1,5 @@
 <template>
-  <div class="shapla-dropdown" :class="{'is-hoverable':hoverable}">
+  <div class="shapla-dropdown" :class="{'is-hoverable':hoverable}" ref="root">
     <div class="shapla-dropdown-trigger" aria-haspopup="true" :aria-expanded="isActive?'true':'false'"
          @click="isActive = !isActive">
       <slot name="trigger"/>
@@ -19,6 +19,7 @@
 
 <script>
 import ShaplaDropdownMenu from "./ShaplaDropdownMenu.vue";
+import {watch, reactive, ref, toRefs} from 'vue';
 
 export default {
   name: "ShaplaDropdown",
@@ -34,21 +35,21 @@ export default {
       validator: value => ['auto', 'up', 'down'].indexOf(value) !== -1
     },
   },
-  data() {
-    return {
-      isActive: false,
-    }
-  },
-  watch: {
-    isActive(isActive) {
+  setup() {
+    const root = ref(null);
+    const state = reactive({isActive: false});
+
+    watch(() => state.isActive, isActive => {
       if (isActive) {
         document.addEventListener('click', event => {
-          if (!this.$el.contains(event.target)) {
-            this.isActive = false;
+          if (!root.value.contains(event.target)) {
+            state.isActive = false;
           }
         });
       }
-    }
+    })
+
+    return {...toRefs(state), root}
   }
 }
 </script>
