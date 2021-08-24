@@ -1,7 +1,7 @@
 {
   "name": "shapla-button",
   "description": "A simple button, in different colors, sizes, and states",
-  "version": "1.2.1",
+  "version": "2.0.0",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",
@@ -21,9 +21,10 @@
   "bugs": {
     "url": "https://github.com/sayful1/shapla-vue-components/issues"
   },
-  "main": "dist/button.common.js",
-  "unpkg": "dist/button.umd.min.js",
-  "module": "src/index.js",
+  "main": "dist/button.umd.js",
+  "browser": "dist/button.es.js",
+  "module": "dist/button.es.js",
+  "unpkg": "dist/button.umd.js",
   "files": [
     "dist/*",
     "src/*",
@@ -32,27 +33,23 @@
     "*.js"
   ],
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "build:lib": "vue-cli-service build --target lib --name button ./src/index.js",
-    "lint": "vue-cli-service lint"
+    "dev": "vite",
+    "build": "vite build"
   },
   "peerDependencies": {
     "vue": "^2.6"
   },
   "dependencies": {
-    "shapla-color-system": "^1.1.0"
+    "shapla-css": "^2.1.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.5.10",
-    "@vue/cli-plugin-eslint": "^4.5.10",
-    "@vue/cli-service": "^4.5.10",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.17.0",
-    "eslint-plugin-vue": "^7.4.1",
-    "node-sass": "^5.0.0",
-    "sass-loader": "^10.1.1",
-    "vue-template-compiler": "^2.6.12"
+    "@vitejs/plugin-vue": "^1.4.0",
+    "@vue/compiler-sfc": "^3.2.4",
+    "autoprefixer": "^10.3.2",
+    "sass": "^1.38.0",
+    "vite": "^2.5.0",
+    "vite-plugin-vue2": "^1.8.1",
+    "vue": "^2.6"
   },
   "eslintConfig": {
     "root": true,

@@ -1,9 +1,9 @@
 <template>
   <a v-if="href" :href="href" :class="getClasses" @click="handleClick($event)">
-    <slot></slot>
+    <slot/>
   </a>
   <button v-else :class="getClasses" :disabled="disabled" @click="handleClick($event)">
-    <slot></slot>
+    <slot/>
   </button>
 </template>
 
@@ -52,5 +52,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "button";
+@import "index";
 </style>

@@ -40,7 +40,8 @@
     "vue": "^2.6"
   },
   "dependencies": {
-    "shapla-button": "latest",
+    "core-js": "^3.16.2",
+    "shapla-button": "^2.0",
     "shapla-checkbox": "latest",
     "shapla-chip": "latest",
     "shapla-color-system": "latest",
@@ -75,8 +76,9 @@
     "@vue/cli-plugin-babel": "^4.5.10",
     "@vue/cli-plugin-eslint": "^4.5.10",
     "@vue/cli-service": "^4.5.10",
+    "autoprefixer": "^8.6.5",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.17.0",
+    "eslint": "^6.8.0",
     "eslint-plugin-vue": "^7.4.1",
     "node-sass": "^5.0.0",
     "sass-loader": "^10.1.0",

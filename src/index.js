@@ -6,8 +6,8 @@
 export {default as shaplaButton} from 'shapla-button';
 export {default as shaplaCheckbox} from 'shapla-checkbox';
 export {default as shaplaChip} from 'shapla-chip';
-export {columns, column} from 'shapla-columns';
-export {Dialog, ConfirmDialog} from 'shapla-confirm-dialog'
+export {columns as columns, column as column} from 'shapla-columns';
+export {Dialog as Dialog, ConfirmDialog as ConfirmDialog} from 'shapla-confirm-dialog'
 export {default as dashboardLayout} from 'shapla-dashboard-layout';
 export {default as dataTable} from 'shapla-data-table';
 export {default as pagination} from 'shapla-data-table-pagination';
@@ -29,6 +29,6 @@ export {default as sideNavigation} from 'shapla-side-navigation';
 export {default as spinner} from 'shapla-spinner';
 export {default as StarRating} from 'shapla-star-rating';
 export {default as shaplaSwitch} from 'shapla-switch';
-export {tabs, tab} from 'shapla-tabs';
+export {tabs as tabs, tab as tab} from 'shapla-tabs';
 export {default as textField} from 'shapla-text-field';
-export {toggles, toggle} from 'shapla-toggles';
+export {toggles as toggles, toggle as toggle} from 'shapla-toggles';

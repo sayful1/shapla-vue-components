@@ -1,4 +1,5 @@
 # Shapla Button
+
 A simple button, in different colors, sizes, and states
 
 ## Table of contents
@@ -13,7 +14,22 @@ npm install --save shapla-button
 ```
 
 # Usage
-Add the component:
+
+### Styles
+
+with SCSS:
+
+```js
+import 'shapla-button/src/index.scss';
+```
+
+with CSS:
+
+```js
+import 'shapla-button/dist/style.css';
+```
+
+### Javascript Instantiation
 
 ```js
 import shaplaButton from 'shapla-button';
@@ -24,9 +40,9 @@ export default {
   components: {
     shaplaButton
   },
-  
+
   methods: {
-    handleClick(){
+    handleClick() {
       // Handle click event
     }
   }
@@ -35,10 +51,12 @@ export default {
 ```
 
 ```html
+
 <shapla-button @click="handleClick"></shapla-button>
 ```
 
 ### Props
+
 | Property      | Type      | Required  | Default   | Description
 |---------------|-----------|-----------|-----------|----------------------------------------------------------------------------------------
 | `theme`       | String    | **no**    | `default` | Value can be `default` or `primary` or `secondary` or `success` or `warning` or `error`
@@ -51,6 +69,7 @@ export default {
 | `shadow`      | Boolean   | **no**    | `false`   | If set `true`, box-shadow will be added around button.
 
 ## Listeners
+
 The button component fires the following events:
 
 **`click`**: When button is clicked, it fires the event.
@@ -62,8 +81,8 @@ The button component fires the following events:
 
 <!-- method -->
 methods: {
-  handleClick(){
-    // Handle click event
-  }
+handleClick(){
+// Handle click event
+}
 }
 ```

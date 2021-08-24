@@ -1,14 +1,14 @@
 /*!
- * Shapla Button v1.2.0
+ * Shapla Button v2.0.0
  * (c) 2021 Sayful Islam
  * Released under the MIT License.
  */
 
 // Import vue component
-import shaplaButton from './shaplaButton';
+import shaplaButton from './shaplaButton.vue';
 
 // Declare install function executed by Vue.use()
-export function install(Vue) {
+function install(Vue) {
   if (install.installed) return;
   install.installed = true;
   Vue.component('shapla-button', shaplaButton);
@@ -28,6 +28,4 @@ if (GlobalVue) {
   GlobalVue.use(plugin);
 }
 
-// To allow use as module (npm/webpack/etc.) export component
-export {shaplaButton}
 export default shaplaButton;
