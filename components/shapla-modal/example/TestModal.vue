@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import {ModalBox, ModalCard, ModalConfirm, ModalCore} from "../src";
+import {ModalBox, ModalCard, ModalConfirm, ModalCore} from "../src/index.js";
 
 export default {
   name: "TestModal",

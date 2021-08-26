@@ -1,7 +1,7 @@
 {
   "name": "shapla-confirm-dialog",
   "description": "A simple confirm modal/dialog based on modal component for Vue",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",
@@ -23,9 +23,12 @@
   "bugs": {
     "url": "https://github.com/sayful1/shapla-vue-components/issues"
   },
-  "main": "dist/confirm-dialog.common.js",
-  "unpkg": "dist/confirm-dialog.umd.min.js",
-  "module": "src/index.js",
+  "main": "dist/confirm-dialog.umd.js",
+  "unpkg": "dist/confirm-dialog.umd.js",
+  "module": "dist/confirm-dialog.es.js",
+  "browser": {
+    "./sfc": "src/DialogContainer.vue"
+  },
   "files": [
     "dist/*",
     "src/*",
@@ -34,29 +37,24 @@
     "*.js"
   ],
   "scripts": {
-    "serve": "vue-cli-service serve ./example/main.js",
-    "build": "vue-cli-service build",
-    "build:lib": "vue-cli-service build --target lib --name confirm-dialog ./src/index.js",
-    "lint": "vue-cli-service lint"
+    "dev": "vite",
+    "build": "vite build"
   },
   "peerDependencies": {
-    "vue": "^2.6 || ^3.0"
+    "vue": "^2.6"
   },
   "dependencies": {
-    "shapla-button": "^1.2.1",
-    "shapla-color-system": ">=1.1.0",
-    "shapla-modal": "^1.1.1"
+    "shapla-button": "^2.0",
+    "shapla-modal": "^2.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.5.11",
-    "@vue/cli-plugin-eslint": "^4.5.11",
-    "@vue/cli-service": "^4.5.11",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.18.0",
-    "eslint-plugin-vue": "^7.5.0",
-    "node-sass": "^5.0.0",
-    "sass-loader": "^10.1.1",
-    "vue-template-compiler": "^2.6.12"
+    "@vitejs/plugin-vue": "^1.4.0",
+    "@vue/compiler-sfc": "^3.2.4",
+    "autoprefixer": "^10.3.2",
+    "sass": "^1.38.0",
+    "vite": "^2.5.0",
+    "vite-plugin-vue2": "^1.8.1",
+    "vue": "^2.6"
   },
   "eslintConfig": {
     "root": true,

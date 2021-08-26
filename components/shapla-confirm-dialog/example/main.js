@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import TestConfirmDialog from './TestConfirmDialog'
+import TestConfirmDialog from './TestConfirmDialog.vue'
 import {Dialog} from '../src/index'
 
 Vue.use(Dialog);

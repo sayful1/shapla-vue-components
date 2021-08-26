@@ -4,8 +4,8 @@
  * Released under the MIT License.
  */
 
-import Dialog from './ModalPlugin';
-import DialogContainer from './DialogContainer';
+import Dialog from './ModalPlugin.js';
+import DialogContainer from './DialogContainer.vue';
 
 // Declare install function executed by Vue.use()
 export function install(Vue) {

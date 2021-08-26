@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import ModalCore from "./ModalCore";
+import ModalCore from "./ModalCore.vue";
 
 export default {
   name: "ModalConfirm",
@@ -53,7 +53,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-@import "../styles/modal-confirm";
-</style>

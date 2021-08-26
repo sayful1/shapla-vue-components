@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import ModalCore from "./ModalCore";
+import ModalCore from "./ModalCore.vue";
 
 export default {
   name: "ModalBox",
@@ -33,7 +33,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-@import "../styles/modal-box";
-</style>

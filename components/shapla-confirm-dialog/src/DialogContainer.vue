@@ -23,8 +23,8 @@
 
 <script>
 import modal from 'shapla-modal';
-import {shaplaButton} from "shapla-button";
-import Dialog from './ModalPlugin';
+import shaplaButton from "shapla-button";
+import Dialog from './ModalPlugin.js';
 
 export default {
   name: 'DialogContainer',
@@ -63,4 +63,5 @@ export default {
 </script>
 
 <style lang="scss">
+@import "index";
 </style>

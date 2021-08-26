@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import ModalCore from "./ModalCore";
+import ModalCore from "./ModalCore.vue";
 import deleteIcon from "shapla-delete";
 
 export default {
@@ -41,7 +41,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-@import "../styles/modal-card";
-</style>
