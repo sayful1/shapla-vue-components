@@ -1,7 +1,7 @@
 {
   "name": "shapla-vue-components",
   "description": "A collection of reusable vue components for rapid development.",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",
@@ -32,8 +32,8 @@
   ],
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "build:lib": "vue-cli-service build --target lib --name components ./src/index.js",
+    "build": "vue-cli-service build --target lib --name components ./src/index.js",
+    "build:lib": "npm run build",
     "lint": "vue-cli-service lint"
   },
   "peerDependencies": {
@@ -46,18 +46,18 @@
     "shapla-chip": "latest",
     "shapla-color-system": "latest",
     "shapla-columns": "latest",
-    "shapla-confirm-dialog": "latest",
+    "shapla-confirm-dialog": "^1.2",
     "shapla-dashboard-layout": "latest",
     "shapla-data-table": "latest",
     "shapla-data-table-pagination": "latest",
     "shapla-data-table-status": "latest",
-    "shapla-delete": "latest",
+    "shapla-delete": "^2.0",
     "shapla-dropdown": "latest",
     "shapla-file-uploader": "latest",
     "shapla-icon-container": "latest",
     "shapla-image-container": "latest",
     "shapla-input-slider": "latest",
-    "shapla-modal": "latest",
+    "shapla-modal": "^2.0",
     "shapla-notifications": "latest",
     "shapla-progress-bar": "latest",
     "shapla-radio": "latest",
