@@ -1,7 +1,7 @@
 {
   "name": "shapla-color-system",
   "description": "The shapla color system can be used to create a color scheme that reflects your brand or style.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",
@@ -28,43 +28,17 @@
     "*.js"
   ],
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "build:lib": "vue-cli-service build --target lib --name theme ./src/theme.scss",
-    "lint": "vue-cli-service lint"
+    "build": "rollup --config"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.5.10",
-    "@vue/cli-plugin-eslint": "^4.5.10",
-    "@vue/cli-service": "^4.5.10",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.17.0",
-    "eslint-plugin-vue": "^7.4.1",
-    "node-sass": "^5.0.0",
-    "sass-loader": "^10.1.1",
-    "vue-template-compiler": "^2.6.12"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "rules": {},
-    "parserOptions": {
-      "parser": "babel-eslint"
-    }
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
-    }
+    "autoprefixer": "^10.3.4",
+    "postcss": "^8.3.6",
+    "rollup": "^2.56.3",
+    "rollup-plugin-delete": "^2.0.0",
+    "rollup-plugin-scss": "^3.0.0",
+    "sass": "^1.41.0"
   },
   "browserslist": [
-    "> 1%",
-    "last 2 versions"
+    "defaults"
   ]
 }
