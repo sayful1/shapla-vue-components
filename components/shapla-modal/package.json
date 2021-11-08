@@ -1,7 +1,7 @@
 {
   "name": "shapla-modal",
   "description": "A classic modal overlay, in which you can include any content you want for Vue.js",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",
@@ -45,12 +45,12 @@
     "shapla-delete": "^2.0"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^1.4.0",
-    "@vue/compiler-sfc": "^3.2.4",
-    "autoprefixer": "^10.3.2",
-    "sass": "^1.38.0",
-    "vite": "^2.5.0",
-    "vite-plugin-vue2": "^1.8.1",
+    "@vitejs/plugin-vue": "^1.9.4",
+    "@vue/compiler-sfc": "^3.2.21",
+    "autoprefixer": "^10.4.0",
+    "sass": "^1.43.4",
+    "vite": "^2.6.13",
+    "vite-plugin-vue2": "^1.9.0",
     "vue": "^2.6"
   },
   "eslintConfig": {

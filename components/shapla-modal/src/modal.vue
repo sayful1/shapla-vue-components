@@ -13,8 +13,8 @@
         <div class="shapla-modal-card__body">
           <slot></slot>
         </div>
-        <div class="shapla-modal-card__footer is-pulled-right">
-          <slot name="foot">
+        <div class="shapla-modal-card__footer is-pulled-right" :class="{'no-content':!showCardFooter}">
+          <slot name="foot" v-if="showCardFooter">
             <button class="shapla-button" @click.prevent="close">Cancel</button>
           </slot>
         </div>
@@ -39,6 +39,7 @@ export default {
     title: {type: String, default: 'Untitled'},
     type: {type: String, default: 'card'}, // Also support 'box', 'confirm' design
     closeOnBackgroundClick: {type: Boolean, default: true},
+    showCardFooter: {type: Boolean, default: true},
     showCloseIcon: {type: Boolean, default: true},
     contentClass: {type: String, default: ''},
     backgroundTheme: {

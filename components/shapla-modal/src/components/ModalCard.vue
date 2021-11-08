@@ -8,8 +8,8 @@
     <div class="shapla-modal-card__body">
       <slot></slot>
     </div>
-    <div class="shapla-modal-card__footer is-pulled-right">
-      <slot name="foot">
+    <div class="shapla-modal-card__footer is-pulled-right" :class="{'no-content':!showCardFooter}">
+      <slot name="foot" v-if="showCardFooter">
         <button class="shapla-button" @click.prevent="close">Cancel</button>
       </slot>
     </div>
@@ -26,6 +26,7 @@ export default {
   props: {
     active: {type: Boolean, required: true},
     showCloseIcon: {type: Boolean, default: true},
+    showCardFooter: {type: Boolean, default: true},
     closeOnBackgroundClick: {type: Boolean, default: true},
     backgroundTheme: {type: String, default: 'dark', validator: value => ['dark', 'light'].indexOf(value) !== -1},
     contentSize: {
