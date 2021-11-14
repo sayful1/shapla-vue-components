@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import shaplaSwitch from "shapla-switch";
+import {shaplaSwitch} from "shapla-vue-components";
 
 export default {
   name: "TestSwitch",

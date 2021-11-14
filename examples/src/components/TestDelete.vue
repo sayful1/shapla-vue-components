@@ -26,8 +26,8 @@
 </template>
 
 <script>
-import {columns, column} from 'shapla-columns'
-import deleteIcon from 'shapla-delete'
+import {columns, column} from 'shapla-vue-components'
+import {deleteIcon} from 'shapla-vue-components'
 
 export default {
   name: "TestDelete",

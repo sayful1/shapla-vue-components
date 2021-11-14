@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import MonthNavigation from "../../../components/shapla-month-navigation/src/MonthNavigation";
+import MonthNavigation from "../../../src/components/month-navigation/src/MonthNavigation.vue";
 
 export default {
   name: "TestMonthNavigation",

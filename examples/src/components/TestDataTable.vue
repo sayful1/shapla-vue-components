@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import dataTable from "shapla-data-table";
+import {dataTable} from "shapla-vue-components";
 
 export default {
   name: "TestDataTable",

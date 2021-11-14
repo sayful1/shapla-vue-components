@@ -15,6 +15,7 @@ A collection of reusable vue components for rapid development.
 # Installation
 
 **To install all components, run the following command in terminal**
+
 ```
 npm install shapla-vue-components
 ```
@@ -28,9 +29,10 @@ Or to install `Shapla Tabs` component, you can run in terminal `npm install shap
 # Usage
 
 For example, to use button and progress bar components:
+
 ```js
-import {shaplaButton} from 'shapla-vue-components'; // or import shaplaButton from 'shapla-button';
-import {progressBar} from 'shapla-vue-components'; // or import progressBar from 'shapla-progress-bar';
+import {shaplaButton} from 'shapla-vue-components';
+import {progressBar} from 'shapla-vue-components';
 
 
 export default {
@@ -40,9 +42,9 @@ export default {
     shaplaButton,
     progressBar
   },
-  
+
   methods: {
-    handleClick(){
+    handleClick() {
       // Handle click event
     }
   }
@@ -51,38 +53,39 @@ export default {
 ```
 
 ```html
+
 <progress-bar :value="1" :max="10" :striped="true" :animated="true" size="small" theme="primary"/>
 <shapla-button @click="handleClick"></shapla-button>
 ```
 
 # Components
 
-* [Shapla Button](/components/shapla-button/README.md)
-* [Shapla Checkbox](/components/shapla-checkbox/README.md)
-* [Shapla Color System](/components/shapla-color-system/README.md)
-* [Shapla Columns](/components/shapla-columns/README.md)
-* [Shapla Confirm Dialog](/components/shapla-confirm-dialog/README.md)
-* [Shapla Dashboard Layout](/components/shapla-dashboard-layout/README.md)
-* [Shapla Data Table](/components/shapla-data-table/README.md)
-* [Shapla Data Table Pagination](/components/shapla-data-table-pagination/README.md)
-* [Shapla Data Table Status](/components/shapla-data-table-status/README.md)
-* [Shapla Delete](/components/shapla-delete/README.md)
-* [Shapla Dropdown](/components/shapla-dropdown/README.md)
-* [Shapla File Uploader](/components/shapla-file-uploader/README.md)
-* [Shapla Icon Container](/components/shapla-icon-container/README.md)
-* [Shapla Image Container](/components/shapla-image-container/README.md)
-* [Shapla Input Slider](/components/shapla-input-slider/README.md)
-* [Shapla Modal](/components/shapla-modal/README.md)
-* [Shapla Notifications](/components/shapla-notifications/README.md)
-* [Shapla Progress Bar](/components/shapla-progress-bar/README.md)
-* [Shapla Radio](/components/shapla-radio/README.md)
-* [Shapla Radio Button](/components/shapla-radio-button/README.md)
-* [Shapla Search Form](/components/shapla-search-form/README.md)
-* [Shapla Select Field](/components/shapla-select-field/README.md)
-* [Shapla Side Navigation](/components/shapla-side-navigation/README.md)
-* [Shapla Spinner](/components/shapla-spinner/README.md)
-* [Shapla Star Rating](/components/shapla-star-rating/README.md)
-* [Shapla Switch](/components/shapla-switch/README.md)
-* [Shapla Tabs](/components/shapla-tabs/README.md)
-* [Shapla Text Field](/components/shapla-text-field/README.md)
-* [Shapla Toggles](/components/shapla-toggles/README.md)
+* [Shapla Button](/src/components/button/README.md)
+* [Shapla Checkbox](/src/components/checkbox/README.md)
+* [Shapla Color System](/src/components/color-system/README.md)
+* [Shapla Columns](/src/components/columns/README.md)
+* [Shapla Confirm Dialog](/src/components/confirm-dialog/README.md)
+* [Shapla Dashboard Layout](/src/components/dashboard-layout/README.md)
+* [Shapla Data Table](/src/components/data-table/README.md)
+* [Shapla Data Table Pagination](/src/components/data-table-pagination/README.md)
+* [Shapla Data Table Status](/src/components/data-table-status/README.md)
+* [Shapla Delete](/src/components/delete/README.md)
+* [Shapla Dropdown](/src/components/dropdown/README.md)
+* [Shapla File Uploader](/src/components/file-uploader/README.md)
+* [Shapla Icon Container](/src/components/icon-container/README.md)
+* [Shapla Image Container](/src/components/image-container/README.md)
+* [Shapla Input Slider](/src/components/input-slider/README.md)
+* [Shapla Modal](/src/components/modal/README.md)
+* [Shapla Notifications](/src/components/notifications/README.md)
+* [Shapla Progress Bar](/src/components/progress-bar/README.md)
+* [Shapla Radio](/src/components/radio/README.md)
+* [Shapla Radio Button](/src/components/radio-button/README.md)
+* [Shapla Search Form](/src/components/search-form/README.md)
+* [Shapla Select Field](/src/components/select-field/README.md)
+* [Shapla Side Navigation](/src/components/side-navigation/README.md)
+* [Shapla Spinner](/src/components/spinner/README.md)
+* [Shapla Star Rating](/src/components/star-rating/README.md)
+* [Shapla Switch](/src/components/switch/README.md)
+* [Shapla Tabs](/src/components/tabs/README.md)
+* [Shapla Text Field](/src/components/text-field/README.md)
+* [Shapla Toggles](/src/components/toggles/README.md)

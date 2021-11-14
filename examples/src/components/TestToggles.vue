@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import {toggles, toggle} from "shapla-toggles";
+import {toggles, toggle} from "shapla-vue-components";
 
 export default {
   name: "TestToggles",

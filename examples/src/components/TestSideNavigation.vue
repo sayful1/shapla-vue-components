@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import sideNavigation from 'shapla-side-navigation';
+import {sideNavigation} from 'shapla-vue-components';
 
 export default {
   name: "TestSideNavigation",

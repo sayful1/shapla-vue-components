@@ -163,9 +163,9 @@
 </template>
 
 <script>
-import shaplaButton from "shapla-button";
-import {columns, column} from 'shapla-columns';
-import CodeHighlight from "@/CodeHighlight";
+import {shaplaButton} from "shapla-vue-components";
+import {columns, column} from 'shapla-vue-components';
+import CodeHighlight from "../CodeHighlight.vue";
 
 export default {
   name: "TestButton",

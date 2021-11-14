@@ -23,8 +23,8 @@
 </template>
 
 <script>
-import notification from 'shapla-notifications'
-import {columns, column} from 'shapla-columns'
+import {notification} from 'shapla-vue-components'
+import {columns, column} from 'shapla-vue-components'
 
 export default {
   name: "TestNotifications",

@@ -1,11 +1,11 @@
 <template>
   <div>
-    <file-uploader url="http://example.com"/>
+    <file-uploader url="https://example.com"/>
   </div>
 </template>
 
 <script>
-import FileUploader from "shapla-file-uploader";
+import {FileUploader} from "shapla-vue-components";
 
 export default {
   name: "TestFileUploader",

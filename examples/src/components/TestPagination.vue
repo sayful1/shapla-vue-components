@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import pagination from "shapla-data-table-pagination";
+import {pagination} from "shapla-vue-components";
 
 export default {
   name: "TestPagination",

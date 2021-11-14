@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import {tabs, tab} from 'shapla-tabs';
+import {tabs, tab} from 'shapla-vue-components';
 
 export default {
   name: "TestTabs",

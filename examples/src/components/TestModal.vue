@@ -34,8 +34,8 @@
 </template>
 
 <script>
-import {columns, column} from 'shapla-columns'
-import modal from 'shapla-modal';
+import {columns, column} from 'shapla-vue-components'
+import {modal} from 'shapla-vue-components';
 
 export default {
   name: "TestModal",

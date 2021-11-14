@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import signatureCanvas from '../../../components/shapla-signature-canvas'
+import signatureCanvas from '../../../src/components/signature-canvas/src/index.js'
 
 export default {
   name: "TestSignatureCanvas",

@@ -11,14 +11,11 @@ const menuItems = [
   {routerName: 'Delete', label: 'Delete'},
   {routerName: 'Dropdown', label: 'Dropdown'},
   {routerName: 'TestFileUploader', label: 'File Uploader'},
-  {routerName: 'MediaUploader', label: 'Media Uploader'},
   {routerName: 'Modal', label: 'Modal'},
-  {routerName: 'MonthNavigation', label: 'Month Navigation'},
   {routerName: 'Notifications', label: 'Notifications'},
   {routerName: 'Radio', label: 'Radio'},
   {routerName: 'RadioButton', label: 'Radio Button'},
   {routerName: 'SideNavigation', label: 'Side Navigation'},
-  {routerName: 'SignatureCanvas', label: 'Signature Canvas'},
   {routerName: 'Spinner', label: 'Spinner'},
   {routerName: 'StarRating', label: 'Star Rating'},
   {routerName: 'Switch', label: 'Switch'},
@@ -26,6 +23,9 @@ const menuItems = [
   {routerName: 'Toggles', label: 'Toggles'},
   {routerName: 'TextField', label: 'Text Field'},
   {routerName: 'SelectField', label: 'Select Field'},
+  // {routerName: 'MediaUploader', label: 'Media Uploader', stability: 'alpha'},
+  // {routerName: 'MonthNavigation', label: 'Month Navigation', stability: 'alpha'},
+  // {routerName: 'SignatureCanvas', label: 'Signature Canvas', stability: 'alpha'},
 ];
 
 export default menuItems;

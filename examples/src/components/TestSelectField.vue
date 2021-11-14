@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import selectField from "shapla-select-field";
+import {selectField} from "shapla-vue-components";
 
 export default {
   name: "TestSelectField",

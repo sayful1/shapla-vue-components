@@ -69,7 +69,7 @@
 </template>
 
 <script>
-import textField from "shapla-text-field";
+import {textField} from "shapla-vue-components";
 
 export default {
   name: "TestTextField",

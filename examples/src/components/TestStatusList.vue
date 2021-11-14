@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import {columns, column} from 'shapla-columns'
-import statusList from 'shapla-data-table-status'
+import {columns, column} from 'shapla-vue-components'
+import {statusList} from 'shapla-vue-components'
 
 export default {
   name: "TestStatusList",

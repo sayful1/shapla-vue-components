@@ -15,9 +15,8 @@
 </template>
 
 <script>
-import menuItems from "./menuItems";
-import shaplaButton from "shapla-button";
-import {columns, column} from 'shapla-columns'
+import menuItems from "./menuItems.js";
+import {columns, column, shaplaButton} from 'shapla-vue-components'
 
 export default {
   name: "Home",

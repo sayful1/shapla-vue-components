@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import {FeaturedImage, MediaModal} from '../../../components/shapla-media-uploader'
+import {FeaturedImage, MediaModal} from '../../../src/components/media-uploader/src/index.js'
 
 export default {
   name: "TestMediaUploader",

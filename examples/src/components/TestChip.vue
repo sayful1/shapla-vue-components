@@ -77,9 +77,9 @@
 </template>
 
 <script>
-import shaplaChip from "shapla-chip";
-import {columns, column} from 'shapla-columns'
-import CodeHighlight from "@/CodeHighlight";
+import {shaplaChip} from "shapla-vue-components";
+import {columns, column} from 'shapla-vue-components'
+import CodeHighlight from "../CodeHighlight.vue";
 
 export default {
   name: "TestChip",

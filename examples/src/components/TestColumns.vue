@@ -105,8 +105,8 @@
 </template>
 
 <script>
-import {columns, column} from 'shapla-columns';
-import CodeHighlight from "@/CodeHighlight";
+import {columns, column} from 'shapla-vue-components';
+import CodeHighlight from "../CodeHighlight.vue";
 
 export default {
   name: "TestColumns",

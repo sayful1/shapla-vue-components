@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import shaplaRadio from "shapla-radio";
+import {shaplaRadio} from "shapla-vue-components";
 
 export default {
   name: "TestRadio",

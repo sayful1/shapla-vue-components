@@ -13,7 +13,12 @@
         <ul class="sidenav-list">
           <li class="sidenav-list__item" v-for="menuItem in menuItems" :key="menuItem.routerName">
             <a class="sidenav-list__link" :class="{'is-active':$route.name === menuItem.routerName}"
-               href="#" @click.prevent="handleMenuItemClick(menuItem)">{{ menuItem.label }}</a>
+               href="#" @click.prevent="handleMenuItemClick(menuItem)">
+              {{ menuItem.label }}
+              <span class="shapla-color--error-bg shapla-color--on-error menu-item-badge">{{
+                  menuItem.stability ? menuItem.stability : ''
+                }}</span>
+            </a>
           </li>
         </ul>
       </template>
@@ -23,7 +28,7 @@
 </template>
 
 <script>
-import dashboardLayout from 'shapla-dashboard-layout';
+import {dashboardLayout} from 'shapla-vue-components';
 import menuItems from "./menuItems";
 import SimpleBar from 'simplebar';
 
@@ -57,8 +62,8 @@ export default {
 
 <style lang="scss">
 @import "scss/frontend";
-@import "~simplebar/src/simplebar.css";
-@import "~highlight.js/scss/github";
+@import "simplebar/src/simplebar.css";
+@import "highlight.js/scss/github";
 
 .section {
   margin-bottom: 3rem;
@@ -71,5 +76,17 @@ export default {
   margin-bottom: 15px;
   padding-bottom: 15px;
   line-height: 1.2;
+}
+
+.menu-item-badge {
+  line-height: 1;
+  padding: 3px 5px;
+  margin-left: 5px;
+  border-radius: 10px;
+  text-transform: capitalize;
+
+  &:empty {
+    display: none;
+  }
 }
 </style>

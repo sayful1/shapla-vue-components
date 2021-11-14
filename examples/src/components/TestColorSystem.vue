@@ -54,7 +54,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~shapla-color-system/src/theme";
+@import "shapla-color-system/src/theme";
 
 .shapla-color-system {
   background: #f1f1f1;

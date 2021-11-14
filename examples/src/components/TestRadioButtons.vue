@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import radioButton from "shapla-radio-button";
+import {radioButton} from "shapla-vue-components";
 
 export default {
   name: "TestRadioButtons",

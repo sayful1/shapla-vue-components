@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import dropdown from "shapla-dropdown";
+import {dropdown} from "shapla-vue-components";
 
 export default {
   name: "TestDropdown",

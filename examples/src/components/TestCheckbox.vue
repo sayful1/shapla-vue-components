@@ -73,9 +73,9 @@
 </template>
 
 <script>
-import shaplaCheckbox from "shapla-checkbox";
-import {columns, column} from 'shapla-columns';
-import CodeHighlight from "@/CodeHighlight";
+import {shaplaCheckbox} from "shapla-vue-components";
+import {columns, column} from 'shapla-vue-components';
+import CodeHighlight from "../CodeHighlight.vue";
 
 export default {
   name: "TestCheckbox",

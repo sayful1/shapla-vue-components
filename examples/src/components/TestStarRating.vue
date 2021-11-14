@@ -26,8 +26,8 @@
 </template>
 
 <script>
-import StarRating from "shapla-star-rating";
-import {columns, column} from 'shapla-columns'
+import {StarRating} from "shapla-vue-components";
+import {columns, column} from 'shapla-vue-components'
 
 export default {
   name: "TestStarRating",

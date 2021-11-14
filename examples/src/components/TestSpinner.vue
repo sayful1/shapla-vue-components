@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import spinner from 'shapla-spinner';
-import {columns, column} from 'shapla-columns'
+import {spinner} from 'shapla-vue-components';
+import {columns, column} from 'shapla-vue-components'
 
 export default {
   name: "TestSpinner",

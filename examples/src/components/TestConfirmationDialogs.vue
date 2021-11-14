@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import {ConfirmDialog} from 'shapla-confirm-dialog';
+import {ConfirmDialog} from 'shapla-vue-components';
 
 export default {
   name: "TestConfirmationDialogs",
