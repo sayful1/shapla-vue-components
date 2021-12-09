@@ -3,10 +3,10 @@
     <h2>Spinner</h2>
     <columns>
       <column>
-        <spinner position="static"/>
+        <spinner active position="static"/>
       </column>
       <column>
-        <spinner position="static" single/>
+        <spinner active position="static" single/>
       </column>
     </columns>
   </div>

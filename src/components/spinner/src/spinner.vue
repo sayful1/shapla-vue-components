@@ -46,7 +46,7 @@ export default {
       let classes = [];
       classes.push(`is-${this.size}`);
       if (this.single) {
-        classes.push('shapla-spinner-container');
+        classes.push('shapla-spinner--single-color');
       }
       return classes
     }

@@ -22,7 +22,7 @@
   },
   "main": "dist/components.umd.js",
   "browser": "dist/components.es.js",
-  "module": "dist/components.es.js",
+  "module": "src/index.js",
   "unpkg": "dist/components.umd.js",
   "files": [
     "dist/*",
@@ -48,8 +48,7 @@
     "autoprefixer": "^10.4.0",
     "sass": "^1.43.4",
     "vite": "^2.6.14",
-    "vite-plugin-vue2": "^1.9.0",
-    "vue": "^2.6"
+    "vite-plugin-vue2": "^1.9.0"
   },
   "eslintConfig": {
     "root": true,
