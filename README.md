@@ -7,6 +7,12 @@ A collection of reusable vue components for rapid development.
 
 [Visit Demo Page](https://sayful1.github.io/shapla-vue-components/demo)
 
+
+# Todo
+
+- [ ] Merge as one component library
+- [ ] Make it compatible with Vue 3
+
 ## Table of contents
 
 - [Installation](#installation)
@@ -17,7 +23,7 @@ A collection of reusable vue components for rapid development.
 **To install all components, run the following command in terminal**
 
 ```
-npm install shapla-vue-components
+npm i shapla-vue-components
 ```
 
 **You can also install each component separately as your requirement.**
