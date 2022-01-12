@@ -1,5 +1,0 @@
-@use "shapla-css/src/index.scss" as shapla with (
-$checkbox-image-path:'/node_modules/shapla-css/src/form/checkbox'
-);
-
-@include shapla.checkbox;
