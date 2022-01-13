@@ -1,6 +1,6 @@
 /*!
  * Shapla Vue Components
- * (c) 2021 Sayful Islam
+ * (c) 2019 - Present Sayful Islam
  * Released under the MIT License.
  */
 export {default as shaplaButton} from "./components/button/ShaplaButton.vue";

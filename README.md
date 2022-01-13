@@ -1,17 +1,13 @@
-# shapla-vue-components
+# Shapla Vue Components
 
 [![npm](https://img.shields.io/npm/v/shapla-vue-components.svg) ![npm](https://img.shields.io/npm/dm/shapla-vue-components.svg)](https://www.npmjs.com/package/shapla-vue-components)
 [![vue2](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://vuejs.org/)
 
-A collection of reusable vue components for rapid development.
+A collection of reusable vue components for vue 2.
+
+For Vue 3, Visit [Shapla Vue Components](https://github.com/sayful1/shapla-vue-components-next)
 
 [Visit Demo Page](https://sayful1.github.io/shapla-vue-components/demo)
-
-
-# Todo
-
-- [ ] Merge as one component library
-- [ ] Make it compatible with Vue 3
 
 ## Table of contents
 
@@ -20,26 +16,22 @@ A collection of reusable vue components for rapid development.
 
 # Installation
 
-**To install all components, run the following command in terminal**
-
+**Install using npm package manager**
 ```
 npm i shapla-vue-components
 ```
 
-**You can also install each component separately as your requirement.**
-
-For example, to install `Shapla Data Table` component, you can run in terminal `npm install shapla-data-table`
-
-Or to install `Shapla Tabs` component, you can run in terminal `npm install shapla-tabs`
+**or using yarn package manager**
+```
+yarn add shapla-vue-components
+```
 
 # Usage
 
 For example, to use button and progress bar components:
 
 ```js
-import {shaplaButton} from 'shapla-vue-components';
-import {progressBar} from 'shapla-vue-components';
-
+import {shaplaButton, progressBar} from 'shapla-vue-components';
 
 export default {
   name: 'Hello',

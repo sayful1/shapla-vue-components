@@ -1,7 +1,7 @@
 {
   "name": "shapla-vue-components",
-  "description": "A collection of reusable vue components for rapid development.",
-  "version": "2.0.0",
+  "description": "A collection of reusable vue components for vue 2.",
+  "version": "2.0.0-alpha.1",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",
@@ -27,9 +27,9 @@
   "files": [
     "dist/*",
     "src/*",
-    "public/*",
-    "*.json",
-    "*.js"
+    "LICENSE",
+    "package.json",
+    "README.md"
   ],
   "scripts": {
     "dev": "vite",
@@ -37,7 +37,8 @@
     "build:docs": "vite build --config vite-docs.config.js",
     "install": "npm install --ignore-scripts esbuild",
     "install:docs": "npm i --no-save highlight.js simplebar vue@2 vue-router@3",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src"
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
+    "publish": "npm publish --access public --tag next"
   },
   "peerDependencies": {
     "vue": "^2.6"
@@ -49,7 +50,6 @@
     "@vitejs/plugin-vue": "^1.9.4",
     "@vue/compiler-sfc": "^3.2.21",
     "autoprefixer": "^10.4.0",
-    "esbuild": "^0.14.10",
     "eslint": "^8.6.0",
     "eslint-plugin-vue": "^8.3.0",
     "sass": "^1.43.4",
