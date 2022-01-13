@@ -1,41 +1,98 @@
 <template>
   <div :class="tableClasses">
-    <table class="shapla-data-table" :aria-label="areaLabel">
-
+    <table
+      class="shapla-data-table"
+      :aria-label="areaLabel"
+    >
       <table-header>
-        <header-cell v-if="showCb" :is-checkbox="true">
-          <shapla-checkbox id="cb-select-all-1" @change="handleSelectAll" :checked="isAllSelected"/>
+        <header-cell
+          v-if="showCb"
+          :is-checkbox="true"
+        >
+          <shapla-checkbox
+            id="cb-select-all-1"
+            :checked="isAllSelected"
+            @change="handleSelectAll"
+          />
         </header-cell>
-        <header-cell v-for="column in columns" :key="column.key" :column="column" :sort-by="sortBy"
-                     :sort-order="sortOrder" :is-primary="actionColumn === column.key" @sort="handleSortBy"/>
-        <header-cell v-if="showExpand" :is-expand-toggle="true"/>
+        <header-cell
+          v-for="column in columns"
+          :key="column.key"
+          :column="column"
+          :sort-by="sortBy"
+          :sort-order="sortOrder"
+          :is-primary="actionColumn === column.key"
+          @sort="handleSortBy"
+        />
+        <header-cell
+          v-if="showExpand"
+          :is-expand-toggle="true"
+        />
       </table-header>
 
       <table-body>
         <template v-if="items.length">
           <template v-for="row in items">
-            <body-row :key="row[index]" :class="{'is-selected':selectedItems.includes(row[index])}">
-              <td class="shapla-data-table__cell is-checkbox-cell" v-if="showCb">
-                <shapla-checkbox :value="row[index]" @change="handleSelectItem(row)"
-                                 :checked="selectedItems.includes(row[index])"/>
+            <body-row
+              :key="row[index]"
+              :class="{'is-selected':selectedItems.includes(row[index])}"
+            >
+              <td
+                v-if="showCb"
+                class="shapla-data-table__cell is-checkbox-cell"
+              >
+                <shapla-checkbox
+                  :value="row[index]"
+                  :checked="selectedItems.includes(row[index])"
+                  @change="handleSelectItem(row)"
+                />
               </td>
 
-              <body-cell v-for="column in columns" :key="column.key" :column="column" :item="row" :actions="actions"
-                         :is-primary="actionColumn === column.key" :is-mobile="isMobileView"
-                         @click:action="actionClicked" @click:toggle="toggleRow">
-                <slot :name="column.key" :row="row">{{ row[column.key] }}</slot>
+              <body-cell
+                v-for="column in columns"
+                :key="column.key"
+                :column="column"
+                :item="row"
+                :actions="actions"
+                :is-primary="actionColumn === column.key"
+                :is-mobile="isMobileView"
+                @click:action="actionClicked"
+                @click:toggle="toggleRow"
+              >
+                <slot
+                  :name="column.key"
+                  :row="row"
+                >
+                  {{ row[column.key] }}
+                </slot>
               </body-cell>
 
-              <body-cell-expand v-if="showExpand" @click:expand="toggleExpandRow"/>
+              <body-cell-expand
+                v-if="showExpand"
+                @click:expand="toggleExpandRow"
+              />
             </body-row>
-            <body-row-expand v-if="showExpand" :colspan="colspan" :key="`${row[index]}-expand`">
-              <slot name="cellExpand" :row="row">&nbsp;</slot>
+            <body-row-expand
+              v-if="showExpand"
+              :key="`${row[index]}-expand`"
+              :colspan="colspan"
+            >
+              <slot
+                name="cellExpand"
+                :row="row"
+              >
+&nbsp;
+              </slot>
             </body-row-expand>
           </template>
         </template>
 
-        <body-row-no-item v-if="!items.length" :colspan="colspan">{{ notFoundText }}</body-row-no-item>
-
+        <body-row-no-item
+          v-if="!items.length"
+          :colspan="colspan"
+        >
+          {{ notFoundText }}
+        </body-row-no-item>
       </table-body>
     </table>
   </div>
@@ -53,7 +110,7 @@ import TableBody from "./components/TableBody.vue";
 import BodyRow from "./components/BodyRow.vue";
 
 export default {
-  name: "dataTable",
+  name: "DataTable",
   components: {
     BodyRow, TableBody, TableHeader, BodyRowNoItem, BodyRowExpand, BodyCellExpand, BodyCell, HeaderCell, shaplaCheckbox
   },

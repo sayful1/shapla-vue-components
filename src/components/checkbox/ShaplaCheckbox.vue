@@ -1,17 +1,26 @@
 <template>
-  <label class="shapla-checkbox" :class="labelClasses">
-    <input type="checkbox" class="shapla-checkbox__input"
-           :checked="shouldBeChecked"
-           :value="value"
-           :disabled="disabled"
-           @change="updateInput"
-           @focus="isFocus = true"
-           @blur="isFocus = false"
+  <label
+    class="shapla-checkbox"
+    :class="labelClasses"
+  >
+    <input
+      type="checkbox"
+      class="shapla-checkbox__input"
+      :checked="shouldBeChecked"
+      :value="value"
+      :disabled="disabled"
+      @change="updateInput"
+      @focus="isFocus = true"
+      @blur="isFocus = false"
     >
     <span class="shapla-checkbox__label"><slot>{{ label }}</slot></span>
-    <span class="shapla-checkbox__focus-helper"/>
-    <span class="shapla-checkbox__box-outline" @mouseenter="isHovered = true" @mouseleave="isHovered = false">
-      <span class="shapla-checkbox__tick-outline"/>
+    <span class="shapla-checkbox__focus-helper" />
+    <span
+      class="shapla-checkbox__box-outline"
+      @mouseenter="isHovered = true"
+      @mouseleave="isHovered = false"
+    >
+      <span class="shapla-checkbox__tick-outline" />
     </span>
   </label>
 </template>

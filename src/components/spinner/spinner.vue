@@ -1,27 +1,45 @@
 <template>
-  <div :class="containerClass" v-if="active">
-    <div class="shapla-spinner-inner" :class="{'has-text':showText}">
-      <div class="shapla-spinner" :class="getClass">
-        <div :class="itemClass(index)" v-for="index in [1, 2, 3, 4]" :key="index">
+  <div
+    v-if="active"
+    :class="containerClass"
+  >
+    <div
+      class="shapla-spinner-inner"
+      :class="{'has-text':showText}"
+    >
+      <div
+        class="shapla-spinner"
+        :class="getClass"
+      >
+        <div
+          v-for="index in [1, 2, 3, 4]"
+          :key="index"
+          :class="itemClass(index)"
+        >
           <div class="shapla-spinner__circle-clipper shapla-spinner__left">
-            <div class="shapla-spinner__circle"></div>
+            <div class="shapla-spinner__circle" />
           </div>
           <div class="shapla-spinner__gap-patch">
-            <div class="shapla-spinner__circle"></div>
+            <div class="shapla-spinner__circle" />
           </div>
           <div class="shapla-spinner__circle-clipper shapla-spinner__right">
-            <div class="shapla-spinner__circle"></div>
+            <div class="shapla-spinner__circle" />
           </div>
         </div>
       </div>
-      <div class="shapla-spinner-text" v-if="showText">{{ loadingText }}</div>
+      <div
+        v-if="showText"
+        class="shapla-spinner-text"
+      >
+        {{ loadingText }}
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "spinner",
+  name: "ShaplaSpinner",
   props: {
     active: {type: Boolean, default: true, required: true},
     single: {type: Boolean, default: false, required: false,},

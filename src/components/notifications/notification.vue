@@ -1,10 +1,33 @@
 <template>
-  <div class="shapla-notification-container" :class="classes" v-if="items.length">
-    <transition-group name="shapla-notification-transition" tag="div">
-      <div v-for="item in items" class="shapla-notification" :class="itemClass(item)" :key="item.id">
-        <delete-icon v-if="showDismisses" @click="closeItem(item)"/>
-        <div class="shapla-notification__title" v-if="item.title">{{ item.title }}</div>
-        <div class="shapla-notification__message" v-html="item.message"></div>
+  <div
+    v-if="items.length"
+    class="shapla-notification-container"
+    :class="classes"
+  >
+    <transition-group
+      name="shapla-notification-transition"
+      tag="div"
+    >
+      <div
+        v-for="item in items"
+        :key="item.id"
+        class="shapla-notification"
+        :class="itemClass(item)"
+      >
+        <delete-icon
+          v-if="showDismisses"
+          @click="closeItem(item)"
+        />
+        <div
+          v-if="item.title"
+          class="shapla-notification__title"
+        >
+          {{ item.title }}
+        </div>
+        <div
+          class="shapla-notification__message"
+          v-html="item.message"
+        />
       </div>
     </transition-group>
   </div>
@@ -14,7 +37,7 @@
 import deleteIcon from "../delete/deleteIcon.vue";
 
 export default {
-  name: "notification",
+  name: "ShaplaNotification",
   components: {deleteIcon},
   model: {
     prop: 'options',
@@ -36,24 +59,11 @@ export default {
       validator: value => ['top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right', 'center-center'].indexOf(value) !== -1
     }
   },
-  watch: {
-    options(newValue) {
-      this.show(newValue);
-    },
-  },
   data() {
     return {
       items: [],
       itemsCounts: 0,
     }
-  },
-  mounted() {
-    // Show initial message
-    if (this.options && this.options.message) {
-      this.show(this.options);
-    }
-    // if event specified use it, else if no snack prop then use default.
-    this.eventSource.$on(this.event, this.show);
   },
   computed: {
     classes() {
@@ -64,6 +74,19 @@ export default {
         'is-align-' + position[1],
       ]
     }
+  },
+  watch: {
+    options(newValue) {
+      this.show(newValue);
+    },
+  },
+  mounted() {
+    // Show initial message
+    if (this.options && this.options.message) {
+      this.show(this.options);
+    }
+    // if event specified use it, else if no snack prop then use default.
+    this.eventSource.$on(this.event, this.show);
   },
   methods: {
     itemClass(item) {

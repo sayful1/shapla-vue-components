@@ -1,11 +1,26 @@
 <template>
-  <th :class="getHeadCellClass" role="columnheader" scope="col">
+  <th
+    :class="getHeadCellClass"
+    role="columnheader"
+    scope="col"
+  >
     <slot>
-      <template v-if="!isSortable">{{ column.label }}</template>
+      <template v-if="!isSortable">
+        {{ column.label }}
+      </template>
       <template v-else>
-        <a href="#" @click.prevent="handleSort">
-          <data-table-icon v-if="isSortedDesc" icon="arrow-upward"/>
-          <data-table-icon v-if="isSortedAsc" icon="arrow-downward"/>
+        <a
+          href="#"
+          @click.prevent="handleSort"
+        >
+          <data-table-icon
+            v-if="isSortedDesc"
+            icon="arrow-upward"
+          />
+          <data-table-icon
+            v-if="isSortedAsc"
+            icon="arrow-downward"
+          />
           <span>{{ column.label }}</span>
         </a>
       </template>
@@ -69,7 +84,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

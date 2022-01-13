@@ -1,10 +1,13 @@
 <template>
-  <span :class="classes" @click="$emit('click', $event)"><slot></slot></span>
+  <span
+    :class="classes"
+    @click="$emit('click', $event)"
+  ><slot /></span>
 </template>
 
 <script>
 export default {
-  name: "iconContainer",
+  name: "IconContainer",
   props: {
     size: {
       type: String,

@@ -1,59 +1,106 @@
 <template>
-	<div class="field-option-data">
+  <div class="field-option-data">
+    <label
+      v-if="label || helpText"
+      class="shapla-field-option-label"
+    >
+      <span
+        v-if="label"
+        class="shapla-field-option-label__label"
+      >{{ label }}</span>
+      <span
+        v-if="helpText"
+        class="shapla-field-option-label__help-text"
+      >{{ helpText }}</span>
+    </label>
 
-		<label v-if="label || helpText" class="shapla-field-option-label">
-			<span class="shapla-field-option-label__label" v-if="label">{{ label }}</span>
-			<span class="shapla-field-option-label__help-text" v-if="helpText">{{ helpText }}</span>
-		</label>
+    <div
+      v-if="localOptions.length"
+      class="shapla-field-option-options"
+    >
+      <div
+        class="shapla-field-option shapla-field-option--header"
+        :class="{'showing-value':show_value}"
+      >
+        <div class="shapla-field-option__selector">
+&nbsp;
+        </div>
+        <div class="shapla-field-option__sort-handler">
+&nbsp;
+        </div>
+        <div class="shapla-field-option__label">
+          <strong>Label</strong>
+        </div>
+        <div
+          v-if="show_value"
+          class="shapla-field-option__value"
+        >
+          <strong>Value</strong>
+        </div>
+        <div class="shapla-field-option__action-buttons">
+&nbsp;
+        </div>
+      </div>
 
-		<div class="shapla-field-option-options" v-if="localOptions.length">
+      <draggable
+        :list="localOptions"
+        handle=".shapla-field-option__sort-handler"
+        @change="triggerInputEvent"
+      >
+        <field-option
+          v-for="(option, index) in localOptions"
+          :key="index"
+          :index="index"
+          :option="option"
+          :show-value="show_value"
+          :multiple="multiple"
+          @input="handleOptionChange"
+          @select="handleOptionSelect"
+          @delete="handleOptionDelete"
+        />
+      </draggable>
 
-			<div class="shapla-field-option shapla-field-option--header" :class="{'showing-value':show_value}">
-				<div class="shapla-field-option__selector">&nbsp;</div>
-				<div class="shapla-field-option__sort-handler">&nbsp;</div>
-				<div class="shapla-field-option__label"><strong>Label</strong></div>
-				<div class="shapla-field-option__value" v-if="show_value"><strong>Value</strong></div>
-				<div class="shapla-field-option__action-buttons">&nbsp;</div>
-			</div>
+      <div class="shapla-field-option-actions">
+        <div class="pull-left">
+          <shapla-checkbox v-model="show_value">
+            Show values
+          </shapla-checkbox>
+        </div>
+        <div class="shapla-field-option-actions__spacer" />
+        <div
+          v-if="hasSelectedItem"
+          class="pull-right"
+        >
+          <a
+            href="#"
+            @click.prevent="clear_selection"
+          >Clear Selection</a>
+        </div>
+      </div>
+    </div>
 
-			<draggable :list="localOptions" handle=".shapla-field-option__sort-handler" @change="triggerInputEvent">
-				<field-option
-					v-for="(option, index) in localOptions"
-					:key="index"
-					:index="index"
-					:option="option"
-					:show-value="show_value"
-					:multiple="multiple"
-					@input="handleOptionChange"
-					@select="handleOptionSelect"
-					@delete="handleOptionDelete"
-				/>
-			</draggable>
-
-			<div class="shapla-field-option-actions">
-				<div class="pull-left">
-					<shapla-checkbox v-model="show_value">Show values</shapla-checkbox>
-				</div>
-				<div class="shapla-field-option-actions__spacer"></div>
-				<div class="pull-right" v-if="hasSelectedItem">
-					<a href="#" @click.prevent="clear_selection">Clear Selection</a>
-				</div>
-			</div>
-		</div>
-
-		<div class="shapla-field-option-add-options">
-			<shapla-button fullwidth @click="add_option">
-				<icon-container>
-					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-						<path d="M0 0h24v24H0z" fill="none"/>
-						<path
-							d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-					</svg>
-				</icon-container>
-			</shapla-button>
-		</div>
-
-	</div>
+    <div class="shapla-field-option-add-options">
+      <shapla-button
+        fullwidth
+        @click="add_option"
+      >
+        <icon-container>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+            <path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
+          </svg>
+        </icon-container>
+      </shapla-button>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -79,6 +126,16 @@ export default {
 			localOptions: [],
 		}
 	},
+	computed: {
+		hasSelectedItem() {
+			if (this.localOptions.length < 1) {
+				return false;
+			}
+			let items = this.localOptions.find(_option => _option.selected === true);
+
+			return !!(typeof items === "object" && Object.keys(items).length);
+		}
+	},
 	watch: {
 		options: {
 			handler(newValue) {
@@ -89,16 +146,6 @@ export default {
 	},
 	mounted() {
 		this.updateLocalOptions(this.options);
-	},
-	computed: {
-		hasSelectedItem() {
-			if (this.localOptions.length < 1) {
-				return false;
-			}
-			let items = this.localOptions.find(_option => _option.selected === true);
-
-			return !!(typeof items === "object" && Object.keys(items).length);
-		}
 	},
 	methods: {
 		updateLocalOptions(options) {
@@ -152,7 +199,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "shapla-color-system/src/variables";
+@import "shapla-css/src/colors.scss";
 
 .shapla-field-option-label {
 	display: flex;

@@ -1,11 +1,20 @@
 <template>
-    <div class="shapla-file-uploader-status" v-if="files.length">
-        <ul class="shapla-file-uploader-status__items">
-            <li class="shapla-file-uploader-status__item">Files: {{ files.length }}</li>
-            <li class="shapla-file-uploader-status__item">Percentage: {{ overallProgress }}%</li>
-            <li class="shapla-file-uploader-status__item">Time remaining: {{ timeRemaining }}</li>
-        </ul>
-    </div>
+  <div
+    v-if="files.length"
+    class="shapla-file-uploader-status"
+  >
+    <ul class="shapla-file-uploader-status__items">
+      <li class="shapla-file-uploader-status__item">
+        Files: {{ files.length }}
+      </li>
+      <li class="shapla-file-uploader-status__item">
+        Percentage: {{ overallProgress }}%
+      </li>
+      <li class="shapla-file-uploader-status__item">
+        Time remaining: {{ timeRemaining }}
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>

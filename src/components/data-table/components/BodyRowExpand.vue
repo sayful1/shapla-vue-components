@@ -1,6 +1,12 @@
 <template>
-  <tr class="shapla-data-table__row" style="display: none">
-    <td class="shapla-data-table__cell is-expand-cell" :colspan="colspan">
+  <tr
+    class="shapla-data-table__row"
+    style="display: none"
+  >
+    <td
+      class="shapla-data-table__cell is-expand-cell"
+      :colspan="colspan"
+    >
       <div class="expand-cell-content">
         <slot>&nbsp;</slot>
       </div>
@@ -16,7 +22,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

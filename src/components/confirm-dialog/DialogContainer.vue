@@ -1,19 +1,46 @@
 <template>
-  <modal v-if="modalActive" :active="modalActive" background-theme="light" content-size="small" type="confirm"
-         :show-close-icon="false" :close-on-background-click="false">
+  <modal
+    v-if="modalActive"
+    :active="modalActive"
+    background-theme="light"
+    content-size="small"
+    type="confirm"
+    :show-close-icon="false"
+    :close-on-background-click="false"
+  >
     <div class="shapla-modal-confirm__content">
-      <div class="shapla-modal-confirm__icon" :class="`is-${params.icon}`" v-if="params.icon">
-        <div class="shapla-modal-confirm__icon-content">!</div>
+      <div
+        v-if="params.icon"
+        class="shapla-modal-confirm__icon"
+        :class="`is-${params.icon}`"
+      >
+        <div class="shapla-modal-confirm__icon-content">
+          !
+        </div>
       </div>
-      <h3 class="shapla-modal-confirm__title" v-if="params.title" v-html="params.title"></h3>
-      <div class="shapla-modal-confirm__message" v-html="params.message"></div>
+      <h3
+        v-if="params.title"
+        class="shapla-modal-confirm__title"
+        v-html="params.title"
+      />
+      <div
+        class="shapla-modal-confirm__message"
+        v-html="params.message"
+      />
     </div>
     <div class="shapla-modal-confirm__actions">
       <slot name="actions">
-        <shapla-button @click.prevent="handleClick(false)" v-if="params.cancelButton">
+        <shapla-button
+          v-if="params.cancelButton"
+          @click.prevent="handleClick(false)"
+        >
           {{ params.cancelButton }}
         </shapla-button>
-        <shapla-button theme="primary" @click.prevent="handleClick(true)" v-if="params.confirmButton">
+        <shapla-button
+          v-if="params.confirmButton"
+          theme="primary"
+          @click.prevent="handleClick(true)"
+        >
           {{ params.confirmButton }}
         </shapla-button>
       </slot>

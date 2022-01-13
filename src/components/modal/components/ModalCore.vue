@@ -1,9 +1,17 @@
 <template>
   <div :class="modalClasses">
-    <div :class="backgroundClasses" @click="backgroundClick"></div>
-    <delete-icon v-if="showCloseIcon" fixed large @click="close"></delete-icon>
+    <div
+      :class="backgroundClasses"
+      @click="backgroundClick"
+    />
+    <delete-icon
+      v-if="showCloseIcon"
+      fixed
+      large
+      @click="close"
+    />
     <div :class="contentClasses">
-      <slot/>
+      <slot />
     </div>
   </div>
 </template>

@@ -2,18 +2,27 @@
   <div :class="tabsClasses">
     <div :class="tabClasses">
       <ul class="shapla-tabs__nav">
-        <li class="shapla-tabs__nav-item" :class="navItemClass(tab)" v-for="(tab, index) in tabs" :key="index">
-          <a @click.prevent="changeSelectedTab(tab)" :href="tab.href" v-html="tab.title || tab.name"/>
+        <li
+          v-for="(tab, index) in tabs"
+          :key="index"
+          class="shapla-tabs__nav-item"
+          :class="navItemClass(tab)"
+        >
+          <a
+            :href="tab.href"
+            @click.prevent="changeSelectedTab(tab)"
+            v-html="tab.title || tab.name"
+          />
         </li>
       </ul>
     </div>
-    <slot/>
+    <slot />
   </div>
 </template>
 
 <script>
 export default {
-  name: "tabs",
+  name: "ShaplaTabs",
   props: {
     alignment: {
       type: String,
@@ -61,6 +70,9 @@ export default {
       return classes
     }
   },
+  created() {
+    this.tabs = this.$children;
+  },
   methods: {
     changeSelectedTab(selectedTab) {
       this.tabs.forEach(tab => {
@@ -82,9 +94,6 @@ export default {
       }
       return classes;
     }
-  },
-  created() {
-    this.tabs = this.$children;
   },
 }
 </script>

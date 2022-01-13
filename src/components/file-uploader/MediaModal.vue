@@ -1,9 +1,18 @@
 <template>
   <div class="shapla-media-modal">
-    <modal :active="active" :title="title" content-size="large" type="card" @close="closeModal">
+    <modal
+      :active="active"
+      :title="title"
+      content-size="large"
+      type="card"
+      @close="closeModal"
+    >
       <div class="shapla-media-modal__inside">
         <tabs alignment="center">
-          <tab name="Upload Images" :selected="true">
+          <tab
+            name="Upload Images"
+            :selected="true"
+          >
             <file-uploader
               :url="url"
               @init="initEvent"
@@ -12,22 +21,43 @@
             />
           </tab>
           <tab name="Media Library">
-            <div v-if="images.length" class="shapla-media-modal__items">
-              <div :class="itemClasses(_image)" :key="_image.image_id" v-for="_image in images"
-                   @click="selectImage(_image)">
+            <div
+              v-if="images.length"
+              class="shapla-media-modal__items"
+            >
+              <div
+                v-for="_image in images"
+                :key="_image.image_id"
+                :class="itemClasses(_image)"
+                @click="selectImage(_image)"
+              >
                 <div class="shapla-media-modal__image">
-                  <image-container container-width="100px" container-height="100px">
-                    <img :src="_image.attachment_url" :alt="_image.title"/>
+                  <image-container
+                    container-width="100px"
+                    container-height="100px"
+                  >
+                    <img
+                      :src="_image.attachment_url"
+                      :alt="_image.title"
+                    >
                   </image-container>
                 </div>
               </div>
             </div>
-            <div v-else class="no-item-found" v-html="notFoundText"></div>
+            <div
+              v-else
+              class="no-item-found"
+              v-html="notFoundText"
+            />
           </tab>
         </tabs>
       </div>
-      <template v-slot:foot>
-        <shapla-button theme="primary" @click="chooseImage" :disabled="!selectedImages.length">
+      <template #foot>
+        <shapla-button
+          theme="primary"
+          :disabled="!selectedImages.length"
+          @click="chooseImage"
+        >
           {{ modalButtonText }}
         </shapla-button>
       </template>
@@ -112,7 +142,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "shapla-color-system/src/variables";
+@import "shapla-css/src/colors.scss";
 
 .shapla-media-modal {
   &__inside {

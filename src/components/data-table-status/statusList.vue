@@ -1,8 +1,19 @@
 <template>
-  <ul class="shapla-status-list" :class="`shapla-status-list--${type}`">
-    <li v-for="status in statuses" :key="status.key" class="shapla-status-list__item"
-        :class="{'is-active':status.active}">
-      <a href="#" @click.prevent="handleClickEvent(status)" class="shapla-status-list__item-link">
+  <ul
+    class="shapla-status-list"
+    :class="`shapla-status-list--${type}`"
+  >
+    <li
+      v-for="status in statuses"
+      :key="status.key"
+      class="shapla-status-list__item"
+      :class="{'is-active':status.active}"
+    >
+      <a
+        href="#"
+        class="shapla-status-list__item-link"
+        @click.prevent="handleClickEvent(status)"
+      >
         <span class="shapla-status-list__item-label">{{ status.label }}</span>
         <span class="shapla-status-list__item-count">{{ status.count }}</span>
       </a>
@@ -12,7 +23,7 @@
 
 <script>
 export default {
-  name: "statusList",
+  name: "StatusList",
   props: {
     type: {
       type: String,

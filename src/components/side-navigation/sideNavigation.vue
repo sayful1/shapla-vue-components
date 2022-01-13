@@ -1,9 +1,20 @@
 <template>
-  <div class="shapla-sidenav" :class="navClasses" :style="`--shapla-side-navigation-width:${navWidth}`">
-    <div class="shapla-sidenav__background" v-if="showOverlay" @click="closeNav"></div>
-    <div class="shapla-sidenav__body" :style="sidenavBodyStyle">
+  <div
+    class="shapla-sidenav"
+    :class="navClasses"
+    :style="`--shapla-side-navigation-width:${navWidth}`"
+  >
+    <div
+      v-if="showOverlay"
+      class="shapla-sidenav__background"
+      @click="closeNav"
+    />
+    <div
+      class="shapla-sidenav__body"
+      :style="sidenavBodyStyle"
+    >
       <div class="shapla-sidenav__content">
-        <slot></slot>
+        <slot />
       </div>
     </div>
   </div>
@@ -11,7 +22,7 @@
 
 <script>
 export default {
-  name: "sideNavigation",
+  name: "SideNavigation",
 
   props: {
     active: {type: Boolean, default: true},
@@ -29,16 +40,6 @@ export default {
       bodyWidth: '300px',
     }
   },
-
-  mounted() {
-    this.bodyWidth = this.navWidth;
-  },
-
-  methods: {
-    closeNav() {
-      this.$emit('close');
-    },
-  },
   computed: {
     navClasses() {
       return {
@@ -55,6 +56,16 @@ export default {
       }
       return {height: this.bodyWidth};
     }
+  },
+
+  mounted() {
+    this.bodyWidth = this.navWidth;
+  },
+
+  methods: {
+    closeNav() {
+      this.$emit('close');
+    },
   }
 }
 </script>

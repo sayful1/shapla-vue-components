@@ -1,16 +1,40 @@
 <template>
-  <modal-core :active="active" :show-close-icon="false" content-class="shapla-modal-card" :content-size="contentSize"
-              :close-on-background-click="closeOnBackgroundClick" :background-theme="backgroundTheme" @close="close">
+  <modal-core
+    :active="active"
+    :show-close-icon="false"
+    content-class="shapla-modal-card"
+    :content-size="contentSize"
+    :close-on-background-click="closeOnBackgroundClick"
+    :background-theme="backgroundTheme"
+    @close="close"
+  >
     <div class="shapla-modal-card__header">
-      <p class="shapla-modal-card__title">{{ title }}</p>
-      <delete-icon medium v-if="showCloseIcon" @click="close"></delete-icon>
+      <p class="shapla-modal-card__title">
+        {{ title }}
+      </p>
+      <delete-icon
+        v-if="showCloseIcon"
+        medium
+        @click="close"
+      />
     </div>
     <div class="shapla-modal-card__body">
-      <slot></slot>
+      <slot />
     </div>
-    <div class="shapla-modal-card__footer is-pulled-right" :class="{'no-content':!showCardFooter}">
-      <slot name="foot" v-if="showCardFooter">
-        <button class="shapla-button" @click.prevent="close">Cancel</button>
+    <div
+      class="shapla-modal-card__footer is-pulled-right"
+      :class="{'no-content':!showCardFooter}"
+    >
+      <slot
+        v-if="showCardFooter"
+        name="foot"
+      >
+        <button
+          class="shapla-button"
+          @click.prevent="close"
+        >
+          Cancel
+        </button>
       </slot>
     </div>
   </modal-core>

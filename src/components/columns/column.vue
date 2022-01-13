@@ -1,12 +1,12 @@
 <template>
   <div :class="classes">
-    <slot></slot>
+    <slot />
   </div>
 </template>
 
 <script>
 export default {
-  name: "column",
+  name: "ShaplaColumn",
   props: {
     mobile: {type: Number},
     tablet: {type: Number},
@@ -43,7 +43,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

@@ -1,5 +1,8 @@
 <template>
-  <div class="shapla-steppers" :class="wrapperClasses">
+  <div
+    class="shapla-steppers"
+    :class="wrapperClasses"
+  >
     <div class="shapla-steppers__items">
       <stepper-item
         v-for="step in steps"
@@ -15,7 +18,7 @@
 import StepperItem from "./components/StepperItem";
 
 export default {
-  name: "Stepper",
+  name: "ShaplaStepper",
   components: {StepperItem},
   props: {
     steps: {type: Array, required: true},

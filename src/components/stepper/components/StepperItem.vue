@@ -1,5 +1,9 @@
 <template>
-  <div class="shapla-stepper" :class="itemClasses" @click="handleClick">
+  <div
+    class="shapla-stepper"
+    :class="itemClasses"
+    @click="handleClick"
+  >
     <div class="shapla-stepper__outer">
       <div class="shapla-stepper__inner">
         <stepper-number
@@ -39,17 +43,6 @@ export default {
       localItem: {}
     }
   },
-  watch: {
-    item: {
-      deep: true,
-      handler(newValue) {
-        this.localItem = Object.assign(
-          {key: '', number_text: '', completed: false, current: false,},
-          newValue
-        );
-      }
-    }
-  },
   computed: {
     itemClasses() {
       let classes = [];
@@ -61,6 +54,17 @@ export default {
         classes.push('is-incomplete');
       }
       return classes;
+    }
+  },
+  watch: {
+    item: {
+      deep: true,
+      handler(newValue) {
+        this.localItem = Object.assign(
+          {key: '', number_text: '', completed: false, current: false,},
+          newValue
+        );
+      }
     }
   },
   mounted() {

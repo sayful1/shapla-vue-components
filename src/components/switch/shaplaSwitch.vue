@@ -1,5 +1,8 @@
 <template>
-  <label class="shapla-switch" :class="switchClasses">
+  <label
+    class="shapla-switch"
+    :class="switchClasses"
+  >
     <input
       type="checkbox"
       class="shapla-switch__input"
@@ -11,16 +14,16 @@
       @blur="handleBlurEvent"
     >
     <span class="shapla-switch__label"><slot>{{ label }}</slot></span>
-    <span class="shapla-switch__track"> </span>
+    <span class="shapla-switch__track" />
     <span class="shapla-switch__thumb">
-      <span class="shapla-switch__focus-helper"> </span>
+      <span class="shapla-switch__focus-helper" />
     </span>
   </label>
 </template>
 
 <script>
 export default {
-  name: "shaplaSwitch",
+  name: "ShaplaSwitch",
   model: {
     prop: 'modelValue',
     event: 'change'

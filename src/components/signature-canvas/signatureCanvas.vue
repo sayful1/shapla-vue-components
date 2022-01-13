@@ -1,18 +1,33 @@
 <template>
-    <div class="shapla-signature-canvas">
-        <canvas id="shapla-signature-canvas__canvas" class="shapla-signature-canvas__canvas" width="298" height="150"/>
-        <div class="shapla-signature-canvas__actions">
-            <shapla-button :theme="clearButtonTheme" class="button--clear">{{clearButtonText}}</shapla-button>
-            <shapla-button :theme="createButtonTheme" class="button--create">{{createButtonText}}</shapla-button>
-        </div>
+  <div class="shapla-signature-canvas">
+    <canvas
+      id="shapla-signature-canvas__canvas"
+      class="shapla-signature-canvas__canvas"
+      width="298"
+      height="150"
+    />
+    <div class="shapla-signature-canvas__actions">
+      <shapla-button
+        :theme="clearButtonTheme"
+        class="button--clear"
+      >
+        {{ clearButtonText }}
+      </shapla-button>
+      <shapla-button
+        :theme="createButtonTheme"
+        class="button--create"
+      >
+        {{ createButtonText }}
+      </shapla-button>
     </div>
+  </div>
 </template>
 
 <script>
     import shaplaButton from "shapla-button";
 
     export default {
-        name: "signatureCanvas",
+        name: "SignatureCanvas",
         components: {shaplaButton},
         props: {
             clearButtonText: {type: String, default: 'Clear'},

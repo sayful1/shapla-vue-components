@@ -1,19 +1,31 @@
 <template>
-  <div class="shapla-tabs__panel" :id="panelId" :class="tabClass">
-    <div class="shapla-tabs__panel-title" style="display: none">
-      <slot name="name"/>
+  <div
+    :id="panelId"
+    class="shapla-tabs__panel"
+    :class="tabClass"
+  >
+    <div
+      class="shapla-tabs__panel-title"
+      style="display: none"
+    >
+      <slot name="name" />
     </div>
-    <slot :active="isActive"/>
+    <slot :active="isActive" />
   </div>
 </template>
 
 <script>
 export default {
-  name: "tab",
+  name: "ShaplaTab",
   props: {
     name: {type: String, required: true},
     selected: {type: Boolean, required: false, default: false},
     navItemClass: {type: String, required: false, default: ''}
+  },
+  data() {
+    return {
+      isActive: false,
+    }
   },
   computed: {
     title() {
@@ -31,17 +43,8 @@ export default {
       }
     }
   },
-  data() {
-    return {
-      isActive: false,
-    }
-  },
   mounted() {
     this.isActive = this.selected;
   }
 }
 </script>
-
-<style>
-
-</style>

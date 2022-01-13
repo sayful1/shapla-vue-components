@@ -12,7 +12,7 @@ export function install(Vue) {
   if (install.installed) return;
   install.installed = true;
   Vue.use(Dialog);
-  Vue.component('confirm-dialog', DialogContainer);
+  Vue.component('ConfirmDialog', DialogContainer);
 }
 
 // Create module definition for Vue.use()

@@ -1,30 +1,66 @@
 <template>
   <div class="shapla-file-uploader-container">
-    <div class="shapla-file-uploader" v-bind:class="{ 'shapla-file-uploader--dragged': isDraggedOver }"
-         @dragover.prevent="enter" @dragenter.prevent="enter" @dragleave.prevent="leave" @dragend.prevent="leave"
-         @drop.prevent="drop">
-
-      <input type="file" name="files[]" :id="inputId" class="shapla-file-uploader__input" multiple
-             @change="select">
+    <div
+      class="shapla-file-uploader"
+      :class="{ 'shapla-file-uploader--dragged': isDraggedOver }"
+      @dragover.prevent="enter"
+      @dragenter.prevent="enter"
+      @dragleave.prevent="leave"
+      @dragend.prevent="leave"
+      @drop.prevent="drop"
+    >
+      <input
+        :id="inputId"
+        type="file"
+        name="files[]"
+        class="shapla-file-uploader__input"
+        multiple
+        @change="select"
+      >
 
       <div class="shapla-file-uploader-message">
         <div class="shapla-file-uploader-message__icon">
-          <svg class="icon-plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-            <path
-              d="M384 250v12c0 6.6-5.4 12-12 12h-98v98c0 6.6-5.4 12-12 12h-12c-6.6 0-12-5.4-12-12v-98h-98c-6.6 0-12-5.4-12-12v-12c0-6.6 5.4-12 12-12h98v-98c0-6.6 5.4-12 12-12h12c6.6 0 12 5.4 12 12v98h98c6.6 0 12 5.4 12 12zm120 6c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-32 0c0-119.9-97.3-216-216-216-119.9 0-216 97.3-216 216 0 119.9 97.3 216 216 216 119.9 0 216-97.3 216-216z"/>
+          <svg
+            class="icon-plus"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+          >
+            <path d="M384 250v12c0 6.6-5.4 12-12 12h-98v98c0 6.6-5.4 12-12 12h-12c-6.6 0-12-5.4-12-12v-98h-98c-6.6 0-12-5.4-12-12v-12c0-6.6 5.4-12 12-12h98v-98c0-6.6 5.4-12 12-12h12c6.6 0 12 5.4 12 12v98h98c6.6 0 12 5.4 12 12zm120 6c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-32 0c0-119.9-97.3-216-216-216-119.9 0-216 97.3-216 216 0 119.9 97.3 216 216 216 119.9 0 216-97.3 216-216z" />
           </svg>
         </div>
-        <div class="shapla-file-uploader-message__drag" v-html="textLineOne"></div>
-        <div class="shapla-file-uploader-message__browse" v-html="textLineTwo"></div>
-        <label :for="inputId"
-               class="shapla-file-uploader-message__select-files shapla-button is-primary">{{ textButton }}</label>
-        <div class="shapla-file-uploader-message__maxsize" v-html="textMaxUploadLimit"></div>
+        <div
+          class="shapla-file-uploader-message__drag"
+          v-html="textLineOne"
+        />
+        <div
+          class="shapla-file-uploader-message__browse"
+          v-html="textLineTwo"
+        />
+        <label
+          :for="inputId"
+          class="shapla-file-uploader-message__select-files shapla-button is-primary"
+        >{{ textButton }}</label>
+        <div
+          class="shapla-file-uploader-message__maxsize"
+          v-html="textMaxUploadLimit"
+        />
       </div>
 
-      <upload-status v-if="showFileUploadStatus" :files="files"/>
+      <upload-status
+        v-if="showFileUploadStatus"
+        :files="files"
+      />
     </div>
-    <div class="shapla-file-uploader-files" v-if="showFilesUploadStatus">
-      <file-upload-status v-for="(file,index) in files" :key="index" :file="file"/>
+    <div
+      v-if="showFilesUploadStatus"
+      class="shapla-file-uploader-files"
+    >
+      <file-upload-status
+        v-for="(file,index) in files"
+        :key="index"
+        :file="file"
+        @cancel="onCancel"
+      />
     </div>
   </div>
 </template>
@@ -60,6 +96,10 @@ export default {
     }
   },
   methods: {
+    onCancel(file) {
+      file.xhr.abort();
+      file.cancelled = true;
+    },
     enter() {
       this.isDraggedOver = true
     },

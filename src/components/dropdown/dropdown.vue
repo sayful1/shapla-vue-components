@@ -1,16 +1,30 @@
 <template>
-  <div class="shapla-dropdown" :class="{'is-hoverable':hoverable}">
-    <div class="shapla-dropdown-trigger" aria-haspopup="true" :aria-expanded="isActive?'true':'false'"
-         @click="isActive = !isActive">
-      <slot name="trigger"></slot>
+  <div
+    class="shapla-dropdown"
+    :class="{'is-hoverable':hoverable}"
+  >
+    <div
+      class="shapla-dropdown-trigger"
+      aria-haspopup="true"
+      :aria-expanded="isActive?'true':'false'"
+      @click="isActive = !isActive"
+    >
+      <slot name="trigger" />
     </div>
-    <dropdown-menu :active="isActive" :role="role" :right="right" :up="up" :direction="direction" :max-items="maxItems">
-      <template v-slot:before-content>
-        <slot name="before-content"></slot>
+    <dropdown-menu
+      :active="isActive"
+      :role="role"
+      :right="right"
+      :up="up"
+      :direction="direction"
+      :max-items="maxItems"
+    >
+      <template #before-content>
+        <slot name="before-content" />
       </template>
-      <slot></slot>
-      <template v-slot:after-content>
-        <slot name="after-content"></slot>
+      <slot />
+      <template #after-content>
+        <slot name="after-content" />
       </template>
     </dropdown-menu>
   </div>
@@ -20,7 +34,7 @@
 import dropdownMenu from "./dropdownMenu.vue";
 
 export default {
-  name: "dropdown",
+  name: "ShaplaDropdown",
   components: {dropdownMenu},
   props: {
     hoverable: {type: Boolean, default: true},

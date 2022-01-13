@@ -1,9 +1,19 @@
 <template>
-  <a v-if="href" :href="href" :class="getClasses" @click="handleClick($event)">
-    <slot/>
+  <a
+    v-if="href"
+    :href="href"
+    :class="getClasses"
+    @click="handleClick($event)"
+  >
+    <slot />
   </a>
-  <button v-else :class="getClasses" :disabled="disabled" @click="handleClick($event)">
-    <slot/>
+  <button
+    v-else
+    :class="getClasses"
+    :disabled="disabled"
+    @click="handleClick($event)"
+  >
+    <slot />
   </button>
 </template>
 

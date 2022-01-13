@@ -36,20 +36,22 @@
     "build": "vite build",
     "build:docs": "vite build --config vite-docs.config.js",
     "install": "npm install --ignore-scripts esbuild",
-    "install:docs": "npm i --no-save highlight.js simplebar vue@2 vue-router@3"
+    "install:docs": "npm i --no-save highlight.js simplebar vue@2 vue-router@3",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src"
   },
   "peerDependencies": {
     "vue": "^2.6"
   },
   "dependencies": {
-    "shapla-color-system": "^1.2.0",
-    "shapla-css": "^2.4.0"
+    "shapla-css": "^2.5"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.9.4",
     "@vue/compiler-sfc": "^3.2.21",
     "autoprefixer": "^10.4.0",
     "esbuild": "^0.14.10",
+    "eslint": "^8.6.0",
+    "eslint-plugin-vue": "^8.3.0",
     "sass": "^1.43.4",
     "vite": "^2.6.14",
     "vite-plugin-vue2": "^1.9.0"

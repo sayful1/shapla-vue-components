@@ -1,12 +1,15 @@
 <template>
-  <div :class="classes" :style="containerStyles">
-    <slot></slot>
+  <div
+    :class="classes"
+    :style="containerStyles"
+  >
+    <slot />
   </div>
 </template>
 
 <script>
 export default {
-  name: "imageContainer",
+  name: "ImageContainer",
   props: {
     containerWidth: {type: String, required: false},
     containerHeight: {type: String, required: false},

@@ -1,8 +1,21 @@
 <template>
-  <div class="shapla-chip" :class="chipClasses" :style="chipStyle">
-    <img v-if="image_src" class="shapla-chip__contact" :src="image_src">
+  <div
+    class="shapla-chip"
+    :class="chipClasses"
+    :style="chipStyle"
+  >
+    <img
+      v-if="image_src"
+      class="shapla-chip__contact"
+      :src="image_src"
+    >
     <span class="shapla-chip__text"><slot>{{ text }}</slot></span>
-    <delete-icon v-if="deletable" :small="small" class="shapla-chip__action" @click="$emit('delete')"/>
+    <delete-icon
+      v-if="deletable"
+      :small="small"
+      class="shapla-chip__action"
+      @click="$emit('delete')"
+    />
   </div>
 </template>
 
@@ -10,7 +23,7 @@
 import deleteIcon from '../delete/deleteIcon.vue';
 
 export default {
-  name: "shaplaChip",
+  name: "ShaplaChip",
   components: {deleteIcon},
   props: {
     text: {type: String, required: false},

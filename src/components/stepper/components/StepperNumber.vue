@@ -1,11 +1,25 @@
 <template>
   <div class="shapla-stepper__number-wrapper">
     <div class="shapla-stepper__number">
-      <span class="shapla-stepper__number-text" v-if="!completed">{{ numberText }}</span>
-      <span class="shapla-stepper__completed-icon" v-if="completed">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-          <path d="M0 0h24v24H0z" fill="none"/>
-          <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
+      <span
+        v-if="!completed"
+        class="shapla-stepper__number-text"
+      >{{ numberText }}</span>
+      <span
+        v-if="completed"
+        class="shapla-stepper__completed-icon"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="24"
+          height="24"
+        >
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+          />
+          <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
         </svg>
       </span>
     </div>
@@ -23,7 +37,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "shapla-color-system/src/variables";
+@import "shapla-css/src/colors.scss";
 
 $stepper-icon-size: 30px !default;
 $stepper-accent: $primary;

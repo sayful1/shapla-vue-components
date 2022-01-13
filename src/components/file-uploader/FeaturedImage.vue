@@ -1,14 +1,34 @@
 <template>
   <div class="shapla-featured-image">
-    <div class="shapla-featured-image__thumbnail" v-if="has_image">
-      <image-container container-width="150px" container-height="150px">
-        <img :src="imageUrl" :alt="imageAltText"/>
+    <div
+      v-if="has_image"
+      class="shapla-featured-image__thumbnail"
+    >
+      <image-container
+        container-width="150px"
+        container-height="150px"
+      >
+        <img
+          :src="imageUrl"
+          :alt="imageAltText"
+        >
       </image-container>
-      <delete-icon :title="removeButtonText" @click="clearImages"/>
+      <delete-icon
+        :title="removeButtonText"
+        @click="clearImages"
+      />
     </div>
-    <div class="shapla-featured-image__placeholder" v-if="!has_image">
+    <div
+      v-if="!has_image"
+      class="shapla-featured-image__placeholder"
+    >
       {{ placeholderText }}
-      <shapla-button size="small" @click.prevent="addImages"> {{ buttonText }}</shapla-button>
+      <shapla-button
+        size="small"
+        @click.prevent="addImages"
+      >
+        {{ buttonText }}
+      </shapla-button>
     </div>
   </div>
 </template>
@@ -45,7 +65,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "shapla-color-system/src/variables";
+@import "shapla-css/src/colors.scss";
 
 .shapla-featured-image {
   &__placeholder {

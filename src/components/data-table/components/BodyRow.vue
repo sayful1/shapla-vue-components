@@ -1,6 +1,6 @@
 <template>
   <tr class="shapla-data-table__row">
-    <slot></slot>
+    <slot />
   </tr>
 </template>
 
@@ -9,7 +9,3 @@ export default {
   name: "BodyRow"
 }
 </script>
-
-<style>
-
-</style>

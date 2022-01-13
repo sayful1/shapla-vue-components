@@ -1,10 +1,14 @@
 <template>
-    <span :class="classes" :aria-label="ariaLabel" @click.prevent="handleClickEvent"></span>
+  <span
+    :class="classes"
+    :aria-label="ariaLabel"
+    @click.prevent="handleClickEvent"
+  />
 </template>
 
 <script>
     export default {
-        name: "deleteIcon",
+        name: "DeleteIcon",
         props: {
             small: {type: Boolean, default: false},
             medium: {type: Boolean, default: false},

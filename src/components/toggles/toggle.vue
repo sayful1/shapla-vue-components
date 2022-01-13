@@ -1,28 +1,47 @@
 <template>
-  <div class="shapla-toggle-panel" :class="panelClass">
-    <div class="shapla-toggle-panel__heading" :class="headingClasses" @click.prevent="toggleActive">
+  <div
+    class="shapla-toggle-panel"
+    :class="panelClass"
+  >
+    <div
+      class="shapla-toggle-panel__heading"
+      :class="headingClasses"
+      @click.prevent="toggleActive"
+    >
       <div class="shapla-toggle-panel__title">
         <h4 class="shapla-toggle-panel__title-text">
-          <slot name="title">{{ name }}</slot>
+          <slot name="title">
+            {{ name }}
+          </slot>
         </h4>
-        <div class="shapla-toggle-panel__title-subtext" v-if="subtext" v-html="subtext"></div>
+        <div
+          v-if="subtext"
+          class="shapla-toggle-panel__title-subtext"
+          v-html="subtext"
+        />
       </div>
-      <div class="shapla-toggle-panel__icon" :class="`is-icon-${toggleIconPosition}`">
+      <div
+        class="shapla-toggle-panel__icon"
+        :class="`is-icon-${toggleIconPosition}`"
+      >
         <template v-if="isSelected">
           <slot name="icon-close">
-            <toggle-icon icon="minus"/>
+            <toggle-icon icon="minus" />
           </slot>
         </template>
         <template v-if="!isSelected">
           <slot name="icon-open">
-            <toggle-icon icon="plus"/>
+            <toggle-icon icon="plus" />
           </slot>
         </template>
       </div>
     </div>
-    <div class="shapla-toggle-panel__body" :class="panelBodyClass">
+    <div
+      class="shapla-toggle-panel__body"
+      :class="panelBodyClass"
+    >
       <div class="shapla-toggle-panel__content">
-        <slot v-bind:active="isSelected"></slot>
+        <slot :active="isSelected" />
       </div>
     </div>
   </div>
@@ -33,7 +52,7 @@ import ToggleIcon from "./toggleIcon.vue";
 import ToggleEvent from "./ToggleEvent.js";
 
 export default {
-  name: "toggle",
+  name: "ShaplaToggle",
   components: {ToggleIcon},
   props: {
     name: {type: String, required: true},

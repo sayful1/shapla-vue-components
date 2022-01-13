@@ -8,7 +8,7 @@
     content-class="shapla-modal-box"
     @close="$emit('close')"
   >
-    <slot/>
+    <slot />
   </modal-core>
 </template>
 

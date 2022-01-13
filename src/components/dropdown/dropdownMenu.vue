@@ -1,18 +1,29 @@
 <template>
-  <div class="shapla-dropdown-menu" :class="containerClass" :style="containerStyle" :role="role">
+  <div
+    class="shapla-dropdown-menu"
+    :class="containerClass"
+    :style="containerStyle"
+    :role="role"
+  >
     <div class="shapla-dropdown-menu__inner">
-      <slot name="before-content" :direction="autoClass"></slot>
+      <slot
+        name="before-content"
+        :direction="autoClass"
+      />
       <div class="shapla-dropdown-menu__content">
-        <slot></slot>
+        <slot />
       </div>
-      <slot name="after-content" :direction="autoClass"></slot>
+      <slot
+        name="after-content"
+        :direction="autoClass"
+      />
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "dropdownMenu",
+  name: "DropdownMenu",
   props: {
     active: {type: Boolean, default: false},
     role: {type: String, default: 'menu'},
@@ -28,14 +39,6 @@ export default {
     return {
       autoClass: '',
       isActive: false,
-    }
-  },
-  watch: {
-    active(isActive) {
-      this.isActive = isActive;
-      if (isActive && this.direction === 'auto' && !this.up) {
-        this.calculateDirection();
-      }
     }
   },
   computed: {
@@ -66,6 +69,17 @@ export default {
       return styles;
     }
   },
+  watch: {
+    active(isActive) {
+      this.isActive = isActive;
+      if (isActive && this.direction === 'auto' && !this.up) {
+        this.calculateDirection();
+      }
+    }
+  },
+  mounted() {
+    this.isActive = this.active;
+  },
   methods: {
     calculateDirection() {
       let browserHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight,
@@ -82,9 +96,6 @@ export default {
         this.autoClass = 'is-up'
       }
     }
-  },
-  mounted() {
-    this.isActive = this.active;
   }
 }
 </script>

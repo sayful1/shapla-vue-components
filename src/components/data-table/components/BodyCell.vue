@@ -1,23 +1,48 @@
 <template>
-  <td :data-colname="column.label" :class="getBodyCellClass">
+  <td
+    :data-colname="column.label"
+    :class="getBodyCellClass"
+  >
     <slot>{{ item[column.key] }}</slot>
 
     <template v-if="isPrimary">
-      <div v-if="actions.length" class="row-actions">
-        <slot name="row-actions" :row="item">
-          <span v-for="action in actions" :key="action.key" :class="action.key">
-            <a href="#" @click.prevent="actionClicked(action.key, item)">{{ action.label }}</a>
+      <div
+        v-if="actions.length"
+        class="row-actions"
+      >
+        <slot
+          name="row-actions"
+          :row="item"
+        >
+          <span
+            v-for="action in actions"
+            :key="action.key"
+            :class="action.key"
+          >
+            <a
+              href="#"
+              @click.prevent="actionClicked(action.key, item)"
+            >{{ action.label }}</a>
           </span>
         </slot>
       </div>
 
-      <button v-if="isMobile" @click="toggleRow($event)" class="data-table-toggle-button"
-              aria-label="Show more details">
-        <data-table-icon icon="expand-less" class="triangle-up"/>
-        <data-table-icon icon="expand-more" class="triangle-down"/>
+      <button
+        v-if="isMobile"
+        class="data-table-toggle-button"
+        aria-label="Show more details"
+        @click="toggleRow($event)"
+      >
+        <data-table-icon
+          icon="expand-less"
+          class="triangle-up"
+        />
+        <data-table-icon
+          icon="expand-more"
+          class="triangle-down"
+        />
       </button>
     </template>
-
   </td>
 </template>
 
@@ -59,7 +84,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

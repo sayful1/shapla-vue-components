@@ -1,6 +1,6 @@
 <template>
   <tbody class="shapla-data-table__content">
-  <slot></slot>
+    <slot />
   </tbody>
 </template>
 
@@ -9,7 +9,3 @@ export default {
   name: "TableBody"
 }
 </script>
-
-<style>
-
-</style>

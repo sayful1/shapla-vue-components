@@ -1,7 +1,13 @@
 <template>
   <div :class="classes">
-    <div :class="barClasses" role="progressbar" :aria-valuenow="value" aria-valuemin="0" :aria-valuemax="max"
-         :style="barStyle">
+    <div
+      :class="barClasses"
+      role="progressbar"
+      :aria-valuenow="value"
+      aria-valuemin="0"
+      :aria-valuemax="max"
+      :style="barStyle"
+    >
       <slot>{{ label }}</slot>
     </div>
   </div>
@@ -9,7 +15,7 @@
 
 <script>
 export default {
-  name: "progressBar",
+  name: "ProgressBar",
   props: {
     label: {type: String},
     value: {type: Number},

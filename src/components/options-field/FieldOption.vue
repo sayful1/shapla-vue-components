@@ -1,46 +1,81 @@
 <template>
-	<div class="shapla-field-option" :class="{'showing-value':showValue}">
+  <div
+    class="shapla-field-option"
+    :class="{'showing-value':showValue}"
+  >
+    <div class="shapla-field-option__selector">
+      <shapla-checkbox
+        v-if="multiple"
+        :checked="localOption.selected"
+        @change="mark_selected"
+      />
+      <shapla-radio
+        v-if="!multiple"
+        :checked="localOption.selected"
+        @change="mark_selected"
+      />
+    </div>
 
-		<div class="shapla-field-option__selector">
-			<shapla-checkbox
-				v-if="multiple"
-				:checked="localOption.selected"
-				@change="mark_selected"
-			/>
-			<shapla-radio
-				v-if="!multiple"
-				:checked="localOption.selected"
-				@change="mark_selected"
-			/>
-		</div>
+    <div class="shapla-field-option__sort-handler">
+      <icon-container
+        :hoverable="true"
+        size="medium"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+          />
+          <path d="M3 15h18v-2H3v2zm0 4h18v-2H3v2zm0-8h18V9H3v2zm0-6v2h18V5H3z" />
+        </svg>
+      </icon-container>
+    </div>
 
-		<div class="shapla-field-option__sort-handler">
-			<icon-container :hoverable="true" size="medium">
-				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-					<path d="M0 0h24v24H0z" fill="none"/>
-					<path d="M3 15h18v-2H3v2zm0 4h18v-2H3v2zm0-8h18V9H3v2zm0-6v2h18V5H3z"/>
-				</svg>
-			</icon-container>
-		</div>
+    <div class="shapla-field-option__label">
+      <input
+        type="text"
+        :value="localOption.label"
+        @input="set_option_label($event.target.value)"
+      >
+    </div>
 
-		<div class="shapla-field-option__label">
-			<input type="text" :value="localOption.label" @input="set_option_label($event.target.value)">
-		</div>
+    <div
+      v-if="showValue"
+      class="shapla-field-option__value"
+    >
+      <input
+        type="text"
+        :value="localOption.value"
+        @input="set_option_value($event.target.value)"
+      >
+    </div>
 
-		<div v-if="showValue" class="shapla-field-option__value">
-			<input type="text" :value="localOption.value" @input="set_option_value($event.target.value)">
-		</div>
-
-		<div class="action-buttons clearfix shapla-field-option__button">
-			<icon-container :hoverable="true" size="medium" @click="delete_option">
-				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-					<path d="M0 0h24v24H0z" fill="none"/>
-					<path
-						d="M7 11v2h10v-2H7zm5-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-				</svg>
-			</icon-container>
-		</div>
-	</div>
+    <div class="action-buttons clearfix shapla-field-option__button">
+      <icon-container
+        :hoverable="true"
+        size="medium"
+        @click="delete_option"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+          />
+          <path d="M7 11v2h10v-2H7zm5-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
+        </svg>
+      </icon-container>
+    </div>
+  </div>
 </template>
 
 <script>

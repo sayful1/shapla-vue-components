@@ -1,8 +1,8 @@
 <template>
   <thead>
-  <tr class="shapla-data-table__header-row">
-    <slot></slot>
-  </tr>
+    <tr class="shapla-data-table__header-row">
+      <slot />
+    </tr>
   </thead>
 </template>
 
@@ -11,7 +11,3 @@ export default {
   name: "TableHeader"
 }
 </script>
-
-<style>
-
-</style>

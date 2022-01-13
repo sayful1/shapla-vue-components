@@ -1,12 +1,15 @@
 <template>
-  <div :class="classes" :style="styles">
-    <slot></slot>
+  <div
+    :class="classes"
+    :style="styles"
+  >
+    <slot />
   </div>
 </template>
 
 <script>
 export default {
-  name: "columns",
+  name: "ShaplaColumns",
   props: {
     multiline: {type: Boolean, default: false},
     centered: {type: Boolean, default: false},

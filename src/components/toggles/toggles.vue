@@ -1,12 +1,12 @@
 <template>
   <div class="shapla-toggles">
-    <slot></slot>
+    <slot />
   </div>
 </template>
 
 <script>
 export default {
-  name: "toggles",
+  name: "ShaplaToggles",
   props: {
     accordion: {type: Boolean, default: true},
     iconPosition: {

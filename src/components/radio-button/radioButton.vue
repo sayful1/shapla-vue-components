@@ -1,6 +1,13 @@
 <template>
-  <shapla-button :outline="modelValue !== value" :theme="theme" :size="size" :fullwidth="fullwidth"
-                 :shadow="shadow" :rounded="rounded" @click.prevent="$emit('change',value)">
+  <shapla-button
+    :outline="modelValue !== value"
+    :theme="theme"
+    :size="size"
+    :fullwidth="fullwidth"
+    :shadow="shadow"
+    :rounded="rounded"
+    @click.prevent="$emit('change',value)"
+  >
     <slot>{{ label }}</slot>
   </shapla-button>
 </template>
@@ -9,7 +16,7 @@
 import shaplaButton from "../button/ShaplaButton.vue";
 
 export default {
-  name: "radioButton",
+  name: "RadioButton",
   components: {shaplaButton},
   model: {prop: 'modelValue', event: 'change'},
   props: {

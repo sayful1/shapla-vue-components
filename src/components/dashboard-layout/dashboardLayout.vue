@@ -1,43 +1,89 @@
 <template>
-  <div class="shapla-dashboard" :class="dashboardClasses" :style="dashboardStyles">
-
-    <div class="shapla-dashboard-header" :class="headerClasses">
-
-      <div class="shapla-dashboard-header__burger" @click="toggleSideNavigation">
+  <div
+    class="shapla-dashboard"
+    :class="dashboardClasses"
+    :style="dashboardStyles"
+  >
+    <div
+      class="shapla-dashboard-header"
+      :class="headerClasses"
+    >
+      <div
+        class="shapla-dashboard-header__burger"
+        @click="toggleSideNavigation"
+      >
         <icon-container :hoverable="true">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-            <path d="M0 0h24v24H0z" fill="none"/>
-            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" fill="currentColor"/>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+            <path
+              d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+              fill="currentColor"
+            />
           </svg>
         </icon-container>
       </div>
 
       <slot name="navbar-brand">
-        <div class="shapla-dashboard-header__title" v-if="title">{{ title }}</div>
+        <div
+          v-if="title"
+          class="shapla-dashboard-header__title"
+        >
+          {{ title }}
+        </div>
       </slot>
 
-      <slot name="navbar-start">&nbsp;</slot>
+      <slot name="navbar-start">
+&nbsp;
+      </slot>
 
-      <div class="shapla-dashboard-header__spacer"></div>
+      <div class="shapla-dashboard-header__spacer" />
 
-      <slot name="navbar-end">&nbsp;</slot>
-
+      <slot name="navbar-end">
+&nbsp;
+      </slot>
     </div>
 
-    <side-navigation :active="activateSideNav" :nav-width="navWidth" :show-overlay="showOverlay" position="left"
-                     @close="closeSideNavigation">
-      <div class="shapla-dashboard-sidenav-profile" :class="sidenavProfileClass">
-        <div class="shapla-dashboard-sidenav-profile__avatar" v-if="avatarUrl">
-          <img :src="avatarUrl" :alt="userDisplayName">
+    <side-navigation
+      :active="activateSideNav"
+      :nav-width="navWidth"
+      :show-overlay="showOverlay"
+      position="left"
+      @close="closeSideNavigation"
+    >
+      <div
+        class="shapla-dashboard-sidenav-profile"
+        :class="sidenavProfileClass"
+      >
+        <div
+          v-if="avatarUrl"
+          class="shapla-dashboard-sidenav-profile__avatar"
+        >
+          <img
+            :src="avatarUrl"
+            :alt="userDisplayName"
+          >
         </div>
-        <div class="shapla-dashboard-sidenav-profile__name" v-if="userDisplayName">
+        <div
+          v-if="userDisplayName"
+          class="shapla-dashboard-sidenav-profile__name"
+        >
           <span v-if="greeting">{{ greeting }}</span>
           <b v-if="userDisplayName">{{ userDisplayName }}</b>
         </div>
       </div>
 
       <div class="shapla-dashboard-sidenav-menu">
-        <slot name="sidenav-menu">&nbsp;</slot>
+        <slot name="sidenav-menu">
+&nbsp;
+        </slot>
       </div>
     </side-navigation>
 
@@ -46,7 +92,6 @@
         <slot>&nbsp;</slot>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -55,7 +100,7 @@ import sideNavigation from '../side-navigation/sideNavigation.vue';
 import iconContainer from "../icon-container/iconContainer.vue";
 
 export default {
-  name: "dashboardLayout",
+  name: "DashboardLayout",
   components: {sideNavigation, iconContainer},
   props: {
     title: {type: String},
@@ -104,6 +149,9 @@ export default {
       return classes;
     }
   },
+  mounted() {
+    document.querySelector('body').classList.add('has-shapla-dashboard');
+  },
   methods: {
     toggleSideNavigation() {
       if (this.activateSideNav) {
@@ -118,9 +166,6 @@ export default {
     closeSideNavigation() {
       this.$emit('close:sidenav');
     }
-  },
-  mounted() {
-    document.querySelector('body').classList.add('has-shapla-dashboard');
   }
 }
 </script>
