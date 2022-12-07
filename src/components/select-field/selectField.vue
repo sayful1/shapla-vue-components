@@ -95,7 +95,9 @@
           :data-value="_option['value']"
           @click="selectOption(_option)"
         >
-          <span v-html="_option['label']" />
+          <slot name="select-option" v-bind:option="_option">
+            <span v-html="_option['label']" />
+          </slot>
           <span
             v-if="isItemSelected(_option)"
             class="icon"

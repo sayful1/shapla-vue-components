@@ -70,6 +70,8 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss">
+@use "shapla-css/src/index.scss" as shapla;
 
+@include shapla.select;
 </style>
