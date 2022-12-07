@@ -1,6 +1,9 @@
 <template>
   <div>
-    <file-uploader url="https://example.com"/>
+    <file-uploader
+      url="https://example.com"
+      :chunking="false"
+    />
   </div>
 </template>
 

@@ -25,7 +25,8 @@
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
           >
-            <path d="M384 250v12c0 6.6-5.4 12-12 12h-98v98c0 6.6-5.4 12-12 12h-12c-6.6 0-12-5.4-12-12v-98h-98c-6.6 0-12-5.4-12-12v-12c0-6.6 5.4-12 12-12h98v-98c0-6.6 5.4-12 12-12h12c6.6 0 12 5.4 12 12v98h98c6.6 0 12 5.4 12 12zm120 6c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-32 0c0-119.9-97.3-216-216-216-119.9 0-216 97.3-216 216 0 119.9 97.3 216 216 216 119.9 0 216-97.3 216-216z" />
+            <path
+              d="M384 250v12c0 6.6-5.4 12-12 12h-98v98c0 6.6-5.4 12-12 12h-12c-6.6 0-12-5.4-12-12v-98h-98c-6.6 0-12-5.4-12-12v-12c0-6.6 5.4-12 12-12h98v-98c0-6.6 5.4-12 12-12h12c6.6 0 12 5.4 12 12v98h98c6.6 0 12 5.4 12 12zm120 6c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-32 0c0-119.9-97.3-216-216-216-119.9 0-216 97.3-216 216 0 119.9 97.3 216 216 216 119.9 0 216-97.3 216-216z"/>
           </svg>
         </div>
         <div
@@ -68,7 +69,7 @@
 <script>
 import UploadStatus from './UploadStatus.vue'
 import FileUploadStatus from "./FileUploadStatus.vue";
-import timeRemaining from "./helpers/timeremaining.js";
+import {generateFileObject as _generateFileObject, timeRemaining, uploadChunk} from "./helpers/utils.js";
 
 export default {
   name: 'FileUploader',
@@ -82,12 +83,13 @@ export default {
     textLineTwo: {type: String, default: 'or'},
     textButton: {type: String, default: 'Select files to upload'},
     textMaxUploadLimit: {type: String, default: 'Maximum upload file size: 2MB'},
-    params: {
-      type: Object, required: false, default: () => {
-      }
-    },
+    params: {type: Object, required: false, default: () => ({})},
+    headers: {type: Object, required: false, default: () => ({})},
     showFileUploadStatus: {type: Boolean, default: true},
     showFilesUploadStatus: {type: Boolean, default: true},
+    chunking: {type: Boolean, default: false},
+    forceChunking: {type: Boolean, default: false},
+    chunkSize: {type: Number, default: 2000000},
   },
   data() {
     return {
@@ -119,7 +121,18 @@ export default {
       for (i = 0; i < files.length; i++) {
         file = files[i];
 
-        this.upload(this.generateFileObject(file));
+        if (this.chunking) {
+          const args = {url: this.url, method: this.method, paramName: this.paramName, params: this.params}
+          uploadChunk(this.generateFileObject(file), 0, args)
+            .then((fileObject, response) => {
+              this.$emit('success', fileObject, response);
+            })
+            .catch((fileObject, response) => {
+              this.$emit('failed', fileObject, response);
+            });
+        } else {
+          this.upload(this.generateFileObject(file));
+        }
       }
     },
     upload(fileObject) {
@@ -176,26 +189,22 @@ export default {
         }
       }
 
+      let headers = {...this.headers, Accept: "application/json"}
+      for (let [headerName, headerValue] of Object.entries(headers)) {
+        if (headerName && headerValue) {
+          xhr.setRequestHeader(headerName, headerValue);
+        }
+      }
+
       this.$emit('before:send', xhr, formData);
 
       xhr.send(formData);
     },
     generateFileObject(file) {
-      let fileObjectIndex = this.files.push({
-        id: Date.now() + Math.floor(Math.random() * 100).toString(),
-        file: file,
-        progress: 0,
-        failed: false,
-        loadedBytes: 0,
-        totalBytes: 0,
-        timeStarted: (new Date).getTime(),
-        secondsRemaining: 0,
-        finished: false,
-        cancelled: false,
-        xhr: null
-      }) - 1;
+      let fileObject = _generateFileObject(file, this.chunking ? this.chunkSize : null);
+      let totalFiles = this.files.push(fileObject);
 
-      return this.files[fileObjectIndex]
+      return this.files[totalFiles - 1]
     }
   }
 }

@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import pad from './helpers/pad.js'
+import {pad} from './helpers/utils.js'
 
 export default {
   name: "FileUploadStatus",

@@ -40,19 +40,22 @@ export default {
 ```
 
 ### Props
-| Property              | Type      | Required  | Default                           | Description
-|-----------------------|-----------|-----------|-----------------------------------|----------------------------
-| `url`                 | String    | **yes**   | `null`                            | File upload url
-| `method`              | String    | **no**    | `POST`                            | File upload method
-| `paramName`           | String    | **no**    | `file`                            | File upload parameter name
-| `textLineOne`         | String    | **no**    | `Drag &amp; drop files`           | Placeholder first line text
-| `textLineTwo`         | String    | **no**    | `or`                              | Placeholder second line text
-| `textButton`          | String    | **no**    | `Select files to upload`          | Button text
-| `textMaxUploadLimit`  | String    | **no**    | `Maximum upload file size: 2MB`   | Max upload limit text
-| `inputId`             | String    | **no**    | `shapla-file-uploader__input`     | Input field id to make it unique. You must set `inputId` if you are using multiple instance in a same page.
-| `params`              | Object    | **no**    | `{}`   | An object of additional parameters to transfer to the server
-| `showFileUploadStatus`    | Boolean    | **no**    | `true`   | If set `true`, individual file upload status will be shown
-| `showFilesUploadStatus`   | Boolean    | **no**    | `true`   | If set `true`, all files upload status will be shown
+| Property                | Type    | Required | Default                         | Description                                                                                                 |
+|-------------------------|---------|----------|---------------------------------|-------------------------------------------------------------------------------------------------------------|
+| `url`                   | String  | **yes**  | `null`                          | File upload url                                                                                             |
+| `method`                | String  | **no**   | `POST`                          | File upload method                                                                                          |
+| `paramName`             | String  | **no**   | `file`                          | File upload parameter name                                                                                  |
+| `textLineOne`           | String  | **no**   | `Drag &amp; drop files`         | Placeholder first line text                                                                                 |
+| `textLineTwo`           | String  | **no**   | `or`                            | Placeholder second line text                                                                                |
+| `textButton`            | String  | **no**   | `Select files to upload`        | Button text                                                                                                 |
+| `textMaxUploadLimit`    | String  | **no**   | `Maximum upload file size: 2MB` | Max upload limit text                                                                                       |
+| `inputId`               | String  | **no**   | `shapla-file-uploader__input`   | Input field id to make it unique. You must set `inputId` if you are using multiple instance in a same page. |
+| `params`                | Object  | **no**   | `{}`                            | An object of additional parameters to transfer to the server                                                |
+| `headers`               | Object  | **no**   | `{}`                            | An object of additional headers to transfer to the server                                                   |
+| `showFileUploadStatus`  | Boolean | **no**   | `true`                          | If set `true`, individual file upload status will be shown                                                  |
+| `showFilesUploadStatus` | Boolean | **no**   | `true`                          | If set `true`, all files upload status will be shown                                                        |
+| `chunking`              | Boolean | **no**   | `false`                         | If set `true`, file will be split into multiple chunk based on chunk size                                   |
+| `chunkSize`             | Number  | **no**   | `2000000`                       | chunk size in bytes                                                                                         |
 
 ## Listeners
 The uploader component fires the following events:
