@@ -206,12 +206,14 @@ const uploadChunk = (fileObject, start, args = {}) => {
     oReq.addEventListener('load', () => {
       onUploaded(fileObject, start, oReq, args).then(data => {
         if (data.start) {
-          uploadChunk(fileObject, data.start, args).catch(error => reject(fileObject, error));
+          uploadChunk(fileObject, data.start, args)
+            .then((_data) => resolve(_data))
+            .catch((_data) => reject(_data));
         } else {
-          resolve(fileObject, data);
+          resolve({fileObject, data});
         }
       }).catch(error => {
-        reject(fileObject, error);
+        reject({fileObject, error});
       })
     });
     oReq.send(chunkFormData);

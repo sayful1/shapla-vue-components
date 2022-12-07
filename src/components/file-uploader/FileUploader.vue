@@ -124,11 +124,11 @@ export default {
         if (this.chunking) {
           const args = {url: this.url, method: this.method, paramName: this.paramName, params: this.params}
           uploadChunk(this.generateFileObject(file), 0, args)
-            .then((fileObject, response) => {
-              this.$emit('success', fileObject, response);
+            .then((response) => {
+              this.$emit('success', response.fileObject, response.data);
             })
-            .catch((fileObject, response) => {
-              this.$emit('failed', fileObject, response);
+            .catch((response) => {
+              this.$emit('failed', response.fileObject, response.error);
             });
         } else {
           this.upload(this.generateFileObject(file));
