@@ -210,7 +210,7 @@ const uploadChunk = (fileObject, start, args = {}) => {
             .then((_data) => resolve(_data))
             .catch((_data) => reject(_data));
         } else {
-          resolve({fileObject, data});
+          resolve({fileObject, data: data.data});
         }
       }).catch(error => {
         reject({fileObject, error});
