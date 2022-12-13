@@ -37,3 +37,5 @@ export {default as tab} from './components/tabs/tab.vue';
 export {default as textField} from './components/text-field/textField.vue';
 export {default as toggles} from './components/toggles/toggles.vue';
 export {default as toggle} from './components/toggles/toggle.vue';
+export {default as _MediaModal} from './components/file-uploader/MediaModal.vue';
+export {default as _FeaturedImage} from './components/file-uploader/FeaturedImage.vue';

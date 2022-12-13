@@ -34,9 +34,9 @@
 </template>
 
 <script>
-import deleteIcon from '../../delete/src/index.js';
-import shaplaButton from '../../button/src/index.js'
-import imageContainer from '../../image-container/src/index.js';
+import deleteIcon from '../delete/deleteIcon.vue';
+import shaplaButton from '../button/ShaplaButton.vue'
+import imageContainer from '../image-container/imageContainer.vue';
 
 export default {
   name: "FeaturedImage",

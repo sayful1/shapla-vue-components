@@ -1,7 +1,7 @@
 {
   "name": "shapla-vue-components",
   "description": "A collection of reusable vue components for vue 2.",
-  "version": "2.0.0-alpha.4",
+  "version": "2.0.0-alpha.5",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",
@@ -38,7 +38,7 @@
     "install": "npm install --ignore-scripts esbuild",
     "install:docs": "npm i --no-save highlight.js simplebar vue@2 vue-router@3",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
-    "publish": "npm publish --access public --tag next"
+    "push-to-npm": "npm publish --access public --tag next"
   },
   "peerDependencies": {
     "vue": "^2.6"

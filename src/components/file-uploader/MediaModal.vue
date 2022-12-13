@@ -66,15 +66,16 @@
 </template>
 
 <script>
-import modal from '../../modal/src/index.js';
-import {tabs, tab} from '../../tabs/src/index.js';
-import imageContainer from '../../image-container/src/index.js';
-import shaplaButton from "../../button/src/index.js";
-import FileUploader from "../../file-uploader/src/index.js";
+import modal from '../modal/modal.vue';
+import tabs from '../tabs/tabs.vue';
+import tab from '../tabs/tab.vue';
+import imageContainer from '../image-container/imageContainer.vue';
+import ShaplaButton from "../button/ShaplaButton.vue";
+import FileUploader from "./FileUploader.vue";
 
 export default {
   name: "MediaModal",
-  components: {modal, tabs, tab, FileUploader, imageContainer, shaplaButton},
+  components: {modal, tabs, tab, FileUploader, imageContainer, ShaplaButton},
   props: {
     active: {type: Boolean, default: false},
     title: {type: String, default: "Media Images"},
