@@ -36,6 +36,7 @@
             <body-row
               :key="row[index]"
               :class="{'is-selected':selectedItems.includes(row[index])}"
+              v-on:click="$emit('click:row', row)"
             >
               <td
                 v-if="showCb"
