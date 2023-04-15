@@ -1,7 +1,7 @@
 {
   "name": "shapla-vue-components",
   "description": "A collection of reusable vue components for vue 2.",
-  "version": "2.0.0-alpha.6",
+  "version": "2.0.0",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",
@@ -44,7 +44,7 @@
     "vue": "^2.6"
   },
   "dependencies": {
-    "shapla-css": "^2.5"
+    "shapla-css": "^2.6"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.9.4",

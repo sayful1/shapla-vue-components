@@ -65,30 +65,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "shapla-css/src/colors.scss";
+@use "shapla-css/src/index.scss" as shapla;
 
-.shapla-featured-image {
-  &__placeholder {
-    align-items: center;
-    border: 1px dashed #b4b9be;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    width: 100%;
-  }
-
-  &__thumbnail {
-    display: inline-flex;
-    max-width: 150px;
-    position: relative;
-    border: 1px solid rgba(#000, .12);
-
-    .shapla-delete-icon {
-      position: absolute;
-      right: 5px;
-      top: 5px;
-      background-color: $error;
-    }
-  }
-}
+@include shapla.featured-image;
 </style>
